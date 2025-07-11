@@ -3,7 +3,6 @@ import { ShootingStars } from "@/components/shooting-stars";
 import { StarsBackground } from "@/components/shotting-stars-background";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Search } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {

@@ -6,9 +6,9 @@ import {
   CardTitle,
   CardHeader,
   CardDescription,
-  CardFooter,
+  //   CardFooter,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+// import { Separator } from "@/components/ui/separator";
 import { Calendar, ChevronRight, ChevronLeft } from "lucide-react";
 
 type Props = { title: string; description?: string };
