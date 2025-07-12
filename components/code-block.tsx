@@ -19,7 +19,7 @@ export default async function CodeBlock({ code, lang, className }: Props) {
 
   return (
     <ScrollArea className="h-[700px] rounded-md border p-4">
-      <div className="flex justify-end px-10 mb-2">
+      <div className="flex justify-end px-15 mb-2">
         <CopyClipBoard text={code} />
       </div>
       <div
