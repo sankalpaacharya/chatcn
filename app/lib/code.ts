@@ -1,3 +1,4 @@
+export const calendarCode = `
 "use client";
 import React, { useState } from "react";
 import {
@@ -25,18 +26,8 @@ export default function Heatmap({ title, description }: Props) {
   const firstDayOfMonth = new Date(selectedYear, selectedMonth, 1).getDay();
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ];
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -121,7 +112,7 @@ export default function Heatmap({ title, description }: Props) {
 
         <div className="grid grid-cols-7 gap-1">
           {Array.from({ length: numberOfDays + firstDayOfMonth }, (_, i) =>
-            firstDayOfMonth > i ? (
+            i < firstDayOfMonth ? (
               <div key={i} className="aspect-square"></div>
             ) : (
               <DayCard
@@ -140,18 +131,15 @@ export default function Heatmap({ title, description }: Props) {
 function DayCard({ day, isToday = false }: { day: number; isToday?: boolean }) {
   return (
     <div
-      className={`
+      className={\`
         aspect-square min-w-[2rem] rounded-md flex items-center justify-center 
         text-xs font-medium transition-all duration-200 cursor-pointer
         hover:bg-muted/80 hover:scale-105
-        ${
-          isToday
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "bg-muted/50 text-muted-foreground hover:text-foreground"
-        }
-      `}
+        \${isToday ? "bg-primary text-primary-foreground shadow-sm" : "bg-muted/50 text-muted-foreground hover:text-foreground"}
+      \`}
     >
       {day}
     </div>
   );
 }
+`;
