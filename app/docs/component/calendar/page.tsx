@@ -9,7 +9,7 @@ export default function page() {
       <div className="space-y-2">
         <h2 className="md:text-5xl text-xl font-bold">Calendar</h2>
         <p className="text-muted-foreground">
-          Claendar Component, display a content inside a each day
+          Calendar Component: Display content inside each day
         </p>
       </div>
       <div className="mt-10 space-y-10">
