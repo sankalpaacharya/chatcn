@@ -12,7 +12,7 @@ export default function page() {
           Calendar Component: Display content inside each day
         </p>
       </div>
-      <div className="mt-10 space-y-10">
+      <div className="mt-10 space-y-10 px-4">
         <Heatmap title="Spending Calendar" />
         <h1 className=" text-2xl font-bold">Code</h1>
         <CodeBlock className=" mx-auto" code={calendarCode} lang="tsx" />

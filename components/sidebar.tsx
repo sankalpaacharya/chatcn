@@ -31,7 +31,7 @@ export default function Sidebar() {
     <>
       <div className="flex px-4 py-3 md:hidden border-b">
         <Sheet>
-          <SheetTrigger className="flex">
+          <SheetTrigger className="flex absolute">
             <Menu className="h-6 w-6" />
           </SheetTrigger>
           <SheetContent side="left" className="w-[280px] p-0">
