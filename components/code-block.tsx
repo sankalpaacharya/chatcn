@@ -7,12 +7,12 @@ import CopyClipBoard from "@/components/copyClipBoard";
 
 type Props = {
   className?: string;
-  children: string;
+  code: string;
   lang: BundledLanguage;
 };
 
-export default async function CodeBlock({ children, lang, className }: Props) {
-  const out = await codeToHtml(children, {
+export default async function CodeBlock({ code, lang, className }: Props) {
+  const out = await codeToHtml(code, {
     lang,
     theme: "ayu-dark",
   });
@@ -20,7 +20,7 @@ export default async function CodeBlock({ children, lang, className }: Props) {
   return (
     <ScrollArea className="h-[700px] rounded-md border p-4">
       <div className="flex justify-end px-10 mb-2">
-        <CopyClipBoard text={children} />
+        <CopyClipBoard text={code} />
       </div>
       <div
         dangerouslySetInnerHTML={{ __html: out }}

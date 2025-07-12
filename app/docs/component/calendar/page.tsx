@@ -14,9 +14,8 @@ export default function page() {
       </div>
       <div className="mt-10 space-y-10">
         <Heatmap title="Spending Calendar" />
-
         <h1 className=" text-2xl font-bold">Code</h1>
-        <CodeBlock className=" mx-auto" children={calendarCode} lang="tsx" />
+        <CodeBlock className=" mx-auto" code={calendarCode} lang="tsx" />
       </div>
     </div>
   );

@@ -25,8 +25,11 @@ export default function Home() {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </Link>
-
-      <Button className="cursor-pointer font-medium">Explore Components</Button>
+      <Link href={"/docs/component/calendar"}>
+        <Button className="cursor-pointer font-medium">
+          Explore Components
+        </Button>
+      </Link>
       <div className="w-full px-3 flex justify-center">
         <Heatmap
           title="Spending Per day"
