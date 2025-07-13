@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -136,4 +137,9 @@ code .line::before {
   display: inline-block;
   text-align: right;
   color: gray
+}
+
+
+.prose h1{
+  margin: 0;
 }

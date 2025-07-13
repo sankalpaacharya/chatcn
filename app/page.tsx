@@ -22,7 +22,7 @@ export default function Home() {
         Made by <span className="italic">Sanku</span>
         <Avatar>
           <AvatarImage src="https://github.com/sankalpaacharya.png" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>SA</AvatarFallback>
         </Avatar>
       </Link>
       <Link href={"/docs/component/calendar"}>

@@ -13,13 +13,15 @@ type SidebarLink = {
 };
 
 const sidebarLinks: SidebarLink[] = [
-  { label: "Calendar", href: "/doc/component/calendar" },
+  { label: "Calendar", href: "/docs/component/calendar" },
+  { label: "Code Block", href: "/docs/component/codeblock" },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
   const isCurrentPath = (label: string) =>
-    label.toLowerCase() === pathname.split("/")[3]?.toLowerCase();
+    label.replace(" ", "").toLowerCase() ===
+    pathname.split("/")[3]?.toLowerCase();
 
   return (
     <>
