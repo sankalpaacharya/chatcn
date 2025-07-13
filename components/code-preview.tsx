@@ -10,7 +10,6 @@ export type Demo = "codeblock";
 
 export default function CodePreview({
   code,
-  children,
 }: {
   code?: string;
   children?: ReactNode;
