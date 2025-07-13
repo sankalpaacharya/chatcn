@@ -1,0 +1,23 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "shadcn-collections",
+    "homepage": "https://shadcn-collections.vercel.app",
+    "items": [
+        {
+            "name": "Codeblock",
+            "type": "registry:block",
+            "title": "Code Block",
+            "description": "Easy Code Block Component",
+            "files": [
+              {
+                "path": "registry/new-york/codeblock/codeblock.tsx",
+                "type": "registry:component"
+              }
+            ],
+            "registryDependencies":[
+                "card",
+                "scroll-area"
+            ]
+          }
+    ]
+  }

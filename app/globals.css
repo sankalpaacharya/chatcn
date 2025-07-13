@@ -139,6 +139,9 @@ code .line::before {
   color: gray
 }
 
+pre{
+  margin: 0;
+}
 
 .prose h1{
   margin: 0;
