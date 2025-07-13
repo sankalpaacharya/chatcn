@@ -10,18 +10,35 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 type SidebarLink = {
   label: string;
   href: string;
+  type: "heading" | "link";
+  isNew?: boolean;
 };
 
 const sidebarLinks: SidebarLink[] = [
-  { label: "Calendar", href: "/docs/component/calendar" },
-  { label: "Code Block", href: "/docs/component/codeblock" },
+  { label: "Getting Started", href: "", type: "heading" },
+  { label: "Introduction", href: "/docs", type: "link" },
+  { label: "Components", href: "", type: "heading" },
+  {
+    label: "Calendar",
+    href: "/docs/component/calendar",
+    type: "link",
+    isNew: true,
+  },
+  {
+    label: "Code Block",
+    href: "/docs/component/codeblock",
+    type: "link",
+    isNew: true,
+  },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const isCurrentPath = (label: string) =>
-    label.replace(" ", "").toLowerCase() ===
-    pathname.split("/")[3]?.toLowerCase();
+
+  const isCurrentPath = (href: string) => {
+    if (!href) return false;
+    return pathname === href;
+  };
 
   return (
     <>
@@ -35,7 +52,6 @@ export default function Sidebar() {
           </SheetContent>
         </Sheet>
       </div>
-
       <aside className="hidden md:flex h-full w-[280px] border-r bg-background">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
@@ -46,7 +62,7 @@ export default function Sidebar() {
 function SidebarContent({
   isCurrentPath,
 }: {
-  isCurrentPath: (label: string) => boolean;
+  isCurrentPath: (href: string) => boolean;
 }) {
   return (
     <div className="flex flex-col h-full">
@@ -60,10 +76,12 @@ function SidebarContent({
       <nav className="p-6 pt-4 space-y-1">
         {sidebarLinks.map((link) => (
           <SidebarLink
-            key={link.href}
+            key={link.label}
             label={link.label}
-            isSelected={isCurrentPath(link.label)}
+            type={link.type}
+            isSelected={isCurrentPath(link.href)}
             href={link.href}
+            isNew={link.isNew}
           />
         ))}
       </nav>
@@ -74,9 +92,11 @@ function SidebarContent({
 function SidebarLink({
   label,
   href,
+  type,
   isSelected,
+  isNew = false,
 }: SidebarLink & { isSelected: boolean }) {
-  return (
+  return type === "link" ? (
     <Link
       href={href}
       className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${
@@ -86,7 +106,9 @@ function SidebarLink({
       }`}
     >
       {label}
-      <Badge className="bg-green-700 text-white">New</Badge>
+      {isNew && <Badge className="bg-green-700 text-white text-xs">New</Badge>}
     </Link>
+  ) : (
+    <p className="text-sm font-semibold text-muted-foreground mt-5">{label}</p>
   );
 }

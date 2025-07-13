@@ -25,7 +25,7 @@ export default function Home() {
           <AvatarFallback>SA</AvatarFallback>
         </Avatar>
       </Link>
-      <Link href={"/docs/component/calendar"}>
+      <Link href={"/docs"}>
         <Button className="cursor-pointer font-medium">
           Explore Components
         </Button>
