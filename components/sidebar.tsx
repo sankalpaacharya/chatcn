@@ -25,6 +25,12 @@ const sidebarLinks: SidebarLink[] = [
     isNew: true,
   },
   {
+    label: "Command Tabs",
+    href: "/docs/component/commandtabs",
+    type: "link",
+    isNew: true,
+  },
+  {
     label: "Calendar",
     href: "/docs/component/calendar",
     type: "link",
