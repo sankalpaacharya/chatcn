@@ -4,7 +4,6 @@ import { highlight } from "@/registry/new-york/codeblock/utils/shared";
 import { Clipboard, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { calendarCode } from "@/lib/utils";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import type { BundledLanguage } from "shiki/bundle/web";
 import {
@@ -13,13 +12,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 type CodeBlockProps = {
-  initial: JSX.Element;
+  initial?: JSX.Element;
   code: string;
   height?: string;
   language: BundledLanguage;
   className?: string;
 };
-export function CodeBlock({
+
+export default function CodeBlock({
   initial,
   className,
   language = "tsx",
@@ -29,7 +29,7 @@ export function CodeBlock({
   const [nodes, setNodes] = useState(initial);
   const [copied, setCopied] = useState(false);
   useEffect(() => {
-    void highlight(calendarCode, language).then(setNodes);
+    void highlight(code, language).then(setNodes);
   }, []);
   const handleCopy = async () => {
     try {
@@ -42,11 +42,8 @@ export function CodeBlock({
   };
   return (
     <div
-      className={cn(
-        `relative w-full rounded-md text-xl overflow-auto`,
-        className
-      )}
-      style={{ height: `${height}px` }}
+      className={cn(`relative rounded-md text-xl overflow-auto`, className)}
+      style={{ height: "100%", maxHeight: `${height}px` }}
     >
       <Tooltip>
         <TooltipTrigger

@@ -1,45 +1,14 @@
-"use client";
-import React, { ReactNode } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import dynamic from "next/dynamic";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { calendarCode } from "@/lib/utils";
-import { Suspense } from "react";
+import { promises as fs } from "fs";
+import path from "path";
+import CodePreviewInternal from "./code-preview_internal";
 
-export type Demo = "codeblock";
-
-export default function CodePreview({
-  code,
+export default async function CodePreview({
+  component,
 }: {
-  code?: string;
-  children?: ReactNode;
+  component: string;
 }) {
-  const Component = getComponent("codeblock");
-  return (
-    <Tabs defaultValue="perview" className="bg-background">
-      <TabsList className="w-md">
-        <TabsTrigger value="preview">Preview</TabsTrigger>
-        <TabsTrigger value="code">Code</TabsTrigger>
-      </TabsList>
-      <Card>
-        <CardContent>
-          <TabsContent value="preview">
-            <Suspense fallback={<p>loading..</p>}>
-              <Component code={calendarCode} lang={"tsx"} />
-            </Suspense>
-          </TabsContent>
-          <TabsContent value="code">{code}</TabsContent>
-        </CardContent>
-      </Card>
-    </Tabs>
-  );
-}
+  const filePath = path.join(process.cwd(), `preview/${component}-preview.tsx`);
+  const fileContent = await fs.readFile(filePath, "utf-8");
 
-function getComponent(component: string) {
-  return dynamic(
-    () => import(`../registry/new-york/${component}/${component}.tsx`),
-    {
-      ssr: false,
-    }
-  );
+  return <CodePreviewInternal component={component} code={fileContent} />;
 }

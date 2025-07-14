@@ -127,6 +127,7 @@
 code {
   counter-reset: step;
   counter-increment: step 0;
+  margin: 0;
 }
 
 code .line::before {
