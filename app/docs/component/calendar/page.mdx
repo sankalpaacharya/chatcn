@@ -1,18 +1,11 @@
 import Heatmap from "@/components/heat-map";
 import { calendarCode } from "@/lib/utils";
 import CodeBlock from "@/components/code-block";
+import CodePreview from "@/components/code-preview";
+import DocHeader from "@/components/doc-header";
 
 
-<div className="not-prose flex gap-2 flex-col">
-<h1 className="text-5xl font-semibold">Calendar</h1>
-<p className="text-muted-foreground">Display a Content inside a Calendar</p>
-</div>
+<DocHeader title="Calendar" description="calendar component" links={[{label:"Shiki Reference",href:"https://shiki.style/packages/next"}]}/>
 
-## Preview
-<br/>
-<br/>
-<Heatmap title='Spending per day'/>
 
-## Code
-
-{/* <CodeBlock code={""} lang={"tsx"}/> */}
+<CodePreview component="calendar"/>

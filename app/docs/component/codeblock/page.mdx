@@ -1,9 +1,8 @@
+import CodePreview from "@/components/code-preview";
+import DocHeader from "@/components/doc-header";
 
-<div className="not-prose flex gap-2 flex-col">
-<h1 className="text-5xl font-semibold">Code Block</h1>
-<p className="text-muted-foreground">Code block component for your code</p>
-</div>
 
-<br/>
-<br/>
+<DocHeader title="Code Block" description="code block for your code" links={[{label:"Shiki Reference",href:"https://shiki.style/packages/next"}]}/>
 
+
+<CodePreview component="codeblock"/>
