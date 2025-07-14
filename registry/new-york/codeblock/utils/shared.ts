@@ -12,7 +12,6 @@ export async function highlight(code: string, lang: BundledLanguage) {
     colorReplacements:{
       '#0d1117': 'var(--card)' // if you are replacing the theme, find the theme original background
     }
-    
   })
   return toJsxRuntime(out, {
     Fragment,

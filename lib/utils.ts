@@ -6,8 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const calendarCode = `
-"use client";
+export const calendarCode = `"use client";
 import React, { useState } from "react";
 import {
   Card,

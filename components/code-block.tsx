@@ -12,13 +12,13 @@ type Props = {
 };
 
 export default async function CodeBlock({ code, lang, className }: Props) {
-  const out = await codeToHtml(code, {
+  const out = await codeToHtml("const a=2;", {
     lang,
     theme: "ayu-dark",
   });
 
   return (
-    <ScrollArea className="h-[700px] rounded-md border p-4">
+    <ScrollArea className="max-h-[700px] rounded-md border p-4">
       <div className="flex justify-end px-15 mb-2">
         <CopyClipBoard text={code} />
       </div>

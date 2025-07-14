@@ -19,14 +19,14 @@ const sidebarLinks: SidebarLink[] = [
   { label: "Introduction", href: "/docs", type: "link" },
   { label: "Components", href: "", type: "heading" },
   {
-    label: "Calendar",
-    href: "/docs/component/calendar",
+    label: "Code Block",
+    href: "/docs/component/codeblock",
     type: "link",
     isNew: true,
   },
   {
-    label: "Code Block",
-    href: "/docs/component/codeblock",
+    label: "Calendar",
+    href: "/docs/component/calendar",
     type: "link",
     isNew: true,
   },
