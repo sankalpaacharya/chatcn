@@ -48,7 +48,7 @@ function SingleCommandBlock({
   };
 
   return (
-    <div className={`w-full max-w-2xl mx-auto ${className}`}>
+    <div className={`w-full mx-auto ${className}`}>
       <div className="bg-card rounded-md border">
         {(title || showTerminalIcon) && (
           <>

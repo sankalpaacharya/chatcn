@@ -11,7 +11,6 @@ export const Counter: FC = () => {
   const handleIncrement = (): void => {
     setCount((prev) => prev + 1);
   };
-
   return (
     <div className="p-4 rounded-xl shadow-md w-fit bg-white dark:bg-zinc-900 text-center">
       <h2 className="text-xl font-semibold mb-2">Count: {count}</h2>

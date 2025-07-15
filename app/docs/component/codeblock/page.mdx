@@ -1,8 +1,26 @@
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
+import NewCodeBlock from "@/registry/new-york/newcodeblock/newcodeblock";
+import { calendarCode } from "@/lib/utils";
+import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+
+
 
 
 <DocHeader title="Code Block" description="code block for your code" links={[{label:"Shiki Reference",href:"https://shiki.style/packages/next"}]}/>
 
 
-<CodePreview component="codeblock"/>
+## Preview
+<NewCodeBlock lang='tsx'>{calendarCode}</NewCodeBlock>
+
+<br/>
+<br/>
+<br/>
+
+## Installation
+
+<CommandBlock
+          title="Install Component"
+          command="pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/r/codeblock.json"
+        />
+{/* pnpm dlx shadcn@latest add https://wds-shadcn-registry.netlify.app/r/action-button.json */}

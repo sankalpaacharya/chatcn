@@ -5,17 +5,19 @@
     "items": [
         {
             "name": "Codeblock",
-            "type": "registry:block",
+            "type": "registry:component",
             "title": "Code Block",
             "description": "Easy Code Block Component",
+            "dependencies": [
+              "shiki"
+            ],
             "files": [
               {
-                "path": "registry/new-york/codeblock/codeblock.tsx",
+                "path": "registry/new-york/newcodeblock/newcodeblock.tsx",
                 "type": "registry:component"
               }
             ],
             "registryDependencies":[
-                "scroll-area"
             ]
           }
     ]
