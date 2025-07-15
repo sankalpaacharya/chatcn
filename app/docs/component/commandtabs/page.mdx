@@ -4,11 +4,45 @@ import CodeBlock from "@/components/code-block";
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
 import CommandTabs from "@/registry/new-york/command-tabs/command-tabs";
+import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+
+<DocHeader
+  title="Command Tabs"
+  description="Tabbed CLI commands component"
+/>
 
 
-<DocHeader title="Code Tabs" description="calendar component" links={[{label:"Shiki Reference",href:"https://shiki.style/packages/next"}]}/>
+## Installation
+<CommandBlock
+  className="max-w-4xl"
+  title="Install Component"
+  defaultValue="pnpm"
+  commands={[
+    {
+      label: "npm",
+      command:
+        "npx shadcn@latest add https://shadcn-collections.vercel.app/r/command-tabs.json",
+    },
+    {
+      label: "yarn",
+      command:
+        "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/r/command-tabs.json",
+    },
+    {
+      label: "pnpm",
+      command:
+        "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/r/command-tabs.json",
+    },
+    {
+      label: "bun",
+      command:
+        "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/r/command-tabs.json",
+    },
+  ]}
+/>
 
-
-
+<br/>
+<br/>
+<br/>
 
 <CodePreview component="commandtabs"/>

@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import dynamic from "next/dynamic";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CodeBlock from "@/components/codeblock/codeblock";
+import CodeBlock from "@/registry/new-york/codeblock/codeblock";
 import { Suspense } from "react";
 
 export type Demo = "codeblock";
@@ -59,8 +59,8 @@ export default function CodePreviewInternal({
             <TabsContent value="code" className="mt-0 w-full">
               <div className="w-full overflow-hidden">
                 <CodeBlock
-                  code={code}
-                  language="tsx"
+                  children={code}
+                  lang="tsx"
                   height="400px"
                   className="w-full max-w-full"
                 />

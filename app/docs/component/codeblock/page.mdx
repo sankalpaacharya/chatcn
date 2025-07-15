@@ -15,7 +15,7 @@ import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 <CommandBlock
   className="max-w-4xl"
   title="Install Component"
-  defaultValue="npm"
+  defaultValue="pnpm"
   commands={[
     {
       label: "npm",
@@ -67,7 +67,7 @@ export default Greeting;
 
 <CodeBlock lang='tsx'>{`import CodeBlock from "@/components/codeblock"
 export default function Page(){
-    return <CodeBlock lang='tsx'>{\`import React, { useState } from "react";
+    return <CodeBlock lang='tsx'>{\`
 
 function Greeting() {
   const [show, setShow] = useState(true);
@@ -86,5 +86,3 @@ export default Greeting;
 \`}</CodeBlock>
 }
 `}</CodeBlock>
-
-{/* pnpm dlx shadcn@latest add https://wds-shadcn-registry.netlify.app/r/action-button.json */}
