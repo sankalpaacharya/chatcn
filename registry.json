@@ -4,7 +4,7 @@
     "homepage": "https://shadcn-collections.vercel.app",
     "items": [
         {
-            "name": "Codeblock",
+            "name": "codeblock",
             "type": "registry:component",
             "title": "Code Block",
             "description": "Easy Code Block Component",
@@ -13,7 +13,7 @@
             ],
             "files": [
               {
-                "path": "registry/new-york/newcodeblock/newcodeblock.tsx",
+                "path": "registry/new-york/codeblock/codeblock.tsx",
                 "type": "registry:component"
               }
             ],
