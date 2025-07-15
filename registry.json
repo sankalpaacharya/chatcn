@@ -20,6 +20,25 @@
             "registryDependencies":[
               "tooltip"
             ]
+          },
+        {
+            "name": "command-tabs",
+            "type": "registry:component",
+            "title": "Command Tabs",
+            "description": "Easy Command Tabs Component",
+            "dependencies": [
+            ],
+            "files": [
+              {
+                "path": "registry/new-york/command-tabs/command-tabs.tsx",
+                "type": "registry:component"
+              }
+            ],
+            "registryDependencies":[
+              "tooltip",
+              "tabs",
+              "separator"
+            ]
           }
     ]
   }

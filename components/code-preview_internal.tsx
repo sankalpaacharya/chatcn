@@ -59,11 +59,12 @@ export default function CodePreviewInternal({
             <TabsContent value="code" className="mt-0 w-full">
               <div className="w-full overflow-hidden">
                 <CodeBlock
-                  children={code}
                   lang="tsx"
                   height="400px"
                   className="w-full max-w-full"
-                />
+                >
+                  {code}
+                </CodeBlock>
               </div>
             </TabsContent>
           </CardContent>
