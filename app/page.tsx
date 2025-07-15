@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full max-w-5xl h-screen mx-auto flex items-center flex-col justify-center space-y-5">
+    <div className="w-full max-w-5xl mx-auto flex items-center flex-col justify-center space-y-5 h-full">
       <ShootingStars className="-z-10" />
       <StarsBackground className="-z-10" />
 

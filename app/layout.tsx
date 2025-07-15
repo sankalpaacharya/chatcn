@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import Navbar from "@/components/navbar";
+import { Separator } from "@/components/ui/separator";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,7 +36,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="flex flex-col h-screen overflow-hidden">
+            <Navbar />
+
+            <Separator />
+            <div className="flex-1 overflow-auto">{children}</div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -14,30 +14,6 @@ type SidebarLink = {
   isNew?: boolean;
 };
 
-const sidebarLinks: SidebarLink[] = [
-  { label: "Getting Started", href: "", type: "heading" },
-  { label: "Introduction", href: "/docs", type: "link" },
-  { label: "Components", href: "", type: "heading" },
-  {
-    label: "Code Block",
-    href: "/docs/component/codeblock",
-    type: "link",
-    isNew: true,
-  },
-  {
-    label: "Command Tabs",
-    href: "/docs/component/commandtabs",
-    type: "link",
-    isNew: true,
-  },
-  {
-    label: "Calendar",
-    href: "/docs/component/calendar",
-    type: "link",
-    isNew: true,
-  },
-];
-
 export default function Sidebar() {
   const pathname = usePathname();
 
@@ -48,16 +24,6 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="flex px-4 py-3 md:hidden border-b">
-        <Sheet>
-          <SheetTrigger className="flex absolute">
-            <Menu className="h-6 w-6" />
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[280px] p-0">
-            <SidebarContent isCurrentPath={isCurrentPath} />
-          </SheetContent>
-        </Sheet>
-      </div>
       <aside className="hidden md:flex h-full w-[280px] border-r bg-background">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
@@ -65,19 +31,36 @@ export default function Sidebar() {
   );
 }
 
-function SidebarContent({
+export function SidebarContent({
   isCurrentPath,
 }: {
   isCurrentPath: (href: string) => boolean;
 }) {
+  const sidebarLinks: SidebarLink[] = [
+    { label: "Getting Started", href: "", type: "heading" },
+    { label: "Introduction", href: "/docs", type: "link" },
+    { label: "Components", href: "", type: "heading" },
+    {
+      label: "Code Block",
+      href: "/docs/component/codeblock",
+      type: "link",
+      isNew: true,
+    },
+    {
+      label: "Command Tabs",
+      href: "/docs/component/commandtabs",
+      type: "link",
+      isNew: true,
+    },
+    {
+      label: "Calendar",
+      href: "/docs/component/calendar",
+      type: "link",
+      isNew: true,
+    },
+  ];
   return (
     <div className="flex flex-col h-full">
-      <div className="p-6 pb-4">
-        <h2 className="text-lg font-semibold tracking-tight">Components</h2>
-        <p className="text-sm text-muted-foreground">
-          Reusable components built using shadcn
-        </p>
-      </div>
       <Separator />
       <nav className="p-6 pt-4 space-y-1">
         {sidebarLinks.map((link) => (

@@ -4,10 +4,10 @@ import Sidebar from "@/components/sidebar";
 
 export default function DocLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-full overflow-hidden">
       <Sidebar />
       <main className="flex-1 overflow-auto">
-        <div className="dark:prose-invert prose w-full max-w-7xl mx-auto pt-10">
+        <div className="prose dark:prose-invert w-full max-w-7xl mx-auto px-6 py-8">
           {children}
         </div>
       </main>

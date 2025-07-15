@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Clipboard, SquareTerminal, Check } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
@@ -10,58 +10,186 @@ import {
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 
-export default function CommandTabs() {
-  const tabs = [
-    { id: "pnpm", label: "pnpm", command: "pnpm add shadcn@latest add tabs" },
-    { id: "npm", label: "npm", command: "npm install shadcn@latest add tabs" },
-    { id: "yarn", label: "yarn", command: "yarn add shadcn@latest add tabs" },
-    { id: "bun", label: "bun", command: "bunx --bun shadcn@latest add tabs" },
-  ];
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
+interface CommandItem {
+  id: string;
+  label: string;
+  command: string;
+}
+
+interface CommandBlockProps {
+  title?: string;
+  command?: string;
+  commands?: CommandItem[];
+  defaultValue?: string;
+  showTerminalIcon?: boolean;
+  className?: string;
+}
+
+function SingleCommandBlock({
+  title,
+  command,
+  showTerminalIcon = true,
+  className = "",
+}: {
+  title?: string;
+  command: string;
+  showTerminalIcon?: boolean;
+  className?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
   };
+
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <Tabs defaultValue="bun" className="w-full bg-card rounded gap-0">
-        <TabsList className="flex w-full bg-card justify-between items-center my-1">
+    <div className={`w-full max-w-2xl mx-auto ${className}`}>
+      <div className="bg-card rounded-md border">
+        {(title || showTerminalIcon) && (
+          <>
+            <div className="flex items-center justify-between px-4 py-2">
+              <div className="flex items-center space-x-2">
+                {showTerminalIcon && (
+                  <SquareTerminal className="text-muted-foreground" size={20} />
+                )}
+                {title && (
+                  <span className="font-medium text-muted-foreground">
+                    {title}
+                  </span>
+                )}
+              </div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 w-8 p-0"
+                    onClick={() => copyToClipboard(command)}
+                  >
+                    {copied ? <Check size={18} /> : <Clipboard size={20} />}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+            <Separator />
+          </>
+        )}
+        <div className="px-4 font-mono bg-card">
+          <p className="text-muted-foreground">{command}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MultiCommandBlock({
+  commands,
+  defaultValue,
+  showTerminalIcon = true,
+  className = "",
+}: {
+  commands: CommandItem[];
+  defaultValue?: string;
+  showTerminalIcon?: boolean;
+  className?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+  const [activeTab, setActiveTab] = useState(defaultValue || commands[0]?.id);
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
+  const activeCommand =
+    commands.find((cmd) => cmd.id === activeTab)?.command || "";
+
+  return (
+    <div className={`w-full max-w-2xl mx-auto ${className}`}>
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="w-full bg-card rounded-md border gap-0"
+      >
+        <TabsList className="flex w-full bg-card justify-between items-center px-2 py-1 my-1 rounded-t-md">
           <div className="flex items-center">
-            <SquareTerminal className="mx-2 text-muted-foreground" size={18} />
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.id}
-                value={tab.id}
-                className="data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
-              >
-                {tab.label}
-              </TabsTrigger>
-            ))}
+            {showTerminalIcon && (
+              <SquareTerminal
+                className="mx-2 text-muted-foreground"
+                size={20}
+              />
+            )}
+            <div className="flex">
+              {commands.map((tab) => (
+                <TabsTrigger
+                  key={tab.id}
+                  value={tab.id}
+                  className="data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
+                >
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </div>
           </div>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Clipboard size={16} className="mr-2" />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 p-0"
+                onClick={() => copyToClipboard(activeCommand)}
+              >
+                {copied ? (
+                  <Check size={20} className="text-green-600" />
+                ) : (
+                  <Clipboard size={20} />
+                )}
+              </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>{false ? "Copied!" : "Copy to Clipboard"}</p>
+              <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>
             </TooltipContent>
           </Tooltip>
         </TabsList>
         <Separator />
-        {tabs.map((tab) => (
+        {commands.map((tab) => (
           <TabsContent
             key={tab.id}
             value={tab.id}
-            className="mt-0 bg-card rounded-md"
+            className="mt-0 px-4 font-mono bg-card rounded-b-md"
           >
-            <div className="relative rounded-md px-4 py-3 font-mono bg-card">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <span>{tab.command}</span>
-                </div>
-              </div>
-            </div>
+            <p className="text-muted-foreground">{tab.command}</p>
           </TabsContent>
         ))}
       </Tabs>
     </div>
   );
+}
+
+export default function CommandBlock(props: CommandBlockProps) {
+  const { command, commands, ...rest } = props;
+
+  if (command) {
+    return <SingleCommandBlock command={command} {...rest} />;
+  }
+
+  if (commands && commands.length > 0) {
+    return <MultiCommandBlock commands={commands} {...rest} />;
+  }
+
+  return null;
 }
