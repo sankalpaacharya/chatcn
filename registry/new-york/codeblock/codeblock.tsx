@@ -1,68 +1,57 @@
-"use client";
-import { JSX, useEffect, useState } from "react";
-import { highlight } from "@/registry/new-york/codeblock/utils/shared";
-import { Clipboard, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { calendarCode } from "@/lib/utils";
-import { cn } from "@/lib/utils";
-import type { BundledLanguage } from "shiki/bundle/web";
+import type { BundledLanguage } from "shiki";
+import { codeToHtml } from "shiki";
+import { Clipboard } from "lucide-react";
 import {
   Tooltip,
-  TooltipContent,
   TooltipTrigger,
+  TooltipContent,
 } from "@/components/ui/tooltip";
-type CodeBlockProps = {
-  initial?: JSX.Element;
-  code: string;
+import { cn } from "@/lib/utils";
+
+type Props = {
+  children: string;
+  lang: BundledLanguage;
   height?: string;
-  language: BundledLanguage;
   className?: string;
 };
 
-export default function CodeBlock({
-  initial,
-  className,
-  language = "tsx",
-  code,
+export default async function CodeBlock({
+  children,
+  lang,
   height = "600",
-}: CodeBlockProps) {
-  const [nodes, setNodes] = useState(initial);
-  const [copied, setCopied] = useState(false);
-  useEffect(() => {
-    void highlight(code, language).then(setNodes);
-  }, []);
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 10000);
-    } catch (err) {
-      console.error("Failed to copy!", err);
-    }
-  };
+  className,
+}: Props) {
+  const out = await codeToHtml(children, {
+    lang,
+    theme: "github-dark-default",
+    colorReplacements: {
+      "#0d1117": "var(--card)",
+    },
+  });
+
   return (
     <div
-      className={cn(`relative rounded-md text-xl overflow-auto`, className)}
+      className={cn(
+        "relative rounded-md text-xl overflow-auto border",
+        className
+      )}
       style={{ height: "100%", maxHeight: `${height}px` }}
     >
-      <Tooltip>
-        <TooltipTrigger
-          className="absolute right-5 top-5 h-8 w-8 p-0 text-md"
-          asChild
-        >
-          <Button variant="secondary" onClick={handleCopy}>
-            {copied ? (
-              <Check className="w-4 h-4" />
-            ) : (
-              <Clipboard className="w-4 h-4" />
-            )}
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>
-        </TooltipContent>
-      </Tooltip>
-      <div className="overflow-x-auto w-full bg-card flex">{nodes}</div>
+      <div className="sticky top-5 flex justify-end -mt-8 mr-5">
+        <Tooltip>
+          <TooltipTrigger className="p-1 rounded-md hover:bg-muted transition">
+            <Clipboard size={18} />
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Copy to Clipboard</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
+
+      <div
+        className="overflow-x-auto w-full bg-card flex px-4 py-3"
+        dangerouslySetInnerHTML={{ __html: out }}
+      />
     </div>
   );
 }

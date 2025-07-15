@@ -35,19 +35,19 @@ export default function Navbar() {
           </Sheet>
         </div>
         <Link
-          href={""}
+          href={"/docs"}
           className="font-bold py-2 px-3 hover:bg-muted rounded-md"
         >
           Docs
         </Link>
         <Link
-          href={""}
+          href={"/docs"}
           className="font-bold py-2 px-3 hover:bg-muted rounded-md"
         >
           Components
         </Link>
         <Link
-          href={""}
+          href={"http://https://github.com/sankalpaacharya/shadcn-collections"}
           className="font-bold py-2 px-3 hover:bg-muted rounded-md"
         >
           Github

@@ -9,6 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface CommandItem {
   label: string;
@@ -28,7 +29,7 @@ function SingleCommandBlock({
   title,
   command,
   showTerminalIcon = true,
-  className = "",
+  className,
 }: {
   title?: string;
   command: string;
@@ -48,7 +49,7 @@ function SingleCommandBlock({
   };
 
   return (
-    <div className={`w-full mx-auto ${className}`}>
+    <div className={cn("w-full max-w-2xl mx-auto", className)}>
       <div className="bg-card rounded-md border">
         {(title || showTerminalIcon) && (
           <>
@@ -94,7 +95,7 @@ function MultiCommandBlock({
   commands,
   defaultValue,
   showTerminalIcon = true,
-  className = "",
+  className,
 }: {
   commands: CommandItem[];
   defaultValue?: string;
@@ -120,7 +121,7 @@ function MultiCommandBlock({
     commands.find((cmd) => cmd.label === activeTab)?.command || "";
 
   return (
-    <div className={`w-full max-w-2xl mx-auto ${className}`}>
+    <div className={cn("w-full max-w-2xl mx-auto", className)}>
       <Tabs
         value={activeTab}
         onValueChange={setActiveTab}

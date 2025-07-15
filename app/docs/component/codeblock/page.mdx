@@ -1,6 +1,6 @@
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
-import NewCodeBlock from "@/registry/new-york/newcodeblock/newcodeblock";
+import CodeBlock from "@/registry/new-york/codeblock/codeblock";
 import { calendarCode } from "@/lib/utils";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 
@@ -13,16 +13,78 @@ import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 ## Installation
 
 <CommandBlock
-          title="Install Component"
-          command="pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/r/Codeblock.json"
-        />
+  className="max-w-4xl"
+  title="Install Component"
+  defaultValue="npm"
+  commands={[
+    {
+      label: "npm",
+      command:
+        "npx shadcn@latest add https://shadcn-collections.vercel.app/r/Codeblock.json",
+    },
+    {
+      label: "yarn",
+      command:
+        "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/r/Codeblock.json",
+    },
+    {
+      label: "pnpm",
+      command:
+        "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/r/Codeblock.json",
+    },
+    {
+      label: "bun",
+      command:
+        "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/r/Codeblock.json",
+    },
+  ]}
+/>
+
 
 ## Preview
-<NewCodeBlock lang='tsx'>{calendarCode}</NewCodeBlock>
 
-<br/>
-<br/>
-<br/>
+<CodeBlock lang='tsx'>{`
+import React, { useState } from "react";
 
+function Greeting() {
+const [show, setShow] = useState(true);
+
+return (
+  <div>
+    {show && <h1>Hello, Sanku! 👋</h1>}
+    <button onClick={() => setShow((prev) => !prev)}>
+      {show ? "Hide" : "Show"} Greeting
+    </button>
+  </div>
+);
+}
+
+export default Greeting;
+`}</CodeBlock>
+
+
+## Usage
+
+<CodeBlock lang='tsx'>{`import CodeBlock from "@/components/codeblock"
+export default function Page(){
+    return <CodeBlock lang='tsx'>{\`import React, { useState } from "react";
+
+function Greeting() {
+  const [show, setShow] = useState(true);
+
+  return (
+    <div>
+      {show && <h1>Hello, Sanku! 👋</h1>}
+      <button onClick={() => setShow((prev) => !prev)}>
+        {show ? "Hide" : "Show"} Greeting
+      </button>
+    </div>
+  );
+}
+
+export default Greeting;
+\`}</CodeBlock>
+}
+`}</CodeBlock>
 
 {/* pnpm dlx shadcn@latest add https://wds-shadcn-registry.netlify.app/r/action-button.json */}
