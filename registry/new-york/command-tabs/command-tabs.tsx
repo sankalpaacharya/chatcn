@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface CommandItem {
-  id: string;
   label: string;
   command: string;
 }
@@ -103,7 +102,9 @@ function MultiCommandBlock({
   className?: string;
 }) {
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState(defaultValue || commands[0]?.id);
+  const [activeTab, setActiveTab] = useState(
+    defaultValue || commands[0]?.label
+  );
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -116,7 +117,7 @@ function MultiCommandBlock({
   };
 
   const activeCommand =
-    commands.find((cmd) => cmd.id === activeTab)?.command || "";
+    commands.find((cmd) => cmd.label === activeTab)?.command || "";
 
   return (
     <div className={`w-full max-w-2xl mx-auto ${className}`}>
@@ -136,8 +137,8 @@ function MultiCommandBlock({
             <div className="flex">
               {commands.map((tab) => (
                 <TabsTrigger
-                  key={tab.id}
-                  value={tab.id}
+                  key={tab.label}
+                  value={tab.label}
                   className="data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
                 >
                   {tab.label}
@@ -168,8 +169,8 @@ function MultiCommandBlock({
         <Separator />
         {commands.map((tab) => (
           <TabsContent
-            key={tab.id}
-            value={tab.id}
+            key={tab.label}
+            value={tab.label}
             className="mt-0 px-4 font-mono bg-card rounded-b-md"
           >
             <p className="text-muted-foreground">{tab.command}</p>

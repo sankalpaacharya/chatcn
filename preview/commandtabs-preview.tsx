@@ -1,12 +1,11 @@
 import React from "react";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
-
 export default function CommandTabsDemo() {
   const packageManagerCommands = [
-    { id: "pnpm", label: "pnpm", command: "pnpm add shadcn@latest add tabs" },
-    { id: "npm", label: "npm", command: "npm install shadcn@latest add tabs" },
-    { id: "yarn", label: "yarn", command: "yarn add shadcn@latest add tabs" },
-    { id: "bun", label: "bun", command: "bunx --bun shadcn@latest add tabs" },
+    { label: "pnpm", command: "pnpm add shadcn@latest add tabs" },
+    { label: "npm", command: "npm install shadcn@latest add tabs" },
+    { label: "yarn", command: "yarn add shadcn@latest add tabs" },
+    { label: "bun", command: "bunx --bun shadcn@latest add tabs" },
   ];
 
   return (
