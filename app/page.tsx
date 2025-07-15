@@ -7,14 +7,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full max-w-5xl mx-auto flex items-center flex-col justify-center space-y-5 h-full">
+    <div className="flex flex-col max-w-5xl mx-auto justify-center items-center min-h-full gap-4">
       <ShootingStars className="-z-10" />
       <StarsBackground className="-z-10" />
-
-      <h1 className="relative z-10 text-4xl md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
+      <h1 className="text-4xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
         Collection of Shadcn Components
       </h1>
-
       <Link
         href={"https://github.com/sankalpaacharya"}
         className="flex gap-2 items-center"
@@ -30,12 +28,10 @@ export default function Home() {
           Explore Components
         </Button>
       </Link>
-      <div className="w-full px-3 flex justify-center">
-        <Heatmap
-          title="Spending Per day"
-          description="Track your daily spending "
-        />
-      </div>
+      <Heatmap
+        title="Spending Per day"
+        description="Track your daily spending "
+      />
     </div>
   );
 }

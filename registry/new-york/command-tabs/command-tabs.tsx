@@ -83,8 +83,8 @@ function SingleCommandBlock({
             <Separator />
           </>
         )}
-        <div className="px-4 font-mono bg-card">
-          <p className="text-muted-foreground">{command}</p>
+        <div className="px-4 font-mono bg-card text-wrap">
+          <p className="text-muted-foreground text-wrap">{command}</p>
         </div>
       </div>
     </div>
@@ -155,11 +155,7 @@ function MultiCommandBlock({
                 className="h-8 w-8 p-0"
                 onClick={() => copyToClipboard(activeCommand)}
               >
-                {copied ? (
-                  <Check size={20} className="text-green-600" />
-                ) : (
-                  <Clipboard size={20} />
-                )}
+                {copied ? <Check size={20} /> : <Clipboard size={20} />}
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -172,9 +168,9 @@ function MultiCommandBlock({
           <TabsContent
             key={tab.label}
             value={tab.label}
-            className="mt-0 px-4 font-mono bg-card rounded-b-md"
+            className="mt-0 px-4 font-mono bg-card rounded-b-md text-wrap"
           >
-            <p className="text-muted-foreground">{tab.command}</p>
+            <p className="text-muted-foreground text-wrap">{tab.command}</p>
           </TabsContent>
         ))}
       </Tabs>

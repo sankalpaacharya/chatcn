@@ -4,16 +4,21 @@ import CodeBlock from "@/registry/new-york/codeblock/codeblock";
 import { calendarCode } from "@/lib/utils";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 
+<DocHeader
+  title="Code Block"
+  description="Display syntax-highlighted code snippets using Shiki."
+  links={[{ label: "Shiki Reference", href: "https://shiki.style/packages/next" }]}
+/>
 
+<div className="space-y-10">
 
+---
+{/*  i made too many commits for random shit just squash them later please */}
+## 📦 Installation
 
-<DocHeader title="Code Block" description="Display syntax-highlighted code snippets using Shiki." links={[{label:"Shiki Reference",href:"https://shiki.style/packages/next"}]}/>
-
-
-## Installation
-
+Install this component using the CLI:
+<div>
 <CommandBlock
-  className="max-w-4xl"
   title="Install Component"
   defaultValue="pnpm"
   commands={[
@@ -39,35 +44,13 @@ import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
     },
   ]}
 />
+</div>
+---
 
+## 🔍 Preview
 
-## Preview
-
-<CodeBlock lang='tsx'>{`
+<CodeBlock lang="tsx">{`
 import React, { useState } from "react";
-
-function Greeting() {
-const [show, setShow] = useState(true);
-
-return (
-  <div>
-    {show && <h1>Hello, Sanku! 👋</h1>}
-    <button onClick={() => setShow((prev) => !prev)}>
-      {show ? "Hide" : "Show"} Greeting
-    </button>
-  </div>
-);
-}
-
-export default Greeting;
-`}</CodeBlock>
-
-
-## Usage
-
-<CodeBlock lang='tsx'>{`import CodeBlock from "@/components/codeblock"
-export default function Page(){
-    return <CodeBlock lang='tsx'>{\`
 
 function Greeting() {
   const [show, setShow] = useState(true);
@@ -83,6 +66,37 @@ function Greeting() {
 }
 
 export default Greeting;
+`}</CodeBlock>
+
+---
+
+## 🛠️ Usage
+
+Here’s how you use the `CodeBlock` component:
+
+<CodeBlock lang="tsx">{`
+import CodeBlock from "@/components/codeblock";
+
+export default function Page() {
+  return (
+    <CodeBlock lang="tsx">{\`
+function Greeting() {
+  const [show, setShow] = useState(true);
+
+  return (
+    <div>
+      {show && <h1>Hello, Sanku! 👋</h1>}
+      <button onClick={() => setShow((prev) => !prev)}>
+        {show ? "Hide" : "Show"} Greeting
+      </button>
+    </div>
+  );
+}
+
+export default Greeting;
 \`}</CodeBlock>
+  );
 }
 `}</CodeBlock>
+
+</div>

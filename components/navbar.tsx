@@ -47,7 +47,7 @@ export default function Navbar() {
           Components
         </Link>
         <Link
-          href={"http://https://github.com/sankalpaacharya/shadcn-collections"}
+          href={"https://github.com/sankalpaacharya/shadcn-collections"}
           className="font-bold py-2 px-3 hover:bg-muted rounded-md"
         >
           Github
