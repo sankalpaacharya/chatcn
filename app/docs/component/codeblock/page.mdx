@@ -7,7 +7,7 @@ import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 <DocHeader
   title="Code Block"
   description="Display syntax-highlighted code snippets using Shiki."
-  links={[{ label: "Shiki Reference", href: "https://shiki.style/packages/next" }]}
+  links={[{ label: "Shiki Reference", href: "https://shiki.style/packages/next"}, {label:"themes", href:"https://shiki.style/themes"}]}
 />
 
 <div className="space-y-10">
@@ -79,7 +79,7 @@ import CodeBlock from "@/components/codeblock";
 
 export default function Page() {
   return (
-    <CodeBlock lang="tsx">{\`
+    <CodeBlock theme="github-dark-default"  lang="tsx">{\`
 function Greeting() {
   const [show, setShow] = useState(true);
 
@@ -98,5 +98,27 @@ export default Greeting;
   );
 }
 `}</CodeBlock>
+
+---
+
+## 🎨 Line Number
+if you want to display line number, add this to your `global.css` file
+
+<CodeBlock lang="css">{`code {
+  counter-reset: step;
+  counter-increment: step 0;
+  margin: 0;
+  width: 100%;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: gray
+}`}</CodeBlock>
 
 </div>

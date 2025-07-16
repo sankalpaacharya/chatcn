@@ -16,10 +16,12 @@ type Props = {
   lang: BundledLanguage;
   height?: string;
   className?: string;
+  theme?: string;
 };
 
 export default function CodeBlock({
   children,
+  theme = "github-dark-default",
   lang,
   height = "600",
   className,
@@ -31,7 +33,7 @@ export default function CodeBlock({
     const generateHtml = async () => {
       const out = await codeToHtml(children, {
         lang,
-        theme: "github-dark-default",
+        theme,
         colorReplacements: {
           "#0d1117": "var(--card)",
           "#ffffff": "var(--card)",
@@ -87,7 +89,7 @@ export default function CodeBlock({
       </div>
 
       <div
-        className="overflow-x-auto w-full bg-card flex px-4 py-3"
+        className="overflow-x-auto w-full bg-card flex [&_pre]:w-full [&_pre]:m-0"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
