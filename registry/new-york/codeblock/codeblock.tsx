@@ -66,7 +66,7 @@ export default function CodeBlock({
   return (
     <div
       className={cn(
-        "relative rounded-md text-xl overflow-auto border",
+        "relative rounded-md md:text-xl overflow-auto border",
         className
       )}
       style={{ height: "100%", maxHeight: `${height}px` }}

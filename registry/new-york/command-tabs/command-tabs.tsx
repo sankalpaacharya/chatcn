@@ -83,8 +83,10 @@ function SingleCommandBlock({
             <Separator />
           </>
         )}
-        <div className="px-4 font-mono bg-card text-wrap">
-          <p className="text-muted-foreground text-wrap">{command}</p>
+        <div className="px-4 font-mono bg-card overflow-x-auto">
+          <p className="text-muted-foreground break-words whitespace-pre-wrap">
+            {command}
+          </p>
         </div>
       </div>
     </div>
@@ -168,9 +170,11 @@ function MultiCommandBlock({
           <TabsContent
             key={tab.label}
             value={tab.label}
-            className="mt-0 px-4 font-mono bg-card rounded-b-md text-wrap"
+            className="mt-0 px-4 font-mono bg-card rounded-b-md overflow-x-auto"
           >
-            <p className="text-muted-foreground text-wrap">{tab.command}</p>
+            <p className="text-muted-foreground break-words whitespace-pre-wrap">
+              {tab.command}
+            </p>
           </TabsContent>
         ))}
       </Tabs>
