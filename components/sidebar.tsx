@@ -50,12 +50,12 @@ export function SidebarContent({
       type: "link",
       isNew: true,
     },
-    // {
-    //   label: "Calendar",
-    //   href: "/docs/component/calendar",
-    //   type: "link",
-    //   isNew: true,
-    // },
+    {
+      label: "Calendar",
+      href: "/docs/component/calendar",
+      type: "link",
+      isNew: true,
+    },
   ];
   return (
     <div className="flex flex-col h-full">
