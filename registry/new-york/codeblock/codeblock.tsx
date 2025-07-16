@@ -34,7 +34,7 @@ export default function CodeBlock({
         theme: "github-dark-default",
         colorReplacements: {
           "#0d1117": "var(--card)",
-          "#ffffff": "bg-red-600",
+          "#ffffff": "var(--card)",
         },
       });
       setHtml(out);
