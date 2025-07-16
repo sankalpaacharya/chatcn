@@ -34,6 +34,7 @@ export default function CodeBlock({
         theme: "github-dark-default",
         colorReplacements: {
           "#0d1117": "var(--card)",
+          "#ffffff": "bg-red-600",
         },
       });
       setHtml(out);
@@ -66,7 +67,7 @@ export default function CodeBlock({
   return (
     <div
       className={cn(
-        "relative rounded-md md:text-xl overflow-auto border",
+        "relative rounded-md md:text-xl overflow-auto border shadow",
         className
       )}
       style={{ height: "100%", maxHeight: `${height}px` }}
