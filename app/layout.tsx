@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/navbar";
 import { Separator } from "@/components/ui/separator";
 import Footer from "@/components/footer";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -45,6 +46,11 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Script
+          src="https://app.rybbit.io/api/script.js"
+          data-site-id="1705"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
