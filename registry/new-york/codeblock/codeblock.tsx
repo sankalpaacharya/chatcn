@@ -19,7 +19,7 @@ type Props = {
   theme?: string;
 };
 
-export default function CodeBlock({
+export function CodeBlock({
   children,
   theme = "github-dark-default",
   lang,

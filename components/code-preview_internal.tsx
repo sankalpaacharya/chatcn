@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import dynamic from "next/dynamic";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CodeBlock from "@/registry/new-york/codeblock/codeblock";
+import { CodeBlock } from "@/registry/new-york/codeblock/codeblock";
 import { Suspense } from "react";
 
 export type Demo = "codeblock";

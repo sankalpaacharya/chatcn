@@ -1,6 +1,6 @@
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
-import CodeBlock from "@/registry/new-york/codeblock/codeblock";
+import {CodeBlock} from "@/registry/new-york/codeblock/codeblock";
 import { calendarCode } from "@/lib/utils";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 
@@ -49,55 +49,12 @@ Install this component using the CLI:
 
 ## 🔍 Preview
 
-<CodeBlock lang="tsx">{`
-import React, { useState } from "react";
 
-function Greeting() {
-  const [show, setShow] = useState(true);
+<CodePreview component="codeblock" />
 
-  return (
-    <div>
-      {show && <h1>Hello, Sanku! 👋</h1>}
-      <button onClick={() => setShow((prev) => !prev)}>
-        {show ? "Hide" : "Show"} Greeting
-      </button>
-    </div>
-  );
-}
 
-export default Greeting;
-`}</CodeBlock>
 
----
 
-## 🛠️ Usage
-
-Here’s how you use the `CodeBlock` component:
-
-<CodeBlock lang="tsx">{`
-import CodeBlock from "@/components/codeblock";
-
-export default function Page() {
-  return (
-    <CodeBlock theme="github-dark-default"  lang="tsx">{\`
-function Greeting() {
-  const [show, setShow] = useState(true);
-
-  return (
-    <div>
-      {show && <h1>Hello, Sanku! 👋</h1>}
-      <button onClick={() => setShow((prev) => !prev)}>
-        {show ? "Hide" : "Show"} Greeting
-      </button>
-    </div>
-  );
-}
-
-export default Greeting;
-\`}</CodeBlock>
-  );
-}
-`}</CodeBlock>
 
 ---
 
