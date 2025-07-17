@@ -4,9 +4,9 @@ import path from "node:path";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { name: string } }
+  { params }: { params: Promise<{ name: string }> }
 ) {
-  const name = params.name;
+  const name = (await (params)).name;
 
   const filePath = path.join(process.cwd(), "public", "r", `${name}.json`);
   try {
