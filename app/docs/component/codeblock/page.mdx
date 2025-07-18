@@ -1,65 +1,116 @@
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
-import {CodeBlock} from "@/registry/new-york/codeblock/codeblock";
-import { calendarCode } from "@/lib/utils";
+import { CodeBlock } from "@/registry/new-york/codeblock/codeblock";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+import CodeSource from "@/components/codesource";
 
 <DocHeader
   title="Code Block"
   description="Display syntax-highlighted code snippets using Shiki."
-  links={[{ label: "Shiki Reference", href: "https://shiki.style/packages/next"}, {label:"themes", href:"https://shiki.style/themes"}]}
+  links={[
+    { label: "Shiki Reference", href: "https://shiki.style/packages/next" },
+    { label: "Themes", href: "https://shiki.style/themes" },
+  ]}
 />
 
 <div className="space-y-10">
 
----
-{/*  i made too many commits for random shit just squash them later please */}
 ## 📦 Installation
 
 Install this component using the CLI:
-<div>
+
 <CommandBlock
   title="Install Component"
   defaultValue="pnpm"
   commands={[
     {
       label: "npm",
-      command:
-        "npx shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
+      command: "npx shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
     },
     {
       label: "yarn",
-      command:
-        "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
+      command: "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
     },
     {
       label: "pnpm",
-      command:
-        "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
+      command: "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
     },
     {
       label: "bun",
-      command:
-        "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
+      command: "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/codeblock",
     },
   ]}
 />
-</div>
----
 
 ## 🔍 Preview
 
-
 <CodePreview component="codeblock" />
 
+## 🛠️ Manual Installation
 
+### 1. Create the Component
 
+Create a new file named `codeblock.tsx` and paste the following code:
 
+<CodeSource component="codeblock" />
 
 ---
 
-## 🎨 Line Number
-if you want to display line number, add this to your `global.css` file
+### 2. Add Required UI Dependencies
+
+<CommandBlock
+  title="Install Tooltip Component"
+  defaultValue="pnpm"
+  commands={[
+    {
+      label: "npm",
+      command: "npx shadcn@latest add tooltip",
+    },
+    {
+      label: "yarn",
+      command: "yarn dlx shadcn@latest add tooltip",
+    },
+    {
+      label: "pnpm",
+      command: "pnpm dlx shadcn@latest add tooltip",
+    },
+    {
+      label: "bun",
+      command: "bunx --bun shadcn@latest add tooltip",
+    },
+  ]}
+/>
+
+---
+
+### 3. Install Shiki
+
+<CommandBlock
+  title="Install Shiki"
+  defaultValue="pnpm"
+  commands={[
+    {
+      label: "npm",
+      command: "npm install shiki",
+    },
+    {
+      label: "yarn",
+      command: "yarn add shiki",
+    },
+    {
+      label: "pnpm",
+      command: "pnpm add shiki",
+    },
+    {
+      label: "bun",
+      command: "bun add shiki",
+    },
+  ]}
+/>
+
+## 🎨 Show Line Numbers
+
+To show line numbers in your code block, add the following styles to your `global.css`:
 
 <CodeBlock lang="css">{`code {
   counter-reset: step;
@@ -75,11 +126,7 @@ code .line::before {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: gray
+  color: gray;
 }`}</CodeBlock>
 
 </div>
-
-
-<br/>
-<br/>
