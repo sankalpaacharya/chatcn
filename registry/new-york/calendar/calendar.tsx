@@ -109,7 +109,6 @@ export default function Heatmap({ title, description }: Props) {
           </div>
         </div>
       </CardHeader>
-
       <CardContent className="px-4 pb-4">
         <div className="grid grid-cols-7 gap-1 text-xs text-center mb-3 text-muted-foreground font-medium">
           {days.map((day, i) => (
@@ -119,7 +118,7 @@ export default function Heatmap({ title, description }: Props) {
           ))}
         </div>
 
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 grid-rows-6 gap-1">
           {Array.from({ length: numberOfDays + firstDayOfMonth }, (_, i) =>
             firstDayOfMonth > i ? (
               <div key={i} className="aspect-square"></div>
