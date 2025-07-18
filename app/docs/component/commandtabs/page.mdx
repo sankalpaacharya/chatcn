@@ -1,6 +1,7 @@
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+import CodeSource from "@/components/codesource";
 
 <DocHeader
   title="Command Tabs"
@@ -47,6 +48,48 @@ Use the CLI to install this component based on your preferred package manager:
 ## 🔍 Preview & Usage
 
 <CodePreview component="commandtabs" />
+
+
+
+## 🛠️ Manual Installation
+
+### 1. Create the Component
+
+Create a new file named `command-tabs.tsx` and paste the following code:
+
+<CodeSource component="command-tabs" />
+
+---
+
+### 2. Add Required UI Dependencies
+
+<CommandBlock
+  title="Install Tooltip Component"
+  defaultValue="pnpm"
+  commands={[
+    {
+      label: "npm",
+      command: "npx shadcn@latest add tooltip tabs",
+    },
+    {
+      label: "yarn",
+      command: "yarn dlx shadcn@latest add tooltip tabs",
+    },
+    {
+      label: "pnpm",
+      command: "pnpm dlx shadcn@latest add tooltip tabs",
+    },
+    {
+      label: "bun",
+      command: "bunx --bun shadcn@latest add tooltip tabs",
+    },
+  ]}
+/>
+
+---
+
+
+
 
 
 </div>
