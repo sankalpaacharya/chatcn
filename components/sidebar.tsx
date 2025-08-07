@@ -51,6 +51,12 @@ export function SidebarContent({
       isNew: true,
     },
     {
+      label: "Prompt Input",
+      href: "/docs/component/prompt-input",
+      type: "link",
+      isNew: true,
+    },
+    {
       label: "Calendar",
       href: "/docs/component/calendar",
       type: "link",
