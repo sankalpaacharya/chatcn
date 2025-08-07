@@ -42,13 +42,13 @@ export function SidebarContent({
       label: "Code Block",
       href: "/docs/component/codeblock",
       type: "link",
-      isNew: true,
+      isNew: false,
     },
     {
       label: "Command Tabs",
       href: "/docs/component/commandtabs",
       type: "link",
-      isNew: true,
+      isNew: false,
     },
     {
       label: "Prompt Input",
@@ -60,7 +60,7 @@ export function SidebarContent({
       label: "Calendar",
       href: "/docs/component/calendar",
       type: "link",
-      isNew: true,
+      isNew: false,
     },
   ];
   return (
