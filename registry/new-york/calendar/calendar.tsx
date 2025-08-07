@@ -87,6 +87,12 @@ export default function Heatmap({ title, description }: Props) {
           </div>
         </div>
 
+        {/* 
+
+        <Component props={name:sankalpa title:salkdjlaksd}/>
+        
+        */}
+
         <div className="flex items-center justify-between mt-4">
           <h3 className="text-md font-medium">
             {months[selectedMonth]} {selectedYear}
