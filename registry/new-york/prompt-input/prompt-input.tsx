@@ -2,6 +2,13 @@
 import React, { useEffect, useRef } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { createContext, useContext, useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 type PromptInputContext = {
@@ -31,7 +38,7 @@ function usePromptInputContext() {
   return ctx;
 }
 
-export type PromptInputTextAreaProps = {
+type PromptInputTextAreaProps = {
   disableAutoSize?: boolean;
 } & React.ComponentProps<typeof Textarea>;
 
@@ -54,17 +61,47 @@ export function PromptInputTextArea({
 
   return (
     <Textarea
+      style={{ backgroundColor: "transparent" }}
       ref={textareaRef}
       value={value}
       onChange={(e) => setValue(e.target.value)}
       rows={1}
       className={cn(
-        "outline-none focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent text-primary resize-none min-h-[44px]",
+        "outline-none w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent text-primary resize-none min-h-[44px]",
         className
       )}
       disabled={disabled}
       {...props}
     />
+  );
+}
+
+type PromptInputActionProps = {
+  className?: string;
+  tooltip: React.ReactNode;
+  children: React.ReactNode;
+  side?: "top" | "bottom" | "left" | "right";
+} & React.ComponentProps<typeof Tooltip>;
+
+export function PromptInputAction({
+  className,
+  tooltip,
+  children,
+  side,
+  ...props
+}: PromptInputActionProps) {
+  const { disabled } = usePromptInputContext();
+  return (
+    <Tooltip {...props}>
+      <TooltipTrigger
+        asChild
+        disabled={disabled}
+        onClick={(event) => event.stopPropagation()}
+      >
+        {children}
+      </TooltipTrigger>
+      <TooltipContent className={className}>{tooltip}</TooltipContent>
+    </Tooltip>
   );
 }
 
@@ -79,12 +116,25 @@ type PromptInputProps = {
   className?: string;
 };
 
+type PromptInputActionsProps = React.HTMLAttributes<HTMLDivElement>;
+
+export function PromptInputActions({
+  children,
+  className,
+  ...props
+}: PromptInputActionsProps) {
+  return (
+    <div className={cn("flex items-center gap-2", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
 export function PromptInput({
   value,
   onValueChange,
   onSubmit,
   children,
-  className,
   isLoading = false,
   disabled = false,
   maxHeight = 240,
@@ -97,18 +147,25 @@ export function PromptInput({
     onValueChange?.(newValue);
   }
   return (
-    <PromptInputContext.Provider
-      value={{
-        disabled,
-        isLoading: false,
-        value: value ?? internalValue,
-        setValue: onValueChange ?? handleChange,
-        maxHeight,
-        onSubmit,
-        textareaRef,
-      }}
-    >
-      {children}
-    </PromptInputContext.Provider>
+    <TooltipProvider>
+      <PromptInputContext.Provider
+        value={{
+          disabled,
+          isLoading: false,
+          value: value ?? internalValue,
+          setValue: onValueChange ?? handleChange,
+          maxHeight,
+          onSubmit,
+          textareaRef,
+        }}
+      >
+        <div
+          className="border-input bg-background cursor-text rounded-3xl border p-2 shadow-xs"
+          onClick={() => textareaRef.current?.focus()}
+        >
+          {children}
+        </div>
+      </PromptInputContext.Provider>
+    </TooltipProvider>
   );
 }
