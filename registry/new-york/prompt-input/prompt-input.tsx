@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { createContext, useContext, useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipProvider,
@@ -67,7 +66,7 @@ export function PromptInputTextArea({
       onChange={(e) => setValue(e.target.value)}
       rows={1}
       className={cn(
-        "outline-none w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent text-primary resize-none min-h-[44px]",
+        "outline-none w-full shadow-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent text-primary resize-none min-h-[44px]",
         className
       )}
       disabled={disabled}
