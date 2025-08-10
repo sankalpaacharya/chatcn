@@ -10,7 +10,7 @@ export default function Page() {
     <div className="flex justify-center py-10">
       <div className="w-xl">
         <Source href="https://google.com">
-          <SourceTrigger label={"click this"}></SourceTrigger>
+          <SourceTrigger></SourceTrigger>
           <SourceContent
             title="google bencho"
             description="hello"
