@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import { Separator } from "@/components/ui/separator";
 import Footer from "@/components/footer";
 import Script from "next/script";
+import { useTheme } from "next-themes";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,7 +36,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           <div className="flex flex-col h-screen overflow-hidden">
