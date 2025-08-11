@@ -130,7 +130,7 @@ export function SourceContent({
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-sm font-semibold text-foreground leading-tight line-clamp-2">
+          <h3 className="text-sm font-semibold text-foreground/80 leading-tight line-clamp-2">
             {title}
           </h3>
           <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
