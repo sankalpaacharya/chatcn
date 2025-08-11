@@ -2,10 +2,8 @@
 import React from "react";
 import { ReactNode } from "react";
 import Sidebar from "@/components/sidebar";
-import { useTheme } from "next-themes";
 
 export default function DocLayout({ children }: { children: ReactNode }) {
-  const { theme } = useTheme();
   return (
     <div className="flex h-full">
       <Sidebar />

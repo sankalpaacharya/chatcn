@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar";
 import { Separator } from "@/components/ui/separator";
 import Footer from "@/components/footer";
 import Script from "next/script";
-import { useTheme } from "next-themes";
 import "./globals.css";
 
 const geistSans = Geist({
