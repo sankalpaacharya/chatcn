@@ -159,7 +159,7 @@ export function PromptInput({
         }}
       >
         <div
-          className="border-input bg-background cursor-text rounded-3xl border p-2 shadow-xs"
+          className="border-input bg-background cursor-text rounded-3xl border p-2 shadow-sm"
           onClick={() => textareaRef.current?.focus()}
         >
           {children}

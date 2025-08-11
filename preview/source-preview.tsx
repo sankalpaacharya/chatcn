@@ -5,10 +5,10 @@ import {
   SourceTrigger,
 } from "@/registry/new-york/source/source";
 
-export default function Page() {
+export default function SourcePreview() {
   return (
     <div className="flex justify-center py-10">
-      <div className="w-xl space-x-5">
+      <div className="space-x-5">
         <Source href="https://google.com">
           <SourceTrigger></SourceTrigger>
           <SourceContent

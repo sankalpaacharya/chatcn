@@ -10,7 +10,7 @@ import { ArrowUp } from "lucide-react";
 
 export default function PromptInputPreview() {
   return (
-    <div className="w-xl mx-auto">
+    <div className="md:w-xl mx-auto">
       <PromptInput>
         <PromptInputTextArea placeholder="What do you want to know?" />
         <PromptInputActions className="justify-end pt-2">
