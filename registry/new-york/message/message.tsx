@@ -1,16 +1,48 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
-export function Message() {
-  return <div></div>;
+type MessageProps = {
+  children: React.ReactNode;
+  className?: string;
+} & React.HTMLProps<HTMLDivElement>;
+
+export function Message({ children, className, ...props }: MessageProps) {
+  return (
+    <div className={cn("flex gap-3 items-center", className)} {...props}>
+      {children}
+    </div>
+  );
 }
 
-export function MessageAvatar() {
+type MessageAvatarProps = {
+  src: string;
+  alt: string;
+  fallback?: string;
+  className?: string;
+};
+export function MessageAvatar({ src, alt, className }: MessageAvatarProps) {
   return (
-    <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" />
+    <Avatar className={cn("h-8 w-8", className)}>
+      <AvatarImage src={src} alt={alt} />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   );
 }
 
-export function MessageContent() {}
+type MessageContentProps = {
+  className?: string;
+  children: React.ReactNode;
+} & React.HTMLProps<HTMLDivElement>;
+
+export function MessageContent({ children, className }: MessageContentProps) {
+  return (
+    <div
+      className={cn(
+        "rounded-lg p-2 text-foreground bg-secondary break-words whitespace-normal",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+}

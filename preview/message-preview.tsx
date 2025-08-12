@@ -5,7 +5,9 @@ import {
   MessageContent,
 } from "@/registry/new-york/message/message";
 
-export default function Page() {
+type Props = {};
+
+export default function MessagePreview({}: Props) {
   return (
     <div className="flex justify-center py-10">
       <div className="w-xl space-x-5 border px-5 border-y-0">
