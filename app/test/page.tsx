@@ -46,10 +46,6 @@ export default function Page() {
     setCode("def hello():\n    print('Hello, World!')\n    return 'success'");
   };
 
-  const toggleTheme = () => {
-    setTheme((current) => (current === "vs-dark" ? "light" : "vs-dark"));
-  };
-
   return (
     <div className="p-4">
       <CodeEditor
