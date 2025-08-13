@@ -63,6 +63,12 @@ export function SidebarContent({
       isNew: true,
     },
     {
+      label: "Code Editor",
+      href: "/docs/component/code-editor",
+      type: "link",
+      isNew: true,
+    },
+    {
       label: "Message",
       href: "/docs/component/message",
       type: "link",

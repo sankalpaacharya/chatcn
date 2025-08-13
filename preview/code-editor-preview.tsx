@@ -8,7 +8,7 @@ import {
 import { Play, Copy, Download, RotateCcw } from "lucide-react";
 import { useState } from "react";
 
-export default function Page() {
+export default function CodeEditorPreview() {
   const [code, setCode] = useState(
     "def hello():\n    print('Hello, World!')\n    return 'success'"
   );

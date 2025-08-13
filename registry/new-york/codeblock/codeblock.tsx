@@ -1,5 +1,4 @@
 "use client";
-
 import type { BundledLanguage } from "shiki";
 import { codeToHtml } from "shiki";
 import { Clipboard, Check } from "lucide-react";
