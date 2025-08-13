@@ -1,77 +1,103 @@
-import React from "react";
+"use client";
 import {
-  Message,
-  MessageAvatar,
-  MessageContent,
-} from "@/registry/new-york/message/message";
+  CodeEditor,
+  CodeEditArea,
+  CodeEditorActions,
+  CodeEditorAction,
+} from "@/registry/new-york/code-editor/code-editor";
+import { Play, Copy, Download, RotateCcw, Settings } from "lucide-react";
+import { useState } from "react";
 
 export default function Page() {
+  const [code, setCode] = useState(
+    "def hello():\n    print('Hello, World!')\n    return 'success'"
+  );
+  const [language, setLanguage] = useState("python");
+  const [theme, setTheme] = useState("vs-dark");
+
+  const handleExecute = () => {
+    console.log("Executing code:", code);
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      console.log("Code copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy code:", err);
+    }
+  };
+
+  const handleDownload = () => {
+    const blob = new Blob([code], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `code.${
+      language === "python" ? "py" : language === "javascript" ? "js" : "txt"
+    }`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleReset = () => {
+    setCode("def hello():\n    print('Hello, World!')\n    return 'success'");
+  };
+
+  const toggleTheme = () => {
+    setTheme((current) => (current === "vs-dark" ? "light" : "vs-dark"));
+  };
+
   return (
-    <div className="flex justify-center py-10">
-      <div className="w-xl space-x-5 border px-5 border-y-0">
-        <div className="space-y-10">
-          <Message className="justify-end">
-            <MessageAvatar
-              src="https://github.com/sankalpaacharya.png"
-              alt="Sankalpa Acharya"
-            />
-            <MessageContent>
-              Hey AI, can you help me with my project?
-            </MessageContent>
-          </Message>
+    <div>
+      <CodeEditor
+        value={code}
+        onValueChange={setCode}
+        language={language}
+        onLanguageChange={setLanguage}
+        theme={theme}
+        onThemeChange={setTheme}
+        onExecute={handleExecute}
+        className="h-[40vh]"
+      >
+        <CodeEditorActions>
+          <CodeEditorAction tooltip="Run Code" onClick={handleExecute}>
+            <Play size={16} />
+          </CodeEditorAction>
 
-          <Message>
-            <MessageAvatar
-              src="https://api.dicebear.com/8.x/bottts/svg?seed=AI"
-              alt="AI Assistant"
-            />
-            <MessageContent className="bg-transparent">
-              Of course! What are you working on right now?
-            </MessageContent>
-          </Message>
+          <CodeEditorAction tooltip="Copy to Clipboard" onClick={handleCopy}>
+            <Copy size={16} />
+          </CodeEditorAction>
 
-          <Message className="justify-end">
-            <MessageAvatar
-              src="https://github.com/sankalpaacharya.png"
-              alt="Sankalpa Acharya"
-            />
-            <MessageContent>
-              I’m building a finance tracker, but I’m stuck on the charts.
-            </MessageContent>
-          </Message>
+          <CodeEditorAction tooltip="Download Code" onClick={handleDownload}>
+            <Download size={16} />
+          </CodeEditorAction>
 
-          <Message>
-            <MessageAvatar
-              src="https://api.dicebear.com/8.x/bottts/svg?seed=AI"
-              alt="AI Assistant"
-            />
-            <MessageContent className="bg-transparent">
-              Got it. Are you using Recharts or Chart.js?
-            </MessageContent>
-          </Message>
+          <CodeEditorAction tooltip="Reset Code" onClick={handleReset}>
+            <RotateCcw size={16} />
+          </CodeEditorAction>
 
-          <Message className="justify-end">
-            <MessageAvatar
-              src="https://github.com/sankalpaacharya.png"
-              alt="Sankalpa Acharya"
-            />
-            <MessageContent>
-              I’m using Recharts, but the data isn’t updating in real time.
-            </MessageContent>
-          </Message>
+          <div className="ml-auto">
+            <CodeEditorAction
+              tooltip={`Switch to ${
+                theme === "vs-dark" ? "Light" : "Dark"
+              } Theme`}
+              onClick={toggleTheme}
+            >
+              <Settings size={16} />
+            </CodeEditorAction>
+          </div>
+        </CodeEditorActions>
 
-          <Message>
-            <MessageAvatar
-              src="https://api.dicebear.com/8.x/bottts/svg?seed=AI"
-              alt="AI Assistant"
-            />
-            <MessageContent className="bg-transparent">
-              We can fix that by adding a `useEffect` to listen for new
-              transactions and re-render your chart.
-            </MessageContent>
-          </Message>
-        </div>
-      </div>
+        <CodeEditArea
+          loader={<div className="text-xl p-4">Loading Monaco Editor...</div>}
+          height="90vh"
+          width="100%"
+          className="mt-0"
+        />
+      </CodeEditor>
     </div>
   );
 }
