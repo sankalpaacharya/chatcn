@@ -6,7 +6,7 @@ export default function FilePreview() {
   return (
     <div className="flex justify-center">
       <File
-        title="web_using_python_scrapper.js"
+        title="web_scrapper.js"
         description="javascript"
         icon={<FileJson className="w-8 h-8 text-muted-foreground" />}
       />
