@@ -49,7 +49,7 @@ export default function CodePreviewInternal({
                     </div>
                   }
                 >
-                  <div className="w-full max-w-full">
+                  <div className="w-full max-w-full flex justify-center">
                     <Component />
                   </div>
                 </Suspense>
