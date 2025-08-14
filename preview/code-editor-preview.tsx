@@ -7,6 +7,13 @@ import {
 } from "@/registry/new-york/code-editor/code-editor";
 import { Play, Copy, Download, RotateCcw } from "lucide-react";
 import { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function CodeEditorPreview() {
   const [code, setCode] = useState(
@@ -46,10 +53,6 @@ export default function CodeEditorPreview() {
     setCode("def hello():\n    print('Hello, World!')\n    return 'success'");
   };
 
-  const toggleTheme = () => {
-    setTheme((current) => (current === "vs-dark" ? "light" : "vs-dark"));
-  };
-
   return (
     <div className="p-4">
       <CodeEditor
@@ -61,7 +64,24 @@ export default function CodeEditorPreview() {
         onThemeChange={setTheme}
         onExecute={handleExecute}
       >
-        <CodeEditorActions className="flex justify-start">
+        <CodeEditorActions className="flex items-center gap-2">
+          {/* Language Selector */}
+          <Select value={language} onValueChange={setLanguage}>
+            <SelectTrigger className="w-[140px]">
+              <SelectValue placeholder="Select language" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="python">Python</SelectItem>
+              <SelectItem value="javascript">JavaScript</SelectItem>
+              <SelectItem value="typescript">TypeScript</SelectItem>
+              <SelectItem value="java">Java</SelectItem>
+              <SelectItem value="c">C</SelectItem>
+              <SelectItem value="cpp">C++</SelectItem>
+              <SelectItem value="go">Go</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* Actions */}
           <CodeEditorAction tooltip="Run Code" onClick={handleExecute}>
             <Play size={16} />
           </CodeEditorAction>
