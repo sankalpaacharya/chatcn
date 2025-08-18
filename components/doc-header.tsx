@@ -18,7 +18,7 @@ export default function DocHeader({ title, description, links }: Props) {
   return (
     <div className="not-prose flex flex-col gap-4 mb-20">
       <div className="space-y-2">
-        <h1 className="text-5xl font-semibold">{title}</h1>
+        <h1 className="text-3xl font-semibold">{title}</h1>
         {description && (
           <p className="text-muted-foreground text-lg">{description}</p>
         )}

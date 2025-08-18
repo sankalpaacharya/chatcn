@@ -24,13 +24,13 @@ export default function CodePreviewInternal({
         <TabsList className="w-full sm:w-auto bg-transparent border-none p-0 h-auto flex flex-wrap">
           <TabsTrigger
             value="preview"
-            className="bg-transparent border-none px-0 py-2 mr-3 sm:mr-6 border-b-2 border-transparent rounded-md text-sm sm:text-base"
+            className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
           >
             Preview
           </TabsTrigger>
           <TabsTrigger
             value="code"
-            className="bg-transparent border-none shadow-none hover:bg-transparent px-0 py-2 border-b-2 border-transparent data-[state=active]:border-primary rounded-md text-sm sm:text-base"
+            className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
           >
             Code
           </TabsTrigger>
