@@ -48,8 +48,7 @@ export default function Home() {
             </h1>
 
             <p className="text-muted-foreground text-base sm:text-lg lg:text-xl max-w-md mx-auto xl:mx-0">
-              Customize colors, typography, and layouts with a real-time
-              preview. No signup required.
+              Customizable components for building AI chat apps, faster.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center xl:justify-start">
