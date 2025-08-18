@@ -134,6 +134,7 @@ export function PromptInput({
   onValueChange,
   onSubmit,
   children,
+  className,
   isLoading = false,
   disabled = false,
   maxHeight = 240,
@@ -146,25 +147,27 @@ export function PromptInput({
     onValueChange?.(newValue);
   }
   return (
-    <TooltipProvider>
-      <PromptInputContext.Provider
-        value={{
-          disabled,
-          isLoading: false,
-          value: value ?? internalValue,
-          setValue: onValueChange ?? handleChange,
-          maxHeight,
-          onSubmit,
-          textareaRef,
-        }}
-      >
-        <div
-          className="border-input bg-background cursor-text rounded-3xl border p-2 shadow-sm"
-          onClick={() => textareaRef.current?.focus()}
+    <div className={className}>
+      <TooltipProvider>
+        <PromptInputContext.Provider
+          value={{
+            disabled,
+            isLoading: false,
+            value: value ?? internalValue,
+            setValue: onValueChange ?? handleChange,
+            maxHeight,
+            onSubmit,
+            textareaRef,
+          }}
         >
-          {children}
-        </div>
-      </PromptInputContext.Provider>
-    </TooltipProvider>
+          <div
+            className="border-input bg-background cursor-text rounded-3xl border p-2 shadow-sm"
+            onClick={() => textareaRef.current?.focus()}
+          >
+            {children}
+          </div>
+        </PromptInputContext.Provider>
+      </TooltipProvider>
+    </div>
   );
 }
