@@ -24,7 +24,7 @@ export function MessageAvatar({ src, alt, className }: MessageAvatarProps) {
   return (
     <Avatar className={cn("h-8 w-8", className)}>
       <AvatarImage src={src} alt={alt} />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarFallback>{alt}</AvatarFallback>
     </Avatar>
   );
 }

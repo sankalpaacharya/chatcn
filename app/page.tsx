@@ -19,10 +19,11 @@ import {
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
+
   useEffect(() => setIsMounted(true), []);
 
   return (
-    <div className="flex justify-center flex-col h-full space-y-10">
+    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       {theme === "dark" && isMounted && (
         <div
           className="absolute inset-0 -z-10"
@@ -32,41 +33,48 @@ export default function Home() {
           }}
         />
       )}
-      <div className="flex w-7xl mx-auto">
-        <div className="w-[40rem] space-y-7">
-          <h1
-            className={`text-4xl md:text-7xl font-sans font-bold ${
-              theme === "dark" && isMounted
-                ? "bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600"
-                : "bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 to-neutral-400"
-            }`}
-          >
-            Design ChatApp UI with Chatcn
-          </h1>
-          <p className="text-muted-foreground text-lg">
-            Customize colors, typography, and layouts with a real-time preview.
-            No signup required.
-          </p>
 
-          <div className="flex space-x-3">
-            <Link href="/docs">
-              <Button className="flex cursor-pointer font-medium rounded-full p-6 px-8">
-                Explore Components
-                <ArrowRight />
-              </Button>
-            </Link>
-            <Link href="/docs">
-              <Button
-                variant={"outline"}
-                className="flex cursor-pointer font-medium rounded-full p-6 px-8"
-              >
-                View Examples
-              </Button>
-            </Link>
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6 lg:space-y-8 text-center xl:text-left">
+            <h1
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold leading-tight ${
+                theme === "dark" && isMounted
+                  ? "bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600"
+                  : "bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 to-neutral-400"
+              }`}
+            >
+              Design ChatApp UI with Chatcn
+            </h1>
+
+            <p className="text-muted-foreground text-base sm:text-lg lg:text-xl max-w-md mx-auto xl:mx-0">
+              Customize colors, typography, and layouts with a real-time
+              preview. No signup required.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center xl:justify-start">
+              <Link href="/docs">
+                <Button className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base">
+                  Explore Components
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href="/docs">
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base"
+                >
+                  View Examples
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="flex-1">
-          <ChatCard />
+
+          <div className="flex justify-center mt-8 xl:mt-0 xl:justify-end">
+            <div className="w-full max-w-md xl:max-w-lg">
+              <ChatCard />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -75,32 +83,39 @@ export default function Home() {
 
 function ChatCard() {
   return (
-    <div className="space-y-5">
+    <div className="w-full space-y-4 sm:space-y-6 p-4 sm:p-6">
       <Message className="justify-end">
-        <MessageContent>
-          Hey, do you know about this cool UI component library?
+        <MessageContent className="text-sm sm:text-base max-w-xs sm:max-w-sm">
+          Hey, do you know about chatcn?
         </MessageContent>
       </Message>
+
       <Message>
         <MessageAvatar
-          src="https://github.com/sankalpaacharya.png"
-          alt="Sankalpa Acharya"
+          src="https://github.com/"
+          alt="AI"
+          className="w-8 h-8 sm:w-10 sm:h-10"
         />
-        <MessageContent className="bg-transparent">
-          Hey, do you know about this cool UI component library?
+        <MessageContent className="bg-transparent text-sm sm:text-base max-w-xs sm:max-w-sm lg:max-w-md">
+          Yes! It looks like a really nice library for building AI chat
+          interfaces. The components seem well designed and customizable.
         </MessageContent>
       </Message>
-      <div className="flex justify-center">
-        <PromptInput className="w-md">
-          <PromptInputTextArea placeholder="What do you want to know?" />
+
+      <div className="flex justify-center mt-6 sm:mt-8">
+        <PromptInput className="w-full max-w-md">
+          <PromptInputTextArea
+            placeholder="What do you want to know?"
+            className="text-sm sm:text-base min-h-[40px] sm:min-h-[48px]"
+          />
           <PromptInputActions className="justify-end pt-2">
             <PromptInputAction tooltip="submit">
               <Button
                 variant="default"
                 size="icon"
-                className="h-8 w-8 rounded-full"
+                className="h-7 w-7 sm:h-8 sm:w-8 rounded-full"
               >
-                <ArrowUp className="size-5" />
+                <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </PromptInputAction>
           </PromptInputActions>
