@@ -38,13 +38,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div
-            className="flex flex-col h-screen overflow-hidden absolute inset-0 z-0"
-            style={{
-              background:
-                "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226, 232, 240, 0.15), transparent 70%), #000000",
-            }}
-          >
+          <div className="flex flex-col h-screen overflow-hidden ">
             <Navbar />
             <Separator />
             <div className="flex-1 min-h-0">{children}</div>

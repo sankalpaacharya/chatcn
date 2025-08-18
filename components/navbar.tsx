@@ -1,78 +1,116 @@
 "use client";
 import React from "react";
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon, Github, MessageCircle } from "lucide-react";
 import {
   Sheet,
   SheetTrigger,
   SheetContent,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { SidebarContent } from "./sidebar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Switch } from "@/components/ui/switch";
 import { useTheme } from "next-themes";
+
+const navLinks = [
+  { href: "/docs", label: "Docs" },
+  { href: "/components", label: "Components" },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+  React.useEffect(() => setMounted(true), []);
 
-  const isCurrentPath = (href: string) => {
-    if (!href) return false;
-    return pathname === href;
-  };
+  const isActive = (href: string) => pathname === href;
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+  const Logo = ({ className = "" }) => (
+    <Link href="/" className={`flex items-center space-x-2 ${className}`}>
+      <MessageCircle className="h-5 w-5" />
+      <span className="font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+        chatcn
+      </span>
+    </Link>
+  );
+
+  const NavLink = ({
+    href,
+    children,
+  }: {
+    href: string;
+    children: React.ReactNode;
+  }) => (
+    <Link
+      href={href}
+      className={`relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary ${
+        isActive(href) ? "text-primary" : "text-muted-foreground"
+      }`}
+    >
+      {children}
+      {isActive(href) && (
+        <span className="absolute inset-x-0 -bottom-px h-px bg-primary" />
+      )}
+    </Link>
+  );
 
   return (
-    <nav className="w-full px-4 md:px-8 flex items-center">
-      <div className="flex py-2 items-center justify-between w-full mx-auto max-w-7xl">
-        <div className="md:hidden block">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="font-bold py-2 px-3 hover:bg-muted rounded-md">
-                <Menu />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[280px] ">
-              <SheetTitle className="hidden">Collections</SheetTitle>
-              <SidebarContent isCurrentPath={isCurrentPath} />
-            </SheetContent>
-          </Sheet>
-        </div>
-        <div className="hidden md:flex gap-5 flex-1 justify-center">
-          <Link
-            href={"/docs"}
-            className="font-bold py-2 px-3 hover:bg-muted rounded-md"
-          >
-            Docs
-          </Link>
-          <Link
-            href={"/docs"}
-            className="font-bold py-2 px-3 hover:bg-muted rounded-md"
-          >
-            Components
-          </Link>
-          <Link
-            href={"https://github.com/sankalpaacharya/shadcn-collections"}
-            className="font-bold py-2 px-3 hover:bg-muted rounded-md"
-          >
-            Github
-          </Link>
-        </div>
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center px-4 md:px-8">
+        <Sheet>
+          <SheetTrigger asChild className="md:hidden mr-2">
+            <Button variant="ghost" size="icon">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[280px]">
+            <SheetTitle className="hidden">Navigation Menu</SheetTitle>
+            <SidebarContent isCurrentPath={isActive} />
+          </SheetContent>
+        </Sheet>
 
-        <div className="ml-auto">
-          {mounted && (
-            <Switch
-              checked={theme === "dark"}
-              onCheckedChange={(checked) =>
-                setTheme(checked ? "dark" : "light")
-              }
-            />
-          )}
+        <Logo className="mr-6 hidden md:flex" />
+
+        <div className="flex flex-1 items-center justify-between">
+          <nav className="hidden md:flex items-center space-x-1">
+            {navLinks.map(({ href, label }) => (
+              <NavLink key={href} href={href}>
+                {label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <Logo className="md:hidden text-lg" />
+
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              asChild
+              className="hidden md:inline-flex"
+            >
+              <Link
+                href="https://github.com/sankalpaacharya/shadcn-collections"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Link>
+            </Button>
+
+            {mounted && (
+              <Button variant="ghost" size="icon" onClick={toggleTheme}>
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </nav>
