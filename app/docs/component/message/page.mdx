@@ -3,10 +3,49 @@ import { calendarCode } from "@/lib/utils";
 import CodeBlock from "@/components/codeblock";
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
+import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+
+# Message
+Use Message Component to build conversation.
 
 
-<DocHeader title="Message" description="Use Message Component to build conversation" />
 
-Adding soon...
+##
+
+### Examples
+Message Basics
 
 <CodePreview component="message"/>
+
+
+<br/>
+<br/>
+
+## Installation
+
+<CommandBlock
+  title="Install Component"
+  defaultValue="pnpm"
+  className="w-full"
+  commands={[
+    {
+      label: "npm",
+      command: "npx shadcn@latest add https://shadcn-collections.vercel.app/c/message",
+    },
+    {
+      label: "yarn",
+      command: "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/message",
+    },
+    {
+      label: "pnpm",
+      command: "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/message",
+    },
+    {
+      label: "bun",
+      command: "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/message",
+    },
+  ]}
+/>
+
+<br/>
+<br/>

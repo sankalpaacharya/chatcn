@@ -3,10 +3,49 @@ import { calendarCode } from "@/lib/utils";
 import CodeBlock from "@/components/codeblock";
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
+import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+
+# Source
+An input field that allows users to enter and submit text to an AI model.
 
 
-<DocHeader title="Source" description="Provide External Source link" />
 
-Adding soon...
+##
+
+### Examples
+Source Basics
 
 <CodePreview component="source"/>
+
+
+<br/>
+<br/>
+
+## Installation
+
+<CommandBlock
+  title="Install Component"
+  defaultValue="pnpm"
+  className="w-full"
+  commands={[
+    {
+      label: "npm",
+      command: "npx shadcn@latest add https://shadcn-collections.vercel.app/c/source",
+    },
+    {
+      label: "yarn",
+      command: "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/source",
+    },
+    {
+      label: "pnpm",
+      command: "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/source",
+    },
+    {
+      label: "bun",
+      command: "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/source",
+    },
+  ]}
+/>
+
+<br/>
+<br/>

@@ -1,98 +1,53 @@
+import Heatmap from "@/components/heat-map";
+import { calendarCode } from "@/lib/utils";
+import CodeBlock from "@/components/codeblock";
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 import CodeSource from "@/components/codesource";
 
-<DocHeader
-  title="Command Tabs"
-  description="Display tabbed CLI commands for different package managers."
-/>
+# Command Tabs
+Display tabbed CLI commands for different package managers.
 
-<div className="space-y-10">
 
----
 
-## 📦 Installation
+##
 
-Use the CLI to install this component based on your preferred package manager:
-
-<CommandBlock
-  title="Install Component"
-  defaultValue="pnpm"
-  commands={[
-    {
-      label: "npm",
-      command:
-        "npx shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
-    },
-    {
-      label: "yarn",
-      command:
-        "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
-    },
-    {
-      label: "pnpm",
-      command:
-        "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
-    },
-    {
-      label: "bun",
-      command:
-        "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
-    },
-  ]}
-/>
-
----
-
-## 🔍 Preview & Usage
+### Examples
+Command Tabs Basics
 
 <CodePreview component="commandtabs" />
 
 
+<br/>
+<br/>
 
-## 🛠️ Manual Installation
-
-### 1. Create the Component
-
-Create a new file named `command-tabs.tsx` and paste the following code:
-
-<CodeSource component="command-tabs" />
-
----
-
-### 2. Add Required UI Dependencies
+## Installation
 
 <CommandBlock
-  title="Install Tooltip Component"
+  title="Install Component"
   defaultValue="pnpm"
+  className="w-full"
   commands={[
     {
       label: "npm",
-      command: "npx shadcn@latest add tooltip tabs",
+      command: "npx shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
     },
     {
       label: "yarn",
-      command: "yarn dlx shadcn@latest add tooltip tabs",
+      command: "yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
     },
     {
       label: "pnpm",
-      command: "pnpm dlx shadcn@latest add tooltip tabs",
+      command: "pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
     },
     {
       label: "bun",
-      command: "bunx --bun shadcn@latest add tooltip tabs",
+      command: "bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/command-tabs",
     },
   ]}
 />
 
----
-
-
-
-
-
-</div>
 
 <br/>
 <br/>

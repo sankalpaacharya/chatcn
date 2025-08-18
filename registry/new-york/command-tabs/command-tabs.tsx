@@ -49,7 +49,7 @@ function SingleCommandBlock({
   };
 
   return (
-    <div className={cn("w-full max-w-2xl mx-auto", className)}>
+    <div className={cn("w-full mx-auto", className)}>
       <div className="bg-card rounded-md border">
         {(title || showTerminalIcon) && (
           <>
@@ -123,7 +123,7 @@ function MultiCommandBlock({
     commands.find((cmd) => cmd.label === activeTab)?.command || "";
 
   return (
-    <div className={cn("w-full max-w-2xl mx-auto", className)}>
+    <div className={cn("w-full mx-auto", className)}>
       <Tabs
         value={activeTab}
         onValueChange={setActiveTab}

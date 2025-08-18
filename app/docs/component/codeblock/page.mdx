@@ -1,27 +1,33 @@
 import CodePreview from "@/components/code-preview";
 import DocHeader from "@/components/doc-header";
-import { CodeBlock } from "@/registry/new-york/codeblock/codeblock";
 import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
 import CodeSource from "@/components/codesource";
+import { CodeBlock } from "@/registry/new-york/codeblock/codeblock";
 
-<DocHeader
-  title="Code Block"
-  description="Display syntax-highlighted code snippets using Shiki."
-  links={[
-    { label: "Shiki Reference", href: "https://shiki.style/packages/next" },
-    { label: "Themes", href: "https://shiki.style/themes" },
-  ]}
-/>
+# Code Block
+Display syntax-highlighted code snippets using Shiki.
 
-<div className="space-y-10">
+[Shiki Reference](https://shiki.style/packages/next) • [Themes](https://shiki.style/themes)
 
-## 📦 Installation
 
-Install this component using the CLI:
+
+##
+
+### Examples
+Code Block Basics
+
+<CodePreview component="codeblock" />
+
+
+<br/>
+<br/>
+
+## Installation
 
 <CommandBlock
   title="Install Component"
   defaultValue="pnpm"
+  className="w-full"
   commands={[
     {
       label: "npm",
@@ -42,11 +48,11 @@ Install this component using the CLI:
   ]}
 />
 
-## 🔍 Preview
 
-<CodePreview component="codeblock" />
+<br/>
+<br/>
 
-## 🛠️ Manual Installation
+## Manual Installation
 
 ### 1. Create the Component
 
@@ -54,13 +60,14 @@ Create a new file named `codeblock.tsx` and paste the following code:
 
 <CodeSource component="codeblock" />
 
----
+<br/>
 
 ### 2. Add Required UI Dependencies
 
 <CommandBlock
   title="Install Tooltip Component"
   defaultValue="pnpm"
+  className="w-full"
   commands={[
     {
       label: "npm",
@@ -81,13 +88,14 @@ Create a new file named `codeblock.tsx` and paste the following code:
   ]}
 />
 
----
+<br/>
 
 ### 3. Install Shiki
 
 <CommandBlock
   title="Install Shiki"
   defaultValue="pnpm"
+  className="w-full"
   commands={[
     {
       label: "npm",
@@ -108,7 +116,11 @@ Create a new file named `codeblock.tsx` and paste the following code:
   ]}
 />
 
-## 🎨 Show Line Numbers
+
+<br/>
+<br/>
+
+## Show Line Numbers
 
 To show line numbers in your code block, add the following styles to your `global.css`:
 
@@ -129,4 +141,5 @@ code .line::before {
   color: gray;
 }`}</CodeBlock>
 
-</div>
+<br/>
+<br/>
