@@ -5,14 +5,58 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, CheckCircle2, XCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
-type ToolProps = {
+type State = "LOADING" | "COMPLETED" | "ERROR";
+
+export type StateBadgeProps = {
+  type: State;
   className?: string;
-  type: "LOADING" | "COMPLETED" | "ERROR";
+  children: React.ReactNode;
 };
 
-// make a badge different component
+export function StateBadge({ type, className, children }: StateBadgeProps) {
+  const getBadgeStyles = () => {
+    switch (type) {
+      case "LOADING":
+        return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400";
+      case "COMPLETED":
+        return "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400";
+      case "ERROR":
+        return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400";
+      default:
+        return "";
+    }
+  };
+
+  const getIcon = () => {
+    switch (type) {
+      case "LOADING":
+        return <LoaderCircle className="animate-spin w-3.5 h-3.5" />;
+      case "COMPLETED":
+        return <CheckCircle2 className="w-3.5 h-3.5" />;
+      case "ERROR":
+        return <XCircle className="w-3.5 h-3.5" />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <Badge
+      className={cn(
+        "flex items-center gap-1 rounded-full",
+        getBadgeStyles(),
+        className
+      )}
+    >
+      {getIcon()}
+      {children}
+    </Badge>
+  );
+}
 
 export function Tool() {
   return (
@@ -29,6 +73,7 @@ export function Tool() {
               size={18}
             />
             Is it accessible?
+            <StateBadge type="COMPLETED">Completed</StateBadge>
           </div>
         </AccordionTrigger>
         <AccordionContent>
