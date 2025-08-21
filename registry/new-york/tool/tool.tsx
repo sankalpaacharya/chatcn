@@ -17,7 +17,7 @@ export type StateBadgeProps = {
   children: React.ReactNode;
 };
 
-export function StateBadge({ type, className, children }: StateBadgeProps) {
+export function ToolStateBadge({ type, className, children }: StateBadgeProps) {
   const getBadgeStyles = () => {
     switch (type) {
       case "LOADING":
@@ -58,7 +58,14 @@ export function StateBadge({ type, className, children }: StateBadgeProps) {
   );
 }
 
-export function Tool() {
+type ToolProps = {
+  children?: React.ReactNode;
+  output?: Record<string, unknown>;
+  input?: Record<string, unknown>;
+  errorText?: string;
+};
+
+export function Tool({ children, output, input, errorText }: ToolProps) {
   return (
     <Accordion
       type="single"
@@ -73,31 +80,45 @@ export function Tool() {
               size={18}
             />
             Is it accessible?
-            <StateBadge type="COMPLETED">Completed</StateBadge>
+            {children}
           </div>
         </AccordionTrigger>
         <AccordionContent>
-          <Tabs defaultValue="account" className="w-[400px]">
+          <Tabs defaultValue="table" className="w-[400px]">
             <TabsList className="bg-transparent w-full">
               <TabsTrigger
-                value="account"
+                value="table"
                 className="text-muted-foreground data-[state=active]:text-foreground px-0 text-sm data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
               >
                 Table
               </TabsTrigger>
               <TabsTrigger
-                value="password"
+                value="json"
                 className="text-muted-foreground data-[state=active]:text-foreground px-0 text-sm data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
               >
                 JSON
               </TabsTrigger>
             </TabsList>
-            <TabsContent value="account">
-              Make changes to your account here.
+            <TabsContent value="table" className="space-y-4">
+              <div className="space-y-2">
+                <p className="text-muted-foreground">Input</p>
+                <div className="border p-2 rounded text-sm">
+                  {Object.keys(input ?? {}).map((key, index) => (
+                    <div key={index}>
+                      <span className="text-muted-foreground">{key}</span>:{" "}
+                      {String(input?.[key])}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-2">
+                <p className="text-muted-foreground">Output</p>
+                <pre className="whitespace-pre-wrap break-words h-72 overflow-auto border p-2 rounded">
+                  {JSON.stringify(output ?? {}, null, 2)}
+                </pre>
+              </div>
             </TabsContent>
-            <TabsContent value="password">
-              Change your password here.
-            </TabsContent>
+            <TabsContent value="json">Change your password here.</TabsContent>
           </Tabs>
         </AccordionContent>
       </AccordionItem>
