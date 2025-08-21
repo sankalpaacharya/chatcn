@@ -83,7 +83,7 @@ export function Tool({ children, output, input, errorText }: ToolProps) {
             {children}
           </div>
         </AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="flex justify-center">
           <Tabs defaultValue="table" className="w-[400px]">
             <TabsList className="bg-transparent w-full">
               <TabsTrigger
