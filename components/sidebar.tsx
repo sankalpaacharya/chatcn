@@ -81,6 +81,12 @@ export function SidebarContent({
       isNew: true,
     },
     {
+      label: "Tool",
+      href: "/docs/component/tool",
+      type: "link",
+      isNew: true,
+    },
+    {
       label: "Calendar",
       href: "/docs/component/calendar",
       type: "link",

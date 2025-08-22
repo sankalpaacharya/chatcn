@@ -1,7 +1,7 @@
 "use client";
 import { Tool, ToolStateBadge } from "@/registry/new-york/tool/tool";
 
-export default function Page() {
+export default function ToolPreview() {
   return (
     <div className="p-4 flex justify-center">
       <Tool
