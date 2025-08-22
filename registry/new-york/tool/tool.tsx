@@ -118,7 +118,22 @@ export function Tool({ children, output, input, errorText }: ToolProps) {
                 </pre>
               </div>
             </TabsContent>
-            <TabsContent value="json">Change your password here.</TabsContent>
+            <TabsContent value="json">
+              <div className="space-y-2">
+                <p className="text-muted-foreground">Input</p>
+                <div className="space-y-3">
+                  <pre className="whitespace-pre-wrap break-words h-72 overflow-auto border p-2 rounded text-xs b">
+                    {JSON.stringify(output ?? {}, null, 2)}
+                  </pre>
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground">Output</p>
+                    <pre className="whitespace-pre-wrap break-words h-72 overflow-auto border p-2 rounded text-xs">
+                      {JSON.stringify(output ?? {}, null, 2)}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
           </Tabs>
         </AccordionContent>
       </AccordionItem>
