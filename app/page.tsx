@@ -8,13 +8,13 @@ import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york/message/message";
+} from "@/registry/new-york/message";
 import {
   PromptInput,
   PromptInputAction,
   PromptInputActions,
   PromptInputTextArea,
-} from "@/registry/new-york/prompt-input/prompt-input";
+} from "@/registry/new-york/prompt-input";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);

@@ -1,5 +1,5 @@
 "use client";
-import { File } from "@/registry/new-york/file/file";
+import { File } from "@/registry/new-york/file";
 import { FileJson } from "lucide-react";
 
 export default function FilePreview() {

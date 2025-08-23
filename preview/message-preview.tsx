@@ -3,7 +3,7 @@ import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york/message/message";
+} from "@/registry/new-york/message";
 
 type Props = {};
 

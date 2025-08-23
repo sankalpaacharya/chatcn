@@ -4,7 +4,7 @@ import {
   CodeEditArea,
   CodeEditorActions,
   CodeEditorAction,
-} from "@/registry/new-york/code-editor/code-editor";
+} from "@/registry/new-york/code-editor";
 import { Play, Copy, Download, RotateCcw } from "lucide-react";
 import { useState } from "react";
 import {

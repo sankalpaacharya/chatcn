@@ -1,5 +1,5 @@
 "use client";
-import { Tool, ToolStateBadge } from "@/registry/new-york/tool/tool";
+import { Tool, ToolStateBadge } from "@/registry/new-york/tool";
 
 export default function ToolPreview() {
   return (

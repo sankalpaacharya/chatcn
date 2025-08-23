@@ -1,3 +1,3 @@
-import { CodeBlock } from "@/registry/new-york/codeblock/codeblock";
+import { CodeBlock } from "@/registry/new-york/codeblock";
 
 export { CodeBlock };

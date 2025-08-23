@@ -3,7 +3,7 @@ import {
   Source,
   SourceContent,
   SourceTrigger,
-} from "@/registry/new-york/source/source";
+} from "@/registry/new-york/source";
 
 export default function SourcePreview() {
   return (

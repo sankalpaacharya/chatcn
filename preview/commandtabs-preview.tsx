@@ -1,5 +1,5 @@
 import React from "react";
-import CommandBlock from "@/registry/new-york/command-tabs/command-tabs";
+import CommandBlock from "@/registry/new-york/command-tabs";
 export default function CommandTabsDemo() {
   const packageManagerCommands = [
     { label: "pnpm", command: "pnpm add shadcn@latest add tabs" },
