@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlock } from "@/registry/new-york/codeblock";
@@ -17,6 +17,7 @@ export default function ComponentPreviewInternal({
   children?: ReactNode;
 }) {
   const Component = getComponent(component);
+  const { theme } = useTheme();
 
   return (
     <div className="w-full max-w-full overflow-hidden">
@@ -36,37 +37,33 @@ export default function ComponentPreviewInternal({
           </TabsTrigger>
         </TabsList>
 
-        <Card className="border bg-background w-full overflow-hidden">
-          <CardContent className="w-full p-3 sm:p-6">
-            <TabsContent value="preview" className="mt-0 w-full">
-              <div className="w-full min-h-[200px] sm:min-h-[300px] flex items-center justify-center overflow-auto">
-                <Suspense
-                  fallback={
-                    <div className="flex items-center justify-center w-full h-32">
-                      <p className="text-muted-foreground text-sm">
-                        Loading...
-                      </p>
-                    </div>
-                  }
-                >
-                  <div className="w-full max-w-full not-prose">
-                    <Component />
-                  </div>
-                </Suspense>
+        <TabsContent value="preview" className="mt-0 w-full">
+          <div className="w-full min-h-[200px] sm:min-h-[300px] flex items-center justify-center overflow-auto border rounded-lg p-5">
+            <Suspense
+              fallback={
+                <div className="flex items-center justify-center w-full h-32">
+                  <p className="text-muted-foreground text-sm">Loading...</p>
+                </div>
+              }
+            >
+              <div className="w-full max-w-full not-prose">
+                <Component />
               </div>
-            </TabsContent>
+            </Suspense>
+          </div>
+        </TabsContent>
 
-            <TabsContent value="code" className="mt-0 w-full not-prose">
-              <CodeBlock
-                lang="tsx"
-                height="400px"
-                className="w-full max-w-full"
-              >
-                {code}
-              </CodeBlock>
-            </TabsContent>
-          </CardContent>
-        </Card>
+        <TabsContent value="code" className="mt-0 w-full not-prose">
+          <CodeBlock
+            theme={
+              theme === "dark" ? "github-dark-default" : "github-light-default"
+            }
+            lang="tsx"
+            className="w-full max-w-full min-h-[200px] sm:min-h-[300px] overflow-auto"
+          >
+            {code}
+          </CodeBlock>
+        </TabsContent>
       </Tabs>
     </div>
   );

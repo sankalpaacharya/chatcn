@@ -1,30 +1,24 @@
+"use client";
 import React from "react";
+import { useTheme } from "next-themes";
 import { CodeBlock } from "@/components/codeblock";
 
 export default function CodeBlockPreview() {
+  const { theme } = useTheme();
+
   return (
     <CodeBlock
       lang="tsx"
-      theme="github-dark-default"
-    >{`import { useEffect, useState } from "react";
-
-function UsersList() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
-
-  return (
-    <ul>
-      {users.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
+      theme={
+        theme === "dark" || theme === "black"
+          ? "github-dark-default"
+          : "github-light-default"
+      }
+    >{`function addNumbers(a, b) {
+  return \`The sum of \${a} and \${b} is \${a + b}\`;
 }
-    `}</CodeBlock>
+
+// Call the function
+addNumbers(5, 7);`}</CodeBlock>
   );
 }
