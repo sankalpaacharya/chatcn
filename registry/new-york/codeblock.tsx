@@ -25,11 +25,12 @@ export function CodeBlock({
   height = "600",
   className,
 }: Props) {
-  const [html, setHtml] = useState<string>("");
+  const [html, setHtml] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const generateHtml = async () => {
+      if (!children) setHtml("<pre><code></code></pre>");
       const out = await codeToHtml(children, {
         lang,
         theme,
@@ -42,7 +43,7 @@ export function CodeBlock({
     };
 
     generateHtml();
-  }, [children, lang]);
+  }, [children, lang, theme]);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(children);
@@ -50,25 +51,10 @@ export function CodeBlock({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (!html) {
-    return (
-      <div
-        className={cn("relative rounded-md border animate-pulse", className)}
-      >
-        <div className="bg-muted h-8 rounded-t-md" />
-        <div className="p-4 space-y-2">
-          <div className="h-4 bg-muted rounded w-3/4" />
-          <div className="h-4 bg-muted rounded w-1/2" />
-          <div className="h-4 bg-muted rounded w-2/3" />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
       className={cn(
-        "relative rounded-md md:text-xl overflow-auto border shadow",
+        "relative rounded-md md:text-xl overflow-auto border bg-card",
         className
       )}
       style={{ height: "100%", maxHeight: `${height}px` }}
@@ -87,10 +73,25 @@ export function CodeBlock({
         </Tooltip>
       </div>
 
-      <div
-        className="overflow-x-auto w-full bg-card flex [&_pre]:w-full [&_pre]:m-0"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      {html == null ? (
+        <div className="w-full overflow-x-auto text-base [&>pre]:px-4 [&>pre]:py-4">
+          <pre className="bg-card text-foreground">
+            <code>
+              {children.split("\n").map((line, i) => (
+                <span key={i} className="line">
+                  {line}
+                  {"\n"}
+                </span>
+              ))}
+            </code>
+          </pre>
+        </div>
+      ) : (
+        <div
+          className="w-full overflow-x-auto text-base [&>pre]:px-4 [&>pre]:py-4"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      )}
     </div>
   );
 }

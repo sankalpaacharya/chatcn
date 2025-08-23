@@ -15,6 +15,7 @@ import { useTheme } from "next-themes";
 
 const navLinks = [
   { href: "/docs", label: "Docs" },
+  { href: "/templates", label: "Templates" },
   { href: "/examples", label: "Examples" },
 ];
 

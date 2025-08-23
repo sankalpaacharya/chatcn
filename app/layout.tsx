@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "shadcn-collections",
-  description: "Collection of components built with shadcn",
+  title: "Chatcn",
+  description: "Customizable components for building AI chat apps, faster.",
 };
 
 export default function RootLayout({
@@ -42,8 +42,6 @@ export default function RootLayout({
             <Navbar />
             <Separator />
             <div className="flex-1 min-h-0">{children}</div>
-            <Separator />
-            <Footer />
           </div>
         </ThemeProvider>
         <Script
