@@ -42,43 +42,36 @@ export function SidebarContent({
       label: "Code Block",
       href: "/docs/component/codeblock",
       type: "link",
-      isNew: false,
     },
     {
       label: "Command Tabs",
       href: "/docs/component/commandtabs",
       type: "link",
-      isNew: false,
     },
     {
       label: "Prompt Input",
       href: "/docs/component/prompt-input",
       type: "link",
-      isNew: true,
     },
     {
       label: "Source",
       href: "/docs/component/source",
       type: "link",
-      isNew: true,
     },
     {
       label: "Code Editor",
       href: "/docs/component/code-editor",
       type: "link",
-      isNew: true,
     },
     {
       label: "Message",
       href: "/docs/component/message",
       type: "link",
-      isNew: true,
     },
     {
       label: "File",
       href: "/docs/component/file",
       type: "link",
-      isNew: true,
     },
     {
       label: "Tool",

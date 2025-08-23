@@ -77,14 +77,6 @@ export function ToolStateBadge({ className }: StateBadgeProps) {
   );
 }
 
-type ToolProps = {
-  children?: React.ReactNode;
-  output?: Record<string, unknown>;
-  input?: Record<string, unknown>;
-  errorText?: string;
-  state: State;
-};
-
 const getTriggerIcon = (state: string) => {
   switch (state) {
     case "LOADING":
@@ -128,7 +120,23 @@ function RenderTable({ data }: RenderTableProps) {
   );
 }
 
-export function Tool({ children, output, input, errorText, state }: ToolProps) {
+type ToolProps = {
+  children?: React.ReactNode;
+  output?: Record<string, unknown>;
+  input?: Record<string, unknown>;
+  name: string;
+  errorText?: string;
+  state: State;
+};
+
+export function Tool({
+  children,
+  output,
+  input,
+  errorText,
+  state,
+  name,
+}: ToolProps) {
   const [badgeState, setbadgeState] = useState<State>(state);
   useEffect(() => {
     setbadgeState(state);
@@ -152,7 +160,7 @@ export function Tool({ children, output, input, errorText, state }: ToolProps) {
           <AccordionTrigger className="no-underline hover:no-underline">
             <div className="flex gap-2 items-center">
               {getTriggerIcon(badgeState)}
-              GMAIL_FETCH_GMAIL
+              {name}
               {children}
             </div>
           </AccordionTrigger>

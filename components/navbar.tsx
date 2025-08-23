@@ -13,7 +13,10 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
-const navLinks = [{ href: "/docs", label: "Docs" }];
+const navLinks = [
+  { href: "/docs", label: "Docs" },
+  { href: "/examples", label: "Examples" },
+];
 
 export default function Navbar() {
   const pathname = usePathname();

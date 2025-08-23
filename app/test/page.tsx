@@ -4,6 +4,7 @@ export default function Page() {
   return (
     <div className="p-4 flex justify-center">
       <Tool
+        name="WEATHER_FETCH"
         state="COMPLETED"
         input={{
           city: "Kathmandu",

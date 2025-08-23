@@ -5,6 +5,7 @@ export default function ToolPreview() {
   return (
     <div className="flex justify-center">
       <Tool
+        name="WEATHER_FETCH"
         state="COMPLETED"
         input={{
           city: "Kathmandu",
