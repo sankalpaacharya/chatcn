@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
-import CodePreviewInternal from "./code-preview_internal";
+import ComponentPreviewInternal from "./component-preview_internal";
 
-export default async function CodePreview({
+export default async function ComponentPreview({
   component,
 }: {
   component: string;
@@ -10,5 +10,5 @@ export default async function CodePreview({
   const filePath = path.join(process.cwd(), `preview/${component}-preview.tsx`);
   const fileContent = await fs.readFile(filePath, "utf-8");
 
-  return <CodePreviewInternal component={component} code={fileContent} />;
+  return <ComponentPreviewInternal component={component} code={fileContent} />;
 }

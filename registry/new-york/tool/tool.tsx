@@ -1,3 +1,4 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
@@ -109,7 +110,7 @@ type RenderTableProps = {
 function RenderTable({ data }: RenderTableProps) {
   if (!data) return null;
   return (
-    <div className="border p-2 rounded text-sm max-h-64 overflow-auto">
+    <div className="border p-2 px-3 rounded text-sm max-h-64 overflow-auto">
       {Object.entries(data).map(([key, value]) => (
         <div
           key={key}

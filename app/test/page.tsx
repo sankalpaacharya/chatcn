@@ -1,4 +1,3 @@
-"use client";
 import { Tool, ToolStateBadge } from "@/registry/new-york/tool/tool";
 
 export default function Page() {
@@ -29,6 +28,8 @@ export default function Page() {
               condition: "Light Rain",
             },
           ],
+          doorcast: 10,
+          successful: true,
         }}
       >
         <ToolStateBadge />

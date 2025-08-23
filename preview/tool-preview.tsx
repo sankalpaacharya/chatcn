@@ -3,7 +3,7 @@ import { Tool, ToolStateBadge } from "@/registry/new-york/tool/tool";
 
 export default function ToolPreview() {
   return (
-    <div className="p-4 flex justify-center">
+    <div className="flex justify-center">
       <Tool
         state="COMPLETED"
         input={{
