@@ -84,9 +84,7 @@ function SingleCommandBlock({
           </>
         )}
         <div className="px-4 font-mono bg-card overflow-x-auto">
-          <p className="text-muted-foreground break-words whitespace-pre-wrap">
-            {command}
-          </p>
+          <p className="break-words whitespace-pre-wrap">{command}</p>
         </div>
       </div>
     </div>
@@ -142,7 +140,7 @@ function MultiCommandBlock({
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
+                  className="data-[state=active]:bg-secondary data-[state=active]:text-foreground data-[state=active]:shadow-none"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -172,9 +170,7 @@ function MultiCommandBlock({
             value={tab.label}
             className="mt-0 px-4 font-mono bg-card rounded-b-md overflow-x-auto"
           >
-            <p className="text-muted-foreground break-words whitespace-pre-wrap">
-              {tab.command}
-            </p>
+            <p className="break-words whitespace-pre-wrap">{tab.command}</p>
           </TabsContent>
         ))}
       </Tabs>

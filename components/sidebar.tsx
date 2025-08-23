@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -89,7 +88,7 @@ export function SidebarContent({
   return (
     <div className="flex flex-col h-full">
       <Separator />
-      <nav className="p-6 pt-4 space-y-1">
+      <nav className="p-6 pt-4 space-y-2">
         {sidebarLinks.map((link) => (
           <SidebarLink
             key={link.label}
@@ -115,7 +114,7 @@ function SidebarLink({
   return type === "link" ? (
     <Link
       href={href}
-      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-meidum transition-colors ${
         isSelected
           ? "bg-accent"
           : "hover:bg-accent hover:text-accent-foreground"
