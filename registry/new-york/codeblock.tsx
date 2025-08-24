@@ -15,6 +15,7 @@ type Props = {
   lang: BundledLanguage;
   height?: string;
   className?: string;
+  highlight?: { start: number; end: number };
   theme?: string;
 };
 
@@ -24,6 +25,7 @@ export function CodeBlock({
   lang,
   height = "600",
   className,
+  highlight,
 }: Props) {
   const [html, setHtml] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -38,6 +40,15 @@ export function CodeBlock({
           "#0d1117": "var(--card)",
           "#ffffff": "var(--card)",
         },
+        decorations: highlight
+          ? [
+              {
+                start: { line: highlight.start - 1, character: 0 },
+                end: { line: highlight.end, character: 0 },
+                properties: { class: "bg-muted inline-block" },
+              },
+            ]
+          : [],
       });
       setHtml(out);
     };
@@ -74,7 +85,7 @@ export function CodeBlock({
       </div>
 
       {html == null ? (
-        <div className="w-full overflow-x-auto text-base [&>pre]:px-4 [&>pre]:py-4">
+        <div className="w-full overflow-x-auto text-sm md:text-base [&>pre]:px-4 [&>pre]:py-4">
           <pre className="bg-card text-foreground">
             <code>
               {children.split("\n").map((line, i) => (
@@ -88,7 +99,9 @@ export function CodeBlock({
         </div>
       ) : (
         <div
-          className="w-full overflow-x-auto text-base [&>pre]:px-4 [&>pre]:py-4"
+          className={cn(
+            "w-full overflow-x-auto md:text-base text-sm [&>pre]:px-4 [&>pre]:py-4"
+          )}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )}
