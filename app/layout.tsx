@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="flex flex-col h-screen overflow-hidden ">
             <Navbar />
             <Separator />
-            <div className="flex-1 min-h-0">{children}</div>
+            <div className="flex-1 min-h-0 font-sans">{children}</div>
           </div>
         </ThemeProvider>
         <Script

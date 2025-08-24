@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function PromptInputPreview() {
+export default function PromptInputActionsPreview() {
   return (
     <div className="max-w-xl mx-auto mt-10">
       <PromptInput>

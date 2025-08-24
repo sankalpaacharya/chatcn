@@ -1,8 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 
 type SidebarLink = {
   label: string;
@@ -13,6 +17,7 @@ type SidebarLink = {
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   const isCurrentPath = (href: string) => {
     if (!href) return false;
@@ -24,14 +29,37 @@ export default function Sidebar() {
       <aside className="hidden md:flex h-full w-[280px] border-r bg-background">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
+
+      <div className="md:hidden">
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="fixed top-4 left-4 z-40"
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[280px] p-0">
+            <SidebarContent
+              isCurrentPath={isCurrentPath}
+              onNavigate={() => setOpen(false)}
+            />
+          </SheetContent>
+        </Sheet>
+      </div>
     </>
   );
 }
 
 export function SidebarContent({
   isCurrentPath,
+  onNavigate,
 }: {
   isCurrentPath: (href: string) => boolean;
+  onNavigate?: () => void;
 }) {
   const sidebarLinks: SidebarLink[] = [
     { label: "Getting Started", href: "", type: "heading" },
@@ -85,6 +113,7 @@ export function SidebarContent({
       isNew: false,
     },
   ];
+
   return (
     <div className="flex flex-col h-full">
       <Separator />
@@ -97,6 +126,7 @@ export function SidebarContent({
             isSelected={isCurrentPath(link.href)}
             href={link.href}
             isNew={link.isNew}
+            onNavigate={onNavigate}
           />
         ))}
       </nav>
@@ -110,11 +140,13 @@ function SidebarLink({
   type,
   isSelected,
   isNew = false,
-}: SidebarLink & { isSelected: boolean }) {
+  onNavigate,
+}: SidebarLink & { isSelected: boolean; onNavigate?: () => void }) {
   return type === "link" ? (
     <Link
       href={href}
-      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-meidum transition-colors ${
+      onClick={onNavigate}
+      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${
         isSelected
           ? "bg-accent"
           : "hover:bg-accent hover:text-accent-foreground"
