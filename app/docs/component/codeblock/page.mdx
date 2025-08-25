@@ -1,9 +1,3 @@
-import ComponentPreview from "@/components/component-preview";
-import DocHeader from "@/components/doc-header";
-import CommandBlock from "@/registry/new-york/command-tabs";
-import CodeSource from "@/components/codesource";
-import { CodeBlock } from "@/registry/new-york/codeblock";
-
 # Code Block
 Display syntax-highlighted code snippets using Shiki.
 
@@ -122,15 +116,12 @@ Create a new file named `codeblock.tsx` and paste the following code:
 />
 
 
-<br/>
-<br/>
 
 ## Show Line Numbers
 
 To show line numbers in your code block, add the following styles to your `global.css`:
 
-<CodeBlock lang="css">{`
-code {
+<CodeBlock lang="css">{`code {
   counter-reset: step;
   counter-increment: step 0;
   margin: 0;

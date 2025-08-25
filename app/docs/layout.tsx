@@ -7,7 +7,7 @@ export default function DocLayout({ children }: { children: ReactNode }) {
       <Sidebar />
 
       <main className="flex-1 overflow-y-auto">
-        <div className="prose dark:prose-invert max-w-4xl py-10 mx-auto pb-30 pt-16 lg:pt-10">
+        <div className="prose dark:prose-invert max-w-4xl  mx-auto pb-10 mt-10">
           {children}
         </div>
       </main>

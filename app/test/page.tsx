@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useTheme } from "next-themes";
-import { CodeBlock } from "@/components/codeblock";
+import { CodeBlock } from "@/registry/new-york/codeblock";
 
 export default function CodeBlockPreview() {
   const { theme } = useTheme();

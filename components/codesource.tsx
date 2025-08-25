@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { CodeBlock } from "./codeblock";
+import CodeBlockClientWrapper from "./code-block-client-wrapper";
 
 export default async function CodeSource({ component }: { component: string }) {
   const filePath = path.join(
@@ -8,5 +8,7 @@ export default async function CodeSource({ component }: { component: string }) {
     `registry/new-york/${component}.tsx`
   );
   const fileContent = await fs.readFile(filePath, "utf-8");
-  return <CodeBlock lang="tsx">{fileContent}</CodeBlock>;
+  return (
+    <CodeBlockClientWrapper lang="tsx">{fileContent}</CodeBlockClientWrapper>
+  );
 }
