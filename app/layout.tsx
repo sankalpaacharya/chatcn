@@ -37,10 +37,10 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="flex flex-col h-screen overflow-hidden ">
+          <div className="flex flex-col h-screen">
             <Navbar />
             <Separator />
-            <div className="flex-1 min-h-0 font-sans">{children}</div>
+            <div className="flex-1 overflow-hidden font-sans">{children}</div>
           </div>
         </ThemeProvider>
         <Script

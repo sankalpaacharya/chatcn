@@ -1,33 +1,17 @@
-import Heatmap from "@/components/heat-map";
-import { calendarCode } from "@/lib/utils";
-import CodeBlock from "@/components/codeblock";
-import ComponentPreview from "@/components/component-preview";
-import DocHeader from "@/components/doc-header";
-import CommandBlock from "@/registry/new-york/command-tabs";
-import CodeSource from "@/components/codesource";
-
 # Command Tabs
 Display tabbed CLI commands for different package managers.
 
-
-
-##
 
 ### Examples
 Command Tabs Basics
 
 <ComponentPreview component="commandtabs" />
 
-
-<br/>
-<br/>
-
 ## Installation
 
 <CommandBlock
   title="Install Component"
   defaultValue="pnpm"
-  className="w-full"
   commands={[
     {
       label: "npm",

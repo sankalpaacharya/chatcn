@@ -1,7 +1,9 @@
 import type { MDXComponents } from "mdx/types";
 import Reference from "@/components/reference";
 import ComponentPreview from "./components/component-preview";
-import CommandBlock from "./registry/new-york/command-tabs";
+import CommandBlock, {
+  CommandBlockProps,
+} from "./registry/new-york/command-tabs";
 import CodeBlockClientWrapper from "./components/code-block-client-wrapper";
 import CodeSource from "./components/codesource";
 
@@ -10,7 +12,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
     Reference: Reference,
     ComponentPreview: ComponentPreview,
-    CommandBlock: CommandBlock,
+    CommandBlock: ({ ...props }: CommandBlockProps) => (
+      <CommandBlock className="not-prose" {...props} />
+    ),
     CodeBlock: CodeBlockClientWrapper,
     CodeSource: CodeSource,
   };

@@ -16,7 +16,7 @@ interface CommandItem {
   command: string;
 }
 
-interface CommandBlockProps {
+export interface CommandBlockProps {
   title?: string;
   command?: string;
   commands?: CommandItem[];
@@ -83,7 +83,7 @@ function SingleCommandBlock({
             <Separator />
           </>
         )}
-        <div className="px-4 font-mono bg-card overflow-x-auto">
+        <div className="px-4 font-mono bg-card overflow-x-auto p-4">
           <p className="break-words whitespace-pre-wrap">{command}</p>
         </div>
       </div>
@@ -168,7 +168,7 @@ function MultiCommandBlock({
           <TabsContent
             key={tab.label}
             value={tab.label}
-            className="mt-0 px-4 font-mono bg-card rounded-b-md overflow-x-auto"
+            className="mt-0 p-4 font-mono bg-card rounded-b-md overflow-x-auto"
           >
             <p className="break-words whitespace-pre-wrap">{tab.command}</p>
           </TabsContent>
