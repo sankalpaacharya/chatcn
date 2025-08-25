@@ -6,6 +6,7 @@ import CommandBlock, {
 } from "./registry/new-york/command-tabs";
 import CodeBlockClientWrapper from "./components/code-block-client-wrapper";
 import CodeSource from "./components/codesource";
+import Installation from "./components/installation";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -17,5 +18,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     CodeBlock: CodeBlockClientWrapper,
     CodeSource: CodeSource,
+    Installation: Installation,
   };
 }

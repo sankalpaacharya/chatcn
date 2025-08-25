@@ -221,7 +221,6 @@ export function Tool({
                     </div>
                   </div>
                 )}
-
                 {badgeState === "COMPLETED" && (
                   <>
                     <div className="space-y-2">
