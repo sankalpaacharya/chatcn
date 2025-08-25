@@ -181,31 +181,65 @@ export function Tool({
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="table" className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Input</p>
-                  <RenderTable data={input} />
-                </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Output</p>
+                {badgeState === "LOADING" && (
+                  <p className="animate-pulse">Processing...</p>
+                )}
 
-                  <RenderTable data={output} />
-                </div>
-              </TabsContent>
-              <TabsContent value="json">
-                <div className="space-y-2">
-                  <p className="text-muted-foreground">Input</p>
-                  <div className="space-y-3">
-                    <pre className="whitespace-pre-wrap break-words h-28 overflow-auto border p-2 rounded text-sm b">
-                      {JSON.stringify(input ?? {}, null, 2)}
-                    </pre>
-                    <div className="space-y-2">
-                      <p className="text-muted-foreground">Output</p>
-                      <pre className="whitespace-pre-wrap break-words h-72 overflow-auto border p-2 rounded text-sm">
-                        {JSON.stringify(output ?? {}, null, 2)}
-                      </pre>
+                {badgeState === "ERROR" && errorText && (
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground">Error</p>
+                    <div className="border p-2 rounded text-sm text-red-500 bg-red-50 dark:bg-red-900/20">
+                      {errorText}
                     </div>
                   </div>
-                </div>
+                )}
+
+                {badgeState === "COMPLETED" && (
+                  <>
+                    <div className="space-y-2">
+                      <p className="text-muted-foreground">Input</p>
+                      <RenderTable data={input} />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-muted-foreground">Output</p>
+
+                      <RenderTable data={output} />
+                    </div>
+                  </>
+                )}
+              </TabsContent>
+              <TabsContent value="json">
+                {badgeState === "LOADING" && (
+                  <p className="animate-pulse">Processing...</p>
+                )}
+
+                {badgeState === "ERROR" && errorText && (
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground">Error</p>
+                    <div className="border p-2 rounded text-sm text-red-500 bg-red-50 dark:bg-red-900/20">
+                      {errorText}
+                    </div>
+                  </div>
+                )}
+
+                {badgeState === "COMPLETED" && (
+                  <>
+                    <div className="space-y-2">
+                      <p className="text-muted-foreground">Input</p>
+                      <div className="space-y-3">
+                        <pre className="whitespace-pre-wrap break-words max-h-28 overflow-auto border p-2 rounded text-sm b">
+                          {JSON.stringify(input ?? {}, null, 2)}
+                        </pre>
+                        <div className="space-y-2">
+                          <p className="text-muted-foreground">Output</p>
+                          <pre className="whitespace-pre-wrap break-words max-h-72 overflow-auto border p-2 rounded text-sm">
+                            {JSON.stringify(output ?? {}, null, 2)}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </TabsContent>
             </Tabs>
           </AccordionContent>

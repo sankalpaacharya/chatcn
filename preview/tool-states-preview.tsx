@@ -1,12 +1,27 @@
+import React from "react";
 import { Tool, ToolStateBadge } from "@/registry/new-york/tool";
 
-export default function ToolPreview() {
+export default function ToolStatePreview() {
   return (
-    <div className="flex justify-center">
+    <div className="space-y-4 flex flex-col items-center">
+      <Tool
+        name="WEATHER_FETCH"
+        state="LOADING"
+        errorText="Please prodive all the necessary details"
+      >
+        <ToolStateBadge />
+      </Tool>
+      <Tool
+        name="WEATHER_FETCH"
+        state="ERROR"
+        errorText="Please prodive all the necessary details"
+      >
+        <ToolStateBadge />
+      </Tool>
+
       <Tool
         name="WEATHER_FETCH"
         state="COMPLETED"
-        errorText="Please prodive all the necessary details"
         input={{
           city: "Kathmandu",
           units: "metric",
