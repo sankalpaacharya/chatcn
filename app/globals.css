@@ -123,6 +123,7 @@
   }
 }
 
+
 code {
   counter-reset: step;
   counter-increment: step 0;
@@ -141,8 +142,4 @@ code .line::before {
 }
 
 
-
-.prose h1{
-  margin: 0;
-}
 
