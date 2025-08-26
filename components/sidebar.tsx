@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden md:flex h-full w-[280px] border-r bg-background">
+      <aside className="hidden md:flex h-full w-92 bg-background">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
