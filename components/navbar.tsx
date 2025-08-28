@@ -62,7 +62,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center px-4 md:px-8">
         <Sheet>
-          <SheetTrigger asChild className="md:hidden mr-2">
+          <SheetTrigger asChild className="xl:hidden mr-2">
             <Button variant="ghost" size="icon">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
@@ -74,10 +74,10 @@ export default function Navbar() {
           </SheetContent>
         </Sheet>
 
-        <Logo className="mr-6 hidden md:flex" />
+        <Logo className="mr-6 hidden xl:flex" />
 
         <div className="flex flex-1 items-center justify-between">
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden xl:flex items-center space-x-1">
             {navLinks.map(({ href, label }) => (
               <NavLink key={href} href={href}>
                 {label}
@@ -85,14 +85,14 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Logo className="md:hidden text-lg" />
+          <Logo className="xl:hidden text-lg" />
 
           <div className="flex items-center space-x-2">
             <Button
               variant="ghost"
               size="icon"
               asChild
-              className="hidden md:inline-flex"
+              className="hidden xl:inline-flex"
             >
               <Link
                 href="https://github.com/sankalpaacharya/shadcn-collections"

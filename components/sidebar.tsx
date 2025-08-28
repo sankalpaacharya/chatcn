@@ -26,11 +26,11 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden md:flex h-full w-92 bg-background">
+      <aside className="hidden xl:block h-full w-62 bg-background sticky top-0">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
-      <div className="md:hidden">
+      <div className="xl:hidden">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button

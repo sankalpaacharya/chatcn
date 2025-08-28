@@ -39,7 +39,6 @@ export default function RootLayout({
         >
           <div className="flex flex-col h-screen">
             <Navbar />
-            <Separator />
             <div className="flex-1 overflow-hidden font-sans">{children}</div>
           </div>
         </ThemeProvider>

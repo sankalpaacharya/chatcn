@@ -20,9 +20,9 @@ export default function ComponentPreviewInternal({
   const { theme } = useTheme();
 
   return (
-    <div className="w-full max-w-full overflow-hidden">
-      <Tabs defaultValue="preview" className="bg-background w-full">
-        <TabsList className="w-full sm:w-auto bg-transparent border-none p-0 h-auto flex flex-wrap">
+    <div className="overflow-hidden">
+      <Tabs defaultValue="preview" className="bg-background">
+        <TabsList className="space-x-10 mt-5 bg-transparent border-none p-0 h-auto flex flex-wrap">
           <TabsTrigger
             value="preview"
             className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
@@ -53,13 +53,13 @@ export default function ComponentPreviewInternal({
           </div>
         </TabsContent>
 
-        <TabsContent value="code" className="mt-0 w-full not-prose">
+        <TabsContent value="code" className="mt-0 w-full not-prose flex">
           <CodeBlock
             theme={
               theme === "dark" ? "github-dark-default" : "github-light-default"
             }
             lang="tsx"
-            className="w-full max-w-full min-h-[200px] sm:min-h-[300px] overflow-auto"
+            className="w-full"
           >
             {code}
           </CodeBlock>

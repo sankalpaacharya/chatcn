@@ -1,9 +1,10 @@
-import Installation from "@/components/installation";
+import React from "react";
+import ComponentPreview from "@/components/component-preview";
 
-export default function CodeBlockPreview() {
+export default function Page() {
   return (
-    <div className="flex justify-center mt-10 border">
-      <Installation component="prompt-input" />
+    <div className="border">
+      <ComponentPreview component="prompt-input" />
     </div>
   );
 }

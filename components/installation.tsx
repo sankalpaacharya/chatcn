@@ -6,7 +6,7 @@ import CommandBlock from "@/registry/new-york/command-tabs";
 export default function Installation({ component }: { component: string }) {
   return (
     <Tabs defaultValue="cli" className="not-prose">
-      <TabsList className="w-full bg-transparent">
+      <TabsList className="space-x-10 bg-transparent">
         <TabsTrigger
           value="cli"
           className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"

@@ -9,7 +9,7 @@ export default function Reference({ href, label }: Props) {
     <Link key={href} href={label}>
       <Badge
         variant="secondary"
-        className="font-semibold hover:bg-secondary/80 transition-colors p-1.5"
+        className="font-semibold hover:bg-secondary/80 transition-colors p-1.5 ml-1"
       >
         {label}
         <ArrowUpRight />
