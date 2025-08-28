@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "message",
+  "type": "registry:component",
+  "title": "Message",
+  "description": "Message bubble or chat component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/message.tsx",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\nimport { cn } from \"@/lib/utils\";\n\ntype MessageProps = {\n  children: React.ReactNode;\n  className?: string;\n} & React.HTMLProps<HTMLDivElement>;\n\nexport function Message({ children, className, ...props }: MessageProps) {\n  return (\n    <div className={cn(\"flex gap-3 items-center\", className)} {...props}>\n      {children}\n    </div>\n  );\n}\n\ntype MessageAvatarProps = {\n  src: string;\n  alt: string;\n  fallback?: string;\n  className?: string;\n};\nexport function MessageAvatar({ src, alt, className }: MessageAvatarProps) {\n  return (\n    <Avatar className={cn(\"h-8 w-8\", className)}>\n      <AvatarImage src={src} alt={alt} />\n      <AvatarFallback>{alt}</AvatarFallback>\n    </Avatar>\n  );\n}\n\ntype MessageContentProps = {\n  className?: string;\n  children: React.ReactNode;\n} & React.HTMLProps<HTMLDivElement>;\n\nexport function MessageContent({ children, className }: MessageContentProps) {\n  return (\n    <div\n      className={cn(\n        \"rounded-lg p-2 text-foreground bg-secondary break-words whitespace-normal\",\n        className\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

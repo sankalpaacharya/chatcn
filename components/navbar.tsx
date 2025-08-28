@@ -47,14 +47,9 @@ export default function Navbar() {
   }) => (
     <Link
       href={href}
-      className={`relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary ${
-        isActive(href) ? "text-primary" : "text-muted-foreground"
-      }`}
+      className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg hover:bg-accent hover:text-accent-foreground`}
     >
       {children}
-      {isActive(href) && (
-        <span className="absolute inset-x-0 -bottom-px h-px bg-primary" />
-      )}
     </Link>
   );
 

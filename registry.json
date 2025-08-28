@@ -1,44 +1,99 @@
 {
-    "$schema": "https://ui.shadcn.com/schema/registry.json",
-    "name": "shadcn-collections",
-    "homepage": "https://shadcn-collections.vercel.app",
-    "items": [
-        {
-            "name": "codeblock",
-            "type": "registry:component",
-            "title": "Code Block",
-            "description": "Easy Code Block Component",
-            "dependencies": [
-              "shiki"
-            ],
-            "files": [
-              {
-                "path": "registry/new-york/codeblock/codeblock.tsx",
-                "type": "registry:component"
-              }
-            ],
-            "registryDependencies":[
-              "tooltip"
-            ]
-          },
-        {
-            "name": "command-tabs",
-            "type": "registry:component",
-            "title": "Command Tabs",
-            "description": "Easy Command Tabs Component",
-            "dependencies": [
-            ],
-            "files": [
-              {
-                "path": "registry/new-york/command-tabs/command-tabs.tsx",
-                "type": "registry:component"
-              }
-            ],
-            "registryDependencies":[
-              "tooltip",
-              "tabs",
-              "separator"
-            ]
-          }
-    ]
-  }
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcn-collections",
+  "homepage": "https://shadcn-collections.vercel.app",
+  "items": [
+    {
+      "name": "codeblock",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "Easy Code Block Component",
+      "dependencies": ["shiki"],
+      "files": [
+        { "path": "registry/new-york/codeblock.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["tooltip"]
+    },
+    {
+      "name": "command-tabs",
+      "type": "registry:component",
+      "title": "Command Tabs",
+      "description": "Easy Command Tabs Component",
+      "files": [
+        { "path": "registry/new-york/command-tabs.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["tooltip", "tabs", "separator"]
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:component",
+      "title": "Prompt Input",
+      "description": "Prompt Input",
+      "files": [
+        { "path": "registry/new-york/prompt-input.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["tooltip", "textarea"]
+    },
+
+    {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "Custom calendar component",
+      "files": [
+        { "path": "registry/new-york/calendar.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["card"]
+    },
+    {
+      "name": "code-editor",
+      "type": "registry:component",
+      "title": "Code Editor",
+      "description": "Lightweight code editor component",
+      "files": [
+        { "path": "registry/new-york/code-editor.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "file",
+      "type": "registry:component",
+      "title": "File",
+      "description": "File display/manager component",
+      "files": [
+        { "path": "registry/new-york/file.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "tool",
+      "type": "registry:component",
+      "title": "Tool",
+      "description": "Tool display/interaction component",
+      "files": [
+        { "path": "registry/new-york/tool.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["tabs","accordion"]
+    },
+    {
+      "name": "message",
+      "type": "registry:component",
+      "title": "Message",
+      "description": "Message bubble or chat component",
+      "files": [
+        { "path": "registry/new-york/message.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "source",
+      "type": "registry:component",
+      "title": "Source",
+      "description": "Source viewer component",
+      "files": [
+        { "path": "registry/new-york/source.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["tooltip"]
+    }
+  ]
+}

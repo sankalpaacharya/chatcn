@@ -58,11 +58,7 @@ function SingleCommandBlock({
                 {showTerminalIcon && (
                   <SquareTerminal className="text-muted-foreground" size={20} />
                 )}
-                {title && (
-                  <span className="font-medium text-muted-foreground">
-                    {title}
-                  </span>
-                )}
+                {title && <span className="font-medium">{title}</span>}
               </div>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -83,7 +79,7 @@ function SingleCommandBlock({
             <Separator />
           </>
         )}
-        <div className="px-4 font-mono bg-card overflow-x-auto p-4">
+        <div className="px-4 font-mono bg-card overflow-x-auto p-4 text-primary">
           <p className="break-words whitespace-pre-wrap">{command}</p>
         </div>
       </div>
@@ -170,7 +166,9 @@ function MultiCommandBlock({
             value={tab.label}
             className="mt-0 p-4 font-mono bg-card rounded-b-md overflow-x-auto"
           >
-            <p className="break-words whitespace-pre-wrap">{tab.command}</p>
+            <p className="break-words whitespace-pre-wrap text-primary">
+              {tab.command}
+            </p>
           </TabsContent>
         ))}
       </Tabs>

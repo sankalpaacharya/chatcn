@@ -11,7 +11,7 @@ export default function DocLayout({ children }: { children: ReactNode }) {
         </div>
       </main>
       <aside className="w-96 py-10 sticky top-0 hidden 2xl:block">
-        On this Page
+        {/* On this Page */}
       </aside>
     </div>
   );
