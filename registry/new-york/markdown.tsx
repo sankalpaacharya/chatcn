@@ -4,13 +4,21 @@ import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/utils";
 import { CodeBlock } from "@/registry/new-york/codeblock";
 
-type MarkDownProps = { children: React.ReactNode; className?: string };
+type MarkDownProps = {
+  children: React.ReactNode;
+  className?: string;
+  theme?: string;
+};
 
-export default function Markdown({ children, className }: MarkDownProps) {
+export default function Markdown({
+  children,
+  className,
+  theme,
+}: MarkDownProps) {
   return (
     <div
       className={cn(
-        "prose prose-slate dark:prose-invert prose-xl text-white max-w-4xl px-3",
+        "prose prose-slate dark:prose-invert prose-xl text-white max-w-4xl px-3 prose-pre:p-0",
         className
       )}
     >
