@@ -5,16 +5,19 @@ import dynamic from "next/dynamic";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlock } from "@/registry/new-york/codeblock";
 import { Suspense } from "react";
+import { cn } from "@/lib/utils";
 
 export type Demo = "codeblock";
 
 export default function ComponentPreviewInternal({
   component,
   code,
+  isProse,
 }: {
   code: string;
   component: string;
   children?: ReactNode;
+  isProse?: boolean;
 }) {
   const Component = getComponent(component);
   const { theme } = useTheme();
@@ -46,7 +49,9 @@ export default function ComponentPreviewInternal({
                 </div>
               }
             >
-              <div className="w-full max-w-full not-prose">
+              <div
+                className={cn("w-full max-w-full", isProse ? "" : "not-prose")}
+              >
                 <Component />
               </div>
             </Suspense>

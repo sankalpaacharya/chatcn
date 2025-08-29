@@ -1,4 +1,3 @@
-import React from "react";
 import MarkdownRender from "@/registry/new-york/markdown";
 
 const content = `
@@ -22,6 +21,6 @@ addNumbers(5, 7)
 \`\`\`
 `;
 
-export default function Page() {
+export default function MarkdownPreview() {
   return <MarkdownRender theme="dark">{content}</MarkdownRender>;
 }

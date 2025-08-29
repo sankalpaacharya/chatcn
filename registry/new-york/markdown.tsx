@@ -18,7 +18,7 @@ export default function Markdown({
   return (
     <div
       className={cn(
-        "prose prose-slate dark:prose-invert prose-xl text-white max-w-4xl px-3 prose-pre:p-0",
+        "prose dark:prose-invert max-w-4xl px-3 prose-pre:p-0 prose-pre:resize-none",
         className
       )}
     >
@@ -30,7 +30,12 @@ export default function Markdown({
               <CodeBlock
                 {...props}
                 lang={"tsx"}
-                className="not-prose"
+                theme={
+                  theme == "dark"
+                    ? "github-dark-default"
+                    : "github-light-default"
+                }
+                className={cn("not-prose")}
                 children={String(children).replace(/\n$/, "")}
               />
             ) : (
