@@ -104,12 +104,12 @@ export function SidebarContent({
       label: "Tool",
       href: "/docs/component/tool",
       type: "link",
-      isNew: true,
     },
     {
       label: "Markdown",
       href: "/docs/component/markdown",
       type: "link",
+      isNew: true,
     },
     {
       label: "Thought",

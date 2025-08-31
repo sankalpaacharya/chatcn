@@ -10,11 +10,7 @@ type MarkDownProps = {
   theme?: string;
 };
 
-export default function Markdown({
-  children,
-  className,
-  theme,
-}: MarkDownProps) {
+export function Markdown({ children, className, theme }: MarkDownProps) {
   return (
     <div
       className={cn(
