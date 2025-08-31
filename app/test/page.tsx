@@ -1,27 +1,22 @@
-import React from "react";
-import MarkdownRender from "@/registry/new-york/markdown";
-
-const content = `
-# Hello World 👋
-
-This is a **Markdown** example.
-
-## Features
-- Bold and *italic* text
-- [Links](https://example.com)
-- Inline \`code\`
-- Block of code:
-
-\`\`\`js
-function addNumbers(a, b) {
-  return \`The sum of \${a} and \${b} is \${a + b}\`;
-}
-
-// Call the function
-addNumbers(5, 7)
-\`\`\`
-`;
+// import ChatContainer from "@/registry/new-york/chat-container";
+import { Thought, ThoughtContent } from "@/registry/new-york/thought";
 
 export default function Page() {
-  return <MarkdownRender theme="dark">{content}</MarkdownRender>;
+  return (
+    <div className="border flex justify-center items-center">
+      <Thought>
+        <ThoughtContent>
+          You want me to review the existing shadcn-collections website and
+          produce an improved UI for a similar experience. I’ll first capture a
+          visual reference of the current site, then generate a focused design
+          direction (colors, typography, layout improvements), and finally
+          implement an improved UI using Next.js + shadcn/ui with a clean,
+          mobile-first structure. I’ll keep the color system to 3-5 colors,
+          limit typography to two font families, and follow Tailwind v4
+          patterns. I’ll search the repo first, then create modular components
+          (header, filters, grid, command palette, footer).
+        </ThoughtContent>
+      </Thought>
+    </div>
+  );
 }

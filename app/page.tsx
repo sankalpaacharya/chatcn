@@ -58,7 +58,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center xl:justify-start">
               <Link href="/docs">
-                <Button className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 py-3 text-sm">
+                <Button className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 py-5 text-sm">
                   Explore Components
                   <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -66,7 +66,7 @@ export default function Home() {
               <Link href="/docs">
                 <Button
                   variant="outline"
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 py-3 text-sm"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 py-5 text-sm"
                 >
                   View Examples
                 </Button>
