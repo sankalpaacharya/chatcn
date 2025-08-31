@@ -110,6 +110,11 @@ export function SidebarContent({
       label: "Markdown",
       href: "/docs/component/markdown",
       type: "link",
+    },
+    {
+      label: "Thought",
+      href: "/docs/component/thought",
+      type: "link",
       isNew: true,
     },
     {
