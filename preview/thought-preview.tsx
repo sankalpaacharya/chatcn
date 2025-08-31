@@ -7,7 +7,7 @@ import {
 export default function ThoughtPreview() {
   return (
     <div className="flex justify-center">
-      <Thought className="w-md">
+      <Thought className="w-full md:w-md">
         <ThoughtTrigger>Thinking for 10s</ThoughtTrigger>
         <ThoughtContent>
           You want me to review the existing shadcn-collections website and
