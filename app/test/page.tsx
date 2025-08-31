@@ -1,10 +1,15 @@
 // import ChatContainer from "@/registry/new-york/chat-container";
-import { Thought, ThoughtContent } from "@/registry/new-york/thought";
+import {
+  Thought,
+  ThoughtContent,
+  ThoughtTrigger,
+} from "@/registry/new-york/thought";
 
 export default function Page() {
   return (
     <div className="border flex justify-center items-center">
-      <Thought>
+      <Thought className="w-md">
+        <ThoughtTrigger>Thinking for 10s</ThoughtTrigger>
         <ThoughtContent>
           You want me to review the existing shadcn-collections website and
           produce an improved UI for a similar experience. I’ll first capture a
