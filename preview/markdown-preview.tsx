@@ -1,4 +1,6 @@
+"use client";
 import MarkdownRender from "@/registry/new-york/markdown";
+import { useTheme } from "next-themes";
 
 const content = `
 # Hello World 👋
@@ -22,5 +24,6 @@ addNumbers(5, 7)
 `;
 
 export default function MarkdownPreview() {
-  return <MarkdownRender theme="dark">{content}</MarkdownRender>;
+  const { theme } = useTheme();
+  return <MarkdownRender theme={theme}>{content}</MarkdownRender>;
 }
