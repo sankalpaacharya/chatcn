@@ -47,7 +47,7 @@ export default function Navbar() {
   }) => (
     <Link
       href={href}
-      className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg hover:bg-accent hover:text-accent-foreground`}
+      className={`relative px-4 py-2 text-md font-medium transition-all rounded-lg hover:bg-accent hover:text-accent-foreground`}
     >
       {children}
     </Link>

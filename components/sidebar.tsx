@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden xl:block h-full w-62 bg-background sticky top-0">
+      <aside className="hidden xl:block h-full w-52 bg-background sticky top-0">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
@@ -64,6 +64,8 @@ export function SidebarContent({
   const sidebarLinks: SidebarLink[] = [
     { label: "Getting Started", href: "", type: "heading" },
     { label: "Introduction", href: "/docs", type: "link" },
+    { label: "Installation", href: "/docs/", type: "link" },
+    { label: "MCP Server", href: "/docs/", type: "link" },
     { label: "Components", href: "", type: "heading" },
     {
       label: "Code Block",
@@ -128,7 +130,7 @@ export function SidebarContent({
   return (
     <div className="flex flex-col h-full">
       <Separator />
-      <nav className="p-6 pt-4 space-y-2">
+      <nav className="px-6 pt-2 space-y-1">
         {sidebarLinks.map((link) => (
           <SidebarLink
             key={link.label}
@@ -157,7 +159,7 @@ function SidebarLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+      className={`flex gap-2 items-center rounded-md px-3 py-2 text-base font-medium transition-colors ${
         isSelected
           ? "bg-accent"
           : "hover:bg-accent hover:text-accent-foreground"
