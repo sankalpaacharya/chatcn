@@ -5,14 +5,13 @@ import {
   MessageAvatar,
   MessageContent,
 } from "@/registry/new-york/message";
-
+import { cn } from "@/lib/utils";
 export default function ChatContainer() {
   const chatRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState([
     { from: "user", text: "Hey AI, can you help me with my project?" },
     { from: "ai", text: "Of course! What are you working on right now?" },
   ]);
-
   useEffect(() => {
     if (chatRef.current) {
       chatRef.current.scrollTo({
@@ -21,7 +20,6 @@ export default function ChatContainer() {
       });
     }
   }, [messages]);
-
   const addMessage = () => {
     setMessages((prev) => [
       ...prev,
@@ -34,17 +32,16 @@ export default function ChatContainer() {
       },
     ]);
   };
-
   return (
-    <div className="flex flex-col h-[35rem]">
+    <div className="flex flex-col max-h-[30rem]">
       <div
         ref={chatRef}
-        className="space-y-3 flex-1 overflow-auto px-10 py-4 border rounded"
+        className="space-y-5 flex-1 flex-col-reverse overflow-auto px-10 py-4 border rounded pb-[23.5rem]"
       >
         {messages.map((msg, idx) => (
           <Message
             key={idx}
-            className={msg.from === "user" ? "justify-end" : ""}
+            className={cn(msg.from === "user" ? "justify-end" : "", "")}
           >
             <MessageAvatar
               src={
@@ -62,7 +59,6 @@ export default function ChatContainer() {
           </Message>
         ))}
       </div>
-
       {/* simple button to add messages */}
       <button
         onClick={addMessage}
