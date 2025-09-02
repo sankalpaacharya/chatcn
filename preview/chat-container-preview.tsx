@@ -8,7 +8,7 @@ import {
 } from "@/registry/new-york/message";
 import { Button } from "@/components/ui/button";
 
-export default function Page() {
+export default function ChatContainerPreview() {
   const initialMessages = [
     { from: "user", text: "Hey AI, can you explain the evolution of Earth?" },
     {
@@ -82,9 +82,9 @@ Earth’s evolution is a story of constant change and adaptation over billions o
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8 w-2xl">
-      <div className="border rounded-lg shadow-sm overflow-hidden">
-        <ChatContainer className="max-h-[30rem] h-[30rem]">
+    <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8 ">
+      <div className="">
+        <ChatContainer className="max-h-[25rem] h-[25rem]">
           {messages.map((msg, i) => (
             <Message
               key={i}

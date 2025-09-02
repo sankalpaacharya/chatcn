@@ -9,52 +9,80 @@ type Heading = {
   text: string;
   level: number;
 };
-// i will build this myself tomorrow
+
 export default function DocTableOfContent() {
   const [headings, setHeadings] = useState<Heading[]>([]);
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const elems = Array.from(
-      document.querySelectorAll("h1, h2, h3")
-    ) as HTMLElement[];
+    const extractHeadings = () => {
+      const elems = Array.from(
+        document.querySelectorAll("h1, h2, h3")
+      ) as HTMLElement[];
+      return elems.map((el) => {
+        if (!el.id) {
+          el.id = el.innerText
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]/g, "");
+        }
+        return {
+          id: el.id,
+          text: el.innerText,
+          level: parseInt(el.tagName[1]),
+        };
+      });
+    };
 
-    const mapped = elems.map((el) => {
-      if (!el.id) {
-        el.id = el.innerText
-          .toLowerCase()
-          .replace(/\s+/g, "-")
-          .replace(/[^\w-]/g, "");
-      }
-      return {
-        id: el.id,
-        text: el.innerText,
-        level: parseInt(el.tagName[1]),
-      };
-    });
+    setHeadings(extractHeadings());
 
-    setHeadings(mapped);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-80px 0px -80% 0px" }
+    );
+
+    // Observe all section headings
+    const headingElements = document.querySelectorAll("h1, h2, h3");
+    headingElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      headingElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
+  if (headings.length === 0) {
+    return null;
+  }
+
   return (
-    <div>
-      <h2 className="text-sm font-medium mb-2">On this page</h2>
-      <ul className="space-y-1 text-sm">
-        {headings.map((h) => (
-          <li key={h.id}>
-            <Link
-              href={`#${h.id}`}
-              className={cn(
-                "block hover:text-primary transition-colors",
-                h.level === 1 && "font-semibold",
-                h.level === 2 && "pl-4 text-muted-foreground",
-                h.level === 3 && "pl-8 text-muted-foreground/70"
-              )}
+    <div className="w-64 sticky top-16 self-start hidden xl:block pl-4">
+      <div className="space-y-2 pb-8">
+        <p className="font-medium text-sm mb-4">On this page</p>
+        <ul className="space-y-2 text-sm">
+          {headings.map((heading) => (
+            <li
+              key={heading.id}
+              style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
             >
-              {h.text}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              <Link
+                href={`#${heading.id}`}
+                className={cn(
+                  "text-muted-foreground hover:text-foreground block py-1",
+                  activeId === heading.id && "text-foreground font-medium"
+                )}
+              >
+                {heading.text}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

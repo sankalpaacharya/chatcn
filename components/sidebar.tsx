@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden xl:block h-full w-52 bg-background sticky top-0">
+      <aside className="hidden xl:block h-full w-62 bg-background sticky top-0">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
@@ -120,6 +120,12 @@ export function SidebarContent({
       isNew: true,
     },
     {
+      label: "Chat Container",
+      href: "/docs/component/chat-container",
+      type: "link",
+      isNew: true,
+    },
+    {
       label: "Calendar",
       href: "/docs/component/calendar",
       type: "link",
@@ -130,7 +136,7 @@ export function SidebarContent({
   return (
     <div className="flex flex-col h-full">
       <Separator />
-      <nav className="px-6 pt-2 space-y-1">
+      <nav className="px-6 py-4 space-y-2">
         {sidebarLinks.map((link) => (
           <SidebarLink
             key={link.label}
@@ -159,16 +165,20 @@ function SidebarLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className={`flex gap-2 items-center rounded-md px-3 py-2 text-base font-medium transition-colors ${
+      className={`flex gap-2 items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${
         isSelected
-          ? "bg-accent"
-          : "hover:bg-accent hover:text-accent-foreground"
+          ? "bg-accent text-accent-foreground"
+          : "hover:bg-accent/50 hover:text-accent-foreground"
       }`}
     >
       {label}
-      {isNew && <Badge className="bg-green-700 text-white text-xs">New</Badge>}
+      {isNew && (
+        <Badge className="bg-green-700 text-white text-xs ml-1.5">New</Badge>
+      )}
     </Link>
   ) : (
-    <p className="text-sm font-semibold text-muted-foreground mt-5">{label}</p>
+    <p className="text-sm font-semibold text-muted-foreground mt-6 mb-2">
+      {label}
+    </p>
   );
 }

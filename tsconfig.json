@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/docs/component/codeblock/page.mdx", "app/docs/component/calendar/page.mdx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/docs/component/codeblock/page.mdx", "app/docs/component/calendar/page.mdx", "app/docs/component/chat-container/page.mdx"],
   "exclude": ["node_modules"]
 }

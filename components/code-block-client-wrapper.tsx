@@ -1,23 +1,33 @@
 "use client";
-import { useTheme } from "next-themes";
-import { CodeBlock } from "@/registry/new-york/codeblock";
-import { BundledLanguage } from "shiki";
 
-export default function CodeBlockClientWrapper({
-  children,
-  lang,
-}: {
-  children: string;
-  lang: BundledLanguage;
-}) {
-  const { theme } = useTheme();
+import { CodeBlock } from "@/registry/new-york/codeblock";
+import type { BundledLanguage } from "shiki";
+
+interface CodeBlockWrapperProps {
+  code: string;
+  language: BundledLanguage;
+  theme?: string;
+  height?: string;
+  highlight?: { start: number; end: number };
+}
+
+export default function CodeBlockWrapper({
+  code,
+  language,
+  theme = "github-dark-default",
+  height = "600",
+  highlight,
+}: CodeBlockWrapperProps) {
   return (
-    <CodeBlock
-      className="not-prose"
-      theme={theme == "dark" ? "github-dark-default" : "github-light-default"}
-      lang={lang}
-    >
-      {children}
-    </CodeBlock>
+    <div className="my-8 w-full">
+      <CodeBlock
+        theme={theme}
+        lang={language}
+        height={height}
+        highlight={highlight}
+      >
+        {code}
+      </CodeBlock>
+    </div>
   );
 }
