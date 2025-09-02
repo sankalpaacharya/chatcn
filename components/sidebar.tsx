@@ -111,7 +111,6 @@ export function SidebarContent({
       label: "Markdown",
       href: "/docs/component/markdown",
       type: "link",
-      isNew: true,
     },
     {
       label: "Thought",
@@ -136,7 +135,7 @@ export function SidebarContent({
   return (
     <div className="flex flex-col h-full">
       <Separator />
-      <nav className="px-6 py-4 space-y-2">
+      <nav className="px-6 py-4 space-y-1">
         {sidebarLinks.map((link) => (
           <SidebarLink
             key={link.label}
@@ -165,7 +164,7 @@ function SidebarLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className={`flex gap-2 items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${
+      className={`flex gap-2 items-center rounded-md px-3 py-2 text-base font-medium transition-colors ${
         isSelected
           ? "bg-accent text-accent-foreground"
           : "hover:bg-accent/50 hover:text-accent-foreground"

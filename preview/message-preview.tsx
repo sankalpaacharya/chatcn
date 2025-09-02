@@ -23,10 +23,7 @@ export default function MessagePreview({}: Props) {
           </Message>
 
           <Message>
-            <MessageAvatar
-              src="https://api.dicebear.com/8.x/bottts/svg?seed=AI"
-              alt="AI Assistant"
-            />
+            <MessageAvatar src="" alt="AI" />
             <MessageContent className="bg-transparent">
               Of course! What are you working on right now?
             </MessageContent>
@@ -43,10 +40,7 @@ export default function MessagePreview({}: Props) {
           </Message>
 
           <Message>
-            <MessageAvatar
-              src="https://api.dicebear.com/8.x/bottts/svg?seed=AI"
-              alt="AI Assistant"
-            />
+            <MessageAvatar src="" alt="AI" />
             <MessageContent className="bg-transparent">
               Got it. Are you using Recharts or Chart.js?
             </MessageContent>
@@ -63,10 +57,7 @@ export default function MessagePreview({}: Props) {
           </Message>
 
           <Message>
-            <MessageAvatar
-              src="https://api.dicebear.com/8.x/bottts/svg?seed=AI"
-              alt="AI Assistant"
-            />
+            <MessageAvatar src="" alt="AI" />
             <MessageContent className="bg-transparent">
               We can fix that by adding a `useEffect` to listen for new
               transactions and re-render your chart.
