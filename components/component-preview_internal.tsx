@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlock } from "@/registry/new-york/codeblock";
 import { Suspense } from "react";
+import Install from "./install";
 import { cn } from "@/lib/utils";
 
 export type Demo = "codeblock";
@@ -25,19 +26,22 @@ export default function ComponentPreviewInternal({
   return (
     <div className="overflow-hidden">
       <Tabs defaultValue="preview" className="bg-background">
-        <TabsList className="space-x-10 mt-5 bg-transparent border-none p-0 h-auto flex flex-wrap">
-          <TabsTrigger
-            value="preview"
-            className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
-          >
-            Preview
-          </TabsTrigger>
-          <TabsTrigger
-            value="code"
-            className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
-          >
-            Code
-          </TabsTrigger>
+        <TabsList className="space-x-10 mt-5 bg-transparent w-full p-0 flex flex-wrap justify-between border-none">
+          <div className="space-x-10">
+            <TabsTrigger
+              value="preview"
+              className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
+            >
+              Preview
+            </TabsTrigger>
+            <TabsTrigger
+              value="code"
+              className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
+            >
+              Code
+            </TabsTrigger>
+          </div>
+          <Install component={component} />
         </TabsList>
 
         <TabsContent value="preview" className="mt-0 w-full">

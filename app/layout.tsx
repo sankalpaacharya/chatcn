@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/navbar";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <div className="flex flex-col h-screen">
             <Navbar />
+            <Toaster position="top-center" />
             <div className="flex-1 overflow-hidden font-sans">{children}</div>
           </div>
         </ThemeProvider>
