@@ -63,6 +63,7 @@ export function SidebarContent({
 }) {
   const sidebarLinks: SidebarLink[] = [
     { label: "Getting Started", href: "", type: "heading" },
+    { label: "Home", href: "/docs", type: "link" },
     { label: "Introduction", href: "/docs", type: "link" },
     { label: "Installation", href: "/docs/", type: "link" },
     { label: "MCP Server", href: "/docs/", type: "link" },
