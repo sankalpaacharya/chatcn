@@ -8,7 +8,6 @@ import {
   PromptInputAction,
 } from "@/registry/new-york/prompt-input";
 import { Button } from "@/components/ui/button";
-import { Avatar } from "@/components/ui/avatar";
 import { Settings, Paperclip, Image, SendHorizonal } from "lucide-react";
 import ChatContainer from "@/registry/new-york/chat-container";
 import {
