@@ -143,3 +143,8 @@ code .line::before {
 
 
 
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: 0;
+}
+

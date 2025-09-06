@@ -133,11 +133,12 @@ export function SidebarContent({
     },
     { label: "Tools Call UI", href: "", type: "heading" },
     { label: "Weather", href: "", type: "link" },
+    { label: "Email", href: "", type: "link" },
+    { label: "Charts", href: "", type: "link" },
   ];
 
   return (
-    <div className="flex flex-col h-full">
-      <Separator />
+    <div className="flex flex-col h-full overflow-auto pb-10 scrollbar-hide">
       <nav className="px-6 py-4 space-y-1">
         {sidebarLinks.map((link) => (
           <SidebarLink
