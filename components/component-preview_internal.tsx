@@ -22,7 +22,7 @@ export default function ComponentPreviewInternal({
 }) {
   const Component = getComponent(component);
   const { theme } = useTheme();
-
+  // make the height same for both component view and code
   return (
     <div className="overflow-hidden">
       <Tabs defaultValue="preview" className="bg-background">
