@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowUp, Check, Github } from "lucide-react";
+import { ArrowUp, Check } from "lucide-react";
 import {
   Message,
   MessageAvatar,
