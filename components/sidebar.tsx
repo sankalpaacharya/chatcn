@@ -123,15 +123,13 @@ export function SidebarContent({
       label: "Chat Container",
       href: "/docs/component/chat-container",
       type: "link",
-      isNew: true,
     },
     {
       label: "Calendar",
       href: "/docs/component/calendar",
       type: "link",
-      isNew: false,
     },
-    { label: "Tools Call UI", href: "", type: "heading" },
+    { label: "Tools Call UI", href: "", type: "heading", isNew: true },
     { label: "Weather", href: "", type: "link" },
     { label: "Email", href: "", type: "link" },
     { label: "Charts", href: "", type: "link" },
@@ -168,7 +166,7 @@ function SidebarLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className={`flex gap-2 items-center rounded-md px-3 py-2 text-base font-medium transition-colors ${
+      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${
         isSelected
           ? "bg-accent text-accent-foreground"
           : "hover:bg-accent/50 hover:text-accent-foreground"

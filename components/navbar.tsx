@@ -72,7 +72,7 @@ export default function Navbar() {
         <Logo className="mr-6 hidden xl:flex" />
 
         <div className="flex flex-1 items-center justify-between">
-          <nav className="hidden xl:flex items-center space-x-1">
+          <nav className="hidden xl:flex items-center space-x-1 text-sm">
             {navLinks.map(({ href, label }) => (
               <NavLink key={href} href={href}>
                 {label}
