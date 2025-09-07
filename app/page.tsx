@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, ArrowUp, Check } from "lucide-react";
+import { ArrowUp, Check, Github } from "lucide-react";
 import {
   Message,
   MessageAvatar,
@@ -18,9 +18,26 @@ import {
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const [stars, setStars] = useState<number | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => setIsMounted(true), []);
+
+  useEffect(() => {
+    async function fetchStars() {
+      try {
+        const res = await fetch(
+          "https://api.github.com/repos/sankalpaacharya/chatcn"
+        );
+        const data = await res.json();
+        setStars(data.stargazers_count);
+      } catch (err) {
+        console.error("Failed to fetch stars", err);
+      }
+    }
+
+    fetchStars();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -37,9 +54,8 @@ export default function Home() {
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-20 md:py-28">
         <div className="w-full max-w-4xl mx-auto text-center space-y-6">
           <div>
-            <div className="bg-secondary/80 py-1.5 px-4 rounded-full text-xs inline-flex items-center mx-auto mb-6">
-              <span className="mr-1.5">✦</span> Collection of UI Components for
-              AI Chat Apps
+            <div className="bg-secondary/80 py-1.5 px-4 rounded-full inline-flex items-center mx-auto mb-6">
+              <span className="mr-1.5">🌟</span> {stars} stars us on Github
             </div>
             <h1
               className={`text-5xl sm:text-6xl md:text-7xl font-sans font-bold leading-tight tracking-tight ${
@@ -83,6 +99,19 @@ export default function Home() {
             <span className="flex items-center gap-2 text-sm text-muted-foreground">
               <Check size={16} className="text-primary" /> Open Source
             </span>
+          </div>
+
+          <div className="pt-6">
+            <a
+              href="https://github.com/sankalpaacharya/chatcn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/30 hover:bg-secondary/50 border border-border/40 rounded-full text-sm transition-colors"
+            >
+              <Github size={15} />
+
+              <span>Stars on GitHub</span>
+            </a>
           </div>
         </div>
       </div>
@@ -132,8 +161,8 @@ function ChatCard() {
             className="w-8 h-8"
           />
           <MessageContent className="bg-transparent text-sm">
-            Hello! I'm a demo of the ChatCN components. Ask me anything about
-            these UI components.
+            Hello! I&apos;m a demo of the ChatCN components. Ask me anything
+            about these UI components.
           </MessageContent>
         </Message>
 
@@ -151,9 +180,9 @@ function ChatCard() {
           />
           <MessageContent className="bg-transparent text-sm">
             ChatCN provides beautifully designed, accessible, and customizable
-            UI components specifically for AI chat interfaces. They're easy to
-            integrate, fully responsive, and work seamlessly with shadcn's
-            design system.
+            UI components specifically for AI chat interfaces. They&apos;re easy
+            to integrate, fully responsive, and work seamlessly with
+            shadcn&apos;s design system.
           </MessageContent>
         </Message>
       </div>

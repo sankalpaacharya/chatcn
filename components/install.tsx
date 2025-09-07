@@ -8,7 +8,9 @@ export default function Install({ component }: { component: string }) {
 
   function copyToClipBoard() {
     navigator.clipboard
-      .writeText(`https://shadcn-collections.vercel.app/c/${component}`)
+      .writeText(
+        `pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/${component}`
+      )
       .then(() => {
         setIsCopied(true);
         toast("Copied installation command");
