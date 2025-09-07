@@ -63,11 +63,11 @@ const StreamingText: React.FC<StreamingTextProps> = ({
   );
 };
 
-export default function Page() {
+export default function ThoughtStreaming() {
   const [isStreamingComplete, setIsStreamingComplete] = useState(false);
 
   return (
-    <div className="flex justify-center min-h-screen bg-background p-4">
+    <div className="flex justify-center bg-background p-4">
       <Thought className="w-full max-w-md">
         <ThoughtTrigger>
           {isStreamingComplete ? (
