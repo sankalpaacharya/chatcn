@@ -129,7 +129,7 @@ export function SidebarContent({
       href: "/docs/component/calendar",
       type: "link",
     },
-    { label: "Tools Call UI", href: "", type: "heading", isNew: true },
+    { label: "Tool Call UI", href: "", type: "heading", isNew: true },
     { label: "Weather", href: "", type: "link" },
     { label: "Email", href: "", type: "link" },
     { label: "Charts", href: "", type: "link" },
@@ -178,7 +178,7 @@ function SidebarLink({
       )}
     </Link>
   ) : (
-    <p className="text-sm font-semibold text-muted-foreground mt-6 mb-2">
+    <p className="text-sm font-medium text-muted-foreground mt-6 mb-2">
       {label}
     </p>
   );

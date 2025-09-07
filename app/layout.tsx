@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="flex flex-col h-screen">
             <Navbar />
             <Toaster position="top-center" />
-            <div className="flex-1 overflow-hidden font-sans">{children}</div>
+            <div className="flex-1 overflow-x-hidden font-sans">{children}</div>
           </div>
         </ThemeProvider>
         <Script

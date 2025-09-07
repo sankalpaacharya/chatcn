@@ -23,71 +23,86 @@ export default function Home() {
   useEffect(() => setIsMounted(true), []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 lg:p-8">
+    <div className="min-h-screen flex flex-col">
       {theme === "dark" && isMounted && (
         <div
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226, 232, 240, 0.15), transparent 70%), #000000",
+              "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(226, 232, 240, 0.15), transparent 70%), #000000",
           }}
         />
       )}
 
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="space-y-6 text-center xl:text-left">
-            <div>
-              <div className="bg-secondary py-1.5 px-3 rounded-full text-xs w-fit mx-auto xl:mx-0 mb-3">
-                ✦ Component UI
-              </div>
-              <h1
-                className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold leading-tight ${
-                  theme === "dark" && isMounted
-                    ? "bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600"
-                    : "text-foreground"
-                }`}
-              >
-                Design ChatApp UI with Chatcn
-              </h1>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-20 md:py-28">
+        <div className="w-full max-w-4xl mx-auto text-center space-y-6">
+          <div>
+            <div className="bg-secondary/80 py-1.5 px-4 rounded-full text-xs inline-flex items-center mx-auto mb-6">
+              <span className="mr-1.5">✦</span> Collection of UI Components for
+              AI Chat Apps
             </div>
-
-            <p className="text-muted-foreground text-lg lg:text-xl max-w-lg mx-auto xl:mx-0">
-              Customizable components for building AI chat apps, faster.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center xl:justify-start">
-              <Link href="/docs">
-                <Button className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 py-5 text-sm">
-                  Explore Components
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-              <Link href="/docs">
-                <Button
-                  variant="outline"
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 font-medium rounded-full px-6 py-5 text-sm"
-                >
-                  View Examples
-                </Button>
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-4 justify-center xl:justify-start">
-              <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Check size={16} /> Customizable
-              </span>
-              <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Check size={16} /> Examples
-              </span>
-              <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Check size={16} /> Templates
-              </span>
-            </div>
+            <h1
+              className={`text-5xl sm:text-6xl md:text-7xl font-sans font-bold leading-tight tracking-tight ${
+                theme === "dark" && isMounted
+                  ? "bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+                  : "text-foreground"
+              }`}
+            >
+              Design ChatApp UI with Chatcn
+            </h1>
           </div>
 
-          <div className="flex justify-center xl:justify-end mt-8 xl:mt-0">
-            <div className="w-full max-w-md xl:max-w-lg">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+            Customizable components for building AI chat applications faster.
+            Ready-to-use, beautiful, and accessible UI components.
+          </p>
+
+          <div className="flex flex-wrap gap-4 justify-center pt-4">
+            <Link href="/docs">
+              <Button className="font-medium rounded-md px-6 py-5 text-sm">
+                Get Started
+              </Button>
+            </Link>
+            <Link href="/docs/component">
+              <Button
+                variant="outline"
+                className="font-medium rounded-md px-6 py-5 text-sm"
+              >
+                View Components
+              </Button>
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 pt-2">
+            <span className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Check size={16} className="text-primary" /> Customizable
+            </span>
+            <span className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Check size={16} className="text-primary" /> Accessibility-focused
+            </span>
+            <span className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Check size={16} className="text-primary" /> Open Source
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full max-w-5xl mx-auto px-4 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="md:col-span-2 lg:col-span-3">
+            <div className="mb-8 text-center">
+              <h2 className="text-2xl font-semibold mb-2">
+                Try Our AI Chat Interface Components
+              </h2>
+              <p className="text-muted-foreground">
+                Pre-built and ready to integrate into your applications
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="lg:col-start-2 lg:col-span-1">
+          <div className="flex justify-center">
+            <div className="w-full">
               <ChatCard />
             </div>
           </div>
@@ -99,26 +114,55 @@ export default function Home() {
 
 function ChatCard() {
   return (
-    <div className="w-full space-y-4 p-4">
-      <Message className="justify-end">
-        <MessageContent className="text-sm max-w-sm">
-          Hey, do you know about chatcn?
-        </MessageContent>
-      </Message>
+    <div className="w-full space-y-4 p-6 border border-border/40 rounded-xl bg-card/50 backdrop-blur-sm shadow-md relative overflow-hidden max-w-lg mx-auto">
+      <div className="absolute top-0 left-0 right-0 h-10 bg-background/90 backdrop-blur-sm border-b border-border/40 flex items-center px-4">
+        <div className="flex space-x-1.5 absolute left-3">
+          <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
+        </div>
+        <div className="mx-auto text-xs text-muted-foreground">ChatCN Demo</div>
+      </div>
 
-      <Message>
-        <MessageAvatar src="https://github.com/" alt="AI" className="w-8 h-8" />
-        <MessageContent className="bg-transparent text-sm max-w-md">
-          Yes! It looks like a really nice library for building AI chat
-          interfaces. The components seem well designed and customizable.
-        </MessageContent>
-      </Message>
+      <div className="mt-6 pt-4 space-y-5">
+        <Message>
+          <MessageAvatar
+            src="https://github.com/"
+            alt="AI"
+            className="w-8 h-8"
+          />
+          <MessageContent className="bg-transparent text-sm">
+            Hello! I'm a demo of the ChatCN components. Ask me anything about
+            these UI components.
+          </MessageContent>
+        </Message>
+
+        <Message className="justify-end">
+          <MessageContent className="text-sm max-w-sm">
+            What makes ChatCN components special?
+          </MessageContent>
+        </Message>
+
+        <Message>
+          <MessageAvatar
+            src="https://github.com/"
+            alt="AI"
+            className="w-8 h-8"
+          />
+          <MessageContent className="bg-transparent text-sm">
+            ChatCN provides beautifully designed, accessible, and customizable
+            UI components specifically for AI chat interfaces. They're easy to
+            integrate, fully responsive, and work seamlessly with shadcn's
+            design system.
+          </MessageContent>
+        </Message>
+      </div>
 
       {/* Input */}
       <div className="flex justify-center mt-6">
-        <PromptInput className="w-full max-w-md">
+        <PromptInput className="w-full">
           <PromptInputTextArea
-            placeholder="What do you want to know?"
+            placeholder="Tell me anything"
             className="text-sm min-h-[40px]"
           />
           <PromptInputActions className="justify-end pt-2">

@@ -47,7 +47,7 @@ export default function Navbar() {
   }) => (
     <Link
       href={href}
-      className={`relative px-4 py-2 text-md font-medium transition-all rounded-lg hover:bg-accent hover:text-accent-foreground`}
+      className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg hover:bg-accent`}
     >
       {children}
     </Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
         <Logo className="mr-6 hidden xl:flex" />
 
         <div className="flex flex-1 items-center justify-between">
-          <nav className="hidden xl:flex items-center space-x-1 text-sm">
+          <nav className="hidden xl:flex items-center space-x-1">
             {navLinks.map(({ href, label }) => (
               <NavLink key={href} href={href}>
                 {label}
