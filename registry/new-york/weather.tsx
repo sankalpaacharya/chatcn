@@ -2,36 +2,28 @@ import React from "react";
 import { MapPin } from "lucide-react";
 
 interface WeatherCardProps {
-  currentTemp?: number;
-  condition?: string;
-  location?: string;
-  weeklyForecast?: {
+  currentTemp: number;
+  condition: string;
+  location: string;
+  weeklyForecast: {
     day: string;
     tempHigh: number;
     tempLow: number;
     icon: string;
   }[];
-  humidity?: number;
-  windSpeed?: number;
-  feelsLike?: number;
+  humidity: number;
+  windSpeed: number;
+  feelsLike: number;
 }
 
 const WeatherCard: React.FC<WeatherCardProps> = ({
-  currentTemp = 22,
-  condition = "Partly cloudy",
-  location = "Mumbai, India",
-  weeklyForecast = [
-    { day: "Wed", tempHigh: 21, tempLow: 14, icon: "☁️" },
-    { day: "Thu", tempHigh: 19, tempLow: 13, icon: "☁️" },
-    { day: "Fri", tempHigh: 21, tempLow: 15, icon: "☁️" },
-    { day: "Sat", tempHigh: 21, tempLow: 15, icon: "🌧️" },
-    { day: "Sun", tempHigh: 17, tempLow: 12, icon: "☁️" },
-    { day: "Mon", tempHigh: 19, tempLow: 10, icon: "⛅" },
-    { day: "Tue", tempHigh: 21, tempLow: 12, icon: "☀️" },
-  ],
-  humidity = 65,
-  windSpeed = 12,
-  feelsLike = 20,
+  currentTemp,
+  condition,
+  location,
+  weeklyForecast,
+  humidity,
+  windSpeed,
+  feelsLike,
 }) => {
   return (
     <div className="w-full max-w-md">
