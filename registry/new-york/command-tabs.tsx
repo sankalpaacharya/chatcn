@@ -53,34 +53,46 @@ function SingleCommandBlock({
       <div className="bg-card rounded-md border">
         {(title || showTerminalIcon) && (
           <>
-            <div className="flex items-center justify-between px-4 py-2">
+            <div className="flex items-center justify-between px-3 px-sm-4 py-1.5 py-sm-2">
               <div className="flex items-center space-x-2">
                 {showTerminalIcon && (
-                  <SquareTerminal className="text-muted-foreground" size={20} />
+                  <SquareTerminal className="text-muted-foreground size-4 sm:size-5" />
                 )}
-                {title && <span className="font-medium">{title}</span>}
+                {title && (
+                  <span className="font-medium text-sm sm:text-base">
+                    {title}
+                  </span>
+                )}
               </div>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-8 w-8 p-0"
+                    className="h-7 w-7 sm:h-8 sm:w-8 p-0"
                     onClick={() => copyToClipboard(command)}
                   >
-                    {copied ? <Check size={18} /> : <Clipboard size={20} />}
+                    {copied ? (
+                      <Check className="size-3.5 sm:size-4.5" />
+                    ) : (
+                      <Clipboard className="size-4 sm:size-5" />
+                    )}
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>
+                  <p className="text-xs sm:text-sm">
+                    {copied ? "Copied!" : "Copy to Clipboard"}
+                  </p>
                 </TooltipContent>
               </Tooltip>
             </div>
             <Separator />
           </>
         )}
-        <div className="px-4 font-mono bg-card overflow-x-auto p-4 text-primary">
-          <p className="break-words whitespace-pre-wrap">{command}</p>
+        <div className="px-3 sm:px-4 py-3 sm:py-4 font-mono bg-card overflow-x-auto text-primary">
+          <p className="break-words whitespace-pre-wrap text-xs sm:text-sm md:text-base">
+            {command}
+          </p>
         </div>
       </div>
     </div>
@@ -123,20 +135,17 @@ function MultiCommandBlock({
         onValueChange={setActiveTab}
         className="w-full bg-card rounded-md border gap-0"
       >
-        <TabsList className="flex w-full bg-card justify-between items-center px-2 py-1 my-1 rounded-t-md">
+        <TabsList className="flex w-full bg-card justify-between items-center px-1.5 sm:px-2 py-1 my-1 rounded-t-md">
           <div className="flex items-center">
             {showTerminalIcon && (
-              <SquareTerminal
-                className="mx-2 text-muted-foreground"
-                size={20}
-              />
+              <SquareTerminal className="mx-1 sm:mx-2 text-muted-foreground size-4 sm:size-5" />
             )}
             <div className="flex">
               {commands.map((tab) => (
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="data-[state=active]:bg-secondary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+                  className="text-xs sm:text-sm h-7 sm:h-8 px-2 sm:px-3 data-[state=active]:bg-secondary data-[state=active]:text-foreground data-[state=active]:shadow-none"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -148,14 +157,20 @@ function MultiCommandBlock({
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-8 w-8 p-0"
+                className="h-7 w-7 sm:h-8 sm:w-8 p-0"
                 onClick={() => copyToClipboard(activeCommand)}
               >
-                {copied ? <Check size={20} /> : <Clipboard size={20} />}
+                {copied ? (
+                  <Check className="size-3.5 sm:size-4.5" />
+                ) : (
+                  <Clipboard className="size-4 sm:size-5" />
+                )}
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>
+              <p className="text-xs sm:text-sm">
+                {copied ? "Copied!" : "Copy to Clipboard"}
+              </p>
             </TooltipContent>
           </Tooltip>
         </TabsList>
@@ -164,9 +179,9 @@ function MultiCommandBlock({
           <TabsContent
             key={tab.label}
             value={tab.label}
-            className="mt-0 p-4 font-mono bg-card rounded-b-md overflow-x-auto"
+            className="mt-0 p-3 sm:p-4 font-mono bg-card rounded-b-md overflow-x-auto"
           >
-            <p className="break-words whitespace-pre-wrap text-primary">
+            <p className="break-words whitespace-pre-wrap text-xs sm:text-sm md:text-base text-primary">
               {tab.command}
             </p>
           </TabsContent>
