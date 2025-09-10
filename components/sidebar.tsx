@@ -63,9 +63,9 @@ export function SidebarContent({
   const sidebarLinks: SidebarLink[] = [
     { label: "Getting Started", href: "", type: "heading" },
     { label: "Home", href: "/docs", type: "link" },
-    { label: "Introduction", href: "/introduction", type: "link" },
-    { label: "Installation", href: "/docs/", type: "link" },
-    { label: "MCP Server", href: "/docs/", type: "link" },
+    { label: "Introduction", href: "/docs/introduction", type: "link" },
+    { label: "Installation", href: "/docs/installation", type: "link" },
+    { label: "MCP Server", href: "/docs/mcp/", type: "link" },
     { label: "Components", href: "", type: "heading" },
     {
       label: "Code Block",
@@ -130,8 +130,8 @@ export function SidebarContent({
     },
     { label: "Tool Call UI", href: "", type: "heading", isNew: true },
     { label: "Weather", href: "/docs/component/weather", type: "link" },
-    { label: "Email", href: "", type: "link" },
-    { label: "Charts", href: "", type: "link" },
+    { label: "Email", href: "/docs/component/email", type: "link" },
+    { label: "Charts", href: "/docs/component/charts", type: "link" },
   ];
 
   return (
