@@ -37,19 +37,19 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 
-// Mock chat history data
 const chatHistory = [
   {
     id: 1,
     title: "Finance tracker help",
-    preview: "I'm building a finance tracker, but I'm stuck on the charts...",
+    preview:
+      "I&apos;m building a finance tracker, but I&apos;m stuck on the charts...",
     date: "Today",
     active: true,
   },
   {
     id: 2,
     title: "React state management",
-    preview: "What's the best way to manage state in a large React app?",
+    preview: "What&apos;s the best way to manage state in a large React app?",
     date: "Yesterday",
     active: false,
   },
@@ -60,10 +60,7 @@ interface ChatHistorySidebarProps {
   isMobile?: boolean;
 }
 
-function ChatHistorySidebar({
-  className,
-  isMobile = false,
-}: ChatHistorySidebarProps) {
+function ChatHistorySidebar({ className }: ChatHistorySidebarProps) {
   return (
     <div className={cn("flex flex-col h-full", className)}>
       <div className="flex items-center justify-between px-4 py-3">
@@ -225,7 +222,7 @@ export default function Page() {
               <Message>
                 <MessageAvatar src="" alt="AI" />
                 <MessageContent className="bg-transparent">
-                  Of course! I'd be happy to help with your project. What
+                  Of course! I&apos;d be happy to help with your project. What
                   specifically are you working on?
                 </MessageContent>
               </Message>
