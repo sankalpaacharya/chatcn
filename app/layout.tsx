@@ -37,11 +37,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="flex flex-col h-screen">
-            <Navbar />
-            <Toaster position="top-center" />
-            <div className="flex-1 overflow-x-hidden font-sans">{children}</div>
-          </div>
+          {children}
         </ThemeProvider>
         <Script
           src="https://app.rybbit.io/api/script.js"
