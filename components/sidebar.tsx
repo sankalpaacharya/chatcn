@@ -116,6 +116,11 @@ export function SidebarContent({
       label: "Thought",
       href: "/docs/component/thought",
       type: "link",
+    },
+    {
+      label: "Thread",
+      href: "/docs/component/thread",
+      type: "link",
       isNew: true,
     },
     {
