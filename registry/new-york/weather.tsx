@@ -15,7 +15,7 @@ interface WeatherCardProps {
   windSpeed: number;
   feelsLike: number;
 }
-
+// need to fix this
 const WeatherCard: React.FC<WeatherCardProps> = ({
   currentTemp,
   condition,
