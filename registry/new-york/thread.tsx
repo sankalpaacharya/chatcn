@@ -51,15 +51,10 @@ type ThreadActionsProps = {
 };
 export function ThreadActions({ children, className }: ThreadActionsProps) {
   return (
-    <div
-      className={cn(
-        "opacity-0 group-hover:opacity-100 transition-opacity",
-        className
-      )}
-    >
+    <div className={cn("opacity-0 group-hover:opacity-100", className)}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="p-1 rounded-md hover:bg-accent">
+          <button className="p-1 rounded-md">
             <Ellipsis className="size-5" />
           </button>
         </DropdownMenuTrigger>
