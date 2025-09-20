@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, createContext, useContext } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,16 +10,22 @@ import {
 import { Ellipsis } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// really bad design that need to be fixed, will fix tomorrow gn buddy!!
+const ThreadContext = createContext<{ open: boolean }>({ open: false });
+const useThreadContext = () => useContext(ThreadContext);
+
 type ThreadProps = {
   children: React.ReactNode;
   className?: string;
 };
 export function Thread({ children, className }: ThreadProps) {
+  const { open } = useThreadContext();
+
   return (
     <div
       className={cn(
-        "group hover:bg-accent/50 hover:text-accent-foreground p-3 rounded-md flex gap-2",
+        "group p-3 rounded-md flex gap-2 transition-colors",
+        // apply hover styles if hovered OR dropdown is open
+        open && "bg-accent/50 text-accent-foreground",
         className
       )}
     >
@@ -25,6 +34,9 @@ export function Thread({ children, className }: ThreadProps) {
   );
 }
 
+//
+// ThreadContent
+//
 type ThreadContentProps = {
   children: React.ReactNode;
   className?: string;
@@ -33,6 +45,9 @@ export function ThreadContent({ children, className }: ThreadContentProps) {
   return <div className={cn("", className)}>{children}</div>;
 }
 
+//
+// ThreadAction
+//
 type ThreadActionProps = {
   children: React.ReactNode;
   className?: string;
@@ -45,21 +60,39 @@ export function ThreadAction({ children, className }: ThreadActionProps) {
   );
 }
 
+//
+// ThreadActions
+//
 type ThreadActionsProps = {
   children: React.ReactNode;
   className?: string;
 };
 export function ThreadActions({ children, className }: ThreadActionsProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className={cn("opacity-0 group-hover:opacity-100", className)}>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button className="p-1 rounded-md">
-            <Ellipsis className="size-5" />
-          </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>{children}</DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+    <ThreadContext.Provider value={{ open }}>
+      <div
+        className={cn(
+          "transition-opacity",
+          open ? "opacity-100" : "opacity-0 group-hover:opacity-100",
+          className
+        )}
+      >
+        <DropdownMenu onOpenChange={setOpen}>
+          <DropdownMenuTrigger asChild>
+            <button
+              className={cn(
+                "p-1 rounded-md",
+                open && "bg-accent text-accent-foreground"
+              )}
+            >
+              <Ellipsis className="size-5" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>{children}</DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </ThreadContext.Provider>
   );
 }
