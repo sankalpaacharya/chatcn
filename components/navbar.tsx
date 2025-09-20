@@ -55,7 +55,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full">
-      <div className="container flex h-16 items-center px-4 md:px-8">
+      <div className="flex h-16 items-center px-4 md:px-8">
         <Sheet>
           <SheetTrigger asChild className="xl:hidden mr-2">
             <Button variant="ghost" size="icon">
@@ -82,12 +82,12 @@ export default function Navbar() {
 
           <Logo className="xl:hidden text-lg" />
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 ml-auto">
             <Button
               variant="ghost"
               size="icon"
               asChild
-              className="hidden xl:inline-flex"
+              className="inline-flex"
             >
               <Link
                 href="https://github.com/sankalpaacharya/shadcn-collections"
