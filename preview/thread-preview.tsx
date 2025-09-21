@@ -8,7 +8,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Trash2, Pencil, Share } from "lucide-react";
 
-export default function Page() {
+export default function ThreadPreview() {
   return (
     <div className="flex justify-center mt-10">
       <Thread>

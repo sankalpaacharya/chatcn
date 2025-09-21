@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, createContext, useContext } from "react";
 import {
   DropdownMenu,
@@ -10,7 +9,13 @@ import {
 import { Ellipsis } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const ThreadContext = createContext<{ open: boolean }>({ open: false });
+const ThreadContext = createContext<{
+  open: boolean;
+  setOpen: (v: boolean) => void;
+}>({
+  open: false,
+  setOpen: () => {},
+});
 const useThreadContext = () => useContext(ThreadContext);
 
 type ThreadProps = {
@@ -18,81 +23,80 @@ type ThreadProps = {
   className?: string;
 };
 export function Thread({ children, className }: ThreadProps) {
-  const { open } = useThreadContext();
+  const [open, setOpen] = useState(false);
 
   return (
-    <div
-      className={cn(
-        "group p-3 rounded-md flex gap-2 transition-colors",
-        // apply hover styles if hovered OR dropdown is open
-        open && "bg-accent/50 text-accent-foreground",
-        className
-      )}
-    >
-      {children}
-    </div>
+    <ThreadContext.Provider value={{ open, setOpen }}>
+      <div
+        className={cn(
+          "group px-3 py-2 rounded-md flex gap-2 transition-colors hover:bg-accent items-center",
+          open ? "bg-accent/50" : "",
+          className
+        )}
+      >
+        {children}
+      </div>
+    </ThreadContext.Provider>
   );
 }
 
-//
-// ThreadContent
-//
-type ThreadContentProps = {
+export function ThreadContent({
+  children,
+  className,
+}: {
   children: React.ReactNode;
   className?: string;
-};
-export function ThreadContent({ children, className }: ThreadContentProps) {
+}) {
   return <div className={cn("", className)}>{children}</div>;
 }
 
-//
-// ThreadAction
-//
-type ThreadActionProps = {
+export function ThreadAction({
+  children,
+  className,
+}: {
   children: React.ReactNode;
   className?: string;
-};
-export function ThreadAction({ children, className }: ThreadActionProps) {
+}) {
   return (
-    <DropdownMenuItem className={cn("", className)}>
+    <DropdownMenuItem className={cn("p-2", className)}>
       {children}
     </DropdownMenuItem>
   );
 }
 
-//
-// ThreadActions
-//
-type ThreadActionsProps = {
+export function ThreadActions({
+  children,
+  className,
+}: {
   children: React.ReactNode;
   className?: string;
-};
-export function ThreadActions({ children, className }: ThreadActionsProps) {
-  const [open, setOpen] = useState(false);
+}) {
+  const { open, setOpen } = useThreadContext();
 
   return (
-    <ThreadContext.Provider value={{ open }}>
-      <div
-        className={cn(
-          "transition-opacity",
-          open ? "opacity-100" : "opacity-0 group-hover:opacity-100",
-          className
-        )}
-      >
-        <DropdownMenu onOpenChange={setOpen}>
-          <DropdownMenuTrigger asChild>
-            <button
-              className={cn(
-                "p-1 rounded-md",
-                open && "bg-accent text-accent-foreground"
-              )}
-            >
-              <Ellipsis className="size-5" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>{children}</DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-    </ThreadContext.Provider>
+    <div
+      className={cn(
+        "transition-opacity",
+        open ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+      )}
+    >
+      <DropdownMenu onOpenChange={setOpen}>
+        <DropdownMenuTrigger asChild>
+          <button
+            className={cn("p-1 rounded-md", open && "text-accent-foreground")}
+          >
+            <Ellipsis className="size-5" />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          className={cn(
+            "w-56 p-2 border shadow-sm bg-background/95 backdrop-blur-sm",
+            className
+          )}
+        >
+          {children}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   );
 }
