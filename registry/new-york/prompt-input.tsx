@@ -148,7 +148,7 @@ export function PromptInput({
   }
   return (
     <div className={className}>
-      <TooltipProvider>
+      
         <PromptInputContext.Provider
           value={{
             disabled,
@@ -160,14 +160,16 @@ export function PromptInput({
             textareaRef,
           }}
         >
+          <TooltipProvider>
           <div
             className="border-input bg-background cursor-text rounded-3xl border p-2 shadow-xs"
             onClick={() => textareaRef.current?.focus()}
           >
             {children}
           </div>
+          </TooltipProvider>
         </PromptInputContext.Provider>
-      </TooltipProvider>
+        
     </div>
   );
 }
