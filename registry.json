@@ -94,6 +94,76 @@
         { "path": "registry/new-york/source.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["tooltip"]
+    },
+    {
+      "name": "chat-container",
+      "type": "registry:component",
+      "title": "Chat Container",
+      "description": "Chat container component for messaging interfaces",
+      "files": [
+        { "path": "registry/new-york/chat-container.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "markdown",
+      "type": "registry:component",
+      "title": "Markdown",
+      "description": "Markdown renderer component",
+      "files": [
+        { "path": "registry/new-york/markdown.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "prompt-suggestion",
+      "type": "registry:component",
+      "title": "Prompt Suggestion",
+      "description": "Prompt suggestion component for user input",
+      "files": [
+        { "path": "registry/new-york/prompt-suggestion.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "shadow-scrollbar",
+      "type": "registry:component",
+      "title": "Shadow Scrollbar",
+      "description": "Custom scrollbar component with shadow effects",
+      "files": [
+        { "path": "registry/new-york/shadow-scrollbar.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "thought",
+      "type": "registry:component",
+      "title": "Thought",
+      "description": "Thought bubble or thinking indicator component",
+      "files": [
+        { "path": "registry/new-york/thought.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "thread",
+      "type": "registry:component",
+      "title": "Thread",
+      "description": "Thread display component for conversations",
+      "files": [
+        { "path": "registry/new-york/thread.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "weather",
+      "type": "registry:component",
+      "title": "Weather",
+      "description": "Weather display component",
+      "files": [
+        { "path": "registry/new-york/weather.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
     }
   ]
 }

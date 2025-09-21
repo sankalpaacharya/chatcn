@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prompt-suggestion",
+  "type": "registry:component",
+  "title": "Prompt Suggestion",
+  "description": "Prompt suggestion component for user input",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/prompt-suggestion.tsx",
+      "content": "type PromptRecommendationProps = {\n  children: React.ReactNode;\n  className?: string;\n};\n\nfunction PromptRecommendation() {}\n",
+      "type": "registry:component"
+    }
+  ]
+}

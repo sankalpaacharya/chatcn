@@ -19,7 +19,7 @@ export default function Page() {
             Share
           </ThreadAction>
           <ThreadAction className="flex">
-            <Pencil className="" />
+            <Pencil />
             Rename
           </ThreadAction>
           <Separator className="my-2" />
