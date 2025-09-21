@@ -135,7 +135,7 @@ export function SidebarContent({
     },
     { label: "Tool Call UI", href: "", type: "heading", isNew: true },
     { label: "Weather", href: "/docs/component/weather", type: "link" },
-    { label: "Email", href: "/docs/component/email", type: "link" },
+    { label: "Email", href: "/docs/component/email", type: "link", isNew: true},
     { label: "Charts", href: "/docs/component/charts", type: "link" },
   ];
 
