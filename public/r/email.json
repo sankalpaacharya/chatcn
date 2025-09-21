@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email",
+  "type": "registry:component",
+  "title": "Email",
+  "description": "Email sending component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/email.tsx",
+      "content": "\"use client\"\nimport { Badge } from '@/components/ui/badge';\nimport { Check, CircleX} from 'lucide-react';\nimport React from 'react'\ninterface EmailProps {\n    icon ?: React.ReactNode;\n    status?: \"complete\" | \"incomplete\";\n    title: string;\n    to:string;\n    subject: string;\n    sentAt: string | Date;\n    body: string;\n    sender ?: string;\n};\nconst STATUS_MAP = {\n    complete: {\n      color: \"#43A047\",\n      icon: <Check strokeWidth=\"1px\" size={18} className=\"text-[#43A047]\" />,\n      text: \"Completed\",\n    },\n    incomplete: {\n      color: \"#e53935\",\n      icon: <CircleX strokeWidth=\"1px\" size={20} className=\"text-[#e53935]\" />,\n      text: \"Incomplete\",\n    },\n  } as const;\n\nconst Email: React.FC<EmailProps> = ({\n  icon,\n  status,\n  title,\n  to,\n  subject,\n  sentAt,\n  body,\n  sender,\n}) =>{\n    const statusKey = status?.toLowerCase() as keyof typeof STATUS_MAP;\n  const { color, icon: statusIcon, text } =\n    STATUS_MAP[statusKey] ?? STATUS_MAP.incomplete;\n    return (\n        \n        <div className=\"rounded-xl border bg-card text-card-foreground shadow p-6 w-full max-w-2xl\">\n        <div className=\"flex w-full items-center justify-between mb-3\">\n        <div className=\"flex items-center space-x-2\">\n            {statusIcon}\n          {icon}\n          <span className=\"font-semibold\">Email Sent : <span className='text-muted-foreground'>{title}</span></span>\n        </div>\n        <Badge\n                style={{ backgroundColor: `${color}20`, color }}\n              >\n                {text}\n              </Badge>\n      </div>\n      \n      <div className=\"text-md space-y-4 border-t pt-2\">\n        <div>\n          <span className=\"font-semibold text-muted-foreground\">To: </span><span className='font-semibold'>{to}</span>\n        </div>\n        <hr/>\n        <div>\n          <span className=\"font-semibold text-muted-foreground\">Subject: </span>{subject}\n        </div>\n        <hr/>\n        <div>\n          <span className=\"font-semibold text-muted-foreground\">Sent: </span>{sentAt as any}\n        </div>\n        <hr/>\n      </div>\n\n      <div className=\"mt-4 text-md whitespace-pre-line\">\n        {body}\n        {sender && <p className=\"mt-4 font-medium\">{sender}</p>}\n      </div>\n        </div>\n      )\n}\n\nexport default Email",
+      "type": "registry:component"
+    }
+  ]
+}

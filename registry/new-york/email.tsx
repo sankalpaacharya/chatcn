@@ -1,6 +1,6 @@
 "use client"
 import { Badge } from '@/components/ui/badge';
-import { Check, CircleX, Divide, Mail, Ticket } from 'lucide-react';
+import { Check, CircleX} from 'lucide-react';
 import React from 'react'
 interface EmailProps {
     icon ?: React.ReactNode;
