@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadow-scrollbar",
+  "type": "registry:component",
+  "title": "Shadow Scrollbar",
+  "description": "Custom scrollbar component with shadow effects",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/shadow-scrollbar.tsx",
+      "content": "import React from \"react\";\nimport { ScrollArea } from \"@/components/ui/scroll-area\";\nimport { cn } from \"@/lib/utils\";\n\ntype Props = { className?: string; children: string };\n\nexport default function ShadowScrollBar({ className, children }: Props) {\n  return (\n    <ScrollArea className={cn(\"\", className)}>\n      <div className=\"mask-t-from-20%\">{children}</div>\n    </ScrollArea>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

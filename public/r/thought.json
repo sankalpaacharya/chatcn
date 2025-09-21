@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "thought",
+  "type": "registry:component",
+  "title": "Thought",
+  "description": "Thought bubble or thinking indicator component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/thought.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { cn } from \"@/lib/utils\";\nimport { Lightbulb } from \"lucide-react\";\n\ntype ThoughtContentProps = {\n  className?: string;\n  children: React.ReactNode;\n};\nexport function ThoughtContent({ className, children }: ThoughtContentProps) {\n  return (\n    <AccordionContent\n      className={cn(\"text-muted-foreground px-3 border-l-2\", className)}\n    >\n      {children}\n    </AccordionContent>\n  );\n}\n\ntype ThoughTriggerProps = {\n  className?: string;\n  children: React.ReactNode;\n};\nexport function ThoughtTrigger({ className, children }: ThoughTriggerProps) {\n  return (\n    <AccordionTrigger\n      className={cn(\n        \"no-underline hover:no-underline text-muted-foreground hover:text-primary justify-start gap-2\",\n        className\n      )}\n    >\n      <div className=\"flex gap-1 items-center\">{children}</div>\n    </AccordionTrigger>\n  );\n}\n\ntype ThoughtProps = {\n  className?: string;\n  children: React.ReactNode;\n};\n\nexport function Thought({ children, className }: ThoughtProps) {\n  return (\n    <Accordion type=\"single\" collapsible className={cn(\"\", className)}>\n      <AccordionItem value=\"item-1\">{children}</AccordionItem>\n    </Accordion>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}
