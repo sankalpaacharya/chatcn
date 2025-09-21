@@ -32,7 +32,7 @@
       "files": [
         { "path": "registry/new-york/prompt-input.tsx", "type": "registry:component" }
       ],
-      "registryDependencies": ["tooltip", "textarea"]
+      "registryDependencies": ["tooltip", "textarea", "button"]
     },
 
     {
