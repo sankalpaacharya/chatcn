@@ -6,8 +6,7 @@ export default function EmailPreview () {
         <div className="flex justify-center">
         <Email
         icon={<Mail className="h-5 w-5" />}
-        status="Complete"
-        statusText="Delivered"
+        status="complete"
         title="Weekend Dinner Plans 🍕"
         to="alex.johnson@example.com"
         subject="Dinner on Saturday night?"

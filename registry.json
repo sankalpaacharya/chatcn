@@ -164,6 +164,16 @@
         { "path": "registry/new-york/weather.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
+    },
+    {
+      "name": "email",
+      "type": "registry:component",
+      "title": "Email",
+      "description": "Email sending component",
+      "files": [
+        { "path": "registry/new-york/email.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": []
     }
   ]
 }
