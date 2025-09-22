@@ -83,7 +83,7 @@
       "files": [
         { "path": "registry/new-york/message.tsx", "type": "registry:component" }
       ],
-      "registryDependencies": []
+      "registryDependencies": ["avatar"]
     },
     {
       "name": "source",
