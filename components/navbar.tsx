@@ -15,7 +15,7 @@ import { useTheme } from "next-themes";
 
 const navLinks = [
   { href: "/docs", label: "Docs" },
-  { href: "/templates/v0-chat", label: "Templates" },
+  { href: "https://chatcn-template.vercel.app", label: "Templates" },
   { href: "/examples", label: "Examples" },
 ];
 
@@ -83,12 +83,7 @@ export default function Navbar() {
           <Logo className="xl:hidden text-lg" />
 
           <div className="flex items-center space-x-2 ml-auto">
-            <Button
-              variant="ghost"
-              size="icon"
-              asChild
-              className="inline-flex"
-            >
+            <Button variant="ghost" size="icon" asChild className="inline-flex">
               <Link
                 href="https://github.com/sankalpaacharya/shadcn-collections"
                 target="_blank"
