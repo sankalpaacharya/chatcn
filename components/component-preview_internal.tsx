@@ -41,7 +41,7 @@ export default function ComponentPreviewInternal({
               Code
             </TabsTrigger>
           </div>
-          <Install component={component} />
+          <Install code={code} component={component} />
         </TabsList>
 
         <TabsContent value="preview" className="mt-0 w-full">

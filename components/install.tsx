@@ -3,14 +3,18 @@ import { Terminal, Check } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
 
-export default function Install({ component }: { component: string }) {
+export default function Install({
+  code,
+  component,
+}: {
+  component: string;
+  code: string;
+}) {
   const [isCopied, setIsCopied] = useState(false);
 
   function copyToClipBoard() {
     navigator.clipboard
-      .writeText(
-        `pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/${component}`
-      )
+      .writeText(code)
       .then(() => {
         setIsCopied(true);
         toast("Copied installation command");
