@@ -1,2 +1,71 @@
 # Installation
-adding soon...
+
+## Prerequisites
+
+Before installing, ensure you have the following:
+
+- Node.js version 18 or later
+- React version 18 or later
+- A Next.js project (recommended)
+
+## Install shadcn/ui
+
+First, you'll need to install and configure shadcn/ui in your project. Follow the installation guide at [shadcn/ui documentation](https://ui.shadcn.com/docs/installation).
+
+Once shadcn/ui is set up, you can install shadcn-collections components using the shadcn CLI.
+
+## Using the shadcn CLI
+
+<CodeBlock lang="bash">{`npx shadcn@latest add "https://shadcn-collections.vercel.app/c/[COMPONENT].json"`}</CodeBlock>
+
+
+### Examples
+
+Install specific components:
+<CodeBlock lang="bash">{`# Install message component
+npx shadcn@latest add "https://shadcn-collections.vercel.app/c/message.json"
+
+# Install code block component  
+npx shadcn@latest add "https://shadcn-collections.vercel.app/c/codeblock.json"
+
+# Install prompt input component
+npx shadcn@latest add "https://shadcn-collections.vercel.app/c/prompt-input.json"`}</CodeBlock>
+
+
+## Usage
+
+After installation, import and start using the components in your project:
+
+
+<CodeBlock lang="tsx">{`import { Message, MessageAvatar, MessageContent } from "@/components/ui/message";
+import { CodeBlock } from "@/components/ui/codeblock";
+import { PromptInput } from "@/components/ui/prompt-input";
+
+export function MyComponent() {
+  return (
+    <div>
+      <Message>
+        <MessageAvatar src="/avatar.jpg" alt="User" />
+        <MessageContent>Hello world!</MessageContent>
+      </Message>
+      
+    </div>
+  );
+}
+`}</CodeBlock>
+
+
+
+
+## Manual Installation
+
+If you prefer to install components manually:
+
+1. Copy the component code from the documentation
+2. Create the component file in your `components/ui` directory
+3. Install any required dependencies
+4. Import and use the component
+
+## TypeScript Support
+
+All components come with full TypeScript support out of the box. Type definitions are included with each component.
