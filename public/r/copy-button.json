@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "copy-button",
+  "type": "registry:component",
+  "title": "Copy Button",
+  "description": "A button with tooltip that copies text to clipboard.",
+  "dependencies": [
+    "tooltip"
+  ],
+  "registryDependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/copy-button.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Clipboard, Check } from \"lucide-react\";\nimport { Tooltip, TooltipTrigger, TooltipContent } from \"@/components/ui/tooltip\";\n\ninterface CopyButtonProps {\n  value: string;\n  tooltip?: string;\n  className?: string;\n}\n\nexport function CopyButton({ value, tooltip = \"Copy to clipboard\", className }: CopyButtonProps) {\n  const [copied, setCopied] = useState(false);\n\n  const handleCopy = async () => {\n    await navigator.clipboard.writeText(value);\n    setCopied(true);\n    setTimeout(() => setCopied(false), 2000);\n  };\n\n  return (\n    <Tooltip>\n      <TooltipTrigger\n        onClick={handleCopy}\n        className={`p-1 rounded-md hover:bg-muted transition ${className}`}\n      >\n        {copied ? <Check size={18} /> : <Clipboard size={18} />}\n      </TooltipTrigger>\n      <TooltipContent>\n        <p>{copied ? \"Copied!\" : tooltip}</p>\n      </TooltipContent>\n    </Tooltip>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

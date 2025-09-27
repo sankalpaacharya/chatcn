@@ -3,12 +3,8 @@ import type { BundledLanguage } from "shiki";
 import { codeToHtml } from "shiki";
 import { Clipboard, Check } from "lucide-react";
 import { useState, useEffect } from "react";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { CopyButton } from "./copy-button";
 
 type Props = {
   children: string;
@@ -28,7 +24,6 @@ export function CodeBlock({
   highlight,
 }: Props) {
   const [html, setHtml] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const generateHtml = async () => {
@@ -56,11 +51,6 @@ export function CodeBlock({
     generateHtml();
   }, [children, lang, theme]);
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(children);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <div
@@ -71,17 +61,7 @@ export function CodeBlock({
       style={{ height: "100%", maxHeight: `${height}px` }}
     >
       <div className="sticky top-5 flex justify-end -mt-8 mr-5">
-        <Tooltip>
-          <TooltipTrigger
-            className="p-1 rounded-md hover:bg-muted transition"
-            onClick={handleCopy}
-          >
-            {copied ? <Check size={18} /> : <Clipboard size={18} />}
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>
-          </TooltipContent>
-        </Tooltip>
+      <CopyButton value={children} />
       </div>
 
       {html == null ? (

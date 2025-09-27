@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { CopyButton } from "./copy-button";
 
 interface CommandItem {
   label: string;
@@ -36,18 +37,6 @@ function SingleCommandBlock({
   showTerminalIcon?: boolean;
   className?: string;
 }) {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
-
   return (
     <div className={cn("w-full mx-auto", className)}>
       <div className="bg-card rounded-md border">
@@ -64,27 +53,7 @@ function SingleCommandBlock({
                   </span>
                 )}
               </div>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-7 w-7 sm:h-8 sm:w-8 p-0"
-                    onClick={() => copyToClipboard(command)}
-                  >
-                    {copied ? (
-                      <Check className="size-3.5 sm:size-4.5" />
-                    ) : (
-                      <Clipboard className="size-4 sm:size-5" />
-                    )}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-xs sm:text-sm">
-                    {copied ? "Copied!" : "Copy to Clipboard"}
-                  </p>
-                </TooltipContent>
-              </Tooltip>
+               <CopyButton value={command} />
             </div>
             <Separator />
           </>

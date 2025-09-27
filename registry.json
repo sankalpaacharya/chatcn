@@ -34,7 +34,17 @@
       ],
       "registryDependencies": ["tooltip", "textarea"]
     },
-
+    {
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "A button with tooltip that copies text to clipboard.",
+      "files": [
+        { "path": "registry/new-york/copy-button.tsx", "type": "registry:component" }
+      ],
+      "dependencies": ["tooltip"],
+      "registryDependencies": ["lucide-react"]
+    },
     {
       "name": "calendar",
       "type": "registry:component",
