@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/docs", label: "Docs" },
   { href: "https://chatcn-template.vercel.app", label: "Templates" },
   { href: "/examples", label: "Examples" },
+  { href: "/marketplace", label: "Marketplace"}
 ];
 
 export default function Navbar() {
