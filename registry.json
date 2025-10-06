@@ -174,6 +174,16 @@
         { "path": "registry/new-york/email.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
+    },
+    {
+      "name": "signup",
+      "type": "registry:component",
+      "title": "Signup",
+      "description": "Simple Signup form",
+      "files": [
+        { "path": "registry/new-york/signup.tsx", "type": "registry:component" }
+      ],
+      "registryDependencies": ["input","button","card"]
     }
   ]
 }

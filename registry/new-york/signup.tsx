@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -12,7 +12,7 @@ export default function SignUpForm() {
     confirmPassword: ''
   });
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     setFormData({
       fullName: "",
@@ -22,7 +22,7 @@ export default function SignUpForm() {
     });
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e:any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -68,7 +68,7 @@ export default function SignUpForm() {
               className="bg-muted/50 text-primary placeholder:text-gray-80 h-9 rounded-lg"
             />
             <p className="text-muted-foreground text-sm mt-2">
-              We will use this to contact you. We will not share your email with anyone else.
+              We'll use this to contact you. We will not share your email with anyone else.
             </p>
           </div>
 

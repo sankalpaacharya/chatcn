@@ -114,6 +114,15 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px hsl(var(--muted) / 0.5) inset !important;
+  -webkit-text-fill-color: hsl(var(--primary)) !important;
+  transition: background-color 9999s ease-in-out 0s !important;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

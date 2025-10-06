@@ -58,7 +58,7 @@ export default function Home() {
               href={"https://github.com/sankalpaacharya/chatcn"}
               className="bg-secondary/80 py-1.5 px-4 rounded-full inline-flex items-center mx-auto mb-6"
             >
-              <span className="mr-1.5">🌟</span> {stars} stars us on Github
+              <span className="mr-1.5">🌟</span> {stars} stars on Github
             </Link>
             <h1
               className={`text-5xl sm:text-6xl md:text-7xl font-sans font-bold leading-tight tracking-tight ${
