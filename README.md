@@ -13,6 +13,9 @@
 
 </div>
 
+![site image](https://i.ibb.co/60s8xdwY/gradient-chatcn.png)
+
+
 ![site image](./public/site.jpeg)
 
 
