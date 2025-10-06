@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Github, Heart, Users } from 'lucide-react'
 import React from 'react'
 
-const LoginSignup = () => {
+const ChatContainer = () => {
  
   return (
     <div className="p-12">
@@ -49,4 +49,4 @@ const LoginSignup = () => {
   )
 }
 
-export default LoginSignup
+export default ChatContainer

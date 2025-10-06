@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-const page = () => {
+const MarketPlace = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const scrollToMarketplace = ()=>{
         const mp = document.getElementById('marketplace')
@@ -188,4 +188,4 @@ const page = () => {
   )
 }
 
-export default page
+export default MarketPlace

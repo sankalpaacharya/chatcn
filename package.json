@@ -41,6 +41,7 @@
     "posthog-js": "^1.257.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.64.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "shadcn": "2.9.0-canary.1",
