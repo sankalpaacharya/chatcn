@@ -26,6 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <meta
+        property="og:image"
+        content="https://i.ibb.co/60s8xdwY/gradient-chatcn.png"
+      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
