@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import Sidebar from "@/components/sidebar";
-import MainSidebar from "@/components/main-sidebar";
 
 export default function DocLayout({ children }: { children: ReactNode }) {
   return (

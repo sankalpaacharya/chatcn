@@ -8,7 +8,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip'
-import { ChevronRight, Heart, Search, Users } from 'lucide-react'
+import { ChevronRight, Search, Users } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -131,7 +131,7 @@ const MarketPlace = () => {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>You'll be able to add components soon!</p>
+                        <p>You will be able to add components soon!</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
