@@ -8,7 +8,8 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { SidebarContent } from "./sidebar";
+import { SidebarContent as SC1} from "./main-sidebar";
+import { SidebarContent as SC2} from "./sidebar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -22,6 +23,7 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isDocsPage = pathname.startsWith("/docs");
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -66,7 +68,11 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent side="left" className="w-[280px]">
             <SheetTitle className="hidden">Navigation Menu</SheetTitle>
-            <SidebarContent isCurrentPath={isActive} />
+            {isDocsPage ? (
+              <SC2 isCurrentPath={isActive} />
+            ) : (
+              <SC1 isCurrentPath={isActive} />
+            )}
           </SheetContent>
         </Sheet>
 
