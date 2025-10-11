@@ -52,21 +52,6 @@ export default function Home() {
       )}
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-20 md:py-28">
-        <a
-          href="https://www.producthunt.com/products/chatcn?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-chatcn"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mb-8 inline-block"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1023828&theme=light&t=1759816702300"
-            alt="Chatcn - Building AI chat app is hard, styling then shouldn’t be | Product Hunt"
-            style={{ width: "250px", height: "54px" }}
-            width="250"
-            height="54"
-          />
-        </a>
-
         <div className="w-full max-w-4xl mx-auto text-center space-y-6">
           <div>
             <Link
