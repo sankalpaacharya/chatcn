@@ -50,8 +50,17 @@ export default function Home() {
           }}
         />
       )}
-
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-20 md:py-28">
+        <div className="inline-flex items-center gap-2 bg-muted/30 border border-border/40 rounded-full px-4 py-1.5 text-sm text-muted-foreground mb-6 backdrop-blur-sm">
+          <span>
+            Backed by{" "}
+            <span className="bg-gradient-to-r bg-orange-500 text-white font-semibold px-1 rounded shadow-sm">
+              C
+            </span>
+            <span className="ml-0.5">ommunity</span>
+          </span>
+        </div>
+
         <div className="w-full max-w-4xl mx-auto text-center space-y-6">
           <div>
             <Link
