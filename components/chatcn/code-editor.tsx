@@ -18,6 +18,7 @@ type CodeEditorContext = {
   setValue: (value: string) => void;
   setLanguage: (language: string) => void;
   setTheme: (theme: string) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   editorRef: React.RefObject<any>;
   onFormat?: () => void;
   onExecute?: () => void;
@@ -57,9 +58,10 @@ export function CodeEditArea({
   width = "100%",
   ...props
 }: CodeEditAreaProps) {
-  const { disabled, value, setValue, language, theme, editorRef, isLoading } =
+  const { disabled, value, setValue, language, theme, editorRef } =
     useCodeEditorContext();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleEditorDidMount = (editor: any, monaco: any) => {
     editorRef.current = editor;
     props.onMount?.(editor, monaco);
@@ -192,6 +194,7 @@ export function CodeEditor({
   const [internalValue, setInternalValue] = useState(value || "");
   const [internalLanguage, setInternalLanguage] = useState(language);
   const [internalTheme, setInternalTheme] = useState(theme);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const editorRef = useRef<any>(null);
 
   function handleValueChange(newValue: string) {

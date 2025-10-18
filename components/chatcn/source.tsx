@@ -32,7 +32,7 @@ function getDomainFromUrl(url: string): string {
   try {
     const urlObj = new URL(url);
     return urlObj.hostname;
-  } catch (error) {
+  } catch {
     return url;
   }
 }
@@ -74,6 +74,7 @@ export function SourceTrigger({
         )}
       >
         {showFavicon && (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={`https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(
               href
@@ -115,6 +116,7 @@ export function SourceContent({
     <HoverCardContent className={cn(className, "shadow-xs")}>
       <a href={href} className="space-y-4" target="_blank">
         <div className="flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(
               href

@@ -100,7 +100,6 @@ export function MessageAction({
   className,
   tooltip,
   children,
-  side,
   ...props
 }: MessageActionProps) {
   const { disabled } = useMessageContext();

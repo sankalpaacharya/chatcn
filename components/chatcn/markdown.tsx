@@ -20,7 +20,7 @@ export function Markdown({ children, className, theme }: MarkDownProps) {
     >
       <MarkdownRender
         components={{
-          code({ node, className, children, ...props }) {
+          code({ className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             return match ? (
               <CodeBlock
@@ -32,8 +32,9 @@ export function Markdown({ children, className, theme }: MarkDownProps) {
                     : "github-light-default"
                 }
                 className={cn("not-prose")}
-                children={String(children).replace(/\n$/, "")}
-              />
+              >
+                {String(children).replace(/\n$/, "")}
+              </CodeBlock>
             ) : (
               <code className={className} {...props}>
                 {children}

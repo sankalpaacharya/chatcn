@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
-import { Lightbulb } from "lucide-react";
 
 type ThoughtContentProps = {
   className?: string;

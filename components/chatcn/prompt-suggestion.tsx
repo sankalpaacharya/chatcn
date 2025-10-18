@@ -1,6 +1,2 @@
-type PromptRecommendationProps = {
-  children: React.ReactNode;
-  className?: string;
-};
-
-function PromptRecommendation() {}
+// This file is intentionally empty and can be removed or implemented later
+export {};

@@ -2,7 +2,7 @@
 import type { BundledLanguage } from "shiki";
 import { codeToHtml } from "shiki";
 import { Clipboard, Check } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Tooltip,
   TooltipTrigger,
@@ -30,31 +30,34 @@ export function CodeBlock({
   const [html, setHtml] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const generateHtml = async () => {
-      if (!children) setHtml("<pre><code></code></pre>");
-      const out = await codeToHtml(children, {
-        lang,
-        theme,
-        colorReplacements: {
-          "#0d1117": "var(--card)",
-          "#ffffff": "var(--card)",
-        },
-        decorations: highlight
-          ? [
-              {
-                start: { line: highlight.start - 1, character: 0 },
-                end: { line: highlight.end, character: 0 },
-                properties: { class: "bg-muted inline-block" },
-              },
-            ]
-          : [],
-      });
-      setHtml(out);
-    };
+  const generateHtml = useCallback(async () => {
+    if (!children) {
+      setHtml("<pre><code></code></pre>");
+      return;
+    }
+    const out = await codeToHtml(children, {
+      lang,
+      theme,
+      colorReplacements: {
+        "#0d1117": "var(--card)",
+        "#ffffff": "var(--card)",
+      },
+      decorations: highlight
+        ? [
+            {
+              start: { line: highlight.start - 1, character: 0 },
+              end: { line: highlight.end, character: 0 },
+              properties: { class: "bg-muted inline-block" },
+            },
+          ]
+        : [],
+    });
+    setHtml(out);
+  }, [children, lang, theme, highlight]);
 
+  useEffect(() => {
     generateHtml();
-  }, [children, lang, theme]);
+  }, [generateHtml]);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(children);

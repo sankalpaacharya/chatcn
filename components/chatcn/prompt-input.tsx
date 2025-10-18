@@ -56,7 +56,7 @@ export function PromptInputTextArea({
       typeof maxHeight == "number"
         ? `${Math.min(textareaRef.current.scrollHeight, maxHeight)}px`
         : `min(${maxHeight},${textareaRef.current.scrollHeight}px)`;
-  }, [value, maxHeight, disableAutoSize]);
+  }, [value, maxHeight, disableAutoSize, textareaRef]);
 
   return (
     <Textarea
@@ -86,7 +86,6 @@ export function PromptInputAction({
   className,
   tooltip,
   children,
-  side,
   ...props
 }: PromptInputActionProps) {
   const { disabled } = usePromptInputContext();
@@ -135,7 +134,6 @@ export function PromptInput({
   onSubmit,
   children,
   className,
-  isLoading = false,
   disabled = false,
   maxHeight = 240,
 }: PromptInputProps) {
