@@ -8,8 +8,8 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { SidebarContent as SC1} from "./main-sidebar";
-import { SidebarContent as SC2} from "./sidebar";
+import { SidebarContent as SC1 } from "./main-sidebar";
+import { SidebarContent as SC2 } from "./sidebar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -18,7 +18,7 @@ const navLinks = [
   { href: "/docs", label: "Docs" },
   { href: "https://chatcn-template.vercel.app", label: "Templates" },
   { href: "/examples", label: "Examples" },
-  { href: "/marketplace", label: "Marketplace"}
+  { href: "/marketplace", label: "Marketplace" },
 ];
 
 export default function Navbar() {
@@ -57,7 +57,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="sticky top-0 z-50 w-full">
+    <nav className="sticky top-0 z-50 w-full border-b-2 border-dotted">
       <div className="flex h-16 items-center px-4 md:px-8">
         <Sheet>
           <SheetTrigger asChild className="xl:hidden mr-2">

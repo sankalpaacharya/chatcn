@@ -25,7 +25,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden xl:block h-full w-62 bg-background sticky top-0">
+      <aside className="hidden xl:block h-full w-62 bg-background sticky top-0 border-r-2 border-dotted">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
