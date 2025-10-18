@@ -33,6 +33,7 @@ function getDomainFromUrl(url: string): string {
     const urlObj = new URL(url);
     return urlObj.hostname;
   } catch (error) {
+    console.log(error);
     return url;
   }
 }

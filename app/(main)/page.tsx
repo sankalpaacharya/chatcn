@@ -8,13 +8,13 @@ import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york/message";
+} from "@/components/chatcn/message";
 import {
   PromptInput,
   PromptInputAction,
   PromptInputActions,
   PromptInputTextArea,
-} from "@/registry/new-york/prompt-input";
+} from "@/components/chatcn/prompt-input";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);

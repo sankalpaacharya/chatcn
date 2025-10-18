@@ -1,5 +1,5 @@
 import React from "react";
-import WeatherCard from "@/registry/new-york/weather";
+import WeatherCard from "@/components/chatcn/weather";
 
 export default function WeatherCardPreview() {
   return (

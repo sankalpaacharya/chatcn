@@ -3,7 +3,7 @@ import {
   Source,
   SourceContent,
   SourceTrigger,
-} from "@/registry/new-york/source";
+} from "@/components/chatcn/source";
 
 export default function SourcePreview() {
   return (

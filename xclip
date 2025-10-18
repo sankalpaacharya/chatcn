@@ -1,0 +1,5 @@
+
+> shadcn-heatmap@0.1.0 lint /home/sanku/work/engineering/chatcn
+> next lint "-selection" "clipboard"
+
+ ELIFECYCLE  Command failed with exit code 1.

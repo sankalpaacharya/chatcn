@@ -1,5 +1,5 @@
 "use client";
-import { Markdown } from "@/registry/new-york/markdown";
+import { Markdown } from "@/components/chatcn/markdown";
 import { useTheme } from "next-themes";
 
 const content = `

@@ -1,4 +1,4 @@
-import SignUpForm from "@/registry/new-york/signup";
+import SignUpForm from "@/components/chatcn/signup";
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 const SignupPreview = () => {

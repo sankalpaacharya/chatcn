@@ -1,5 +1,5 @@
 import React from "react";
-import { Tool, ToolStateBadge } from "@/registry/new-york/tool";
+import { Tool, ToolStateBadge } from "@/components/chatcn/tool";
 
 export default function ToolStatePreview() {
   return (

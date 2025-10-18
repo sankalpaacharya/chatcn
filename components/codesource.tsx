@@ -5,7 +5,7 @@ import CodeBlockClientWrapper from "./code-block-client-wrapper";
 export default async function CodeSource({ component }: { component: string }) {
   const filePath = path.join(
     process.cwd(),
-    `registry/new-york/${component}.tsx`
+    `components/chatcn/${component}.tsx`
   );
   const fileContent = await fs.readFile(filePath, "utf-8");
   return (

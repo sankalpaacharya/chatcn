@@ -4,7 +4,7 @@ import {
   ThreadContent,
   ThreadAction,
   ThreadActions,
-} from "@/registry/new-york/thread";
+} from "@/components/chatcn/thread";
 import { Separator } from "@/components/ui/separator";
 import { Trash2, Pencil, Share } from "lucide-react";
 
