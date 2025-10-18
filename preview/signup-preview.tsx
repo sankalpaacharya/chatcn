@@ -62,11 +62,22 @@ const SignupPreview = () => {
 
       <SignUpForm.Actions>
         <SignUpForm.SubmitButton text="Create Account" redirectTo="#" />
-        <SignUpForm.SocialButton provider="Google" icon={<ArrowUpRight />} redirectTo="/api/auth/google"/>
-        <SignUpForm.SocialButton provider="Github" icon={<ArrowUpRight />} redirectTo="/api/auth/google"/>
+        <SignUpForm.SocialButton
+          provider="Google"
+          icon={<ArrowUpRight />}
+          redirectTo="/api/auth/google"
+        />
+        <SignUpForm.SocialButton
+          provider="Github"
+          icon={<ArrowUpRight />}
+          redirectTo="/api/auth/google"
+        />
       </SignUpForm.Actions>
 
-      <SignUpForm.Footer footer="Already have an account?" footerLink={{text:"Sign in here.", redirectTo:"#"}} />
+      <SignUpForm.Footer
+        footerText="Already have an account?"
+        footerLink={{ text: "Sign in here.", redirectTo: "#" }}
+      />
     </SignUpForm>
   );
 };
