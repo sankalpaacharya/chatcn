@@ -10,7 +10,7 @@
       "description": "Easy Code Block Component",
       "dependencies": ["shiki"],
       "files": [
-        { "path": "registry/new-york/codeblock.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/codeblock.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["tooltip"]
     },
@@ -20,7 +20,7 @@
       "title": "Command Tabs",
       "description": "Easy Command Tabs Component",
       "files": [
-        { "path": "registry/new-york/command-tabs.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/command-tabs.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["tooltip", "tabs", "separator"]
     },
@@ -30,7 +30,7 @@
       "title": "Prompt Input",
       "description": "Prompt Input",
       "files": [
-        { "path": "registry/new-york/prompt-input.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/prompt-input.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["tooltip", "textarea"]
     },
@@ -41,7 +41,7 @@
       "title": "Calendar",
       "description": "Custom calendar component",
       "files": [
-        { "path": "registry/new-york/calendar.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/calendar.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["card"]
     },
@@ -51,7 +51,7 @@
       "title": "Code Editor",
       "description": "Lightweight code editor component",
       "files": [
-        { "path": "registry/new-york/code-editor.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/code-editor.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -61,7 +61,7 @@
       "title": "File",
       "description": "File display/manager component",
       "files": [
-        { "path": "registry/new-york/file.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/file.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -71,7 +71,7 @@
       "title": "Tool",
       "description": "Tool display/interaction component",
       "files": [
-        { "path": "registry/new-york/tool.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/tool.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["tabs","accordion"]
     },
@@ -81,7 +81,7 @@
       "title": "Message",
       "description": "Message bubble or chat component",
       "files": [
-        { "path": "registry/new-york/message.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/message.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["avatar"]
     },
@@ -91,7 +91,7 @@
       "title": "Source",
       "description": "Source viewer component",
       "files": [
-        { "path": "registry/new-york/source.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/source.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["tooltip"]
     },
@@ -101,7 +101,7 @@
       "title": "Chat Container",
       "description": "Chat container component for messaging interfaces",
       "files": [
-        { "path": "registry/new-york/chat-container.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/chat-container.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -111,7 +111,7 @@
       "title": "Markdown",
       "description": "Markdown renderer component",
       "files": [
-        { "path": "registry/new-york/markdown.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/markdown.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -121,7 +121,7 @@
       "title": "Prompt Suggestion",
       "description": "Prompt suggestion component for user input",
       "files": [
-        { "path": "registry/new-york/prompt-suggestion.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/prompt-suggestion.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -131,7 +131,7 @@
       "title": "Shadow Scrollbar",
       "description": "Custom scrollbar component with shadow effects",
       "files": [
-        { "path": "registry/new-york/shadow-scrollbar.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/shadow-scrollbar.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -141,7 +141,7 @@
       "title": "Thought",
       "description": "Thought bubble or thinking indicator component",
       "files": [
-        { "path": "registry/new-york/thought.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/thought.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -151,7 +151,7 @@
       "title": "Thread",
       "description": "Thread display component for conversations",
       "files": [
-        { "path": "registry/new-york/thread.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/thread.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -161,7 +161,7 @@
       "title": "Weather",
       "description": "Weather display component",
       "files": [
-        { "path": "registry/new-york/weather.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/weather.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -171,7 +171,7 @@
       "title": "Email",
       "description": "Email sending component",
       "files": [
-        { "path": "registry/new-york/email.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/email.tsx", "type": "registry:component" }
       ],
       "registryDependencies": []
     },
@@ -181,7 +181,7 @@
       "title": "Signup",
       "description": "Simple Signup form",
       "files": [
-        { "path": "registry/new-york/signup.tsx", "type": "registry:component" }
+        { "path": "components/chatcn/signup.tsx", "type": "registry:component" }
       ],
       "registryDependencies": ["input","button","card"]
     }

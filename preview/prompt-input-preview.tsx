@@ -4,7 +4,7 @@ import {
   PromptInputTextArea,
   PromptInputAction,
   PromptInputActions,
-} from "@/registry/new-york/prompt-input";
+} from "@/components/chatcn/prompt-input";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 

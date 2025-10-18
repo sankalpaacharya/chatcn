@@ -2,7 +2,7 @@ import {
   Thought,
   ThoughtContent,
   ThoughtTrigger,
-} from "@/registry/new-york/thought";
+} from "@/components/chatcn/thought";
 
 export default function ThoughtPreview() {
   return (

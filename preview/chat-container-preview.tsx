@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import ChatContainer from "@/registry/new-york/chat-container";
+import ChatContainer from "@/components/chatcn/chat-container";
 import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york/message";
+} from "@/components/chatcn/message";
 import { Button } from "@/components/ui/button";
 
 export default function ChatContainerPreview() {

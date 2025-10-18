@@ -7,7 +7,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "registry/new-york/prompt-suggestion.tsx",
+      "path": "components/chatcn/prompt-suggestion.tsx",
       "content": "type PromptRecommendationProps = {\n  children: React.ReactNode;\n  className?: string;\n};\n\nfunction PromptRecommendation() {}\n",
       "type": "registry:component"
     }

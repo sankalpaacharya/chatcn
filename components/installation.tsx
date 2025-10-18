@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CodeSource from "./codesource";
-import CommandBlock from "@/registry/new-york/command-tabs";
+import CommandBlock from "@/components/chatcn/command-tabs";
 
 export default function Installation({ component }: { component: string }) {
   return (

@@ -1,4 +1,4 @@
-import Email from "@/registry/new-york/email";
+import Email from "@/components/chatcn/email";
 import { Mail } from "lucide-react";
 
 export default function EmailPreview () {
