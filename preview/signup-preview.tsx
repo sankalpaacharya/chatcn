@@ -74,10 +74,7 @@ const SignupPreview = () => {
         />
       </SignUpForm.Actions>
 
-      <SignUpForm.Footer
-        footerText="Already have an account?"
-        footerLink={{ text: "Sign in here.", redirectTo: "#" }}
-      />
+      <SignUpForm.Footer footerText="Already have an account?" footerLink={{text:"Sign in here.", redirectTo:"#"}} />
     </SignUpForm>
   );
 };
