@@ -66,7 +66,7 @@ export function SidebarContent({
     { label: "Introduction", href: "/docs/introduction", type: "link" },
     { label: "Installation", href: "/docs/installation", type: "link" },
     { label: "MCP Server", href: "/docs/mcp/", type: "link" },
-    { label: "Components", href: "", type: "heading" },
+    { label: "2D Components", href: "", type: "heading" },
     {
       label: "Code Block",
       href: "/docs/component/codeblock",
@@ -133,6 +133,24 @@ export function SidebarContent({
       href: "/docs/component/calendar",
       type: "link",
     },
+
+    { label: "3D Components", href: "", type: "heading" },
+    {
+      label: "Model",
+      href: "/docs/3d-components/model",
+      type: "link",
+    },
+    {
+      label: "Login",
+      href: "/docs/3d-components/login",
+      type: "link",
+    },
+    {
+      label: "Signup",
+      href: "/docs/3d-components/signup",
+      type: "link",
+    },
+
     { label: "Tool Call UI", href: "", type: "heading", isNew: true },
     { label: "Weather", href: "/docs/component/weather", type: "link" },
     {

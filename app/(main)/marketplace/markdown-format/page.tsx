@@ -8,7 +8,7 @@ const Markdown = () => {
  
   return (
     <div className="p-12">
-    <Card className="bg-muted/50 border-muted/90 mb-8">
+    <Card className="bg-background border-muted/90 mb-8">
         <CardHeader>
             <div className="flex flex-row justify-between items-center">
             <CardTitle className="text-3xl font-bold text-primary">

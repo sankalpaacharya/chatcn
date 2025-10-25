@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/chatcn/prompt-suggestion.tsx",
-      "content": "type PromptRecommendationProps = {\n  children: React.ReactNode;\n  className?: string;\n};\n\nfunction PromptRecommendation() {}\n",
+      "content": "// This file is intentionally empty and can be removed or implemented later\nexport {};\n",
       "type": "registry:component"
     }
   ]

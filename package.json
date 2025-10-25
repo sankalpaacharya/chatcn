@@ -1,5 +1,5 @@
 {
-  "name": "shadcn-heatmap",
+  "name": "chatcn",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -29,6 +29,8 @@
     "@radix-ui/react-switch": "^1.2.5",
     "@radix-ui/react-tabs": "^1.1.12",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "9",
     "@tailwindcss/typography": "^0.5.16",
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
@@ -47,6 +49,7 @@
     "shadcn": "2.9.0-canary.1",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
+    "three": "^0.180.0",
     "zod": "^4.1.11"
   },
   "devDependencies": {
@@ -55,6 +58,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.180.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
     "shiki": "^3.7.0",
