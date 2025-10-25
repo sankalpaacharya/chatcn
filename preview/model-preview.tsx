@@ -10,7 +10,7 @@ import {
 
 const ModelPreview = () => {
   return (
-    <ModelContent height="30px" width="100%">
+    <ModelContent height="70vh" width="100%">
       <Model
         src="/abstract.glb"
         position={[0, 0, 0]}
