@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useContext, createContext } from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type FormData = {
   [key: string]: string;
@@ -24,8 +26,12 @@ export const useForm = () => {
 };
 export default function SignUpForm({
   children,
+  className,
+  onSubmit,
 }: {
   children: React.ReactNode;
+  className?: string;
+  onSubmit?: (formData: FormData) => void;
 }) {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -36,6 +42,7 @@ export default function SignUpForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    onSubmit?.(formData);
     setFormData({
       fullName: "",
       email: "",
@@ -55,40 +62,47 @@ export default function SignUpForm({
     <SignupContext.Provider value={{ formData, handleChange, handleSubmit }}>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm rounded-2xl p-6 border-2 border-muted shadow-xl bg-background mx-auto"
+        className={cn(
+          "w-full max-w-xl p-6 shadow-[0_0_10px_rgba(0,0,0,0.1)] rounded-lg bg-background mx-auto",
+          className
+        )}
       >
         {children}
       </form>
     </SignupContext.Provider>
   );
 }
-SignUpForm.Header = function Header({
+export function SignUpHeader({
   heading,
   subheading,
+  className,
 }: {
   heading: string;
   subheading: string;
+  className?: string;
 }) {
   return (
-    <div className="mb-3">
-      <h1 className="text-xl font-bold text-primary mb-1">{heading}</h1>
-      <p className="text-muted-foreground text-sm">{subheading}</p>
+    <div className={cn("mb-3 text-center", className)}>
+      <h1 className="text-2xl font-semibold text-primary mb-1">{heading}</h1>
+      <p className="text-muted-foreground text-md">{subheading}</p>
     </div>
   );
 };
 
-SignUpForm.Field = function Field({ children }: { children: React.ReactNode }) {
-  return <div className="space-y-2 py-2.5">{children}</div>;
+export function SignUpField({ children, className }: { children: React.ReactNode, className?:string }) {
+  return <div className={cn("space-y-2 py-2.5", className)}>{children}</div>;
 };
-SignUpForm.Label = function FormLabel({
+export function SignUpLabel({
   htmlFor,
   children,
+  className,
 }: {
   htmlFor: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <Label htmlFor={htmlFor} className="text-primary text-sm">
+    <Label htmlFor={htmlFor} className={cn("text-primary text-sm", className)}>
       {children}
     </Label>
   );
@@ -99,12 +113,13 @@ type FormInputProps = {
   placeholder: string;
   minLength?: number;
 };
-SignUpForm.Input = function FormInput({
+export function SignUpInput({
   name,
   type,
   placeholder,
   minLength,
-}: FormInputProps) {
+  className
+}: FormInputProps & { className?: string }) {
   const { formData, handleChange } = useForm();
   return (
     <Input
@@ -115,26 +130,20 @@ SignUpForm.Input = function FormInput({
       value={formData[name]}
       onChange={handleChange}
       minLength={minLength}
-      className="bg-muted/50 text-primary placeholder:text-gray-80 h-9 rounded-lg"
+      className={cn("bg-muted/50 text-primary placeholder:text-gray-80 h-9 rounded-lg", className)}
     />
   );
 };
 
-SignUpForm.HelperText = function HelperText({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <p className="text-muted-foreground text-sm mt-2">{children}</p>;
-};
-SignUpForm.Actions = function Actions({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <div className="space-y-3 pt-2">{children}</div>;
-};
-SignUpForm.SubmitButton = function SubmitButton({
+export function SignUpHelperText({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <p className={cn("text-muted-foreground text-sm mt-2", className)}>{children}</p>;
+}
+
+export function SignUpActions({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <div className={cn("space-y-3 pt-2", className)}>{children}</div>;
+}
+
+export function SignUpSubmitButton({
   text = "Submit",
   redirectTo,
 }: {
@@ -162,7 +171,7 @@ SignUpForm.SubmitButton = function SubmitButton({
     </Button>
   );
 };
-SignUpForm.SocialButton = function SocialButton({
+export function SignUpSocialButton({
   provider,
   icon,
   onClick,
@@ -176,7 +185,7 @@ SignUpForm.SocialButton = function SocialButton({
   const content = (
     <>
       {icon && <span className="text-lg">{icon}</span>}
-      <span>Sign up with {provider}</span>
+      <span>{provider}</span>
     </>
   );
 
@@ -186,7 +195,7 @@ SignUpForm.SocialButton = function SocialButton({
         <Button
           type="button"
           variant="outline"
-          className="w-full h-9 flex items-center justify-center gap-2 bg-transparent border-gray-700 text-primary font-medium rounded-lg"
+          className="w-full h-12 flex items-center justify-center gap-2 bg-transparent border-gray-700 text-primary font-medium rounded-full"
         >
           {content}
         </Button>
@@ -199,12 +208,22 @@ SignUpForm.SocialButton = function SocialButton({
       type="button"
       variant="outline"
       onClick={onClick}
-      className="w-full h-9 flex items-center justify-center gap-2 bg-transparent border-gray-700 text-primary font-medium rounded-lg"
+      className="w-full h-12 flex items-center justify-center gap-2 bg-transparent border-gray-700 text-primary font-medium rounded-full"
     >
       {content}
     </Button>
   );
 };
+
+export function SignUpLogo({ icon, className }: { icon: string; className?: string }) {
+  return <Image
+  src={icon}
+  alt="image"
+  width={40}
+  height={40}
+  className={cn(className)}
+/>
+}
 
 type FooterLink = {
   text: string;
@@ -216,18 +235,31 @@ type FooterProps = {
   footerLink?: FooterLink;
 };
 
-SignUpForm.Footer = function Footer({ footerText, footerLink }: FooterProps) {
+export function SignUpFooter({ footerText, footerLink, className }: FooterProps & { className?: string }) {
   return (
-    <div className="text-center pt-4">
+    <div className={cn("text-center pt-4", className)}>
       <span className="text-primary text-sm">{footerText} </span>
       {footerLink && (
-        <Link
-          href={footerLink.redirectTo}
-          className="text-muted-foreground text-md hover:underline"
-        >
+        <Link href={footerLink.redirectTo} className="text-muted-foreground text-md hover:underline">
           {footerLink.text}
         </Link>
       )}
     </div>
   );
-};
+}
+
+export function SignUpDivider({
+  text = "OR",
+  className,
+}: {
+  text?: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("flex items-center my-4", className)}>
+      <hr className="flex-grow border-muted" />
+      <span className="mx-3 text-sm text-muted-foreground">{text}</span>
+      <hr className="flex-grow border-muted" />
+    </div>
+  );
+}

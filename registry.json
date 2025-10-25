@@ -183,7 +183,30 @@
       "files": [
         { "path": "components/chatcn/signup.tsx", "type": "registry:component" }
       ],
-      "registryDependencies": ["input","button","card"]
+      "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
+      "registryDependencies": ["input","button","label"]
+    },
+    {
+      "name": "login",
+      "type": "registry:component",
+      "title": "Login",
+      "description": "Simple Signup form",
+      "files": [
+        { "path": "components/chatcn/signup.tsx", "type": "registry:component" }
+      ],
+      "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
+      "registryDependencies": ["input","button","label"]
+    },
+    {
+      "name": "model",
+      "type": "registry:component",
+      "title": "Model",
+      "description": "Integrate 3D model",
+      "files": [
+        { "path": "components/chatcn/model.tsx", "type": "registry:component" }
+      ],
+      "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
+      "registryDependencies": []
     }
   ]
 }

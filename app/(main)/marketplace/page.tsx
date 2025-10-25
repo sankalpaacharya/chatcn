@@ -24,8 +24,8 @@ const MarketPlace = () => {
     const marketplaceItems = [
         {
           id: 1,
-          slug: "login-signup",
-          title: 'Login/Signup',
+          slug: "signup",
+          title: 'Signup',
           author: 'Nishit',
           likes: '1.4k',
           views: '8.9k',
@@ -87,7 +87,18 @@ const MarketPlace = () => {
           free: true,
           image: '/marketplace/weather.webp',
           github: 'sankalpaacharya.png'
-        }
+        },
+        {
+          id: 7,
+          slug: "login",
+          title: 'Login',
+          author: 'Nishit',
+          likes: '1.4k',
+          views: '8.9k',
+          free: true,
+          image: '/marketplace/login.webp',
+          github: 'nishit369.png',
+        },
       ];
 
       const filteredItems = marketplaceItems.filter((item) =>
