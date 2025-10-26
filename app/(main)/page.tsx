@@ -91,7 +91,7 @@ export default function Home() {
                 Get Started
               </Button>
             </Link>
-            <Link href="/docs/component">
+            <Link href="/docs/">
               <Button
                 variant="outline"
                 className="font-medium rounded-md px-6 py-5 text-sm"
