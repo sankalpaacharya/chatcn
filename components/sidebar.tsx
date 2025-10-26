@@ -121,7 +121,6 @@ export function SidebarContent({
       label: "Thread",
       href: "/docs/component/thread",
       type: "link",
-      isNew: true,
     },
     {
       label: "Chat Container",
@@ -138,6 +137,7 @@ export function SidebarContent({
     {
       label: "Model",
       href: "/docs/3d-components/model",
+      isNew: true,
       type: "link",
     },
     {
@@ -157,7 +157,6 @@ export function SidebarContent({
       label: "Email",
       href: "/docs/component/email",
       type: "link",
-      isNew: true,
     },
     { label: "Charts", href: "/docs/component/charts", type: "link" },
   ];

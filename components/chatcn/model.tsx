@@ -1,9 +1,23 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { Environment, Float, OrbitControls, Loader, useGLTF, useAnimations } from "@react-three/drei";
+import {
+  Environment,
+  Float,
+  OrbitControls,
+  Loader,
+  useGLTF,
+  useAnimations,
+} from "@react-three/drei";
 import React, { Suspense, ReactNode, useEffect } from "react";
 
-export type EnvironmentPreset = "city" | "night" | "sunset" | "forest" | "warehouse" | "studio" | "apartment";
+export type EnvironmentPreset =
+  | "city"
+  | "night"
+  | "sunset"
+  | "forest"
+  | "warehouse"
+  | "studio"
+  | "apartment";
 export type LightingType = "soft" | "dramatic" | "studio";
 
 export interface ModelProps {
@@ -33,7 +47,13 @@ export function ModelContent({
   );
 }
 
-export function ModelScene({ bgColor = "#000000", env = "city" }: { bgColor?: string; env?: EnvironmentPreset }) {
+export function ModelScene({
+  bgColor = "#000000",
+  env = "city",
+}: {
+  bgColor?: string;
+  env?: EnvironmentPreset;
+}) {
   return (
     <>
       <color attach="background" args={[bgColor]} />
@@ -42,18 +62,32 @@ export function ModelScene({ bgColor = "#000000", env = "city" }: { bgColor?: st
   );
 }
 
-export function ModelCamera({}: { fov?: number; position?: [number, number, number] }) {
+export function ModelCamera({}: {
+  fov?: number;
+  position?: [number, number, number];
+}) {
   return null;
 }
 
-export function ModelLighting({ type = "soft", shadow = false }: { type?: LightingType; shadow?: boolean }) {
+export function ModelLighting({
+  type = "soft",
+  shadow = false,
+}: {
+  type?: LightingType;
+  shadow?: boolean;
+}) {
   if (type === "soft") return <ambientLight intensity={0.4} />;
-  if (type === "dramatic") return <directionalLight position={[2, 2, 5]} intensity={1.2} />;
+  if (type === "dramatic")
+    return <directionalLight position={[2, 2, 5]} intensity={1.2} />;
   if (type === "studio")
     return (
       <>
         <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} intensity={1.5} castShadow={shadow} />
+        <spotLight
+          position={[10, 10, 10]}
+          intensity={1.5}
+          castShadow={shadow}
+        />
       </>
     );
   return null;
@@ -63,7 +97,7 @@ export function Model({
   src,
   scale = 1,
   position = [0, 0, 0],
-  rotation = [0,0,0],
+  rotation = [0, 0, 0],
   float = false,
 }: {
   src: string;
@@ -71,19 +105,45 @@ export function Model({
   position?: [number, number, number];
   rotation?: [number, number, number];
   float?: boolean;
-}) 
-{
+}) {
   const { scene, animations } = useGLTF(src);
   const { actions } = useAnimations(animations, scene);
   useEffect(() => {
     Object.values(actions).forEach((action) => action?.play());
   }, [actions]);
 
-  const content = <primitive object={scene} scale={scale} position={position} rotation={rotation}/>;
+  const content = (
+    <primitive
+      object={scene}
+      scale={scale}
+      position={position}
+      rotation={rotation}
+    />
+  );
 
   return float ? <Float>{content}</Float> : content;
 }
 
-export function ModelControls({ autoRotate = false, rotationSpeed = 1, zoom = false, reverse = false , ...props}: { autoRotate?: boolean; rotationSpeed?: number; zoom?: boolean, reverse?: boolean, [key: string]: unknown;}) {
-  return <OrbitControls enableZoom={zoom} autoRotate={autoRotate} autoRotateSpeed={rotationSpeed} reverseOrbit={reverse}  {...props}/>;
+export function ModelControls({
+  autoRotate = false,
+  rotationSpeed = 1,
+  zoom = false,
+  reverse = false,
+  ...props
+}: {
+  autoRotate?: boolean;
+  rotationSpeed?: number;
+  zoom?: boolean;
+  reverse?: boolean;
+  [key: string]: unknown;
+}) {
+  return (
+    <OrbitControls
+      enableZoom={zoom}
+      autoRotate={autoRotate}
+      autoRotateSpeed={rotationSpeed}
+      reverseOrbit={reverse}
+      {...props}
+    />
+  );
 }
