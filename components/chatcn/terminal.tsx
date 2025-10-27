@@ -78,7 +78,7 @@ function getTerminalOutput(command: string): string | React.ReactNode {
   const cmd = command.trim();
   switch (cmd) {
     case "whoami":
-      return <div className="text-xl text-gray-400">Hello code</div>;
+      return <div>Hello code</div>;
     case "help":
       return (
         <div>
@@ -159,20 +159,19 @@ export function TerminalInput() {
       onKeyDown={handleKeyDown}
       onChange={(e) => setInputValue(e.target.value)}
       value={inputValue}
-      className="flex-1 bg-transparent outline-none border-none caret-indigo-400 text-foreground"
+      className="flex-1 bg-transparent outline-none border-none"
       type="text"
       autoFocus
     />
   );
 }
 
-export function TerminalPrompt() {
-  return (
-    <div className="space-x-1">
-      <span>sanku</span>
-      <span className="text-green-400">→</span>
-    </div>
-  );
+type TerminalPromptProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+export function TerminalPrompt({ children, className }: TerminalPromptProps) {
+  return <div className={cn(className)}>{children}</div>;
 }
 
 type TerminalBodyProps = {
@@ -182,7 +181,12 @@ type TerminalBodyProps = {
 
 export function TerminalBody({ children, className }: TerminalBodyProps) {
   return (
-    <div className={cn("bg-muted rounded-none rounded-b p-3", className)}>
+    <div
+      className={cn(
+        "bg-muted rounded-none rounded-b p-3 overflow-y-auto",
+        className
+      )}
+    >
       {children}
     </div>
   );
@@ -190,9 +194,13 @@ export function TerminalBody({ children, className }: TerminalBodyProps) {
 
 type TerminalBodyContentProps = {
   className?: string;
+  prompt?: ReactNode;
 };
 
-export function TerminalBodyContent({ className }: TerminalBodyContentProps) {
+export function TerminalBodyContent({
+  className,
+  prompt,
+}: TerminalBodyContentProps) {
   const { terminalHistory } = useContext(TerminalContext);
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
@@ -201,16 +209,11 @@ export function TerminalBodyContent({ className }: TerminalBodyContentProps) {
   }, [terminalHistory]);
 
   return (
-    <div
-      className={cn(
-        "rounded-none rounded-b space-y-2 overflow-y-auto",
-        className
-      )}
-    >
+    <div className={cn("space-y-2", className)}>
       {terminalHistory.map((entry, index) => (
         <div key={index}>
           <div className="flex gap-3">
-            <TerminalPrompt />
+            {prompt}
             <span>{entry.command}</span>
           </div>
           {entry.output && entry.output !== "CLEAR" && (

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   Terminal,
   TerminalBody,
@@ -11,24 +11,30 @@ import {
 } from "@/components/chatcn/terminal";
 
 const Page = () => {
-  const [terminalState, setTerminalState] = useState<
-    "normal" | "maximize" | "minimize"
-  >("normal");
-
   return (
     <div className="flex h-screen items-center justify-center">
       <TerminalProvider>
-        <Terminal className="w-md">
+        <Terminal className="w-full max-w-2xl">
           <TerminalHeader className="flex gap-3 bg-card">
             <div className="size-3 bg-yellow-400 rounded-full"></div>
             <div className="size-3 bg-green-500 rounded-full"></div>
             <div className="size-3 bg-red-500 rounded-full"></div>
           </TerminalHeader>
 
-          <TerminalBody className="bg-card h-30">
-            <TerminalBodyContent className="text-gray-300" />
+          <TerminalBody className="bg-card h-[300px]">
+            <TerminalBodyContent
+              prompt={
+                <TerminalPrompt>
+                  <span>sanku</span>
+                  <span>→</span>
+                </TerminalPrompt>
+              }
+            />
             <div className="flex gap-2">
-              <TerminalPrompt />
+              <TerminalPrompt>
+                <span>sanku</span>
+                <span>→</span>
+              </TerminalPrompt>
               <TerminalInput />
             </div>
           </TerminalBody>
