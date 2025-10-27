@@ -91,9 +91,9 @@ function getTerminalOutput(command: string): string | React.ReactNode {
         </div>
       );
     case "clear":
-      return "CLEAR"; // special marker, handled later
+      return "CLEAR";
     default:
-      return "Command not found 😞";
+      return "Command not found!";
   }
 }
 
@@ -159,7 +159,7 @@ export function TerminalInput() {
       onKeyDown={handleKeyDown}
       onChange={(e) => setInputValue(e.target.value)}
       value={inputValue}
-      className="flex-1 bg-transparent outline-none border-none"
+      className="flex-1 bg-transparent text-sm outline-none border-none"
       type="text"
       autoFocus
     />
@@ -209,10 +209,10 @@ export function TerminalBodyContent({
   }, [terminalHistory]);
 
   return (
-    <div className={cn("space-y-2", className)}>
+    <div className={cn("space-y-3", className)}>
       {terminalHistory.map((entry, index) => (
         <div key={index}>
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             {prompt}
             <span>{entry.command}</span>
           </div>
