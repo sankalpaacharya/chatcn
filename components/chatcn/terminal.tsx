@@ -57,6 +57,14 @@ export function TerminalProvider({
   );
 }
 
+export function useTerminal() {
+  const context = useContext(TerminalContext);
+  if (!context) {
+    throw new Error("useTerminal must be used within a TerminalProvider");
+  }
+  return context;
+}
+
 type TerminalProps = {
   children: ReactNode;
   className?: string;
@@ -67,7 +75,7 @@ function getTerminalPositionClasses(state: TerminalState): string {
     case "maximize":
       return "fixed inset-0 w-screen h-screen z-[9999] rounded-none";
     case "minimize":
-      return "fixed bottom-3 right-3 w-72 h-10 z-[9999] cursor-pointer";
+      return "fixed bottom-3 left-1/2 -translate-x-1/2 h-auto z-[9999] cursor-pointer";
     case "normal":
     default:
       return "relative h-auto";
@@ -98,12 +106,20 @@ function getTerminalOutput(command: string): string | React.ReactNode {
 }
 
 export function Terminal({ children, className }: TerminalProps) {
-  const { terminalState } = useContext(TerminalContext);
+  const { terminalState, setTerminalState } = useContext(TerminalContext);
+
+  const handleClick = () => {
+    if (terminalState === "minimize") {
+      setTerminalState("normal");
+    }
+  };
+
   const content = (
     <div
+      onClick={handleClick}
       className={cn(
         "flex flex-col border rounded overflow-auto",
-        className,
+        terminalState === "maximize" ? "" : className,
         getTerminalPositionClasses(terminalState)
       )}
     >
@@ -145,7 +161,6 @@ export function TerminalInput() {
         return;
       }
 
-      // even if empty, still add new prompt
       setTerminalHistory((prev) => [
         ...prev,
         { command, output: command ? output : "" },
@@ -159,7 +174,7 @@ export function TerminalInput() {
       onKeyDown={handleKeyDown}
       onChange={(e) => setInputValue(e.target.value)}
       value={inputValue}
-      className="flex-1 bg-transparent text-sm outline-none border-none"
+      className="flex-1 bg-transparent text-sm outline-none border-none caret-amber-300"
       type="text"
       autoFocus
     />
@@ -180,11 +195,17 @@ type TerminalBodyProps = {
 };
 
 export function TerminalBody({ children, className }: TerminalBodyProps) {
+  const { terminalState } = useContext(TerminalContext);
+
+  if (terminalState === "minimize") {
+    return null;
+  }
+
   return (
     <div
       className={cn(
         "bg-muted rounded-none rounded-b p-3 overflow-y-auto",
-        className
+        terminalState === "maximize" ? "flex-1" : className
       )}
     >
       {children}

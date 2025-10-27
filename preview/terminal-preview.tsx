@@ -66,9 +66,9 @@ function TerminalContent() {
   );
 }
 
-const Page = () => {
+const TerminalPreview = () => {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex justify-center">
       <TerminalProvider initialState="normal">
         <TerminalContent />
       </TerminalProvider>
@@ -76,4 +76,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default TerminalPreview;
