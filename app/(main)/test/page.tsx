@@ -1,11 +1,41 @@
-"use client"
-import SignupPreview from '@/preview/signup-preview'
-import React from 'react'
+"use client";
+import React, { useState } from "react";
+import {
+  Terminal,
+  TerminalBody,
+  TerminalHeader,
+  TerminalInput,
+  TerminalPrompt,
+  TerminalBodyContent,
+  TerminalProvider,
+} from "@/components/chatcn/terminal";
 
-const Test = () => {
+const Page = () => {
+  const [terminalState, setTerminalState] = useState<
+    "normal" | "maximize" | "minimize"
+  >("normal");
+
   return (
-    <div><SignupPreview/></div>
-  )
-}
+    <div className="flex h-screen items-center justify-center">
+      <TerminalProvider>
+        <Terminal className="w-md">
+          <TerminalHeader className="flex gap-3 bg-card">
+            <div className="size-3 bg-yellow-400 rounded-full"></div>
+            <div className="size-3 bg-green-500 rounded-full"></div>
+            <div className="size-3 bg-red-500 rounded-full"></div>
+          </TerminalHeader>
 
-export default Test
+          <TerminalBody className="bg-card h-30">
+            <TerminalBodyContent className="text-gray-300" />
+            <div className="flex gap-2">
+              <TerminalPrompt />
+              <TerminalInput />
+            </div>
+          </TerminalBody>
+        </Terminal>
+      </TerminalProvider>
+    </div>
+  );
+};
+
+export default Page;

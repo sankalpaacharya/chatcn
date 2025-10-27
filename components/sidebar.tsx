@@ -66,7 +66,7 @@ export function SidebarContent({
     { label: "Introduction", href: "/docs/introduction", type: "link" },
     { label: "Installation", href: "/docs/installation", type: "link" },
     { label: "MCP Server", href: "/docs/mcp/", type: "link" },
-    { label: "2D Components", href: "", type: "heading" },
+    { label: "AI Components", href: "", type: "heading" },
     {
       label: "Code Block",
       href: "/docs/component/codeblock",
@@ -130,6 +130,14 @@ export function SidebarContent({
     {
       label: "Calendar",
       href: "/docs/component/calendar",
+      type: "link",
+    },
+
+    { label: "System Components", href: "", type: "heading" },
+    {
+      label: "Terminal",
+      href: "/docs/system/terminal",
+      isNew: true,
       type: "link",
     },
 
