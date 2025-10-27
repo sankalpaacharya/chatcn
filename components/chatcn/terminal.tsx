@@ -41,7 +41,21 @@ export function TerminalProvider({
 }: TerminalProviderProps) {
   const [terminalState, setTerminalState] =
     useState<TerminalState>(initialState);
-  const [terminalHistory, setTerminalHistory] = useState<TerminalEntry[]>([]);
+  const [terminalHistory, setTerminalHistory] = useState<TerminalEntry[]>([
+    {
+      command: "help",
+      output: (
+        <div>
+          <div>Available commands:</div>
+          <ul className="list-disc ml-6">
+            <li>whoami</li>
+            <li>help</li>
+            <li>clear</li>
+          </ul>
+        </div>
+      ),
+    },
+  ]);
 
   return (
     <TerminalContext.Provider
@@ -86,7 +100,13 @@ function getTerminalOutput(command: string): string | React.ReactNode {
   const cmd = command.trim();
   switch (cmd) {
     case "whoami":
-      return <div>Hello code</div>;
+      return (
+        <div>
+          Hi I'm Sanku 21 year old dev, I love{" "}
+          <span className="text-blue-500">Development</span> and{" "}
+          <span className="text-blue-500">Security</span>.
+        </div>
+      );
     case "help":
       return (
         <div>
