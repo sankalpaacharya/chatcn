@@ -16,6 +16,7 @@ import {
   PromptInputTextArea,
 } from "@/components/chatcn/ai/prompt-input";
 import { Spotlight } from "@/components/ui/spotlight-new";
+import ClickSpark from "@/components/ClickSpark";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -41,104 +42,113 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Spotlight />
-      {theme === "dark" && isMounted && (
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(226, 232, 240, 0.15), transparent 70%), #000000",
-          }}
-        />
-      )}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 py-20 md:py-28">
-        <div className="inline-flex items-center gap-2 bg-muted/30 border border-border/40 rounded-full px-4 py-1.5 text-sm text-muted-foreground mb-6 backdrop-blur-sm">
-          <span>
-            Backed by{" "}
-            <span className="bg-gradient-to-r bg-orange-500 text-white font-semibold px-1 rounded shadow-sm">
-              C
+    <ClickSpark
+      sparkColor="#fff"
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
+    >
+      <div className="min-h-screen flex flex-col">
+        <Spotlight />
+        {theme === "dark" && isMounted && (
+          <div
+            className="absolute inset-0 -z-10"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(226, 232, 240, 0.15), transparent 70%), #000000",
+            }}
+          />
+        )}
+        <div className="flex-1 flex flex-col items-center justify-center px-4 py-20 md:py-28">
+          <div className="inline-flex items-center gap-2 bg-muted/30 border border-border/40 rounded-full px-4 py-1.5 text-sm text-muted-foreground mb-6 backdrop-blur-sm">
+            <span>
+              Backed by{" "}
+              <span className="bg-gradient-to-r bg-orange-500 text-white font-semibold px-1 rounded shadow-sm">
+                C
+              </span>
+              <span className="ml-0.5">ommunity</span>
             </span>
-            <span className="ml-0.5">ommunity</span>
-          </span>
-        </div>
-
-        <div className="w-full max-w-4xl mx-auto text-center space-y-6">
-          <div>
-            <Link
-              href={"https://github.com/sankalpaacharya/chatcn"}
-              className="bg-secondary/80 py-1.5 px-4 rounded-full inline-flex items-center mx-auto mb-6"
-            >
-              <span className="mr-1.5">🌟</span> {stars} stars on Github
-            </Link>
-            <h1
-              className={`text-5xl sm:text-6xl md:text-7xl font-sans font-bold leading-tight tracking-tight ${
-                theme === "dark" && isMounted
-                  ? "bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
-                  : "text-foreground"
-              }`}
-            >
-              Design ChatApp UI with Chatcn
-            </h1>
           </div>
 
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-            Customizable components for building AI chat applications faster.
-            Ready-to-use, beautiful, and accessible UI components.
-          </p>
-
-          <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Link href="/docs">
-              <Button className="font-medium rounded-md px-6 py-5 text-sm">
-                Get Started
-              </Button>
-            </Link>
-            <Link href="/docs/">
-              <Button
-                variant="outline"
-                className="font-medium rounded-md px-6 py-5 text-sm"
+          <div className="w-full max-w-4xl mx-auto text-center space-y-6">
+            <div>
+              <Link
+                href={"https://github.com/sankalpaacharya/chatcn"}
+                className="bg-secondary/80 py-1.5 px-4 rounded-full inline-flex items-center mx-auto mb-6"
               >
-                View Components
-              </Button>
-            </Link>
-          </div>
+                <span className="mr-1.5">🌟</span> {stars} stars on Github
+              </Link>
+              <h1
+                className={`text-5xl sm:text-6xl md:text-7xl font-sans font-bold leading-tight tracking-tight ${
+                  theme === "dark" && isMounted
+                    ? "bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+                    : "text-foreground"
+                }`}
+              >
+                Design ChatApp UI with Chatcn
+              </h1>
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-6 pt-2">
-            <span className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Check size={16} className="text-primary" /> Customizable
-            </span>
-            <span className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Check size={16} className="text-primary" /> Accessibility-focused
-            </span>
-            <span className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Check size={16} className="text-primary" /> Open Source
-            </span>
-          </div>
-        </div>
-      </div>
+            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+              Customizable components for building AI chat applications faster.
+              Ready-to-use, beautiful, and accessible UI components.
+            </p>
 
-      <div className="w-full max-w-5xl mx-auto px-4 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="md:col-span-2 lg:col-span-3">
-            <div className="mb-8 text-center">
-              <h2 className="text-2xl font-semibold mb-2">
-                Try Our AI Chat Interface Components
-              </h2>
-              <p className="text-muted-foreground">
-                Pre-built and ready to integrate into your applications
-              </p>
+            <div className="flex flex-wrap gap-4 justify-center pt-4">
+              <Link href="/docs">
+                <Button className="font-medium rounded-md px-6 py-5 text-sm">
+                  Get Started
+                </Button>
+              </Link>
+              <Link href="/docs/">
+                <Button
+                  variant="outline"
+                  className="font-medium rounded-md px-6 py-5 text-sm"
+                >
+                  View Components
+                </Button>
+              </Link>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-6 pt-2">
+              <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Check size={16} className="text-primary" /> Customizable
+              </span>
+              <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Check size={16} className="text-primary" />{" "}
+                Accessibility-focused
+              </span>
+              <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Check size={16} className="text-primary" /> Open Source
+              </span>
             </div>
           </div>
         </div>
-        <div className="lg:col-start-2 lg:col-span-1">
-          <div className="flex justify-center">
-            <div className="w-full">
-              <ChatCard />
+
+        <div className="w-full max-w-5xl mx-auto px-4 pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="md:col-span-2 lg:col-span-3">
+              <div className="mb-8 text-center">
+                <h2 className="text-2xl font-semibold mb-2">
+                  Try Our AI Chat Interface Components
+                </h2>
+                <p className="text-muted-foreground">
+                  Pre-built and ready to integrate into your applications
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-start-2 lg:col-span-1">
+            <div className="flex justify-center">
+              <div className="w-full">
+                <ChatCard />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ClickSpark>
   );
 }
 
