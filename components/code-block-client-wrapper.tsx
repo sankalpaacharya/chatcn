@@ -1,6 +1,6 @@
 "use client";
 import { useTheme } from "next-themes";
-import { CodeBlock } from "@/components/chatcn/codeblock";
+import { CodeBlock } from "./chatcn/ai/codeblock";
 import { BundledLanguage } from "shiki";
 
 export default function CodeBlockClientWrapper({

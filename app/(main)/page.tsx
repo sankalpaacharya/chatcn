@@ -8,13 +8,13 @@ import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/components/chatcn/message";
+} from "@/components/chatcn/ai/message";
 import {
   PromptInput,
   PromptInputAction,
   PromptInputActions,
   PromptInputTextArea,
-} from "@/components/chatcn/prompt-input";
+} from "@/components/chatcn/ai/prompt-input";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
