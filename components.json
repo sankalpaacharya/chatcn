@@ -10,13 +10,15 @@
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
-    "hooks": "@/hooks",
-    "chatcn": "@/components/chatcn" 
+    "hooks": "@/hooks"
   },
-  "iconLibrary": "lucide"
+  "registries": {
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+  }
 }

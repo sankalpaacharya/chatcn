@@ -15,6 +15,7 @@ import {
   PromptInputActions,
   PromptInputTextArea,
 } from "@/components/chatcn/ai/prompt-input";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -41,6 +42,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Spotlight className="top-0 w-10" />
       {theme === "dark" && isMounted && (
         <div
           className="absolute inset-0 -z-10"
