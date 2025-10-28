@@ -140,6 +140,12 @@ export function SidebarContent({
       isNew: true,
       type: "link",
     },
+    {
+      label: "Status Bar",
+      href: "/docs/system/status-bar",
+      isNew: true,
+      type: "link",
+    },
 
     { label: "3D Components", href: "", type: "heading" },
     {
