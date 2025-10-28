@@ -2,7 +2,7 @@ import React from "react";
 import { default as MarkdownRender } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/utils";
-import { CodeBlock } from "@/components/chatcn/codeblock";
+import { CodeBlock } from "@/components/chatcn/ai/codeblock";
 
 type MarkDownProps = {
   children: React.ReactNode;

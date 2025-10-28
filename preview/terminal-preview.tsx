@@ -9,7 +9,7 @@ import {
   TerminalBodyContent,
   TerminalProvider,
   useTerminal,
-} from "@/components/chatcn/terminal";
+} from "@/components/chatcn/system/terminal";
 
 function TerminalContent() {
   const { setTerminalState } = useTerminal();

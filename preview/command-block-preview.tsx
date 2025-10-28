@@ -9,7 +9,7 @@ import {
   CommandBlockTabTrigger,
   CommandBlockTabContent,
   CommandBlocksTabs,
-} from "@/components/chatcn/command-block";
+} from "@/components/chatcn/ai/command-block";
 
 export default function CommandBlockDemoPage() {
   const packageManagerCommands = [

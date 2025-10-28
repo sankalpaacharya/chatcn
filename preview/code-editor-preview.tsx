@@ -4,7 +4,7 @@ import {
   CodeEditArea,
   CodeEditorActions,
   CodeEditorAction,
-} from "@/components/chatcn/code-editor";
+} from "@/components/chatcn/ai/code-editor";
 import { Play, Copy, Download, RotateCcw } from "lucide-react";
 import { useState } from "react";
 import {

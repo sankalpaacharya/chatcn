@@ -1,5 +1,5 @@
 "use client";
-import { File } from "@/components/chatcn/file";
+import { File } from "@/components/chatcn/ai/file";
 import { FileJson } from "lucide-react";
 
 export default function FilePreview() {

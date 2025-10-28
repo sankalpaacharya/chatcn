@@ -4,7 +4,7 @@ import {
   PromptInputTextArea,
   PromptInputAction,
   PromptInputActions,
-} from "@/components/chatcn/prompt-input";
+} from "@/components/chatcn/ai/prompt-input";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, Plus, Paperclip, Camera, Images } from "lucide-react";
 import {

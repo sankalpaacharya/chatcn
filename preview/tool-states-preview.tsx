@@ -1,5 +1,5 @@
 import React from "react";
-import { Tool, ToolStateBadge } from "@/components/chatcn/tool";
+import { Tool, ToolStateBadge } from "@/components/chatcn/ai/tool";
 
 export default function ToolStatePreview() {
   return (

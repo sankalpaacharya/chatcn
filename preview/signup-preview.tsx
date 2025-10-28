@@ -1,7 +1,24 @@
-import SignUpForm, { SignUpActions, SignUpField, SignUpFooter, SignUpHeader, SignUpHelperText, SignUpInput, SignUpLabel, SignUpSocialButton, SignUpSubmitButton } from "@/components/chatcn/signup";
+import SignUpForm, {
+  SignUpActions,
+  SignUpField,
+  SignUpFooter,
+  SignUpHeader,
+  SignUpHelperText,
+  SignUpInput,
+  SignUpLabel,
+  SignUpSocialButton,
+  SignUpSubmitButton,
+} from "@/components/chatcn/3d/signup";
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Model, ModelCamera, ModelContent, ModelControls, ModelLighting, ModelScene } from "@/components/chatcn/model";
+import {
+  Model,
+  ModelCamera,
+  ModelContent,
+  ModelControls,
+  ModelLighting,
+  ModelScene,
+} from "@/components/chatcn/3d/model";
 const SignupPreview = () => {
   return (
     <div className="flex min-h-screen rounded-lg">
@@ -31,8 +48,8 @@ const SignupPreview = () => {
                 placeholder="jack@example.com"
               />
               <SignUpHelperText>
-                We'll use this to contact you. We won’t share your email with anyone
-                else.
+                We'll use this to contact you. We won’t share your email with
+                anyone else.
               </SignUpHelperText>
             </SignUpField>
 
@@ -59,9 +76,7 @@ const SignupPreview = () => {
                 placeholder="••••••"
                 minLength={8}
               />
-              <SignUpHelperText>
-                Please confirm your password.
-              </SignUpHelperText>
+              <SignUpHelperText>Please confirm your password.</SignUpHelperText>
             </SignUpField>
 
             <SignUpActions>
@@ -80,22 +95,39 @@ const SignupPreview = () => {
               </div>
             </SignUpActions>
 
-            <SignUpFooter footerText="Already have an account?" footerLink={{text:"Sign in here.", redirectTo:"/marketplace/login"}} />
+            <SignUpFooter
+              footerText="Already have an account?"
+              footerLink={{
+                text: "Sign in here.",
+                redirectTo: "/marketplace/login",
+              }}
+            />
           </SignUpForm>
         </div>
       </div>
       <div className="relative w-1/2 rounded-lg">
         <ModelContent height="100vh" width="100%">
-              <Model src="/abstract.glb" position={[0, 0, 0]} rotation={[0,-Math.PI/4,0]} scale={1} float={false} />
-              <ModelScene bgColor="#0a0a0a" env="city" />
-              <ModelCamera fov={50} position={[0, 0, 5]} />
-              <ModelLighting type="studio" shadow />
-              <ModelControls autoRotate rotationSpeed={1} zoom={false} reverse={false} 
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 4}
-              minAzimuthAngle={-Math.PI /4}
-              maxAzimuthAngle={Math.PI / 8}/>
-            </ModelContent>
+          <Model
+            src="/abstract.glb"
+            position={[0, 0, 0]}
+            rotation={[0, -Math.PI / 4, 0]}
+            scale={1}
+            float={false}
+          />
+          <ModelScene bgColor="#0a0a0a" env="city" />
+          <ModelCamera fov={50} position={[0, 0, 5]} />
+          <ModelLighting type="studio" shadow />
+          <ModelControls
+            autoRotate
+            rotationSpeed={1}
+            zoom={false}
+            reverse={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 4}
+            minAzimuthAngle={-Math.PI / 4}
+            maxAzimuthAngle={Math.PI / 8}
+          />
+        </ModelContent>
       </div>
     </div>
   );

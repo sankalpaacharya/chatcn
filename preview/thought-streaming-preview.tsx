@@ -4,7 +4,7 @@ import {
   Thought,
   ThoughtContent,
   ThoughtTrigger,
-} from "@/components/chatcn/thought";
+} from "@/components/chatcn/ai/thought";
 import ShinyText from "@/components/ShinyText";
 
 interface StreamingTextProps {

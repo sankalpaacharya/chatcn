@@ -2,7 +2,7 @@ import {
   Thought,
   ThoughtContent,
   ThoughtTrigger,
-} from "@/components/chatcn/thought";
+} from "@/components/chatcn/ai/thought";
 
 export default function ThoughtPreview() {
   return (

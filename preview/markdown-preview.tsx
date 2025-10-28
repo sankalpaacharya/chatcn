@@ -1,5 +1,5 @@
 "use client";
-import { Markdown } from "@/components/chatcn/markdown";
+import { Markdown } from "@/components/chatcn/ai/markdown";
 import { useTheme } from "next-themes";
 
 const content = `

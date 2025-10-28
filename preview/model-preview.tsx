@@ -6,7 +6,7 @@ import {
   ModelLighting,
   ModelControls,
   ModelContent,
-} from "@/components/chatcn/model";
+} from "@/components/chatcn/3d/model";
 
 const ModelPreview = () => {
   return (

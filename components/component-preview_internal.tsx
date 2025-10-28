@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CodeBlock } from "@/components/chatcn/codeblock";
+import { CodeBlock } from "@/components/chatcn/ai/codeblock";
 import { Suspense } from "react";
 import Install from "./install";
 import { cn } from "@/lib/utils";

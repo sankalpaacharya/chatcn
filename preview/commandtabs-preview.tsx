@@ -1,5 +1,5 @@
 import React from "react";
-import CommandBlock from "@/components/chatcn/command-tabs";
+import CommandBlock from "@/components/chatcn/ai/command-tabs";
 export default function CommandTabsDemo() {
   const packageManagerCommands = [
     { label: "pnpm", command: "pnpm add shadcn@latest add tabs" },

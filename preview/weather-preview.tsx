@@ -1,5 +1,5 @@
 import React from "react";
-import WeatherCard from "@/components/chatcn/weather";
+import WeatherCard from "@/components/chatcn/tool-call/weather";
 
 export default function WeatherCardPreview() {
   return (

@@ -1,10 +1,10 @@
-import Email from "@/components/chatcn/email";
+import Email from "@/components/chatcn/tool-call/email";
 import { Mail } from "lucide-react";
 
-export default function EmailPreview () {
-    return (
-        <div className="flex justify-center">
-        <Email
+export default function EmailPreview() {
+  return (
+    <div className="flex justify-center">
+      <Email
         icon={<Mail className="h-5 w-5" />}
         status="complete"
         title="Weekend Dinner Plans 🍕"
@@ -19,6 +19,6 @@ I was thinking of trying out the new Italian place downtown.
 Let me know if that works for you!`}
         sender="Cheers, Nishit"
       />
-      </div>
-    )
+    </div>
+  );
 }

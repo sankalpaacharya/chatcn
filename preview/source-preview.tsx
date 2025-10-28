@@ -3,7 +3,7 @@ import {
   Source,
   SourceContent,
   SourceTrigger,
-} from "@/components/chatcn/source";
+} from "@/components/chatcn/ai/source";
 
 export default function SourcePreview() {
   return (
