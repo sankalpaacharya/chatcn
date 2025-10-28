@@ -87,7 +87,7 @@ type TerminalProps = {
 function getTerminalPositionClasses(state: TerminalState): string {
   switch (state) {
     case "maximize":
-      return "fixed inset-0 w-screen h-screen z-[9999] rounded-none";
+      return "fixed inset-0 w-screen h-screen z-[9999] rounded-none text-sm";
     case "minimize":
       return "fixed bottom-3 left-1/2 -translate-x-1/2 h-auto z-[9999] cursor-pointer";
     case "normal":
@@ -102,7 +102,7 @@ function getTerminalOutput(command: string): string | React.ReactNode {
     case "whoami":
       return (
         <div>
-          Hi I'm Sanku 21 year old dev, I love{" "}
+          Hi Im Sanku 21 year old dev I love{" "}
           <span className="text-blue-500">Development</span> and{" "}
           <span className="text-blue-500">Security</span>.
         </div>

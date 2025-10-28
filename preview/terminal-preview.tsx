@@ -20,7 +20,7 @@ function TerminalContent() {
         <div className="flex gap-2">
           <button
             onClick={() => console.log("Close")}
-            className="size-3 bg-red-500 rounded-full hover:brightness-110 transition-all flex items-center justify-center group"
+            className="size-3 bg-red-500  cursor-pointer rounded-full hover:brightness-110 transition-all flex items-center justify-center group"
             aria-label="Close"
           ></button>
           <button
@@ -29,7 +29,7 @@ function TerminalContent() {
                 prev === "minimize" ? "normal" : "minimize"
               )
             }
-            className="size-3 bg-yellow-400 rounded-full hover:brightness-110 transition-all flex items-center justify-center group"
+            className="size-3 bg-yellow-400 cursor-pointer rounded-full hover:brightness-110 transition-all flex items-center justify-center group"
             aria-label="Minimize"
           ></button>
           <button
@@ -38,7 +38,7 @@ function TerminalContent() {
                 prev === "maximize" ? "normal" : "maximize"
               )
             }
-            className="size-3 bg-green-500 rounded-full hover:brightness-110 transition-all flex items-center justify-center group"
+            className="size-3 bg-green-500 cursor-pointer rounded-full hover:brightness-110 transition-all flex items-center justify-center group"
             aria-label="Maximize"
           ></button>
         </div>
