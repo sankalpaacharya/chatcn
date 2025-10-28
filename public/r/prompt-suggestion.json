@@ -7,7 +7,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/chatcn/prompt-suggestion.tsx",
+      "path": "components/chatcn/ai/prompt-suggestion.tsx",
       "content": "// This file is intentionally empty and can be removed or implemented later\nexport {};\n",
       "type": "registry:component"
     }

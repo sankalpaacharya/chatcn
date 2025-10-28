@@ -7,7 +7,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/chatcn/shadow-scrollbar.tsx",
+      "path": "components/chatcn/ai/shadow-scrollbar.tsx",
       "content": "import React from \"react\";\nimport { ScrollArea } from \"@/components/ui/scroll-area\";\nimport { cn } from \"@/lib/utils\";\n\ntype Props = { className?: string; children: string };\n\nexport default function ShadowScrollBar({ className, children }: Props) {\n  return (\n    <ScrollArea className={cn(\"\", className)}>\n      <div className=\"mask-t-from-20%\">{children}</div>\n    </ScrollArea>\n  );\n}\n",
       "type": "registry:component"
     }

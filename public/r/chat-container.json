@@ -7,7 +7,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/chatcn/chat-container.tsx",
+      "path": "components/chatcn/ai/chat-container.tsx",
       "content": "\"use client\";\nimport { cn } from \"@/lib/utils\";\nimport { useEffect, useRef } from \"react\";\n\nexport default function ChatContainer({\n  children,\n  className,\n}: {\n  children: React.ReactNode;\n  className?: string;\n}) {\n  const chatRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    if (!chatRef.current) return;\n\n    const observer = new MutationObserver(() => {\n      if (chatRef.current) {\n        chatRef.current.scrollTo({\n          top: chatRef.current.scrollHeight,\n          behavior: \"smooth\",\n        });\n      }\n    });\n\n    observer.observe(chatRef.current, { childList: true, subtree: true });\n    return () => observer.disconnect();\n  }, []);\n\n  return (\n    <div className={cn(\"flex flex-col\", className)}>\n      <div\n        ref={chatRef}\n        className=\"space-y-5 flex-1 overflow-auto px-10 py-4 rounded\"\n      >\n        {children}\n      </div>\n    </div>\n  );\n}\n",
       "type": "registry:component"
     }
