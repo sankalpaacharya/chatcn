@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Spotlight className="top-0 w-10" />
+      <Spotlight />
       {theme === "dark" && isMounted && (
         <div
           className="absolute inset-0 -z-10"
