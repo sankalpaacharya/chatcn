@@ -3,7 +3,7 @@ import Reference from "@/components/reference";
 import ComponentPreview from "./components/component-preview";
 import CommandBlock, {
   CommandBlockProps,
-} from "./components/chatcn/command-tabs";
+} from "./components/chatcn/ai/command-tabs";
 import CodeBlockClientWrapper from "./components/code-block-client-wrapper";
 import CodeSource from "./components/codesource";
 import Installation from "./components/installation";
