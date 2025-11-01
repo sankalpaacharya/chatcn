@@ -1,5 +1,5 @@
 import { useFileManager, FileNode } from "@/hooks/useFileManager";
-import { Folder, File } from "lucide-react";
+import { FolderItem, FileItem } from "@/components/chatcn/system/file-manager";
 
 const data: FileNode[] = [
   {
@@ -56,26 +56,25 @@ export default function FileManager() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        {currentFolder.map((item) => (
-          <div
-            key={item.name}
-            onClick={() =>
-              item.type === "folder" ? openFolder(item.name) : null
-            }
-            className="flex flex-col hover:bg-muted items-center p-4 border border-border rounded-lg bg-transparent cursor-pointer"
-            role={item.type === "folder" ? "button" : "img"}
-            tabIndex={0}
-          >
-            {item.type === "folder" ? (
-              <Folder className="w-10 h-10 text-primary mb-2" />
-            ) : (
-              <File className="w-10 h-10 text-muted-foreground mb-2" />
-            )}
-            <span className="text-sm text-muted-foreground truncate">
-              {item.name}
-            </span>
-          </div>
-        ))}
+        {currentFolder.map((item) =>
+          item.type === "folder" ? (
+            <FolderItem
+              key={item.name}
+              name={item.name}
+              onClick={() => openFolder(item.name)}
+              role="button"
+              tabIndex={0}
+            />
+          ) : (
+            <FileItem
+              key={item.name}
+              name={item.name}
+              onClick={() => null}
+              role="img"
+              tabIndex={0}
+            />
+          )
+        )}
       </div>
     </div>
   );
