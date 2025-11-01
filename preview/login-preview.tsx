@@ -11,7 +11,7 @@ import SignUpForm, {
   SignUpLogo,
   SignUpSocialButton,
   SignUpSubmitButton,
-} from "@/components/chatcn/signup";
+} from "@/components/chatcn/3d/signup";
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import {
