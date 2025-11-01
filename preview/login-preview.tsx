@@ -84,7 +84,7 @@ const LoginPreview = () => {
       right={
         <ModelContent height="100vh" width="100%">
           <Model
-            src="/abstract.glb"
+            src="/3d/abstract.glb"
             position={[0, 0, 0]}
             rotation={[0, -Math.PI / 4, 0]}
             scale={0.85}
