@@ -137,12 +137,16 @@ export function SidebarContent({
     {
       label: "Terminal",
       href: "/docs/system/terminal",
-      isNew: true,
       type: "link",
     },
     {
       label: "Status Bar",
       href: "/docs/system/status-bar",
+      type: "link",
+    },
+    {
+      label: "File Manager",
+      href: "/docs/system/file-manager",
       isNew: true,
       type: "link",
     },
@@ -151,7 +155,6 @@ export function SidebarContent({
     {
       label: "Model",
       href: "/docs/3d-components/model",
-      isNew: true,
       type: "link",
     },
     {

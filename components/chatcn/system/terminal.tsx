@@ -138,7 +138,7 @@ export function Terminal({ children, className }: TerminalProps) {
     <div
       onClick={handleClick}
       className={cn(
-        "flex flex-col border rounded overflow-auto",
+        "flex flex-col border rounded overflow-auto transition-all",
         terminalState === "maximize" ? "" : className,
         getTerminalPositionClasses(terminalState)
       )}
