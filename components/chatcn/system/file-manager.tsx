@@ -1,5 +1,54 @@
+import React from "react";
 import { useFileManager, FileNode } from "@/hooks/useFileManager";
-import { Folder, File } from "lucide-react";
+import { Folder as FolderIcon, File as FileIcon } from "lucide-react";
+
+type ItemCommonProps = {
+  name: string;
+  onClick?: () => void;
+  className?: string;
+  role?: React.AriaRole | undefined;
+  tabIndex?: number;
+};
+
+function FolderItem({
+  name,
+  onClick,
+  className = "",
+  role = "button",
+  tabIndex = 0,
+}: ItemCommonProps) {
+  return (
+    <div
+      onClick={onClick}
+      className={`flex flex-col hover:bg-muted items-center p-4 border border-border rounded-lg bg-transparent cursor-pointer ${className}`}
+      role={role}
+      tabIndex={tabIndex}
+    >
+      <FolderIcon className="w-10 h-10 text-primary mb-2" />
+      <span className="text-sm text-muted-foreground truncate">{name}</span>
+    </div>
+  );
+}
+
+function FileItem({
+  name,
+  onClick,
+  className = "",
+  role = "img",
+  tabIndex = 0,
+}: ItemCommonProps) {
+  return (
+    <div
+      onClick={onClick}
+      className={`flex flex-col hover:bg-muted items-center p-4 border border-border rounded-lg bg-transparent cursor-pointer ${className}`}
+      role={role}
+      tabIndex={tabIndex}
+    >
+      <FileIcon className="w-10 h-10 text-muted-foreground mb-2" />
+      <span className="text-sm text-muted-foreground truncate">{name}</span>
+    </div>
+  );
+}
 
 const data: FileNode[] = [
   {
@@ -56,26 +105,17 @@ export function FileManager() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        {currentFolder.map((item) => (
-          <div
-            key={item.name}
-            onClick={() =>
-              item.type === "folder" ? openFolder(item.name) : null
-            }
-            className="flex flex-col hover:bg-muted items-center p-4 border border-border rounded-lg bg-transparent cursor-pointer"
-            role={item.type === "folder" ? "button" : "img"}
-            tabIndex={0}
-          >
-            {item.type === "folder" ? (
-              <Folder className="w-10 h-10 text-primary mb-2" />
-            ) : (
-              <File className="w-10 h-10 text-muted-foreground mb-2" />
-            )}
-            <span className="text-sm text-muted-foreground truncate">
-              {item.name}
-            </span>
-          </div>
-        ))}
+        {currentFolder.map((item) =>
+          item.type === "folder" ? (
+            <FolderItem
+              key={item.name}
+              name={item.name}
+              onClick={() => openFolder(item.name)}
+            />
+          ) : (
+            <FileItem key={item.name} name={item.name} />
+          )
+        )}
       </div>
     </div>
   );
