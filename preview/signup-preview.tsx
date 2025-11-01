@@ -20,6 +20,7 @@ import {
   ModelLighting,
   ModelScene,
 } from "@/components/chatcn/3d/model";
+
 const SignupPreview = () => {
   return (
     <SignUpLayout
