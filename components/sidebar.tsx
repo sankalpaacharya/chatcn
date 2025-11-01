@@ -158,6 +158,11 @@ export function SidebarContent({
       type: "link",
     },
     {
+      label: "Audio Visualizer",
+      href: "/docs/3d-components/audio-visualizer",
+      type: "link",
+    },
+    {
       label: "Login",
       href: "/docs/3d-components/login",
       type: "link",

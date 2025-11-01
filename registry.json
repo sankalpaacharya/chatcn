@@ -227,6 +227,17 @@
       ],
       "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
       "registryDependencies": []
+    },
+    {
+      "name": "audio-visualizer",
+      "type": "registry:component",
+      "title": "Audio Visualizer",
+      "description": "An interactive 3D real time audio visualizer.",
+      "files": [
+        { "path": "components/chatcn/audio-visualizer.tsx", "type": "registry:component" }
+      ],
+      "dependencies": ["@react-three/fiber", "@react-three/drei", "three", "simplex-noise"],
+      "registryDependencies": []
     }
   ]
 }

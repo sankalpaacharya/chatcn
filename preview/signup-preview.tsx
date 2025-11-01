@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import SignUpForm, {
   SignUpActions,
   SignUpField,
@@ -9,6 +10,9 @@ import SignUpForm, {
   SignUpSocialButton,
   SignUpSubmitButton,
 } from "@/components/chatcn/3d/signup";
+=======
+import SignUpForm, { SignUpActions, SignUpField, SignUpFooter, SignUpHeader, SignUpHelperText, SignUpInput, SignUpLabel, SignUpLayout, SignUpSocialButton, SignUpSubmitButton } from "@/components/chatcn/signup";
+>>>>>>> 3d-components
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -21,9 +25,8 @@ import {
 } from "@/components/chatcn/3d/model";
 const SignupPreview = () => {
   return (
-    <div className="flex min-h-screen rounded-lg">
-      <div className="flex w-1/2 justify-center items-center">
-        <div className="w-full max-w-md">
+        <SignUpLayout
+        left={
           <SignUpForm>
             <SignUpHeader
               heading="Welcome"
@@ -103,10 +106,10 @@ const SignupPreview = () => {
               }}
             />
           </SignUpForm>
-        </div>
-      </div>
-      <div className="relative w-1/2 rounded-lg">
+        }
+        right={
         <ModelContent height="100vh" width="100%">
+<<<<<<< HEAD
           <Model
             src="/abstract.glb"
             position={[0, 0, 0]}
@@ -130,6 +133,21 @@ const SignupPreview = () => {
         </ModelContent>
       </div>
     </div>
+=======
+              <Model src="/abstract.glb" position={[0, 0, 0]} rotation={[0,-Math.PI/4,0]} scale={0.85} float={false} />
+              <ModelScene bgColor="#0a0a0a" env="city" />
+              <ModelCamera fov={50} position={[0, 0, 5]} />
+              <ModelLighting type="studio" shadow />
+              <ModelControls autoRotate rotationSpeed={1} zoom={false} reverse={false} 
+              maxPolarAngle={Math.PI / 2}
+              minPolarAngle={Math.PI / 4}
+              minAzimuthAngle={-Math.PI /4}
+              maxAzimuthAngle={Math.PI / 8}/>
+            </ModelContent>
+        }
+       />
+     
+>>>>>>> 3d-components
   );
 };
 

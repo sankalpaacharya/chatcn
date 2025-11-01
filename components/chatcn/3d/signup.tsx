@@ -248,6 +248,17 @@ export function SignUpFooter({ footerText, footerLink, className }: FooterProps 
   );
 }
 
+export function SignUpLayout({ left, right }: { left: React.ReactNode; right?: React.ReactNode }) {
+  return (
+    <div className={`flex min-h-screen ${right ? "flex-row" : "flex-col justify-center items-center"}`}>
+      <div className={`w-1/2 flex justify-center items-center`}>
+        {left}
+      </div>
+      {right && <div className="relative w-1/2">{right}</div>}
+    </div>
+  );
+}
+
 export function SignUpDivider({
   text = "OR",
   className,

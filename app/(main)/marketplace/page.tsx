@@ -30,7 +30,7 @@ const MarketPlace = () => {
           likes: '1.4k',
           views: '8.9k',
           free: true,
-          image: '/marketplace/login.webp',
+          image: '/marketplace/signup.webp',
           github: 'nishit369.png',
         },
         {
