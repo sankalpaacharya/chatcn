@@ -77,7 +77,7 @@ export function FileItem({
   );
 }
 
-function getFileIcon(extension: string): React.ComponentType<any> {
+function getFileIcon(extension: string) {
   const imageExt = ["png", "jpg", "jpeg", "gif", "svg", "webp"];
   const videoExt = ["mp4", "mov", "avi", "mkv", "webm"];
   const textExt = ["txt", "md", "markdown"];
