@@ -28,19 +28,19 @@ export default function Installation({ component }: { component: string }) {
           commands={[
             {
               label: "npm",
-              command: `npx shadcn@latest add https://shadcn-collections.vercel.app/c/${component}`,
+              command: `npx shadcn@latest add https://chatcn.me/c/${component}`,
             },
             {
               label: "yarn",
-              command: `yarn dlx shadcn@latest add https://shadcn-collections.vercel.app/c/${component}`,
+              command: `yarn dlx shadcn@latest add https://chatcn.me/c/${component}`,
             },
             {
               label: "pnpm",
-              command: `pnpm dlx shadcn@latest add https://shadcn-collections.vercel.app/c/${component}`,
+              command: `pnpm dlx shadcn@latest add https://chatcn.me/c/${component}`,
             },
             {
               label: "bun",
-              command: `bunx --bun shadcn@latest add https://shadcn-collections.vercel.app/c/${component}`,
+              command: `bunx --bun shadcn@latest add https://chatcn.me/c/${component}`,
             },
           ]}
         />
