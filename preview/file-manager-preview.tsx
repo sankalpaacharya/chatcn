@@ -10,8 +10,12 @@ const data: FileNode[] = [
         type: "folder",
         name: "chatcn",
         children: [
-          { type: "file", name: "video.mp4" },
-          { type: "file", name: "notes.txt" },
+          {
+            type: "file",
+            name: "preview.png",
+            thumbnail:
+              "https://www.sankalpa.info.np/images/shadcncollections.png",
+          },
         ],
       },
       {
