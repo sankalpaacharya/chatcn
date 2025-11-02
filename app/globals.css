@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-lora: var(--font-lora);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -138,6 +139,7 @@ input:-webkit-autofill:active {
   }
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -147,6 +149,32 @@ input:-webkit-autofill:active {
   }
 }
 
+.chasing-border {
+  position: relative;
+}
+.chasing-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  animation: clippath 4s infinite linear;
+  pointer-events: none;
+}
+@keyframes clippath {
+  0%, 100% {
+    clip-path: inset(0 0 98% 0);
+  }
+  25% {
+    clip-path: inset(0 0 0 98%);
+  }
+  50% {
+    clip-path: inset(98% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 98% 0 0);
+  }
+}
 
 code {
   counter-reset: step;
