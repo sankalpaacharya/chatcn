@@ -52,7 +52,128 @@ export default function Sidebar() {
     </>
   );
 }
+export const sidebarLinks: SidebarLink[] = [
+  { label: "Getting Started", href: "", type: "heading" },
+  { label: "Home", href: "/docs", type: "link" },
+  { label: "Introduction", href: "/docs/introduction", type: "link" },
+  { label: "Installation", href: "/docs/installation", type: "link" },
+  { label: "MCP Server", href: "/docs/mcp/", type: "link" },
+  { label: "AI Components", href: "", type: "heading" },
+  {
+    label: "Code Block",
+    href: "/docs/component/codeblock",
+    type: "link",
+  },
+  {
+    label: "Command Block",
+    href: "/docs/component/command-block",
+    type: "link",
+  },
+  {
+    label: "Prompt Input",
+    href: "/docs/component/prompt-input",
+    type: "link",
+  },
+  {
+    label: "Source",
+    href: "/docs/component/source",
+    type: "link",
+  },
+  {
+    label: "Code Editor",
+    href: "/docs/component/code-editor",
+    type: "link",
+  },
+  {
+    label: "Message",
+    href: "/docs/component/message",
+    type: "link",
+  },
+  {
+    label: "File",
+    href: "/docs/component/file",
+    type: "link",
+  },
+  {
+    label: "Tool",
+    href: "/docs/component/tool",
+    type: "link",
+  },
+  {
+    label: "Markdown",
+    href: "/docs/component/markdown",
+    type: "link",
+  },
+  {
+    label: "Thought",
+    href: "/docs/component/thought",
+    type: "link",
+  },
+  {
+    label: "Thread",
+    href: "/docs/component/thread",
+    type: "link",
+  },
+  {
+    label: "Chat Container",
+    href: "/docs/component/chat-container",
+    type: "link",
+  },
+  {
+    label: "Calendar",
+    href: "/docs/component/calendar",
+    type: "link",
+  },
 
+  { label: "System Components", href: "", type: "heading" },
+  {
+    label: "Terminal",
+    href: "/docs/system/terminal",
+    type: "link",
+  },
+  {
+    label: "Status Bar",
+    href: "/docs/system/status-bar",
+    type: "link",
+  },
+  {
+    label: "File Manager",
+    href: "/docs/system/file-manager",
+    isNew: true,
+    type: "link",
+  },
+
+  { label: "3D Components", href: "", type: "heading" },
+  {
+    label: "Model",
+    href: "/docs/3d-components/model",
+    type: "link",
+  },
+  {
+    label: "Audio Visualizer",
+    href: "/docs/3d-components/audio-visualizer",
+    type: "link",
+  },
+  {
+    label: "Login",
+    href: "/docs/3d-components/login",
+    type: "link",
+  },
+  {
+    label: "Signup",
+    href: "/docs/3d-components/signup",
+    type: "link",
+  },
+
+  { label: "Tool Call UI", href: "", type: "heading", isNew: true },
+  { label: "Weather", href: "/docs/component/weather", type: "link" },
+  {
+    label: "Email",
+    href: "/docs/component/email",
+    type: "link",
+  },
+  { label: "Charts", href: "/docs/component/charts", type: "link" },
+];
 export function SidebarContent({
   isCurrentPath,
   onNavigate,
@@ -60,128 +181,7 @@ export function SidebarContent({
   isCurrentPath: (href: string) => boolean;
   onNavigate?: () => void;
 }) {
-  const sidebarLinks: SidebarLink[] = [
-    { label: "Getting Started", href: "", type: "heading" },
-    { label: "Home", href: "/docs", type: "link" },
-    { label: "Introduction", href: "/docs/introduction", type: "link" },
-    { label: "Installation", href: "/docs/installation", type: "link" },
-    { label: "MCP Server", href: "/docs/mcp/", type: "link" },
-    { label: "AI Components", href: "", type: "heading" },
-    {
-      label: "Code Block",
-      href: "/docs/component/codeblock",
-      type: "link",
-    },
-    {
-      label: "Command Block",
-      href: "/docs/component/command-block",
-      type: "link",
-    },
-    {
-      label: "Prompt Input",
-      href: "/docs/component/prompt-input",
-      type: "link",
-    },
-    {
-      label: "Source",
-      href: "/docs/component/source",
-      type: "link",
-    },
-    {
-      label: "Code Editor",
-      href: "/docs/component/code-editor",
-      type: "link",
-    },
-    {
-      label: "Message",
-      href: "/docs/component/message",
-      type: "link",
-    },
-    {
-      label: "File",
-      href: "/docs/component/file",
-      type: "link",
-    },
-    {
-      label: "Tool",
-      href: "/docs/component/tool",
-      type: "link",
-    },
-    {
-      label: "Markdown",
-      href: "/docs/component/markdown",
-      type: "link",
-    },
-    {
-      label: "Thought",
-      href: "/docs/component/thought",
-      type: "link",
-    },
-    {
-      label: "Thread",
-      href: "/docs/component/thread",
-      type: "link",
-    },
-    {
-      label: "Chat Container",
-      href: "/docs/component/chat-container",
-      type: "link",
-    },
-    {
-      label: "Calendar",
-      href: "/docs/component/calendar",
-      type: "link",
-    },
 
-    { label: "System Components", href: "", type: "heading" },
-    {
-      label: "Terminal",
-      href: "/docs/system/terminal",
-      type: "link",
-    },
-    {
-      label: "Status Bar",
-      href: "/docs/system/status-bar",
-      type: "link",
-    },
-    {
-      label: "File Manager",
-      href: "/docs/system/file-manager",
-      isNew: true,
-      type: "link",
-    },
-
-    { label: "3D Components", href: "", type: "heading" },
-    {
-      label: "Model",
-      href: "/docs/3d-components/model",
-      type: "link",
-    },
-    {
-      label: "Audio Visualizer",
-      href: "/docs/3d-components/audio-visualizer",
-      type: "link",
-    },
-    {
-      label: "Login",
-      href: "/docs/3d-components/login",
-      type: "link",
-    },
-    {
-      label: "Signup",
-      href: "/docs/3d-components/signup",
-      type: "link",
-    },
-
-    { label: "Tool Call UI", href: "", type: "heading", isNew: true },
-    { label: "Weather", href: "/docs/component/weather", type: "link" },
-    {
-      label: "Email",
-      href: "/docs/component/email",
-      type: "link",
-    },
-    { label: "Charts", href: "/docs/component/charts", type: "link" },
-  ];
 
   return (
     <div className="flex flex-col h-full overflow-auto pb-10 scrollbar-hide">
