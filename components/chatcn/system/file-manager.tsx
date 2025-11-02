@@ -44,7 +44,6 @@ export function FileItem({
   onClick,
   className = "",
   tabIndex = 0,
-  src,
   thumbnail,
 }: ItemCommonProps) {
   const fileExtension = (name.split(".").pop() || "").toLowerCase();
