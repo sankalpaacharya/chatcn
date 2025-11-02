@@ -150,6 +150,12 @@ export function SidebarContent({
       isNew: true,
       type: "link",
     },
+    {
+      label: "Login Manager",
+      href: "/docs/system/login-manager",
+      isNew: true,
+      type: "link",
+    },
 
     { label: "3D Components", href: "", type: "heading" },
     {

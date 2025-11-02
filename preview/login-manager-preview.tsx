@@ -1,9 +1,9 @@
 "use client";
 import { LoginManager } from "@/components/chatcn/system/login-manager";
 
-export default function Page() {
+export default function LoginManagerPreview() {
   return (
-    <div className="">
+    <div className="w-full h-100 relative flex border mx-auto">
       <LoginManager portal={false} />
     </div>
   );
