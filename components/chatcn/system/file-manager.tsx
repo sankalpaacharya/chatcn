@@ -12,8 +12,8 @@ type ItemCommonProps = {
   name: string;
   onClick?: () => void;
   className?: string;
+  thumbnail?: string;
   src?: string;
-  role?: React.AriaRole | undefined;
   tabIndex?: number;
 };
 
@@ -21,18 +21,20 @@ export function FolderItem({
   name,
   onClick,
   className = "",
-  role = "button",
   tabIndex = 0,
 }: ItemCommonProps) {
   return (
     <div
       onDoubleClick={onClick}
-      className={`flex flex-col hover:bg-muted items-center p-4 rounded-lg bg-transparent cursor-pointer ${className}`}
-      role={role}
+      className={`flex flex-col h-44 w-40 hover:bg-muted items-center justify-center p-3 rounded-lg bg-transparent cursor-pointer ${className}`}
       tabIndex={tabIndex}
     >
-      <FolderIcon className="w-10 h-10 text-primary mb-2" />
-      <span className="text-sm text-muted-foreground truncate">{name}</span>
+      <div className="w-28 h-28 flex items-center justify-center rounded-md">
+        <FolderIcon className="w-20 h-20 text-primary" />
+      </div>
+      <span className="text-sm text-muted-foreground truncate mt-2">
+        {name}
+      </span>
     </div>
   );
 }
@@ -40,44 +42,50 @@ export function FolderItem({
 export function FileItem({
   name,
   onClick,
-  src,
   className = "",
-  role = "img",
   tabIndex = 0,
+  src,
+  thumbnail,
 }: ItemCommonProps) {
   const fileExtension = (name.split(".").pop() || "").toLowerCase();
-
-  const imageExt = ["png", "jpg", "jpeg", "gif", "svg", "webp"];
-  const isImage = imageExt.includes(fileExtension) && !!src;
-  const [imgError, setImgError] = React.useState(false);
-
-  const Icon = getFileIcon(fileExtension);
+  const meta = getFileMeta(fileExtension);
+  const imageSrc = thumbnail;
 
   return (
     <div
       onDoubleClick={onClick}
-      className={`flex flex-col hover:bg-muted items-center p-4 rounded-lg bg-transparent cursor-pointer ${className}`}
-      role={role}
+      className={`flex flex-col h-44 w-40 hover:bg-muted items-center justify-center p-3 rounded-lg bg-transparent cursor-pointer ${className}`}
       tabIndex={tabIndex}
     >
-      {isImage && !imgError ? (
-        <img
-          src={src}
-          alt={name}
-          loading="lazy"
-          onError={() => setImgError(true)}
-          className="w-20 h-20 object-cover rounded-md mb-2"
-        />
-      ) : (
-        <Icon className="w-10 h-10 text-muted-foreground mb-2" />
-      )}
-
-      <span className="text-sm text-muted-foreground truncate">{name}</span>
+      <div className="w-28 h-28 flex items-center justify-center rounded-md relative overflow-hidden">
+        {imageSrc ? (
+          <>
+            <img
+              src={imageSrc}
+              alt={name}
+              loading="lazy"
+              className="object-cover w-full h-full rounded-md"
+            />
+            {meta.type === "video" && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-md">
+                <div className="bg-black/50 rounded-full p-2">
+                  <Play className="w-5 h-5 text-white fill-white" />
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <meta.icon className="w-20 h-20 text-muted-foreground" />
+        )}
+      </div>
+      <span className="text-sm text-muted-foreground truncate mt-2">
+        {name}
+      </span>
     </div>
   );
 }
 
-function getFileIcon(extension: string) {
+function getFileMeta(extension: string) {
   const imageExt = ["png", "jpg", "jpeg", "gif", "svg", "webp"];
   const videoExt = ["mp4", "mov", "avi", "mkv", "webm"];
   const textExt = ["txt", "md", "markdown"];
@@ -95,11 +103,9 @@ function getFileIcon(extension: string) {
     "html",
     "css",
   ];
-
-  if (imageExt.includes(extension)) return ImageIcon;
-  if (videoExt.includes(extension)) return Play;
-  if (textExt.includes(extension)) return FileText;
-  if (codeExt.includes(extension)) return FileCode;
-
-  return FileIcon;
+  if (imageExt.includes(extension)) return { type: "image", icon: ImageIcon };
+  if (videoExt.includes(extension)) return { type: "video", icon: Play };
+  if (textExt.includes(extension)) return { type: "text", icon: FileText };
+  if (codeExt.includes(extension)) return { type: "code", icon: FileCode };
+  return { type: "unknown", icon: FileIcon };
 }

@@ -4,18 +4,40 @@ import { FolderItem, FileItem } from "@/components/chatcn/system/file-manager";
 const data: FileNode[] = [
   {
     type: "folder",
-    name: "home",
+    name: "projects",
     children: [
       {
         type: "folder",
-        name: "sanku",
+        name: "chatcn",
         children: [
-          { type: "file", name: "resume.pdf" },
+          { type: "file", name: "video.mp4" },
           { type: "file", name: "notes.txt" },
+        ],
+      },
+      {
+        type: "folder",
+        name: "bloomi",
+        children: [
           {
-            type: "folder",
-            name: "projects",
-            children: [{ type: "file", name: "fixyourspend.tsx" }],
+            type: "file",
+            name: "video.mp4",
+            thumbnail: "https://www.sankalpa.info.np/images/still.png",
+          },
+          {
+            type: "file",
+            name: "preview.png",
+            thumbnail: "https://www.sankalpa.info.np/images/still.png",
+          },
+        ],
+      },
+      {
+        type: "folder",
+        name: "weride",
+        children: [
+          {
+            type: "file",
+            name: "preview.png",
+            thumbnail: "https://www.sankalpa.info.np/images/weride.png",
           },
         ],
       },
@@ -62,15 +84,15 @@ export default function FileManager() {
               key={item.name}
               name={item.name}
               onClick={() => openFolder(item.name)}
-              role="button"
               tabIndex={0}
             />
           ) : (
             <FileItem
               key={item.name}
               name={item.name}
+              src={item.src}
               onClick={() => null}
-              role="img"
+              thumbnail={item.thumbnail}
               tabIndex={0}
             />
           )
