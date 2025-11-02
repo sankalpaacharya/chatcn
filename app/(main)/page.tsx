@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowUp, Check, ChevronRight, Github } from "lucide-react";
+import { ArrowUp, Check, Github } from "lucide-react";
 import { sidebarLinks } from "@/components/sidebar";
 import {
   Message,
@@ -24,27 +24,10 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
-  const [stars, setStars] = useState<number | null>(null);
   const { theme } = useTheme();
   const newItem = sidebarLinks.find(item => item.isNew);
 
   useEffect(() => setIsMounted(true), []);
-
-  useEffect(() => {
-    async function fetchStars() {
-      try {
-        const res = await fetch(
-          "https://api.github.com/repos/sankalpaacharya/chatcn"
-        );
-        const data = await res.json();
-        setStars(data.stargazers_count);
-      } catch (err) {
-        console.error("Failed to fetch stars", err);
-      }
-    }
-
-    fetchStars();
-  }, []);
 
 interface CardProps {
   title: string;
@@ -54,7 +37,7 @@ interface CardProps {
   link: string;
 }
 
-const Card = ({ title, imgSeed, bg, className, link }: CardProps) => {
+const Card = ({ title, imgSeed, className, link }: CardProps) => {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
@@ -109,8 +92,10 @@ const Card = ({ title, imgSeed, bg, className, link }: CardProps) => {
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center p-3 bg-black rounded-lg">
-                  <img
+                  <Image
                     src={imgSeed}
+                    height={500}
+                    width={500}
                     alt={title}
                     className="w-full h-full scale-170 object-contain rotate-42 rotate-y-50"
                   />
@@ -326,7 +311,7 @@ const Card = ({ title, imgSeed, bg, className, link }: CardProps) => {
 }
 
 
-export function Footer() {
+function Footer() {
   const [hovered, setHovered] = useState<Set<number>>(new Set());
 
   const handleHover = (index: number) => {
@@ -364,7 +349,7 @@ export function Footer() {
         className="opacity-90 hover:opacity-100 transition"
       />
       <p className="text-sm text-gray-400 max-w-md leading-relaxed">
-        Chat UIs without the headache. You're welcome.
+        Chat UIs without the headache. You are welcome.
       </p>
       <p className="text-md text-foreground mt-2">
         © 2025 ChatCN.
