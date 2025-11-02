@@ -1,3 +1,4 @@
+"use client";
 import { useFileManager, FileNode } from "@/hooks/useFileManager";
 import { FolderItem, FileItem } from "@/components/chatcn/system/file-manager";
 
@@ -54,7 +55,7 @@ export default function FileManager() {
     useFileManager(data);
 
   return (
-    <div className="p-6 space-y-6 mx-auto">
+    <div className="p-6 space-y-6 mx-auto bg-card">
       <div className="flex items-center text-sm text-muted-foreground">
         {path.map((folder, index) => (
           <div key={folder} className="flex items-center">
