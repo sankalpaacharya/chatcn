@@ -45,7 +45,7 @@ export function LoginManager({
   const content = (
     <div
       className={cn(
-        "absolute inset-0 z-[9999] h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-500 overflow-hidden",
+        "absolute inset-0 z-[9998] h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-500 overflow-hidden",
         isVisible ? "opacity-100" : "opacity-0"
       )}
       style={{ backgroundImage: `url(${wallpaper})` }}
@@ -65,7 +65,7 @@ export function LoginManager({
             animate={{ y: active ? "-100%" : 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 z-30"
+            className="absolute inset-0 z-10"
           >
             <FirstScreen />
           </motion.div>

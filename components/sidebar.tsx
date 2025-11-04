@@ -29,26 +29,24 @@ export default function Sidebar() {
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
-      <div className="xl:hidden">
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="fixed top-4 left-4 z-40"
-            >
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[280px] p-0">
-            <SidebarContent
-              isCurrentPath={isCurrentPath}
-              onNavigate={() => setOpen(false)}
-            />
-          </SheetContent>
-        </Sheet>
-      </div>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="xl:hidden fixed top-4 left-4 z-40"
+          >
+            <Menu className="h-5 w-5" />
+            <span className="sr-only">Toggle navigation menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="w-[280px] p-0">
+          <SidebarContent
+            isCurrentPath={isCurrentPath}
+            onNavigate={() => setOpen(false)}
+          />
+        </SheetContent>
+      </Sheet>
     </>
   );
 }
@@ -196,7 +194,7 @@ export function SidebarContent({
   ];
 
   return (
-    <div className="flex flex-col h-full overflow-auto pb-10 scrollbar-hide">
+    <div className="flex flex-col h-full overflow-auto pb-10 scrollbar-hide z-[9999] relative">
       <nav className="px-6 py-4 space-y-1">
         {sidebarLinks.map((link) => (
           <SidebarLink
