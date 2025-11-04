@@ -156,6 +156,12 @@ export function SidebarContent({
       isNew: true,
       type: "link",
     },
+    {
+      label: "App Manager",
+      href: "/docs/system/applications-manager",
+      isNew: true,
+      type: "link",
+    },
 
     { label: "3D Components", href: "", type: "heading" },
     {

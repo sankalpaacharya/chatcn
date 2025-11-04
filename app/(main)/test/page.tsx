@@ -1,10 +1,10 @@
 "use client";
-import { LoginManager } from "@/components/chatcn/system/login-manager";
+import { ApplicationManager } from "@/components/chatcn/system/applications-manager";
 
 export default function Page() {
   return (
     <div className="">
-      <LoginManager portal={false} />
+      <ApplicationManager />
     </div>
   );
 }
