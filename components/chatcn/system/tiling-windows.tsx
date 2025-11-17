@@ -1,8 +1,5 @@
-import React from 'react'
-
+import React from "react";
 
 export default function TilingWindow() {
-  return (
-    <div>tiling-windows</div>
-  )
+  return <div>tiling-windows</div>;
 }
