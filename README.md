@@ -13,7 +13,6 @@
 
 </div>
 
-![site image](https://i.ibb.co/60s8xdwY/gradient-chatcn.png)
 
 
 ![site image](./public/site.jpeg)
@@ -23,3 +22,14 @@
 visit https://shadcn-collections.vercel.app/ for documentation
 
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=sankalpaacharya/chatcn&type=Date)](https://star-history.com/#KartikLabhshetwar/stage&Date)
+
+## Contributors
+
+Thanks to all our amazing contributors for their support and code!
+
+<a href="https://github.com/sankalpaacharya/chatcn/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sankalpaacharya/chatcn" />
+</a>
