@@ -18,6 +18,8 @@ import {
 import { Spotlight } from "@/components/ui/spotlight-new";
 import ClickSpark from "@/components/ClickSpark";
 
+
+// make the preview page here so people can preview this here
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [stars, setStars] = useState<number | null>(null);

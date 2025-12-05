@@ -3,8 +3,8 @@ import { useState } from "react";
 export type FileNode = {
   name: string;
   type: "file" | "folder";
-  src?:string
-  thumbnail?:string
+  src?: string
+  thumbnail?: string
   children?: FileNode[];
   onClick?: (...args: any[]) => any;
 };
