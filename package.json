@@ -40,7 +40,7 @@
     "hast-util-to-jsx-runtime": "^2.3.6",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.25",
-    "next": "15.3.5",
+    "next": "^16.0.10",
     "next-themes": "^0.4.6",
     "posthog-js": "^1.302.2",
     "react": "^19.2.1",
