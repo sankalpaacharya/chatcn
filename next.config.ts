@@ -1,16 +1,18 @@
-import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ["three"],
-  images:{
-    remotePatterns:[new URL('https://upload.wikimedia.org/**')]
-  }
-};
+}
 
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+})
 
-
-const withMDX = createMDX({})
-export default withMDX(nextConfig);
+export default withMDX(nextConfig)

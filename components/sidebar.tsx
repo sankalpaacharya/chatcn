@@ -25,22 +25,24 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden xl:block h-full w-62 bg-background sticky top-0 border-r-2 border-dotted">
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:block w-64 bg-background border-r h-[calc(100vh-4rem)] sticky top-16 flex-shrink-0">
         <SidebarContent isCurrentPath={isCurrentPath} />
       </aside>
 
+      {/* Mobile Menu Toggle */}
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button
             variant="ghost"
             size="icon"
-            className="xl:hidden fixed top-4 left-4 z-40"
+            className="lg:hidden fixed top-20 left-4 z-50 shadow-md bg-background"
           >
             <Menu className="h-5 w-5" />
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[280px] p-0">
+        <SheetContent side="left" className="w-[280px] sm:w-[320px] p-0">
           <SidebarContent
             isCurrentPath={isCurrentPath}
             onNavigate={() => setOpen(false)}
@@ -194,8 +196,8 @@ export function SidebarContent({
   ];
 
   return (
-    <div className="flex flex-col h-full overflow-auto pb-10 scrollbar-hide z-[9999] relative">
-      <nav className="px-6 py-4 space-y-1">
+    <div className="flex flex-col h-full overflow-y-auto scrollbar-hide">
+      <nav className="px-4 py-6 space-y-0.5">
         {sidebarLinks.map((link) => (
           <SidebarLink
             key={link.label}
@@ -224,19 +226,19 @@ function SidebarLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className={`flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+      className={`flex gap-2 items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${
         isSelected
-          ? "bg-accent text-accent-foreground"
-          : "hover:bg-accent/50 hover:text-accent-foreground"
+          ? "bg-accent text-accent-foreground shadow-sm"
+          : "hover:bg-accent/50 hover:text-accent-foreground text-muted-foreground"
       }`}
     >
       {label}
       {isNew && (
-        <Badge className="bg-green-700 text-white text-xs ml-1.5">New</Badge>
+        <Badge className="bg-green-600 hover:bg-green-700 text-white text-xs px-1.5 py-0.5">New</Badge>
       )}
     </Link>
   ) : (
-    <p className="text-sm font-medium text-muted-foreground mt-6 mb-2">
+    <p className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider mt-6 mb-2 px-3 first:mt-0">
       {label}
     </p>
   );
