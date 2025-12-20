@@ -85,10 +85,9 @@ export default function TableOfContents() {
 	return (
 		<nav className="space-y-1">
 			<p className="font-medium text-sm mb-3 flex items-center gap-2">
-
-				<HugeiconsIcon name="list" icon={ContentWritingIcon} size={20}/>
-				On This Page
-			</p>
+			<HugeiconsIcon icon={ContentWritingIcon} size={15} />
+			On This Page
+		</p>
 			{headings.map((heading) => (
 				<a
 					key={heading.id}
