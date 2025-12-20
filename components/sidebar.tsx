@@ -20,15 +20,17 @@ import {
   Book02Icon,
   ServerStack03Icon,
   ComputerTerminal01Icon,
-  HugeiconsIcon,
+  UserLove01Icon
 } from "@/components/icons";
+import { TwitterIcon, Github, LinkedinIcon } from "@/components/icons/social";
+import { HugeiconsIcon } from "@/components/icons";
 import type { IconSvgElement } from "@hugeicons/react";
 
 type SidebarLink = {
   label: string;
   href: string;
   isNew?: boolean;
-  icon?: IconSvgElement;
+  icon?: IconSvgElement | React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
 type SidebarGroupData = {
@@ -39,6 +41,15 @@ type SidebarGroupData = {
 
 const sidebarGroups: SidebarGroupData[] = [
   {
+    label: "Social",
+    variant: "submenu",
+    links: [
+      { label: "Twitter", href: "https://twitter.com/sankalpa_02", icon: TwitterIcon },
+      { label: "GitHub", href: "https://github.com/sankalpaacharya/chatcn", icon: Github },
+      { label: "LinkedIn", href: "https://linkedin.com/in/sankalpa02", icon: LinkedinIcon },
+    ],
+  },
+  {
     label: "Getting Started",
     variant: "submenu",
     links: [
@@ -46,13 +57,14 @@ const sidebarGroups: SidebarGroupData[] = [
       { label: "Introduction", href: "/docs/introduction", icon: Book02Icon },
       { label: "Installation", href: "/docs/installation", icon: ComputerTerminal01Icon },
       { label: "MCP Server", href: "/docs/mcp/", icon: ServerStack03Icon },
+      { label: "Contributors", href: "/docs/contributors", icon: UserLove01Icon },
     ],
   },
   {
     label: "AI Components",
     variant: "submenu",
     links: [
-      { label: "Code Block", href: "/docs/component/codeblock"},
+      { label: "Code Block", href: "/docs/component/codeblock" },
       { label: "Command Block", href: "/docs/component/command-block" },
       { label: "Prompt Input", href: "/docs/component/prompt-input" },
       { label: "Source", href: "/docs/component/source" },
@@ -73,21 +85,9 @@ const sidebarGroups: SidebarGroupData[] = [
     links: [
       { label: "Terminal", href: "/docs/system/terminal" },
       { label: "Status Bar", href: "/docs/system/status-bar" },
-      {
-        label: "File Manager",
-        href: "/docs/system/file-manager",
-        isNew: true,
-      },
-      {
-        label: "Login Manager",
-        href: "/docs/system/login-manager",
-        isNew: true,
-      },
-      {
-        label: "App Manager",
-        href: "/docs/system/applications-manager",
-        isNew: true,
-      },
+      { label: "File Manager", href: "/docs/system/file-manager", isNew: true },
+      { label: "Login Manager", href: "/docs/system/login-manager", isNew: true },
+      { label: "App Manager", href: "/docs/system/applications-manager", isNew: true },
     ],
   },
   {
@@ -95,10 +95,7 @@ const sidebarGroups: SidebarGroupData[] = [
     variant: "submenu",
     links: [
       { label: "Model", href: "/docs/3d-components/model" },
-      {
-        label: "Audio Visualizer",
-        href: "/docs/3d-components/audio-visualizer",
-      },
+      { label: "Audio Visualizer", href: "/docs/3d-components/audio-visualizer" },
       { label: "Login", href: "/docs/3d-components/login" },
       { label: "Signup", href: "/docs/3d-components/signup" },
     ],
@@ -116,7 +113,6 @@ const sidebarGroups: SidebarGroupData[] = [
 
 export default function AppSidebar() {
   const pathname = usePathname();
-
   const isCurrentPath = (href: string) => pathname === href;
 
   return (
@@ -125,7 +121,7 @@ export default function AppSidebar() {
         {sidebarGroups.map((group) =>
           group.variant === "submenu" ? (
             <SidebarGroup key={group.label}>
-              <SidebarMenu>
+              <SidebarMenu className="font-medium">
                 <SidebarMenuItem className="list-none">
                   <SidebarMenuButton className="px-3">
                     <span className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
@@ -178,8 +174,13 @@ function SidebarLinkItem({
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild isActive={isActive}>
-        <Link href={link.href}>
-          {link.icon && <HugeiconsIcon icon={link.icon} className="size-4 mr-2" />}
+        <Link href={link.href} className="flex items-center gap-2">
+          {link.icon &&
+            (typeof link.icon === "function" ? (
+              <link.icon className="size-4" />
+            ) : (
+              <HugeiconsIcon icon={link.icon} className="size-4" />
+            ))}
           <span>{link.label}</span>
         </Link>
       </SidebarMenuButton>
