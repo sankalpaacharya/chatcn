@@ -1,11 +1,23 @@
 # Terminal
-Design beautiful terminal on web
 
+A fully-featured terminal emulator component for building command-line interfaces on the web. Supports multiple window states, command history, and customizable prompts.
+
+## Features
+
+- **Window States** - Normal, minimized, and maximized modes
+- **Command History** - Built-in command history with scroll-to-bottom
+- **Context Provider** - Shared state across terminal components
+- **Custom Commands** - Easily extend with your own command handlers
+- **Portal Rendering** - Maximized and minimized states render via portals
 
 ### Examples
+
 Terminal Basics
 
 <ComponentPreview component="terminal"/>
+
+<br/>
+<br/>
 
 ## Installation
 
@@ -14,16 +26,136 @@ Terminal Basics
 <br/>
 <br/>
 
+## Usage
+
+### Basic Terminal
+
+```tsx
+import {
+  TerminalProvider,
+  Terminal,
+  TerminalHeader,
+  TerminalBody,
+  TerminalBodyContent,
+  TerminalPrompt,
+  TerminalInput,
+} from "@/components/chatcn/system/terminal"
+
+export default function Example() {
+  return (
+    <TerminalProvider>
+      <Terminal className="h-80">
+        <TerminalHeader>
+          <span>Terminal</span>
+        </TerminalHeader>
+        <TerminalBody>
+          <TerminalBodyContent
+            prompt={
+              <TerminalPrompt>
+                <span className="text-green-500">user@host</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-500">~</span>
+                <span className="text-white">$</span>
+              </TerminalPrompt>
+            }
+          />
+          <div className="flex gap-2 mt-2">
+            <TerminalPrompt>
+              <span className="text-green-500">user@host</span>
+              <span className="text-white">:</span>
+              <span className="text-blue-500">~</span>
+              <span className="text-white">$</span>
+            </TerminalPrompt>
+            <TerminalInput />
+          </div>
+        </TerminalBody>
+      </Terminal>
+    </TerminalProvider>
+  )
+}
+```
+
+### With Window Controls
+
+```tsx
+import {
+  TerminalProvider,
+  Terminal,
+  TerminalHeader,
+  TerminalBody,
+  TerminalBodyContent,
+  useTerminal,
+} from "@/components/chatcn/system/terminal"
+
+function WindowControls() {
+  const { setTerminalState, terminalState } = useTerminal()
+
+  return (
+    <div className="flex gap-2">
+      <button
+        onClick={() => setTerminalState("minimize")}
+        className="w-3 h-3 rounded-full bg-yellow-500"
+      />
+      <button
+        onClick={() => setTerminalState(
+          terminalState === "maximize" ? "normal" : "maximize"
+        )}
+        className="w-3 h-3 rounded-full bg-green-500"
+      />
+    </div>
+  )
+}
+
+export default function Example() {
+  return (
+    <TerminalProvider>
+      <Terminal className="h-80">
+        <TerminalHeader className="flex justify-between items-center">
+          <span>Terminal</span>
+          <WindowControls />
+        </TerminalHeader>
+        <TerminalBody>
+          <TerminalBodyContent />
+        </TerminalBody>
+      </Terminal>
+    </TerminalProvider>
+  )
+}
+```
+
+### Starting Maximized
+
+```tsx
+import { TerminalProvider, Terminal } from "@/components/chatcn/system/terminal"
+
+export default function Example() {
+  return (
+    <TerminalProvider initialState="maximize">
+      <Terminal>
+        {/* Terminal content */}
+      </Terminal>
+    </TerminalProvider>
+  )
+}
+```
+
+<br/>
+<br/>
+
 ## Props
 
 ### TerminalProvider
 
+Wraps your terminal components and provides shared state.
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `children` | `ReactNode` | - | Child components to wrap |
-| `initialState` | `"normal" \| "minimize" \| "maximize"` | `"normal"` | Initial state of the terminal |
+| `initialState` | `"normal" \| "minimize" \| "maximize"` | `"normal"` | Initial window state |
 
 ### Terminal
+
+The main terminal container component.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -32,12 +164,16 @@ Terminal Basics
 
 ### TerminalHeader
 
+The terminal header/title bar.
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `ReactNode` | - | Header content |
+| `children` | `ReactNode` | - | Header content (title, window controls) |
 | `className` | `string` | - | Additional CSS classes |
 
 ### TerminalBody
+
+The main content area of the terminal.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -46,6 +182,8 @@ Terminal Basics
 
 ### TerminalBodyContent
 
+Displays command history with automatic scroll-to-bottom.
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `className` | `string` | - | Additional CSS classes |
@@ -53,7 +191,40 @@ Terminal Basics
 
 ### TerminalPrompt
 
+A styled container for prompt elements.
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `children` | `ReactNode` | - | Prompt content |
 | `className` | `string` | - | Additional CSS classes |
+
+### TerminalInput
+
+An input field for entering commands.
+
+*No props required - automatically connects to terminal context.*
+
+## Hooks
+
+### useTerminal
+
+Access the terminal context from any child component:
+
+```tsx
+const {
+  terminalState,      // Current window state
+  setTerminalState,   // Change window state
+  terminalHistory,    // Array of command entries
+  setTerminalHistory, // Update history
+} = useTerminal()
+```
+
+## Built-in Commands
+
+The terminal includes some default commands:
+
+| Command | Description |
+|---------|-------------|
+| `help` | Display available commands |
+| `whoami` | Display user information |
+| `clear` | Clear terminal history |

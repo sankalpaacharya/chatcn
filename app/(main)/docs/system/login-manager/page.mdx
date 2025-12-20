@@ -1,15 +1,97 @@
 # Login Manager
-Make beautiful login screen
 
+A beautiful, animated login screen component inspired by modern operating systems. Features a lock screen with time display that transitions to a password input screen with smooth animations.
+
+## Features
+
+- **Animated Transitions** - Smooth slide animations between lock and login screens
+- **Keyboard Activation** - Press Space or Enter to activate login
+- **Custom Wallpaper** - Set any background image
+- **Portal Support** - Render as a full-screen overlay using React portals
+- **Blur Effects** - Beautiful backdrop blur on the password screen
 
 ### Examples
+
 Login Manager Basics
 
 <ComponentPreview component="login-manager"/>
 
+<br/>
+<br/>
+
 ## Installation
 
 <Installation component={"system/login-manager"}/>
+
+<br/>
+<br/>
+
+## Usage
+
+### Basic Usage
+
+```tsx
+import { LoginManager } from "@/components/chatcn/system/login-manager"
+
+export default function App() {
+  return <LoginManager />
+}
+```
+
+### Custom Wallpaper
+
+```tsx
+import { LoginManager } from "@/components/chatcn/system/login-manager"
+
+export default function App() {
+  return (
+    <LoginManager
+      wallpaper="/images/custom-wallpaper.jpg"
+    />
+  )
+}
+```
+
+### Full-Screen Portal Mode
+
+Use portal mode to render the login screen as a full-screen overlay on top of your entire application:
+
+```tsx
+import { LoginManager } from "@/components/chatcn/system/login-manager"
+
+export default function App() {
+  return (
+    <div>
+      <main>Your app content</main>
+      <LoginManager portal />
+    </div>
+  )
+}
+```
+
+### With Authentication Logic
+
+```tsx
+"use client"
+
+import { useState } from "react"
+import { LoginManager } from "@/components/chatcn/system/login-manager"
+
+export default function App() {
+  const [isLocked, setIsLocked] = useState(true)
+
+  if (isLocked) {
+    return (
+      <LoginManager
+        wallpaper="/images/wallpaper.jpg"
+        portal
+      />
+    )
+  }
+
+  return <main>Your authenticated app</main>
+}
+```
 
 <br/>
 <br/>
@@ -21,4 +103,16 @@ Login Manager Basics
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `wallpaper` | `string` | `"/images/jump.png"` | Background image URL for the login screen |
-| `portal` | `boolean` | `false` | If true, renders the login screen in a portal |
+| `portal` | `boolean` | `false` | If true, renders the login screen in a portal overlay |
+
+## Sub-components
+
+The login manager also exports individual screen components for customization:
+
+### FirstScreen
+
+The initial lock screen displaying time and date. Shows a prompt to press Space or Enter.
+
+### PasswordScreen
+
+The password input screen with user avatar and password field.

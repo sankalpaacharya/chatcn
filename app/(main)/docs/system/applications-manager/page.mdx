@@ -1,11 +1,22 @@
 # Applications Manager
-A command palette style application launcher triggered by `Ctrl+K` / `⌘+K`.
 
+A command palette style application launcher inspired by macOS Spotlight and Windows search. Triggered by keyboard shortcut, it provides quick access to applications organized by category.
+
+## Features
+
+- **Keyboard Shortcut** - Open with `Ctrl+K` (Windows/Linux) or `⌘+K` (Mac)
+- **Category Groups** - Applications organized by category (Browsers, Social Media, etc.)
+- **Search** - Filter applications by name
+- **External Links** - Opens applications in new tabs
 
 ### Examples
+
 Applications Manager Basics
 
 <ComponentPreview component="applications-manager"/>
+
+<br/>
+<br/>
 
 ## Installation
 
@@ -16,14 +27,74 @@ Applications Manager Basics
 
 ## Usage
 
-The `ApplicationManager` component doesn't require any props. It automatically handles keyboard shortcuts and state internally.
+### Basic Usage
+
+Simply render the component anywhere in your app. It will listen for the keyboard shortcut globally:
 
 ```tsx
 import { ApplicationManager } from "@/components/chatcn/system/applications-manager"
 
 export default function App() {
-  return <ApplicationManager />
+  return (
+    <div>
+      <main>Your app content</main>
+      <ApplicationManager />
+    </div>
+  )
 }
 ```
 
-Press `Ctrl+K` (or `⌘+K` on Mac) to open the application launcher.
+### In a Layout
+
+Add to your root layout to make it available throughout your application:
+
+```tsx
+// app/layout.tsx
+import { ApplicationManager } from "@/components/chatcn/system/applications-manager"
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <ApplicationManager />
+      </body>
+    </html>
+  )
+}
+```
+
+<br/>
+<br/>
+
+## How It Works
+
+1. Press `Ctrl+K` or `⌘+K` to open the command palette
+2. Type to search for applications
+3. Use arrow keys or mouse to navigate
+4. Press Enter or click to open the selected application
+5. Press Escape or click outside to close
+
+## Customization
+
+To customize the available applications, modify the `applications` object in the component source file. Applications are organized by category:
+
+```tsx
+const applications: Record<string, Application[]> = {
+  "Category Name": [
+    {
+      name: "App Name",
+      icon: "https://path-to-icon.svg",
+      url: "https://app-url.com",
+    },
+  ],
+}
+```
+
+## Props
+
+This component doesn't accept any props. It uses internal state management and automatically handles:
+
+- Keyboard shortcut detection
+- Dialog open/close state
+- Application selection and navigation

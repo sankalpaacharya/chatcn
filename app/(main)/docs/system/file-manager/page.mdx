@@ -1,15 +1,101 @@
 # File Manager
-File component to display files.
 
+A set of file and folder display components for building file explorer interfaces. These components provide a visually rich way to display files and folders with support for thumbnails, icons, and user interactions.
+
+## Features
+
+- **Folder Display** - Display folders with customizable click handlers
+- **File Display** - Show files with automatic icon detection based on extension
+- **Thumbnail Support** - Display image and video thumbnails
+- **Keyboard Navigation** - Built-in tab index support for accessibility
 
 ### Examples
+
 File Manager Basics
 
 <ComponentPreview component="file-manager"/>
 
+<br/>
+<br/>
+
 ## Installation
 
 <Installation component={"system/file-manager"}/>
+
+<br/>
+<br/>
+
+## Usage
+
+### Basic Folder Display
+
+```tsx
+import { FolderItem } from "@/components/chatcn/system/file-manager"
+
+export default function Example() {
+  return (
+    <FolderItem
+      name="Documents"
+      onClick={() => console.log("Folder opened")}
+    />
+  )
+}
+```
+
+### Basic File Display
+
+```tsx
+import { FileItem } from "@/components/chatcn/system/file-manager"
+
+export default function Example() {
+  return (
+    <FileItem
+      name="image.png"
+      thumbnail="/path/to/thumbnail.png"
+      onClick={() => console.log("File opened")}
+    />
+  )
+}
+```
+
+### Building a File Grid
+
+```tsx
+import { FolderItem, FileItem } from "@/components/chatcn/system/file-manager"
+
+const folders = [
+  { name: "Documents" },
+  { name: "Pictures" },
+]
+
+const files = [
+  { name: "photo.jpg", thumbnail: "/thumbnails/photo.jpg" },
+  { name: "script.js" },
+  { name: "README.md" },
+]
+
+export default function FileExplorer() {
+  return (
+    <div className="grid grid-cols-4 gap-2">
+      {folders.map((folder) => (
+        <FolderItem
+          key={folder.name}
+          name={folder.name}
+          onClick={() => console.log(`Open ${folder.name}`)}
+        />
+      ))}
+      {files.map((file) => (
+        <FileItem
+          key={file.name}
+          name={file.name}
+          thumbnail={file.thumbnail}
+          onClick={() => console.log(`Open ${file.name}`)}
+        />
+      ))}
+    </div>
+  )
+}
+```
 
 <br/>
 <br/>
@@ -29,9 +115,21 @@ File Manager Basics
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `name` | `string` | - | The file name to display |
+| `name` | `string` | - | The file name to display (extension determines icon) |
 | `onClick` | `() => void` | - | Callback when file is double-clicked |
 | `className` | `string` | `""` | Additional CSS classes |
 | `tabIndex` | `number` | `0` | Tab index for keyboard navigation |
 | `thumbnail` | `string` | - | URL for thumbnail image (for images/videos) |
 | `src` | `string` | - | Source URL for the file |
+
+## Supported File Types
+
+The `FileItem` component automatically detects file types based on extension and displays appropriate icons:
+
+| Type | Extensions | Icon |
+|------|-----------|------|
+| Image | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp` | Image icon |
+| Video | `mp4`, `mov`, `avi`, `mkv`, `webm` | Play icon overlay |
+| Text | `txt`, `md`, `markdown` | Text file icon |
+| Code | `js`, `ts`, `jsx`, `tsx`, `py`, `java`, `c`, `cpp`, `cs`, `json`, `html`, `css` | Code file icon |
+| Other | Any other extension | Generic file icon |

@@ -171,7 +171,7 @@ export function ContributorsPage({
                   rel="noopener noreferrer"
                   className="relative flex flex-col items-center justify-center gap-3 p-5 rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm shadow-[0_2px_10px_-3px_rgba(0,0,0,0.07),0_1px_2px_-1px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_10px_-3px_rgba(0,0,0,0.3),0_1px_2px_-1px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_-5px_rgba(0,0,0,0.1),0_4px_10px_-5px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_-5px_rgba(0,0,0,0.4),0_4px_10px_-5px_rgba(0,0,0,0.3)] hover:border-border hover:bg-card/80 transition-all duration-300 ease-out group aspect-square cursor-pointer hover:-translate-y-1"
                 >
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative">
                     <Image
                       src={contributor.avatar_url}
@@ -185,7 +185,7 @@ export function ContributorsPage({
                     </div>
                   </div>
                   <div className="text-center relative z-10">
-                    <div className="text-sm font-medium text-foreground/90 group-hover:text-foreground transition-colors truncate max-w-[120px]">
+                    <div className="text-sm font-medium text-foreground/90 group-hover:text-foreground transition-colors truncate max-w-30">
                       {contributor.name || contributor.login}
                     </div>
                     <div className="text-xs text-muted-foreground mt-0.5">
