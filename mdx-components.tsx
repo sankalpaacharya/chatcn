@@ -19,5 +19,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CodeBlock: CodeBlockClientWrapper,
     CodeSource: CodeSource,
     Installation: Installation,
+    // Handle code blocks from rehype-pretty-code
+    pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
+      <pre className="overflow-x-auto rounded-lg border bg-card p-4 text-sm" {...props}>
+        {children}
+      </pre>
+    ),
   };
 }

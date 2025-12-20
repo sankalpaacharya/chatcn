@@ -179,7 +179,50 @@ code .line::before {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: gray
+  color: gray;
+}
+
+/* Rehype Pretty Code / Shiki Styles */
+[data-rehype-pretty-code-figure] {
+  @apply my-4;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  @apply rounded-lg border bg-card p-4 overflow-x-auto;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply text-sm font-mono;
+  counter-reset: none;
+}
+
+[data-rehype-pretty-code-figure] code .line::before {
+  display: none;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-4 -mx-4 border-l-2 border-transparent;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-muted/50 border-l-primary;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply bg-primary/20 rounded px-1;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply text-sm font-medium text-muted-foreground px-4 py-2 border border-b-0 rounded-t-lg bg-muted;
+}
+
+[data-rehype-pretty-code-title]+pre {
+  @apply rounded-t-none;
+}
+
+/* Inline code */
+:not(pre)>code {
+  @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
