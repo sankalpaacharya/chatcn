@@ -26,20 +26,20 @@ import { TwitterIcon, Github, LinkedinIcon } from "@/components/icons/social";
 import { HugeiconsIcon } from "@/components/icons";
 import type { IconSvgElement } from "@hugeicons/react";
 
-type SidebarLink = {
+export type SidebarLink = {
   label: string;
   href: string;
   isNew?: boolean;
   icon?: IconSvgElement | React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
-type SidebarGroupData = {
+export type SidebarGroupData = {
   label: string;
   variant?: "submenu" | "list";
   links: SidebarLink[];
 };
 
-const sidebarGroups: SidebarGroupData[] = [
+export const sidebarGroups: SidebarGroupData[] = [
   {
     label: "Social",
     variant: "submenu",
@@ -116,8 +116,8 @@ export default function AppSidebar() {
   const isCurrentPath = (href: string) => pathname === href;
 
   return (
-    <Sidebar className="border-r pt-16 h-svh">
-      <SidebarContent className="scrollbar-hide">
+    <Sidebar className="pt-16 h-svh border-r">
+      <SidebarContent className="scrollbar-hide relative pb-20">
         {sidebarGroups.map((group) =>
           group.variant === "submenu" ? (
             <SidebarGroup key={group.label}>
@@ -160,6 +160,12 @@ export default function AppSidebar() {
           )
         )}
       </SidebarContent>
+
+      {/* Vintage vignette - positioned to not cover the border */}
+      <div 
+        className="pointer-events-none absolute left-0 bottom-0 z-10 h-[120px] bg-gradient-to-t from-background via-background/60 to-transparent"
+        style={{ right: '1px' }}
+      />
     </Sidebar>
   );
 }
