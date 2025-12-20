@@ -1,245 +1,255 @@
 "use client";
-import React, { useState } from "react";
+
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import {
+  Sidebar as SidebarUI,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuBadge,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
+} from "@/components/ui/sidebar";
+
 
 type SidebarLink = {
   label: string;
   href: string;
-  type: "heading" | "link";
   isNew?: boolean;
 };
 
+type SidebarGroupData = {
+  label: string;
+  variant?: "submenu" | "list";
+  links: SidebarLink[];
+};
+
+
+const sidebarGroups: SidebarGroupData[] = [
+  {
+    label: "Getting Started",
+    variant: "submenu",
+    links: [
+      { label: "Home", href: "/docs" },
+      { label: "Introduction", href: "/docs/introduction" },
+      { label: "Installation", href: "/docs/installation" },
+      { label: "MCP Server", href: "/docs/mcp/" },
+    ],
+  },
+  {
+    label: "AI Components",
+    variant: "submenu",
+    links: [
+      { label: "Code Block", href: "/docs/component/codeblock" },
+      { label: "Command Block", href: "/docs/component/command-block" },
+      { label: "Prompt Input", href: "/docs/component/prompt-input" },
+      { label: "Source", href: "/docs/component/source" },
+      { label: "Code Editor", href: "/docs/component/code-editor" },
+      { label: "Message", href: "/docs/component/message" },
+      { label: "File", href: "/docs/component/file" },
+      { label: "Tool", href: "/docs/component/tool" },
+      { label: "Markdown", href: "/docs/component/markdown" },
+      { label: "Thought", href: "/docs/component/thought" },
+      { label: "Thread", href: "/docs/component/thread" },
+      { label: "Chat Container", href: "/docs/component/chat-container" },
+      { label: "Calendar", href: "/docs/component/calendar" },
+    ],
+  },
+  {
+    label: "System Components",
+    variant: "submenu",
+    links: [
+      { label: "Terminal", href: "/docs/system/terminal" },
+      { label: "Status Bar", href: "/docs/system/status-bar" },
+      {
+        label: "File Manager",
+        href: "/docs/system/file-manager",
+        isNew: true,
+      },
+      {
+        label: "Login Manager",
+        href: "/docs/system/login-manager",
+        isNew: true,
+      },
+      {
+        label: "App Manager",
+        href: "/docs/system/applications-manager",
+        isNew: true,
+      },
+    ],
+  },
+  {
+    label: "3D Components",
+    variant: "submenu",
+    links: [
+      { label: "Model", href: "/docs/3d-components/model" },
+      {
+        label: "Audio Visualizer",
+        href: "/docs/3d-components/audio-visualizer",
+      },
+      { label: "Login", href: "/docs/3d-components/login" },
+      { label: "Signup", href: "/docs/3d-components/signup" },
+    ],
+  },
+  {
+    label: "Tool Call UI",
+    variant: "submenu",
+    links: [
+      { label: "Weather", href: "/docs/component/weather" },
+      { label: "Email", href: "/docs/component/email" },
+      { label: "Charts", href: "/docs/component/charts" },
+    ],
+  },
+];
+
+
 export default function Sidebar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
-  const isCurrentPath = (href: string) => {
-    if (!href) return false;
-    return pathname === href;
-  };
+  const isCurrentPath = (href: string) => pathname === href;
 
   return (
-    <>
-      {/* Desktop Sidebar */}
-      <aside className="hidden lg:block w-64 bg-background border-r h-[calc(100vh-4rem)] sticky top-16 flex-shrink-0">
-        <SidebarContent isCurrentPath={isCurrentPath} />
-      </aside>
-
-      {/* Mobile Menu Toggle */}
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden fixed top-20 left-4 z-50 shadow-md bg-background"
-          >
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-[280px] sm:w-[320px] p-0">
-          <SidebarContent
-            isCurrentPath={isCurrentPath}
-            onNavigate={() => setOpen(false)}
-          />
-        </SheetContent>
-      </Sheet>
-    </>
+    <SidebarUI className="border-r pt-16 h-svh">
+      <SidebarContent className="scrollbar-hide">
+        <SidebarContentInner isCurrentPath={isCurrentPath} />
+      </SidebarContent>
+    </SidebarUI>
   );
 }
 
-export function SidebarContent({
+
+export function SidebarContentInner({
   isCurrentPath,
   onNavigate,
 }: {
   isCurrentPath: (href: string) => boolean;
   onNavigate?: () => void;
 }) {
-  const sidebarLinks: SidebarLink[] = [
-    { label: "Getting Started", href: "", type: "heading" },
-    { label: "Home", href: "/docs", type: "link" },
-    { label: "Introduction", href: "/docs/introduction", type: "link" },
-    { label: "Installation", href: "/docs/installation", type: "link" },
-    { label: "MCP Server", href: "/docs/mcp/", type: "link" },
-    { label: "AI Components", href: "", type: "heading" },
-    {
-      label: "Code Block",
-      href: "/docs/component/codeblock",
-      type: "link",
-    },
-    {
-      label: "Command Block",
-      href: "/docs/component/command-block",
-      type: "link",
-    },
-    {
-      label: "Prompt Input",
-      href: "/docs/component/prompt-input",
-      type: "link",
-    },
-    {
-      label: "Source",
-      href: "/docs/component/source",
-      type: "link",
-    },
-    {
-      label: "Code Editor",
-      href: "/docs/component/code-editor",
-      type: "link",
-    },
-    {
-      label: "Message",
-      href: "/docs/component/message",
-      type: "link",
-    },
-    {
-      label: "File",
-      href: "/docs/component/file",
-      type: "link",
-    },
-    {
-      label: "Tool",
-      href: "/docs/component/tool",
-      type: "link",
-    },
-    {
-      label: "Markdown",
-      href: "/docs/component/markdown",
-      type: "link",
-    },
-    {
-      label: "Thought",
-      href: "/docs/component/thought",
-      type: "link",
-    },
-    {
-      label: "Thread",
-      href: "/docs/component/thread",
-      type: "link",
-    },
-    {
-      label: "Chat Container",
-      href: "/docs/component/chat-container",
-      type: "link",
-    },
-    {
-      label: "Calendar",
-      href: "/docs/component/calendar",
-      type: "link",
-    },
-
-    { label: "System Components", href: "", type: "heading" },
-    {
-      label: "Terminal",
-      href: "/docs/system/terminal",
-      type: "link",
-    },
-    {
-      label: "Status Bar",
-      href: "/docs/system/status-bar",
-      type: "link",
-    },
-    {
-      label: "File Manager",
-      href: "/docs/system/file-manager",
-      isNew: true,
-      type: "link",
-    },
-    {
-      label: "Login Manager",
-      href: "/docs/system/login-manager",
-      isNew: true,
-      type: "link",
-    },
-    {
-      label: "App Manager",
-      href: "/docs/system/applications-manager",
-      isNew: true,
-      type: "link",
-    },
-
-    { label: "3D Components", href: "", type: "heading" },
-    {
-      label: "Model",
-      href: "/docs/3d-components/model",
-      type: "link",
-    },
-    {
-      label: "Audio Visualizer",
-      href: "/docs/3d-components/audio-visualizer",
-      type: "link",
-    },
-    {
-      label: "Login",
-      href: "/docs/3d-components/login",
-      type: "link",
-    },
-    {
-      label: "Signup",
-      href: "/docs/3d-components/signup",
-      type: "link",
-    },
-
-    { label: "Tool Call UI", href: "", type: "heading", isNew: true },
-    { label: "Weather", href: "/docs/component/weather", type: "link" },
-    {
-      label: "Email",
-      href: "/docs/component/email",
-      type: "link",
-    },
-    { label: "Charts", href: "/docs/component/charts", type: "link" },
-  ];
-
   return (
-    <div className="flex flex-col h-full overflow-y-auto scrollbar-hide">
-      <nav className="px-4 py-6 space-y-0.5">
-        {sidebarLinks.map((link) => (
-          <SidebarLink
-            key={link.label}
-            label={link.label}
-            type={link.type}
-            isSelected={isCurrentPath(link.href)}
-            href={link.href}
-            isNew={link.isNew}
+    <>
+      {sidebarGroups.map((group) =>
+        group.variant === "submenu" ? (
+          <SidebarSubmenuGroup
+            key={group.label}
+            group={group}
+            isCurrentPath={isCurrentPath}
             onNavigate={onNavigate}
           />
-        ))}
-      </nav>
-    </div>
+        ) : (
+          <SidebarListGroup
+            key={group.label}
+            group={group}
+            isCurrentPath={isCurrentPath}
+            onNavigate={onNavigate}
+          />
+        )
+      )}
+    </>
   );
 }
 
-function SidebarLink({
-  label,
-  href,
-  type,
-  isSelected,
-  isNew = false,
+
+function SidebarSubmenuGroup({
+  group,
+  isCurrentPath,
   onNavigate,
-}: SidebarLink & { isSelected: boolean; onNavigate?: () => void }) {
-  return type === "link" ? (
-    <Link
-      href={href}
-      onClick={onNavigate}
-      className={`flex gap-2 items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${
-        isSelected
-          ? "bg-accent text-accent-foreground shadow-sm"
-          : "hover:bg-accent/50 hover:text-accent-foreground text-muted-foreground"
-      }`}
-    >
-      {label}
-      {isNew && (
-        <Badge className="bg-green-600 hover:bg-green-700 text-white text-xs px-1.5 py-0.5">New</Badge>
+}: {
+  group: SidebarGroupData;
+  isCurrentPath: (href: string) => boolean;
+  onNavigate?: () => void;
+}) {
+  return (
+    <SidebarGroup className="py-1">
+      <SidebarMenuItem className="list-none">
+        <SidebarMenuButton className="px-3" tooltip={group.label}>
+          <span className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
+            {group.label}
+          </span>
+        </SidebarMenuButton>
+
+        <SidebarMenuSub className="ml-2 border-l border-muted/50 mt-1">
+          {group.links.map((link) => (
+            <SidebarLinkItem
+              key={link.label}
+              link={link}
+              isActive={isCurrentPath(link.href)}
+              onNavigate={onNavigate}
+              sub
+            />
+          ))}
+        </SidebarMenuSub>
+      </SidebarMenuItem>
+    </SidebarGroup>
+  );
+}
+
+
+function SidebarListGroup({
+  group,
+  isCurrentPath,
+  onNavigate,
+}: {
+  group: SidebarGroupData;
+  isCurrentPath: (href: string) => boolean;
+  onNavigate?: () => void;
+}) {
+  return (
+    <SidebarGroup>
+      <SidebarGroupLabel className="px-3 text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
+        {group.label}
+      </SidebarGroupLabel>
+
+      <SidebarGroupContent>
+        <SidebarMenu>
+          {group.links.map((link) => (
+            <SidebarLinkItem
+              key={link.label}
+              link={link}
+              isActive={isCurrentPath(link.href)}
+              onNavigate={onNavigate}
+            />
+          ))}
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
+  );
+}
+
+
+function SidebarLinkItem({
+  link,
+  isActive,
+  onNavigate,
+  sub,
+}: {
+  link: SidebarLink;
+  isActive: boolean;
+  onNavigate?: () => void;
+  sub?: boolean;
+}) {
+  const Button = sub ? SidebarMenuSubButton : SidebarMenuButton;
+  const Item = sub ? SidebarMenuSubItem : SidebarMenuItem;
+
+  return (
+    <Item>
+      <Button asChild isActive={isActive} onClick={onNavigate}>
+        <Link href={link.href}>
+          <span>{link.label}</span>
+        </Link>
+      </Button>
+
+      {link.isNew && (
+        <SidebarMenuBadge className="bg-green-600 text-white text-[10px] px-1.5 py-0 h-4 min-w-8 z-10">
+          New
+        </SidebarMenuBadge>
       )}
-    </Link>
-  ) : (
-    <p className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider mt-6 mb-2 px-3 first:mt-0">
-      {label}
-    </p>
+    </Item>
   );
 }

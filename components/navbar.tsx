@@ -1,6 +1,10 @@
 "use client";
+
 import React from "react";
+import Link from "next/link";
 import { Menu, Sun, Moon, Github, MessageCircle } from "lucide-react";
+import { useTheme } from "next-themes";
+
 import {
   Sheet,
   SheetTrigger,
@@ -8,97 +12,76 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { SidebarContent as SC1 } from "./main-sidebar";
-import { SidebarContent as SC2 } from "./sidebar";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { useTheme } from "next-themes";
 
-const navLinks = [
+
+const NAV_LINKS = [
   { href: "/docs", label: "Docs" },
   { href: "https://chatcn-template.vercel.app", label: "Templates" },
   { href: "/marketplace", label: "Marketplace" },
 ];
 
-export default function Navbar() {
-  const pathname = usePathname();
-  const isDocsPage = pathname.startsWith("/docs");
+
+export default function Navbar({
+  sidebar,
+}: {
+  sidebar?: React.ReactNode;
+}) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => setMounted(true), []);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const isActive = (href: string) => pathname === href;
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
-
-  const Logo = ({ className = "" }) => (
-    <Link href="/" className={`flex items-center space-x-2 ${className}`}>
-      <MessageCircle className="h-5 w-5" />
-      <span className="font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-        chatcn
-      </span>
-    </Link>
-  );
-
-  const NavLink = ({
-    href,
-    children,
-  }: {
-    href: string;
-    children: React.ReactNode;
-  }) => (
-    <Link
-      href={href}
-      className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg hover:bg-accent`}
-    >
-      {children}
-    </Link>
-  );
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b-2 border-dotted">
+    <nav className="sticky top-0 z-50 w-full border-b-2 border-dotted bg-background">
       <div className="flex h-16 items-center px-4 md:px-8">
-        <Sheet>
-          <SheetTrigger asChild className="xl:hidden mr-2">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[280px]">
-            <SheetTitle className="hidden">Navigation Menu</SheetTitle>
-            {isDocsPage ? (
-              <SC2 isCurrentPath={isActive} />
-            ) : (
-              <SC1 isCurrentPath={isActive} />
-            )}
-          </SheetContent>
-        </Sheet>
+
+        {sidebar && (
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild className="xl:hidden mr-2">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+
+            <SheetContent side="left" className="p-0">
+              <SheetTitle className="hidden">Navigation</SheetTitle>
+              <div className="h-full">{sidebar}</div>
+            </SheetContent>
+          </Sheet>
+        )}
+
 
         <Logo className="mr-6 hidden xl:flex" />
 
         <div className="flex flex-1 items-center justify-between">
+
           <nav className="hidden xl:flex items-center space-x-1">
-            {navLinks.map(({ href, label }) => (
-              <NavLink key={href} href={href}>
-                {label}
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.href} href={link.href}>
+                {link.label}
               </NavLink>
             ))}
           </nav>
 
-          <Logo className="xl:hidden text-lg" />
+
+          <Logo className="xl:hidden" />
+
 
           <div className="flex items-center space-x-2 ml-auto">
-            <Button variant="ghost" size="icon" asChild className="inline-flex">
-              <Link
-                href="https://github.com/sankalpaacharya/shadcn-collections"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </Button>
+            <IconButton
+              href="https://github.com/sankalpaacharya/shadcn-collections"
+              label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </IconButton>
 
             {mounted && (
               <Button variant="ghost" size="icon" onClick={toggleTheme}>
@@ -111,5 +94,53 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+  );
+}
+
+
+function Logo({ className = "" }: { className?: string }) {
+  return (
+    <Link href="/" className={`flex items-center space-x-2 ${className}`}>
+      <MessageCircle className="h-5 w-5" />
+      <span className="font-bold bg-clip-text text-transparent from-primary to-primary/80">
+        chatcn
+      </span>
+    </Link>
+  );
+}
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-accent"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function IconButton({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Button variant="ghost" size="icon" asChild>
+      <Link href={href} target="_blank" rel="noopener noreferrer">
+        {children}
+        <span className="sr-only">{label}</span>
+      </Link>
+    </Button>
   );
 }
