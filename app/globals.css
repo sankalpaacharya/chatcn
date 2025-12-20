@@ -186,3 +186,79 @@ code .line::before {
   display: none;
   scrollbar-width: 0;
 }
+
+/* Prose Table Styling */
+.prose table {
+  @apply w-full text-sm border-separate border border-border rounded-lg overflow-hidden;
+  table-layout: auto;
+  border-spacing: 0;
+}
+
+.prose thead {
+  @apply bg-muted;
+}
+
+.prose th {
+  @apply text-left font-medium text-foreground px-3 py-3 border-b border-r border-border;
+}
+
+.prose th:first-child {
+  @apply rounded-tl-lg;
+}
+
+.prose th:last-child {
+  @apply border-r-0 rounded-tr-lg;
+}
+
+.prose td {
+  @apply px-3 py-3 text-muted-foreground border-b border-r border-border align-top;
+}
+
+.prose td:last-child {
+  @apply border-r-0;
+}
+
+.prose tbody tr:last-child td:first-child {
+  @apply rounded-bl-lg;
+}
+
+.prose tbody tr:last-child td:last-child {
+  @apply rounded-br-lg;
+}
+
+.prose tbody tr:last-child td {
+  @apply border-b-0;
+}
+
+.prose tbody tr:hover {
+  @apply bg-muted/30 transition-colors;
+}
+
+.prose td code,
+.prose th code {
+  @apply bg-muted px-1.5 py-0.5 rounded text-xs font-mono text-foreground;
+}
+
+/* Mobile: allow code to wrap */
+@media (max-width: 768px) {
+
+  .prose td code,
+  .prose th code {
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .prose th,
+  .prose td {
+    @apply px-2 py-2 text-xs;
+  }
+}
+
+/* Desktop: keep code on single line */
+@media (min-width: 769px) {
+
+  .prose td code,
+  .prose th code {
+    white-space: nowrap;
+  }
+}

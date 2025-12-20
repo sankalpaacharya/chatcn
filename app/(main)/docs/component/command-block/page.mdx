@@ -11,6 +11,62 @@ Command Tabs Basics
 
 <Installation component={"command-block"}/>
 
+<br/>
+<br/>
 
-<br/>
-<br/>
+## Props
+
+### CommandBlock
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `React.ReactNode` | - | Block content (header, content) |
+
+### CommandBlockHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Header content (title, etc.) |
+
+### CommandBlockTitle
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `string` | - | Title text |
+| `showTerminalIcon` | `boolean` | `true` | Show terminal icon |
+
+### CommandBlockContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `command` | `string` | - | Command text to display |
+| `className` | `string` | - | Additional CSS classes |
+
+### CommandBlocksTabs
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Tab header and content |
+| `defaultValue` | `string` | - | Default active tab value |
+
+### CommandBlockTabHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Tab triggers |
+| `showTerminalIcon` | `boolean` | `true` | Show terminal icon |
+
+### CommandBlockTabTrigger
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Unique tab identifier |
+| `label` | `string` | - | Tab button text |
+
+### CommandBlockTabContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Tab identifier (matches trigger) |
+| `command` | `string` | - | Command text to display |

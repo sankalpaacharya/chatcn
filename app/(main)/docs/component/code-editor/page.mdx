@@ -21,3 +21,48 @@ Code Editor Basics
 
 <br/>
 <br/>
+
+## Props
+
+### CodeEditor
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Controlled editor value |
+| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
+| `language` | `string` | `"javascript"` | Programming language |
+| `onLanguageChange` | `(language: string) => void` | - | Callback when language changes |
+| `theme` | `string` | `"vs-dark"` | Monaco editor theme |
+| `onThemeChange` | `(theme: string) => void` | - | Callback when theme changes |
+| `isLoading` | `boolean` | `false` | Loading state |
+| `disabled` | `boolean` | `false` | Disable the editor |
+| `children` | `React.ReactNode` | - | Editor actions and content |
+| `className` | `string` | - | Additional CSS classes |
+| `onFormat` | `() => void` | - | Callback when format action is triggered |
+| `onExecute` | `() => void` | - | Callback when execute action is triggered |
+
+### CodeEditArea
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `loader` | `React.ReactNode` | - | Custom loading component |
+| `className` | `string` | - | Additional CSS classes |
+| `height` | `string \| number` | `"400px"` | Editor height |
+| `width` | `string \| number` | `"100%"` | Editor width |
+
+### CodeEditorActions
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Action buttons |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeEditorAction
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `tooltip` | `React.ReactNode` | - | Tooltip content |
+| `children` | `React.ReactNode` | - | Action button content |
+| `className` | `string` | - | Additional CSS classes |
+| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Tooltip position |
+| `onClick` | `() => void` | - | Click handler |

@@ -48,3 +48,14 @@ code .line::before {
 
 <br/>
 <br/>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `string` | - | The code content to display |
+| `lang` | `BundledLanguage` | - | Programming language for syntax highlighting (e.g., `tsx`, `css`, `python`) |
+| `height` | `string` | `"600"` | Maximum height of the code block in pixels |
+| `className` | `string` | - | Additional CSS classes to apply |
+| `highlight` | `{ start: number; end: number }` | - | Line range to highlight |
+| `theme` | `string` | `"github-dark-default"` | Shiki theme name for syntax highlighting |

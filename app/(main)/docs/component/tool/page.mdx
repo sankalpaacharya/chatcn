@@ -20,3 +20,21 @@ Different State during the tool calling, `Processing`, `Completed` and `Error`
 <br/>
 <br/>
 
+## Props
+
+### Tool
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string` | - | Tool name to display |
+| `state` | `"LOADING" \| "COMPLETED" \| "ERROR"` | - | Current state of the tool call |
+| `input` | `Record<string, unknown>` | - | Input parameters passed to the tool |
+| `output` | `Record<string, unknown>` | - | Output from the tool execution |
+| `errorText` | `string` | - | Error message when state is ERROR |
+| `children` | `React.ReactNode` | - | Additional content in the trigger |
+
+### ToolStateBadge
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |

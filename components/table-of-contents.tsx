@@ -3,6 +3,10 @@
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import {
+ContentWritingIcon
+} from "@/components/icons";
+import { HugeiconsIcon } from '@hugeicons/react'
 
 interface TocItem {
 	id: string
@@ -80,7 +84,11 @@ export default function TableOfContents() {
 
 	return (
 		<nav className="space-y-1">
-			<p className="font-medium text-sm mb-3">On This Page</p>
+			<p className="font-medium text-sm mb-3 flex items-center gap-2">
+
+				<HugeiconsIcon name="list" icon={ContentWritingIcon} size={20}/>
+				On This Page
+			</p>
 			{headings.map((heading) => (
 				<a
 					key={heading.id}

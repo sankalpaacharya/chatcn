@@ -16,3 +16,44 @@ Message Basics
 
 <br/>
 <br/>
+
+## Props
+
+### Message
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Content to render inside the message |
+| `className` | `string` | - | Additional CSS classes |
+
+### MessageAvatar
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `src` | `string` | - | Avatar image source URL |
+| `alt` | `string` | - | Alt text for the avatar |
+| `fallback` | `string` | - | Fallback text when image fails to load |
+| `className` | `string` | - | Additional CSS classes |
+
+### MessageContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Message content |
+| `className` | `string` | - | Additional CSS classes |
+
+### MessageActions
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Action buttons |
+| `className` | `string` | - | Additional CSS classes |
+
+### MessageAction
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `tooltip` | `React.ReactNode` | - | Tooltip content |
+| `children` | `React.ReactNode` | - | Action button content |
+| `className` | `string` | - | Additional CSS classes |
+| `side` | `"top" \| "bottom" \| "left" \| "right"` | - | Tooltip position |

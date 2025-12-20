@@ -18,3 +18,41 @@ Add different file uplaod options to the prompt input, use `PromptInputActions`
 ## Installation
 
 <Installation component={"prompt-input"}/>
+
+## Props
+
+### PromptInput
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Controlled input value |
+| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
+| `maxHeight` | `number \| string` | `240` | Max height before scrolling |
+| `onSubmit` | `() => void` | - | Callback when form is submitted |
+| `children` | `React.ReactNode` | - | Input content and actions |
+| `disabled` | `boolean` | `false` | Disable the input |
+| `className` | `string` | - | Additional CSS classes |
+| `isLoading` | `boolean` | `false` | Loading state |
+
+### PromptInputTextArea
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `disableAutoSize` | `boolean` | `false` | Disable auto-resize behavior |
+| `className` | `string` | - | Additional CSS classes |
+
+### PromptInputAction
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `tooltip` | `React.ReactNode` | - | Tooltip content |
+| `children` | `React.ReactNode` | - | Action button content |
+| `className` | `string` | - | Additional CSS classes |
+| `side` | `"top" \| "bottom" \| "left" \| "right"` | - | Tooltip position |
+
+### PromptInputActions
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Action buttons |
+| `className` | `string` | - | Additional CSS classes |
