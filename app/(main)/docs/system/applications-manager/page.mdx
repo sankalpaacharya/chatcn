@@ -1,5 +1,5 @@
 # Applications Manager
-File component to display files.
+A command palette style application launcher triggered by `Ctrl+K` / `⌘+K`.
 
 
 ### Examples
@@ -13,3 +13,17 @@ Applications Manager Basics
 
 <br/>
 <br/>
+
+## Usage
+
+The `ApplicationManager` component doesn't require any props. It automatically handles keyboard shortcuts and state internally.
+
+```tsx
+import { ApplicationManager } from "@/components/chatcn/system/applications-manager"
+
+export default function App() {
+  return <ApplicationManager />
+}
+```
+
+Press `Ctrl+K` (or `⌘+K` on Mac) to open the application launcher.

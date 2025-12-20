@@ -18,7 +18,6 @@ import {
 import {
   Home01Icon,
   Book02Icon,
-  ServerStack03Icon,
   ComputerTerminal01Icon,
   UserLove01Icon
 } from "@/components/icons";
@@ -56,7 +55,6 @@ export const sidebarGroups: SidebarGroupData[] = [
       { label: "Home", href: "/docs", icon: Home01Icon },
       { label: "Introduction", href: "/docs/introduction", icon: Book02Icon },
       { label: "Installation", href: "/docs/installation", icon: ComputerTerminal01Icon },
-      { label: "MCP Server", href: "/docs/mcp/", icon: ServerStack03Icon },
       { label: "Contributors", href: "/docs/contributors", icon: UserLove01Icon },
     ],
   },

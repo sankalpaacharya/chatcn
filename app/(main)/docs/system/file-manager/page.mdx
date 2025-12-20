@@ -13,3 +13,25 @@ File Manager Basics
 
 <br/>
 <br/>
+
+## Props
+
+### FolderItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string` | - | The folder name to display |
+| `onClick` | `() => void` | - | Callback when folder is double-clicked |
+| `className` | `string` | `""` | Additional CSS classes |
+| `tabIndex` | `number` | `0` | Tab index for keyboard navigation |
+
+### FileItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string` | - | The file name to display |
+| `onClick` | `() => void` | - | Callback when file is double-clicked |
+| `className` | `string` | `""` | Additional CSS classes |
+| `tabIndex` | `number` | `0` | Tab index for keyboard navigation |
+| `thumbnail` | `string` | - | URL for thumbnail image (for images/videos) |
+| `src` | `string` | - | Source URL for the file |

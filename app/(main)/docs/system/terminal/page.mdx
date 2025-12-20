@@ -14,3 +14,46 @@ Terminal Basics
 <br/>
 <br/>
 
+## Props
+
+### TerminalProvider
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Child components to wrap |
+| `initialState` | `"normal" \| "minimize" \| "maximize"` | `"normal"` | Initial state of the terminal |
+
+### Terminal
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Terminal content (header, body, etc.) |
+| `className` | `string` | - | Additional CSS classes |
+
+### TerminalHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Header content |
+| `className` | `string` | - | Additional CSS classes |
+
+### TerminalBody
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Body content |
+| `className` | `string` | - | Additional CSS classes |
+
+### TerminalBodyContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `prompt` | `ReactNode` | - | Custom prompt element to display before each command |
+
+### TerminalPrompt
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Prompt content |
+| `className` | `string` | - | Additional CSS classes |
