@@ -3,6 +3,7 @@ import Sidebar from '@/components/sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import DocsBreadcrumb from '@/components/docs-breadcrumb'
 import TableOfContents from '@/components/table-of-contents'
+import GaiaAdCard from '@/components/gaia-ad-card'
 
 export default function DocLayout({ children }: { children: ReactNode }) {
 	return (
@@ -16,17 +17,13 @@ export default function DocLayout({ children }: { children: ReactNode }) {
 						{children}
 					</div>
 				</main>
-				<aside className="w-64 shrink-0 hidden xl:block">
+				<aside className="w-72 shrink-0 hidden xl:block">
 					<div className="sticky top-10 pr-6 max-h-[calc(100vh-5rem)] overflow-auto">
 						<TableOfContents />
+						<GaiaAdCard />
 					</div>
 				</aside>
 			</div>
 		</SidebarProvider>
 	)
 }
-
-
-
-
-
