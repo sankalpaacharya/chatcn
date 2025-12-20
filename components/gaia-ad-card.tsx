@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function GaiaAdCard() {
 	return (
 		<Link
-			href="https://heygaio.io"
+			href="https://heygaia.io"
 			target="_blank"
 			rel="noopener noreferrer"
 			className="group mt-6 block overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-[#02bdff]/5 via-background to-[#059cda]/5 p-5 transition-all duration-300 hover:border-[#02bdff]/50 hover:shadow-lg hover:shadow-[#02bdff]/10"
