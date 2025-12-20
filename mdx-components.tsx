@@ -7,6 +7,7 @@ import CommandBlock, {
 import CodeBlockClientWrapper from "./components/code-block-client-wrapper";
 import CodeSource from "./components/codesource";
 import Installation from "./components/installation";
+import { ContributorsPage } from "./components/core/contributors";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -19,6 +20,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CodeBlock: CodeBlockClientWrapper,
     CodeSource: CodeSource,
     Installation: Installation,
+    ContributorsPage: ContributorsPage,
     // Handle code blocks from rehype-pretty-code
     pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
       <pre className="overflow-x-auto rounded-lg border bg-card p-4 text-sm" {...props}>
