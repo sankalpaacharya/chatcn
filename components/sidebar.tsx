@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Sidebar as SidebarUI,
+  Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
@@ -14,15 +14,21 @@ import {
   SidebarMenuItem,
   SidebarMenuBadge,
   SidebarMenuSub,
-  SidebarMenuSubItem,
-  SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
-
+import {
+  Home01Icon,
+  Book02Icon,
+  ServerStack03Icon,
+  ComputerTerminal01Icon,
+  HugeiconsIcon,
+} from "@/components/icons";
+import type { IconSvgElement } from "@hugeicons/react";
 
 type SidebarLink = {
   label: string;
   href: string;
   isNew?: boolean;
+  icon?: IconSvgElement;
 };
 
 type SidebarGroupData = {
@@ -31,23 +37,22 @@ type SidebarGroupData = {
   links: SidebarLink[];
 };
 
-
 const sidebarGroups: SidebarGroupData[] = [
   {
     label: "Getting Started",
     variant: "submenu",
     links: [
-      { label: "Home", href: "/docs" },
-      { label: "Introduction", href: "/docs/introduction" },
-      { label: "Installation", href: "/docs/installation" },
-      { label: "MCP Server", href: "/docs/mcp/" },
+      { label: "Home", href: "/docs", icon: Home01Icon },
+      { label: "Introduction", href: "/docs/introduction", icon: Book02Icon },
+      { label: "Installation", href: "/docs/installation", icon: ComputerTerminal01Icon },
+      { label: "MCP Server", href: "/docs/mcp/", icon: ServerStack03Icon },
     ],
   },
   {
     label: "AI Components",
     variant: "submenu",
     links: [
-      { label: "Code Block", href: "/docs/component/codeblock" },
+      { label: "Code Block", href: "/docs/component/codeblock"},
       { label: "Command Block", href: "/docs/component/command-block" },
       { label: "Prompt Input", href: "/docs/component/prompt-input" },
       { label: "Source", href: "/docs/component/source" },
@@ -109,147 +114,80 @@ const sidebarGroups: SidebarGroupData[] = [
   },
 ];
 
-
-export default function Sidebar() {
+export default function AppSidebar() {
   const pathname = usePathname();
 
   const isCurrentPath = (href: string) => pathname === href;
 
   return (
-    <SidebarUI className="border-r pt-16 h-svh">
+    <Sidebar className="border-r pt-16 h-svh">
       <SidebarContent className="scrollbar-hide">
-        <SidebarContentInner isCurrentPath={isCurrentPath} />
+        {sidebarGroups.map((group) =>
+          group.variant === "submenu" ? (
+            <SidebarGroup key={group.label}>
+              <SidebarMenu>
+                <SidebarMenuItem className="list-none">
+                  <SidebarMenuButton className="px-3">
+                    <span className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
+                      {group.label}
+                    </span>
+                  </SidebarMenuButton>
+                  <SidebarMenuSub className="ml-2 border-l border-muted/50 mt-1">
+                    {group.links.map((link) => (
+                      <SidebarLinkItem
+                        key={link.label}
+                        link={link}
+                        isActive={isCurrentPath(link.href)}
+                      />
+                    ))}
+                  </SidebarMenuSub>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroup>
+          ) : (
+            <SidebarGroup key={group.label}>
+              <SidebarGroupLabel className="px-3 text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
+                {group.label}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {group.links.map((link) => (
+                    <SidebarLinkItem
+                      key={link.label}
+                      link={link}
+                      isActive={isCurrentPath(link.href)}
+                    />
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          )
+        )}
       </SidebarContent>
-    </SidebarUI>
+    </Sidebar>
   );
 }
-
-
-export function SidebarContentInner({
-  isCurrentPath,
-  onNavigate,
-}: {
-  isCurrentPath: (href: string) => boolean;
-  onNavigate?: () => void;
-}) {
-  return (
-    <>
-      {sidebarGroups.map((group) =>
-        group.variant === "submenu" ? (
-          <SidebarSubmenuGroup
-            key={group.label}
-            group={group}
-            isCurrentPath={isCurrentPath}
-            onNavigate={onNavigate}
-          />
-        ) : (
-          <SidebarListGroup
-            key={group.label}
-            group={group}
-            isCurrentPath={isCurrentPath}
-            onNavigate={onNavigate}
-          />
-        )
-      )}
-    </>
-  );
-}
-
-
-function SidebarSubmenuGroup({
-  group,
-  isCurrentPath,
-  onNavigate,
-}: {
-  group: SidebarGroupData;
-  isCurrentPath: (href: string) => boolean;
-  onNavigate?: () => void;
-}) {
-  return (
-    <SidebarGroup className="py-1">
-      <SidebarMenuItem className="list-none">
-        <SidebarMenuButton className="px-3" tooltip={group.label}>
-          <span className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
-            {group.label}
-          </span>
-        </SidebarMenuButton>
-
-        <SidebarMenuSub className="ml-2 border-l border-muted/50 mt-1">
-          {group.links.map((link) => (
-            <SidebarLinkItem
-              key={link.label}
-              link={link}
-              isActive={isCurrentPath(link.href)}
-              onNavigate={onNavigate}
-              sub
-            />
-          ))}
-        </SidebarMenuSub>
-      </SidebarMenuItem>
-    </SidebarGroup>
-  );
-}
-
-
-function SidebarListGroup({
-  group,
-  isCurrentPath,
-  onNavigate,
-}: {
-  group: SidebarGroupData;
-  isCurrentPath: (href: string) => boolean;
-  onNavigate?: () => void;
-}) {
-  return (
-    <SidebarGroup>
-      <SidebarGroupLabel className="px-3 text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
-        {group.label}
-      </SidebarGroupLabel>
-
-      <SidebarGroupContent>
-        <SidebarMenu>
-          {group.links.map((link) => (
-            <SidebarLinkItem
-              key={link.label}
-              link={link}
-              isActive={isCurrentPath(link.href)}
-              onNavigate={onNavigate}
-            />
-          ))}
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
-  );
-}
-
 
 function SidebarLinkItem({
   link,
   isActive,
-  onNavigate,
-  sub,
 }: {
   link: SidebarLink;
   isActive: boolean;
-  onNavigate?: () => void;
-  sub?: boolean;
 }) {
-  const Button = sub ? SidebarMenuSubButton : SidebarMenuButton;
-  const Item = sub ? SidebarMenuSubItem : SidebarMenuItem;
-
   return (
-    <Item>
-      <Button asChild isActive={isActive} onClick={onNavigate}>
+    <SidebarMenuItem>
+      <SidebarMenuButton asChild isActive={isActive}>
         <Link href={link.href}>
+          {link.icon && <HugeiconsIcon icon={link.icon} className="size-4 mr-2" />}
           <span>{link.label}</span>
         </Link>
-      </Button>
-
+      </SidebarMenuButton>
       {link.isNew && (
         <SidebarMenuBadge className="bg-green-600 text-white text-[10px] px-1.5 py-0 h-4 min-w-8 z-10">
           New
         </SidebarMenuBadge>
       )}
-    </Item>
+    </SidebarMenuItem>
   );
 }
