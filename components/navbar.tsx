@@ -56,7 +56,6 @@ export default function Navbar({
 		setMounted(true)
 	}, [])
 
-	// Fetch GitHub star count
 	React.useEffect(() => {
 		async function fetchStarCount() {
 			try {
@@ -71,7 +70,6 @@ export default function Navbar({
 		fetchStarCount()
 	}, [])
 
-	// Handle cmd+k keyboard shortcut
 	React.useEffect(() => {
 		const down = (e: KeyboardEvent) => {
 			if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -108,7 +106,6 @@ export default function Navbar({
 		<>
 			<nav className="sticky top-0 z-50 w-full border-b-2 border-dotted bg-background">
 				<div className="flex h-16 items-center px-4 md:px-8">
-					{/* Mobile sidebar trigger */}
 					{sidebar && (
 						<Sheet open={open} onOpenChange={setOpen}>
 							<SheetTrigger asChild className="xl:hidden mr-2">
@@ -129,7 +126,6 @@ export default function Navbar({
 					<Logo className="mr-6 hidden xl:flex" />
 
 					<div className="flex flex-1 items-center justify-between">
-						{/* Navigation Menu - desktop */}
 						<NavigationMenu className="hidden xl:flex" viewport={!isMobile}>
 							<NavigationMenuList>
 								<NavigationMenuItem>
@@ -139,16 +135,20 @@ export default function Navbar({
 											<li className="row-span-3">
 												<NavigationMenuLink asChild>
 													<a
-														className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-none focus:shadow-md"
+														className="relative flex h-full w-full flex-col justify-end rounded-md p-6 no-underline outline-none focus:shadow-md overflow-hidden bg-cover bg-center"
+							style={{ backgroundImage: "url('/images/space3.png')" }}
 														href="/docs"
 													>
-														<MessageCircle className="h-6 w-6" />
-														<div className="mb-2 mt-4 text-lg font-medium">
+														<div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+														<div className="relative z-10">
+							<MessageCircle className="h-6 w-6 text-white" />
+														<div className="mb-2 mt-4 text-lg font-medium text-white">
 															chatcn
 														</div>
-														<p className="text-sm leading-tight text-muted-foreground">
-															Beautiful AI chat components built with shadcn/ui
-														</p>
+														<p className="text-sm leading-tight text-white/80">
+																Beautiful AI chat components built with shadcn/ui
+															</p>
+														</div>
 													</a>
 												</NavigationMenuLink>
 											</li>
