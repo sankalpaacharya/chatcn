@@ -51,6 +51,7 @@
     "react-hook-form": "^7.68.0",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
+    "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "shadcn": "2.9.0-canary.1",
     "simplex-noise": "^4.0.3",
