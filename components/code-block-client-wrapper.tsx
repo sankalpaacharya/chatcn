@@ -1,23 +1,27 @@
-"use client";
-import { useTheme } from "next-themes";
-import { CodeBlock } from "./chatcn/ai/codeblock";
-import { BundledLanguage } from "shiki";
+"use client"
+import { useTheme } from "next-themes"
+import {
+  CodeBlockRoot,
+  CodeBlockContent,
+} from "./chatcn/ai/codeblock"
+import { BundledLanguage } from "shiki"
 
 export default function CodeBlockClientWrapper({
   children,
   lang,
 }: {
-  children: string;
-  lang: BundledLanguage;
+  children: string
+  lang: BundledLanguage
 }) {
-  const { theme } = useTheme();
+  const { theme } = useTheme()
   return (
-    <CodeBlock
-      className="not-prose"
-      theme={theme == "dark" ? "github-dark-default" : "github-light-default"}
+    <CodeBlockRoot
+      code={children}
       lang={lang}
+      theme={theme === "dark" ? "github-dark-default" : "github-light-default"}
+      className="not-prose"
     >
-      {children}
-    </CodeBlock>
-  );
+      <CodeBlockContent />
+    </CodeBlockRoot>
+  )
 }

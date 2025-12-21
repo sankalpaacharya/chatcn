@@ -1,5 +1,5 @@
 # Code Block
-Display syntax-highlighted code snippets using Shiki.
+Display syntax-highlighted code snippets using Shiki with theme switching support.
 
 <Reference href={"https://shiki.style/packages/next"} label={"Shiki Reference"}/>
 <Reference href={"https://shiki.style/themes"} label={"Themes"}/>
@@ -49,13 +49,74 @@ code .line::before {
 <br/>
 <br/>
 
-## Props
+## API Reference
+
+The CodeBlock uses a compound component pattern with three components:
+
+### CodeBlockRoot
+
+The root container that provides context and manages state.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `string` | - | The code content to display |
-| `lang` | `BundledLanguage` | - | Programming language for syntax highlighting (e.g., `tsx`, `css`, `python`) |
-| `height` | `string` | `"600"` | Maximum height of the code block in pixels |
-| `className` | `string` | - | Additional CSS classes to apply |
+| `children` | `ReactNode` | - | Child components (Header, Content) |
+| `code` | `string` | `""` | The code content to display |
+| `lang` | `BundledLanguage` | `"tsx"` | Programming language for syntax highlighting |
+| `theme` | `CodeBlockTheme` | `"github-dark-default"` | Initial theme for syntax highlighting |
+| `height` | `string` | `"600"` | Maximum height in pixels |
+| `className` | `string` | - | Additional CSS classes |
 | `highlight` | `{ start: number; end: number }` | - | Line range to highlight |
-| `theme` | `string` | `"github-dark-default"` | Shiki theme name for syntax highlighting |
+| `onThemeChange` | `(theme: CodeBlockTheme) => void` | - | Callback when theme changes |
+
+### CodeBlockHeader
+
+Optional header with filename, icon, theme selector, and copy button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `icon` | `LanguageIconType \| ReactNode` | - | Language icon (`"typescript"`, `"javascript"`, `"python"`, `"bash"`, etc.) or custom React node |
+| `filename` | `string` | - | Filename to display |
+| `showThemeSelector` | `boolean` | `false` | Show theme dropdown (15 themes: 12 dark, 3 light) |
+| `showCopyButton` | `boolean` | `false` | Show copy to clipboard button |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeBlockContent
+
+Renders the syntax-highlighted code. No props required - uses context from CodeBlockRoot.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `string` | - | Optional code override (uses context code by default) |
+| `className` | `string` | - | Additional CSS classes |
+
+## Available Themes
+
+**Dark Themes:** GitHub Dark, Poimandres, Vitesse Dark, One Dark Pro, Dracula, Nord, Tokyo Night, Catppuccin, Ayu Dark, Night Owl, Slack Dark, Solarized Dark
+
+**Light Themes:** GitHub Light, Vitesse Light, Solarized Light
+
+## Usage Example
+
+<CodeBlock lang="tsx">{`import {
+  CodeBlockRoot,
+  CodeBlockHeader,
+  CodeBlockContent,
+} from "@/components/chatcn/ai/codeblock"
+
+export function MyCodeBlock() {
+  return (
+    <CodeBlockRoot
+      code="console.log('Hello, World!')"
+      lang="javascript"
+      theme="dracula"
+    >
+      <CodeBlockHeader
+        icon="javascript"
+        filename="hello.js"
+        showThemeSelector
+        showCopyButton
+      />
+      <CodeBlockContent />
+    </CodeBlockRoot>
+  )
+}`}</CodeBlock>

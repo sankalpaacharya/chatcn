@@ -1,27 +1,31 @@
-"use client";
-import React, { ReactNode } from "react";
-import { useTheme } from "next-themes";
-import dynamic from "next/dynamic";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CodeBlock } from "@/components/chatcn/ai/codeblock";
-import { Suspense } from "react";
-import Install from "./install";
-import { cn } from "@/lib/utils";
+"use client"
+import React, { ReactNode } from "react"
+import { useTheme } from "next-themes"
+import dynamic from "next/dynamic"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+  CodeBlockRoot,
+  CodeBlockHeader,
+  CodeBlockContent,
+} from "@/components/chatcn/ai/codeblock"
+import { Suspense } from "react"
+import Install from "./install"
+import { cn } from "@/lib/utils"
 
-export type Demo = "codeblock";
+export type Demo = "codeblock"
 
 export default function ComponentPreviewInternal({
   component,
   code,
   isProse,
 }: {
-  code: string;
-  component: string;
-  children?: ReactNode;
-  isProse?: boolean;
+  code: string
+  component: string
+  children?: ReactNode
+  isProse?: boolean
 }) {
-  const Component = getComponent(component);
-  const { theme } = useTheme();
+  const Component = getComponent(component)
+  const { theme } = useTheme()
   // make the height same for both component view and code
   return (
     <div className="overflow-hidden">
@@ -63,19 +67,25 @@ export default function ComponentPreviewInternal({
         </TabsContent>
 
         <TabsContent value="code" className="mt-0 w-full not-prose flex">
-          <CodeBlock
+          <CodeBlockRoot
+            code={code}
+            lang="tsx"
             theme={
               theme === "dark" ? "github-dark-default" : "github-light-default"
             }
-            lang="tsx"
             className="w-full"
+            height="500"
           >
-            {code}
-          </CodeBlock>
+            <CodeBlockHeader
+              icon="tsx"
+              showCopyButton
+            />
+            <CodeBlockContent />
+          </CodeBlockRoot>
         </TabsContent>
       </Tabs>
     </div>
-  );
+  )
 }
 
 function getComponent(component: string) {
@@ -87,5 +97,5 @@ function getComponent(component: string) {
     {
       ssr: false,
     }
-  ) as React.ComponentType;
+  ) as React.ComponentType
 }

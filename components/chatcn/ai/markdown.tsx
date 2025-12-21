@@ -1,14 +1,17 @@
-import React from "react";
-import { default as MarkdownRender } from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { cn } from "@/lib/utils";
-import { CodeBlock } from "@/components/chatcn/ai/codeblock";
+import React from "react"
+import { default as MarkdownRender } from "react-markdown"
+import remarkGfm from "remark-gfm"
+import { cn } from "@/lib/utils"
+import {
+  CodeBlockRoot,
+  CodeBlockContent,
+} from "@/components/chatcn/ai/codeblock"
 
 type MarkDownProps = {
-  children: React.ReactNode;
-  className?: string;
-  theme?: string;
-};
+  children: React.ReactNode
+  className?: string
+  theme?: string
+}
 
 export function Markdown({ children, className, theme }: MarkDownProps) {
   return (
@@ -21,25 +24,25 @@ export function Markdown({ children, className, theme }: MarkDownProps) {
       <MarkdownRender
         components={{
           code({ className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
+            const match = /language-(\w+)/.exec(className || "")
             return match ? (
-              <CodeBlock
-                {...props}
-                lang={"tsx"}
+              <CodeBlockRoot
+                code={String(children).replace(/\n$/, "")}
+                lang="tsx"
                 theme={
-                  theme == "dark"
+                  theme === "dark"
                     ? "github-dark-default"
                     : "github-light-default"
                 }
                 className={cn("not-prose")}
               >
-                {String(children).replace(/\n$/, "")}
-              </CodeBlock>
+                <CodeBlockContent />
+              </CodeBlockRoot>
             ) : (
               <code className={className} {...props}>
                 {children}
               </code>
-            );
+            )
           },
         }}
         remarkPlugins={[remarkGfm]}
@@ -47,5 +50,5 @@ export function Markdown({ children, className, theme }: MarkDownProps) {
         {String(children)}
       </MarkdownRender>
     </div>
-  );
+  )
 }
