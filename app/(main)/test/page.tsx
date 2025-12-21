@@ -1,10 +1,22 @@
 "use client";
-import { ApplicationManager } from "@/components/chatcn/system/applications-manager";
+import GitHubProfile from "@/components/social/github-profile";
 
 export default function Page() {
   return (
     <div className="">
-      <ApplicationManager />
+      <GitHubProfile
+        avatarUrl="https://avatars.githubusercontent.com/u/12345678"
+        displayName="renders"
+        pronouns="e/λ"
+        username="renderhq"
+        bio="reinforcement learning . @thelaughingcorp head of frontend ."
+        followers={88}
+        following={31}
+        organization="@thelaughingcorp"
+        location="network waterfall"
+        twitter="infinterenders"
+        website="https://justfuckingusenext.vercel.app"
+      />
     </div>
   );
 }
