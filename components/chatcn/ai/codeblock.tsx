@@ -1,7 +1,8 @@
 "use client";
 import type { BundledLanguage } from "shiki";
 import { codeToHtml } from "shiki";
-import { Clipboard, Check } from "lucide-react";
+import { Copy01Icon, Tick01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useState, useEffect, useCallback } from "react";
 import {
   Tooltip,
@@ -79,7 +80,11 @@ export function CodeBlock({
             className="p-1 rounded-md hover:bg-muted transition"
             onClick={handleCopy}
           >
-            {copied ? <Check size={18} /> : <Clipboard size={18} />}
+            {copied ? (
+              <HugeiconsIcon icon={Tick01Icon} size={18} />
+            ) : (
+              <HugeiconsIcon icon={Copy01Icon} size={18} />
+            )}
           </TooltipTrigger>
           <TooltipContent>
             <p>{copied ? "Copied!" : "Copy to Clipboard"}</p>

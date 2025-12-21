@@ -1,6 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import { Clipboard, SquareTerminal, Check } from "lucide-react";
+import {
+  Copy01Icon,
+  ComputerTerminal01Icon,
+  Tick01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -56,7 +61,10 @@ function SingleCommandBlock({
             <div className="flex items-center justify-between px-3 px-sm-4 py-1.5 py-sm-2">
               <div className="flex items-center space-x-2">
                 {showTerminalIcon && (
-                  <SquareTerminal className="text-muted-foreground size-4 sm:size-5" />
+                  <HugeiconsIcon
+                    icon={ComputerTerminal01Icon}
+                    className="text-muted-foreground size-4 sm:size-5"
+                  />
                 )}
                 {title && (
                   <span className="font-medium text-sm sm:text-base">
@@ -73,9 +81,15 @@ function SingleCommandBlock({
                     onClick={() => copyToClipboard(command)}
                   >
                     {copied ? (
-                      <Check className="size-3.5 sm:size-4.5" />
+                      <HugeiconsIcon
+                        icon={Tick01Icon}
+                        className="size-3.5 sm:size-4.5"
+                      />
                     ) : (
-                      <Clipboard className="size-4 sm:size-5" />
+                      <HugeiconsIcon
+                        icon={Copy01Icon}
+                        className="size-4 sm:size-5"
+                      />
                     )}
                   </Button>
                 </TooltipTrigger>
@@ -90,7 +104,7 @@ function SingleCommandBlock({
           </>
         )}
         <div className="px-3 sm:px-4 py-3 sm:py-4 font-mono bg-card overflow-x-auto text-primary">
-          <p className="break-words whitespace-pre-wrap text-xs sm:text-sm md:text-base">
+          <p className="wrap-break-word whitespace-pre-wrap text-xs sm:text-sm md:text-base">
             {command}
           </p>
         </div>
@@ -138,7 +152,10 @@ function MultiCommandBlock({
         <TabsList className="flex w-full bg-card justify-between items-center px-1.5 sm:px-2 py-1 my-1 rounded-t-md">
           <div className="flex items-center">
             {showTerminalIcon && (
-              <SquareTerminal className="mx-1 sm:mx-2 text-muted-foreground size-4 sm:size-5" />
+              <HugeiconsIcon
+                icon={ComputerTerminal01Icon}
+                className="mx-1 sm:mx-2 text-muted-foreground size-4 sm:size-5"
+              />
             )}
             <div className="flex">
               {commands.map((tab) => (
@@ -161,9 +178,15 @@ function MultiCommandBlock({
                 onClick={() => copyToClipboard(activeCommand)}
               >
                 {copied ? (
-                  <Check className="size-3.5 sm:size-4.5" />
+                  <HugeiconsIcon
+                    icon={Tick01Icon}
+                    className="size-3.5 sm:size-4.5"
+                  />
                 ) : (
-                  <Clipboard className="size-4 sm:size-5" />
+                  <HugeiconsIcon
+                    icon={Copy01Icon}
+                    className="size-4 sm:size-5"
+                  />
                 )}
               </Button>
             </TooltipTrigger>
@@ -181,7 +204,7 @@ function MultiCommandBlock({
             value={tab.label}
             className="mt-0 p-3 sm:p-4 font-mono bg-card rounded-b-md overflow-x-auto"
           >
-            <p className="break-words whitespace-pre-wrap text-xs sm:text-sm md:text-base text-primary">
+            <p className="wrap-break-word whitespace-pre-wrap text-xs sm:text-sm md:text-base text-primary">
               {tab.command}
             </p>
           </TabsContent>

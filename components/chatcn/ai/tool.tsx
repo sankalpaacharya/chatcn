@@ -6,7 +6,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LoaderCircle, CheckCircle2, XCircle } from "lucide-react";
+import {
+  Loading03Icon,
+  CheckmarkCircle01Icon,
+  CancelCircleIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { useContext, createContext, useState, useEffect } from "react";
@@ -53,11 +58,20 @@ export function ToolStateBadge({ className }: StateBadgeProps) {
   const getIcon = () => {
     switch (state) {
       case "LOADING":
-        return <LoaderCircle className="animate-spin w-3.5 h-3.5" />;
+        return (
+          <HugeiconsIcon
+            icon={Loading03Icon}
+            className="animate-spin w-3.5 h-3.5"
+          />
+        );
       case "COMPLETED":
-        return <CheckCircle2 className="w-3.5 h-3.5" />;
+        return (
+          <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-3.5 h-3.5" />
+        );
       case "ERROR":
-        return <XCircle className="w-3.5 h-3.5" />;
+        return (
+          <HugeiconsIcon icon={CancelCircleIcon} className="w-3.5 h-3.5" />
+        );
       default:
         return null;
     }
@@ -81,15 +95,28 @@ const getTriggerIcon = (state: string) => {
   switch (state) {
     case "LOADING":
       return (
-        <LoaderCircle
+        <HugeiconsIcon
+          icon={Loading03Icon}
           className="animate-spin text-muted-foreground"
           size={18}
         />
       );
     case "COMPLETED":
-      return <CheckCircle2 className="text-green-500" size={18} />;
+      return (
+        <HugeiconsIcon
+          icon={CheckmarkCircle01Icon}
+          className="text-green-500"
+          size={18}
+        />
+      );
     case "ERROR":
-      return <XCircle className="text-red-500" size={18} />;
+      return (
+        <HugeiconsIcon
+          icon={CancelCircleIcon}
+          className="text-red-500"
+          size={18}
+        />
+      );
     default:
       return null;
   }

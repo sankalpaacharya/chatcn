@@ -1,6 +1,11 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { Clipboard, SquareTerminal, Check } from "lucide-react";
+import {
+  Copy01Icon,
+  ComputerTerminal01Icon,
+  Tick01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -80,9 +85,12 @@ export function CommandBlockHeader({ children }: CommandBlockHeaderProps) {
               onClick={() => copyToClipboard(activeCommand)}
             >
               {copied ? (
-                <Check className="size-3.5 sm:size-4.5" />
+                <HugeiconsIcon
+                  icon={Tick01Icon}
+                  className="size-3.5 sm:size-4.5"
+                />
               ) : (
-                <Clipboard className="size-4 sm:size-5" />
+                <HugeiconsIcon icon={Copy01Icon} className="size-4 sm:size-5" />
               )}
             </Button>
           </TooltipTrigger>
@@ -112,7 +120,10 @@ export function CommandBlockTitle({
   return (
     <div className="flex items-center space-x-2">
       {showTerminalIcon && (
-        <SquareTerminal className="text-muted-foreground size-4 sm:size-5" />
+        <HugeiconsIcon
+          icon={ComputerTerminal01Icon}
+          className="text-muted-foreground size-4 sm:size-5"
+        />
       )}
       {children && (
         <span className="font-medium text-sm sm:text-base">{children}</span>
@@ -143,7 +154,7 @@ export function CommandBlockContent({
         className
       )}
     >
-      <p className="break-words whitespace-pre-wrap text-xs sm:text-sm md:text-base">
+      <p className="wrap-break-word whitespace-pre-wrap text-xs sm:text-sm md:text-base">
         {command}
       </p>
     </div>
@@ -176,7 +187,10 @@ export function CommandBlockTabHeader({
       <TabsList className="flex w-full bg-card justify-between items-center px-1.5 sm:px-2 py-1 my-1 rounded-t-md">
         <div className="flex items-center">
           {showTerminalIcon && (
-            <SquareTerminal className="mx-1 sm:mx-2 text-muted-foreground size-4 sm:size-5" />
+            <HugeiconsIcon
+              icon={ComputerTerminal01Icon}
+              className="mx-1 sm:mx-2 text-muted-foreground size-4 sm:size-5"
+            />
           )}
           <div className="flex">{children}</div>
         </div>
@@ -189,9 +203,12 @@ export function CommandBlockTabHeader({
               onClick={() => copyToClipboard(activeCommand)}
             >
               {copied ? (
-                <Check className="size-3.5 sm:size-4.5" />
+                <HugeiconsIcon
+                  icon={Tick01Icon}
+                  className="size-3.5 sm:size-4.5"
+                />
               ) : (
-                <Clipboard className="size-4 sm:size-5" />
+                <HugeiconsIcon icon={Copy01Icon} className="size-4 sm:size-5" />
               )}
             </Button>
           </TooltipTrigger>
@@ -269,7 +286,7 @@ export function CommandBlockTabContent({
       value={value}
       className="mt-0 p-3 sm:p-4 font-mono bg-card rounded-b-md overflow-x-auto"
     >
-      <p className="break-words whitespace-pre-wrap text-xs sm:text-sm md:text-base text-primary">
+      <p className="wrap-break-word whitespace-pre-wrap text-xs sm:text-sm md:text-base text-primary">
         {command}
       </p>
     </TabsContent>

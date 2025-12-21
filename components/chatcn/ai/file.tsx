@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-import { FileCode } from "lucide-react";
+import { SourceCodeIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 type FileProps = {
   className?: string;
@@ -23,7 +24,12 @@ export function File({
       )}
       {...props}
     >
-      {icon ?? <FileCode className="w-8 h-8 text-muted-foreground" />}
+      {icon ?? (
+        <HugeiconsIcon
+          icon={SourceCodeIcon}
+          className="w-8 h-8 text-muted-foreground"
+        />
+      )}
       <div className="flex flex-col leading-tight">
         <span className="text-sm font-medium text-foreground">{title}</span>
         <span className="text-xs text-muted-foreground">{description}</span>

@@ -6,7 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Ellipsis } from "lucide-react";
+import { MoreHorizontalIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { cn } from "@/lib/utils";
 
 const ThreadContext = createContext<{
@@ -85,7 +86,7 @@ export function ThreadActions({
           <button
             className={cn("p-1 rounded-md", open && "text-accent-foreground")}
           >
-            <Ellipsis className="size-5" />
+            <HugeiconsIcon icon={MoreHorizontalIcon} className="size-5" />
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
