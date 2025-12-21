@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useTheme } from "next-themes";
 import {
   Model,
   ModelScene,
@@ -9,6 +12,9 @@ import {
 } from "@/components/chatcn/3d/model";
 
 const ModelPreview = () => {
+  const { theme } = useTheme();
+  const bgColor = theme === "dark" ? "#0a0a0a" : "#ffffff";
+
   return (
     <ModelContent height="70vh" width="100%">
       <Model
@@ -18,7 +24,7 @@ const ModelPreview = () => {
         scale={1}
         float={false}
       />
-      <ModelScene bgColor="#0a0a0a" env="city" />
+      <ModelScene bgColor={bgColor} env="city" />
       <ModelCamera fov={50} position={[0, 0, 5]} />
       <ModelLighting type="studio" shadow />
       <ModelControls

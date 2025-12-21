@@ -4,9 +4,9 @@ import {
   Environment,
   Float,
   OrbitControls,
-  Loader,
   useGLTF,
   useAnimations,
+  Html,
 } from "@react-three/drei";
 import React, { Suspense, ReactNode, useEffect } from "react";
 
@@ -19,6 +19,17 @@ export type EnvironmentPreset =
   | "studio"
   | "apartment";
 export type LightingType = "soft" | "dramatic" | "studio";
+
+export function Loader() {
+  return (
+    <Html center>
+      <div className="flex flex-col items-center gap-2">
+        <div className="w-8 h-8 border-2 border-gray-600 border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs text-gray-600">Loading model…</p>
+      </div>
+    </Html>
+  );
+}
 
 export interface ModelProps {
   children: ReactNode;
@@ -40,9 +51,8 @@ export function ModelContent({
   return (
     <div style={{ width, height }}>
       <Canvas camera={{ fov, position: cameraPosition }} shadows={shadow}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={<Loader />}>{children}</Suspense>
       </Canvas>
-      <Loader />
     </div>
   );
 }
@@ -62,7 +72,7 @@ export function ModelScene({
   );
 }
 
-export function ModelCamera({}: {
+export function ModelCamera({ }: {
   fov?: number;
   position?: [number, number, number];
 }) {
