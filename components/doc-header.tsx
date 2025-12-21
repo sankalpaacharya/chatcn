@@ -1,7 +1,8 @@
 import React from "react";
 import { Badge } from "./ui/badge";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 type LinkItem = {
   label: string;
@@ -33,7 +34,7 @@ export default function DocHeader({ title, description, links }: Props) {
                 className="font-semibold hover:bg-secondary/80 transition-colors p-1.5"
               >
                 {link.label}
-                <ArrowUpRight />
+                <HugeiconsIcon icon={ArrowUpRight01Icon} />
               </Badge>
             </Link>
           ))}

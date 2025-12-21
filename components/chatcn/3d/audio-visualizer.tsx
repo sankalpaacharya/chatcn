@@ -10,7 +10,12 @@ import type { ReactNode } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Grid, Environment, Loader } from "@react-three/drei";
-import { Mic, MicOff, X } from "lucide-react";
+import {
+  Mic01Icon,
+  MicOff01Icon,
+  Cancel01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { createNoise3D } from "simplex-noise";
 
 interface AudioContextValue {
@@ -217,9 +222,9 @@ const Controls: React.FC<ControlsProps> = ({ rec, toggle, cancel }) => (
         }`}
       >
         {rec ? (
-          <MicOff className="w-6 h-6 text-white" />
+          <HugeiconsIcon icon={MicOff01Icon} className="w-6 h-6 text-white" />
         ) : (
-          <Mic className="w-6 h-6 text-black" />
+          <HugeiconsIcon icon={Mic01Icon} className="w-6 h-6 text-black" />
         )}
       </button>
 
@@ -230,7 +235,7 @@ const Controls: React.FC<ControlsProps> = ({ rec, toggle, cancel }) => (
           rec ? "bg-white hover:bg-gray-100" : "bg-gray-300 cursor-not-allowed"
         }`}
       >
-        <X className="w-6 h-6 text-black" />
+        <HugeiconsIcon icon={Cancel01Icon} className="w-6 h-6 text-black" />
       </button>
     </div>
   </div>

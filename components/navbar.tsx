@@ -4,13 +4,14 @@ import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Menu,
-  Sun,
-  Moon,
-  MessageCircle,
-  SearchIcon,
+  Menu01Icon,
+  Sun01Icon,
+  Moon01Icon,
+  MessageMultiple01Icon,
+  Search01Icon,
   StarIcon,
-} from "lucide-react";
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useTheme } from "next-themes";
 
 import {
@@ -114,7 +115,7 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild className="lg:hidden mr-2">
                 <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
+                  <HugeiconsIcon icon={Menu01Icon} className="h-5 w-5" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
@@ -147,7 +148,10 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
                           >
                             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
                             <div className="relative z-10">
-                              <MessageCircle className="h-6 w-6 text-white" />
+                              <HugeiconsIcon
+                                icon={MessageMultiple01Icon}
+                                className="h-6 w-6 text-white"
+                              />
                               <div className="mb-2 mt-4 text-lg font-medium text-white">
                                 chatcn
                               </div>
@@ -211,7 +215,10 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
                 className="relative h-9 w-9 p-0 lg:h-9 lg:w-60 lg:justify-start lg:px-3 lg:py-2"
                 onClick={() => setCommandOpen(true)}
               >
-                <SearchIcon className="h-4 w-4 lg:mr-2" />
+                <HugeiconsIcon
+                  icon={Search01Icon}
+                  className="h-4 w-4 lg:mr-2"
+                />
                 <span className="hidden lg:inline-flex text-muted-foreground">
                   Search docs...
                 </span>
@@ -236,7 +243,10 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
                   <Github className="h-4 w-4" />
                   {starCount !== null && (
                     <>
-                      <StarIcon className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                      <HugeiconsIcon
+                        icon={StarIcon}
+                        className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400"
+                      />
                       <span className="text-xs font-medium">
                         {formatStarCount(starCount)}
                       </span>
@@ -247,8 +257,14 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
 
               {mounted && (
                 <Button variant="ghost" size="icon" onClick={toggleTheme}>
-                  <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                  <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <HugeiconsIcon
+                    icon={Sun01Icon}
+                    className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                  />
+                  <HugeiconsIcon
+                    icon={Moon01Icon}
+                    className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+                  />
                   <span className="sr-only">Toggle theme</span>
                 </Button>
               )}
@@ -288,7 +304,7 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
 function Logo({ className = "" }: { className?: string }) {
   return (
     <Link href="/" className={cn("flex items-center space-x-2", className)}>
-      <MessageCircle className="h-5 w-5" />
+      <HugeiconsIcon icon={MessageMultiple01Icon} className="h-5 w-5" />
       <span className="font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/80">
         chatcn
       </span>

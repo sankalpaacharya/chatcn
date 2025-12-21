@@ -1,6 +1,7 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
-import { Check, CircleX } from "lucide-react";
+import { Tick01Icon, CancelCircleIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import React from "react";
 interface EmailProps {
   icon?: React.ReactNode;
@@ -15,12 +16,26 @@ interface EmailProps {
 const STATUS_MAP = {
   complete: {
     color: "#43A047",
-    icon: <Check strokeWidth="1px" size={18} className="text-[#43A047]" />,
+    icon: (
+      <HugeiconsIcon
+        icon={Tick01Icon}
+        strokeWidth={1}
+        size={18}
+        className="text-[#43A047]"
+      />
+    ),
     text: "Completed",
   },
   incomplete: {
     color: "#e53935",
-    icon: <CircleX strokeWidth="1px" size={20} className="text-[#e53935]" />,
+    icon: (
+      <HugeiconsIcon
+        icon={CancelCircleIcon}
+        strokeWidth={1}
+        size={20}
+        className="text-[#e53935]"
+      />
+    ),
     text: "Incomplete",
   },
 } as const;

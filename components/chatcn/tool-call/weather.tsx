@@ -1,5 +1,6 @@
 import React from "react";
-import { MapPin } from "lucide-react";
+import { Location01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 interface WeatherCardProps {
   currentTemp: number;
@@ -35,7 +36,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
             </div>
           </div>
           <div className="absolute top-2 left-4 text-md font-medium text-foreground flex items-center gap-1">
-            <MapPin size={18} />
+            <HugeiconsIcon icon={Location01Icon} size={18} />
             {location}
           </div>
           <div className="absolute bottom-2 right-4 text-lg font-medium text-foreground">

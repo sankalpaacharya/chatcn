@@ -1,12 +1,13 @@
 import React from "react";
 import {
-  Folder as FolderIcon,
-  File as FileIcon,
-  Image as ImageIcon,
-  Play,
-  FileText,
-  FileCode,
-} from "lucide-react";
+  Folder01Icon,
+  File01Icon,
+  Image01Icon,
+  PlayIcon,
+  File02Icon,
+  SourceCodeIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 type ItemCommonProps = {
   name: string;
@@ -30,7 +31,7 @@ export function FolderItem({
       tabIndex={tabIndex}
     >
       <div className="w-28 h-28 flex items-center justify-center rounded-md">
-        <FolderIcon className="w-20 h-20 text-primary" />
+        <HugeiconsIcon icon={Folder01Icon} className="w-20 h-20 text-primary" />
       </div>
       <span className="text-sm text-muted-foreground truncate mt-2">
         {name}
@@ -68,13 +69,19 @@ export function FileItem({
             {meta.type === "video" && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-md">
                 <div className="bg-black/50 rounded-full p-2">
-                  <Play className="w-5 h-5 text-white fill-white" />
+                  <HugeiconsIcon
+                    icon={PlayIcon}
+                    className="w-5 h-5 text-white fill-white"
+                  />
                 </div>
               </div>
             )}
           </>
         ) : (
-          <meta.icon className="w-20 h-20 text-muted-foreground" />
+          <HugeiconsIcon
+            icon={meta.icon}
+            className="w-20 h-20 text-muted-foreground"
+          />
         )}
       </div>
       <span className="text-sm text-muted-foreground truncate mt-2">
@@ -102,9 +109,10 @@ function getFileMeta(extension: string) {
     "html",
     "css",
   ];
-  if (imageExt.includes(extension)) return { type: "image", icon: ImageIcon };
-  if (videoExt.includes(extension)) return { type: "video", icon: Play };
-  if (textExt.includes(extension)) return { type: "text", icon: FileText };
-  if (codeExt.includes(extension)) return { type: "code", icon: FileCode };
-  return { type: "unknown", icon: FileIcon };
+  if (imageExt.includes(extension)) return { type: "image", icon: Image01Icon };
+  if (videoExt.includes(extension)) return { type: "video", icon: PlayIcon };
+  if (textExt.includes(extension)) return { type: "text", icon: File02Icon };
+  if (codeExt.includes(extension))
+    return { type: "code", icon: SourceCodeIcon };
+  return { type: "unknown", icon: File01Icon };
 }

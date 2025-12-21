@@ -7,7 +7,12 @@ import {
   CardHeader,
   CardDescription,
 } from "@/components/ui/card";
-import { Calendar, ChevronRight, ChevronLeft } from "lucide-react";
+import {
+  Calendar01Icon,
+  ArrowRight01Icon,
+  ArrowLeft01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 type Props = {
   title: string;
@@ -74,7 +79,11 @@ export default function Heatmap({ title, description }: Props) {
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-3">
             <div className="bg-primary/10 p-2 rounded-lg">
-              <Calendar size={20} className="text-primary" />
+              <HugeiconsIcon
+                icon={Calendar01Icon}
+                size={20}
+                className="text-primary"
+              />
             </div>
             <div>
               <CardTitle className="text-xl font-semibold">{title}</CardTitle>
@@ -97,14 +106,14 @@ export default function Heatmap({ title, description }: Props) {
               onClick={handlePrevMonth}
               aria-label="Previous month"
             >
-              <ChevronLeft size={16} />
+              <HugeiconsIcon icon={ArrowLeft01Icon} size={16} />
             </button>
             <button
               className="p-1.5 hover:bg-muted rounded-md transition-colors"
               onClick={handleNextMonth}
               aria-label="Next month"
             >
-              <ChevronRight size={16} />
+              <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
             </button>
           </div>
         </div>

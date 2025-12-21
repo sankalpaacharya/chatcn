@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-import { Code, Check } from "lucide-react";
+import { SourceCodeIcon, Tick01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { toast } from "sonner";
 import { useState } from "react";
 
@@ -35,7 +36,11 @@ export default function Install({
           : "bg-gradient-to-t from-primary/5 to-card dark:bg-card hover:bg-secondary/80"
       )}
     >
-      {!isCopied ? <Code size={18} /> : <Check size={18} />}
+      {!isCopied ? (
+        <HugeiconsIcon icon={SourceCodeIcon} size={18} />
+      ) : (
+        <HugeiconsIcon icon={Tick01Icon} size={18} />
+      )}
       <p className="font-sans">@chatcn/{component}</p>
     </div>
   );

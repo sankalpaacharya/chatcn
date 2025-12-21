@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { Clipboard } from "lucide-react";
+import { Copy01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 export default function CopyClipBoard({ text }: { text: string }) {
   const [hasCopied, setHasCopied] = useState(false);
@@ -17,7 +18,7 @@ export default function CopyClipBoard({ text }: { text: string }) {
 
   return (
     <Button onClick={copyToClipBoard} variant={"secondary"}>
-      {!hasCopied ? <Clipboard size={18} /> : "Copied"}
+      {!hasCopied ? <HugeiconsIcon icon={Copy01Icon} size={18} /> : "Copied"}
     </Button>
   );
 }

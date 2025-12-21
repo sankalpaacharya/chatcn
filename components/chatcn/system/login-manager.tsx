@@ -3,7 +3,8 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { CircleUser } from "lucide-react";
+import { UserCircleIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -99,7 +100,7 @@ export function PasswordScreen() {
   return (
     <div className="h-full w-full flex items-center justify-center text-white relative">
       <div className="flex flex-col items-center space-y-4">
-        <CircleUser className="size-24 opacity-90" />
+        <HugeiconsIcon icon={UserCircleIcon} className="size-24 opacity-90" />
         <span className="text-2xl font-semibold">Sanku</span>
         <Input type="password" autoFocus className="p-2" />
         <p className="text-sm text-primary/60 mt-3 font-light italic">
