@@ -22,10 +22,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Installation: Installation,
     ContributorsPage: ContributorsPage,
     // Handle code blocks from rehype-pretty-code
-    pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
-      <pre className="overflow-x-auto rounded-lg border bg-card p-4 text-sm" {...props}>
-        {children}
-      </pre>
-    ),
+    pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement> & { 'data-theme'?: string }) => {
+      // If rehype-pretty-code processed this, don't add bg-card
+      const isHighlighted = 'data-theme' in props
+      return (
+        <pre
+          className={`overflow-x-auto rounded-lg border p-4 text-sm ${isHighlighted ? '' : 'bg-card'}`}
+          {...props}
+        >
+          {children}
+        </pre>
+      )
+    },
   };
 }
