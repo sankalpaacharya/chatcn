@@ -8,7 +8,13 @@ Display syntax-highlighted code snippets using Shiki.
 ##
 
 ## Examples
-Code Block Basics
+
+### File Title
+Use `CodeBlockTitle` to display a filename header on the code block
+
+<ComponentPreview component="codeblock-title" />
+
+### Code Block Basics
 
 <ComponentPreview component="codeblock" />
 
@@ -17,7 +23,6 @@ Use `highlight` property for the line-selection highlight
 
 
 <ComponentPreview component="codeblock-selection" />
-
 
 ## Installation
 
@@ -51,11 +56,22 @@ code .line::before {
 
 ## Props
 
+### CodeBlock
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `string` | - | The code content to display |
+| `children` | `string \| ReactNode` | - | Code content (string) or compound components like `CodeBlockTitle` |
+| `code` | `string` | - | The code content to display (use this when using compound children) |
 | `lang` | `BundledLanguage` | - | Programming language for syntax highlighting (e.g., `tsx`, `css`, `python`) |
 | `height` | `string` | `"600"` | Maximum height of the code block in pixels |
 | `className` | `string` | - | Additional CSS classes to apply |
 | `highlight` | `{ start: number; end: number }` | - | Line range to highlight |
 | `theme` | `string` | `"github-dark-default"` | Shiki theme name for syntax highlighting |
+
+### CodeBlockTitle
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `string` | - | The filename to display |
+| `lang` | `string` | - | Devicon language name for file icon (e.g., `typescript`, `python`, `rust`) |
+| `className` | `string` | - | Additional CSS classes to apply |
