@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Copy01Icon,
   ComputerTerminal01Icon,
@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+const PACKAGE_MANAGER_STORAGE_KEY = "chatcn-preferred-package-manager";
 
 interface CommandItem {
   label: string;
@@ -129,6 +131,21 @@ function MultiCommandBlock({
     defaultValue || commands[0]?.label
   );
 
+  useEffect(() => {
+    const savedPreference = localStorage.getItem(PACKAGE_MANAGER_STORAGE_KEY);
+    if (
+      savedPreference &&
+      commands.some((cmd) => cmd.label === savedPreference)
+    ) {
+      setActiveTab(savedPreference);
+    }
+  }, [commands]);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    localStorage.setItem(PACKAGE_MANAGER_STORAGE_KEY, value);
+  };
+
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -146,7 +163,7 @@ function MultiCommandBlock({
     <div className={cn("w-full mx-auto", className)}>
       <Tabs
         value={activeTab}
-        onValueChange={setActiveTab}
+        onValueChange={handleTabChange}
         className="w-full bg-card rounded-md border gap-0"
       >
         <TabsList className="flex w-full bg-card justify-between items-center px-1.5 sm:px-2 py-1 my-1 rounded-t-md">

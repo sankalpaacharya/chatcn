@@ -23,7 +23,11 @@ export const Github: React.FC<IconProps> = ({ color, className, ...props }) => (
   </svg>
 );
 
-export const TwitterIcon: React.FC<IconProps> = ({ color, className, ...props }) => (
+export const TwitterIcon: React.FC<IconProps> = ({
+  color,
+  className,
+  ...props
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -39,7 +43,11 @@ export const TwitterIcon: React.FC<IconProps> = ({ color, className, ...props })
   </svg>
 );
 
-export const DiscordIcon: React.FC<IconProps> = ({ color, className, ...props }) => (
+export const DiscordIcon: React.FC<IconProps> = ({
+  color,
+  className,
+  ...props
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -55,7 +63,11 @@ export const DiscordIcon: React.FC<IconProps> = ({ color, className, ...props })
   </svg>
 );
 
-export const LinkedinIcon: React.FC<IconProps> = ({ color, className, ...props }) => (
+export const LinkedinIcon: React.FC<IconProps> = ({
+  color,
+  className,
+  ...props
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"

@@ -19,7 +19,7 @@ import {
   Home01Icon,
   Book02Icon,
   ComputerTerminal01Icon,
-  UserLove01Icon
+  UserLove01Icon,
 } from "@/components/icons";
 import { TwitterIcon, Github, LinkedinIcon } from "@/components/icons/social";
 import { HugeiconsIcon } from "@/components/icons";
@@ -40,12 +40,24 @@ export type SidebarGroupData = {
 
 export const sidebarGroups: SidebarGroupData[] = [
   {
-    label: "Social",
+    label: "Sanku",
     variant: "submenu",
     links: [
-      { label: "Twitter", href: "https://twitter.com/sankalpa_02", icon: TwitterIcon },
-      { label: "GitHub", href: "https://github.com/sankalpaacharya/chatcn", icon: Github },
-      { label: "LinkedIn", href: "https://linkedin.com/in/sankalpa02", icon: LinkedinIcon },
+      {
+        label: "Twitter",
+        href: "https://twitter.com/sankalpa_02",
+        icon: TwitterIcon,
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/sankalpaacharya/chatcn",
+        icon: Github,
+      },
+      {
+        label: "LinkedIn",
+        href: "https://linkedin.com/in/sankalpa02",
+        icon: LinkedinIcon,
+      },
     ],
   },
   {
@@ -54,8 +66,16 @@ export const sidebarGroups: SidebarGroupData[] = [
     links: [
       { label: "Home", href: "/docs", icon: Home01Icon },
       { label: "Introduction", href: "/docs/introduction", icon: Book02Icon },
-      { label: "Installation", href: "/docs/installation", icon: ComputerTerminal01Icon },
-      { label: "Contributors", href: "/docs/contributors", icon: UserLove01Icon },
+      {
+        label: "Installation",
+        href: "/docs/installation",
+        icon: ComputerTerminal01Icon,
+      },
+      {
+        label: "Contributors",
+        href: "/docs/contributors",
+        icon: UserLove01Icon,
+      },
     ],
   },
   {
@@ -84,8 +104,16 @@ export const sidebarGroups: SidebarGroupData[] = [
       { label: "Terminal", href: "/docs/system/terminal" },
       { label: "Status Bar", href: "/docs/system/status-bar" },
       { label: "File Manager", href: "/docs/system/file-manager", isNew: true },
-      { label: "Login Manager", href: "/docs/system/login-manager", isNew: true },
-      { label: "App Manager", href: "/docs/system/applications-manager", isNew: true },
+      {
+        label: "Login Manager",
+        href: "/docs/system/login-manager",
+        isNew: true,
+      },
+      {
+        label: "App Manager",
+        href: "/docs/system/applications-manager",
+        isNew: true,
+      },
     ],
   },
   {
@@ -93,7 +121,10 @@ export const sidebarGroups: SidebarGroupData[] = [
     variant: "submenu",
     links: [
       { label: "Model", href: "/docs/3d-components/model" },
-      { label: "Audio Visualizer", href: "/docs/3d-components/audio-visualizer" },
+      {
+        label: "Audio Visualizer",
+        href: "/docs/3d-components/audio-visualizer",
+      },
       { label: "Login", href: "/docs/3d-components/login" },
       { label: "Signup", href: "/docs/3d-components/signup" },
     ],
@@ -160,9 +191,9 @@ export default function AppSidebar() {
       </SidebarContent>
 
       {/* Vintage vignette - positioned to not cover the border */}
-      <div 
+      <div
         className="pointer-events-none absolute left-0 bottom-0 z-10 h-[120px] bg-gradient-to-t from-background via-background/60 to-transparent"
-        style={{ right: '1px' }}
+        style={{ right: "1px" }}
       />
     </Sidebar>
   );

@@ -33,7 +33,7 @@ export default function Install({
         "md:flex items-center px-2 text-base hidden border shadow-xs rounded-lg text-primary space-x-1 cursor-pointer transition-colors",
         isCopied
           ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-700"
-          : "bg-gradient-to-t from-primary/5 to-card dark:bg-card hover:bg-secondary/80"
+          : "bg-linear-to-t from-primary/5 to-card dark:bg-card hover:bg-secondary/80"
       )}
     >
       {!isCopied ? (
