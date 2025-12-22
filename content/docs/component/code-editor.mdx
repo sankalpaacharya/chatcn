@@ -1,25 +1,15 @@
-
 # Code Editor
-A code editor component powered by Monaco Editor.
 
-
-
-##
-
-### Examples
-Code Editor Basics
+A premium code editor component powered by Monaco Editor with syntax highlighting, language selection, and built-in action buttons.
 
 <ComponentPreview component="code-editor"/>
 
-
-<br/>
 <br/>
 
 ## Installation
 
 <Installation component={"code-editor"}/>
 
-<br/>
 <br/>
 
 ## Props
@@ -28,20 +18,24 @@ Code Editor Basics
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `value` | `string` | - | Controlled editor value |
+| `value` | `string` | `""` | Initial code value |
 | `onValueChange` | `(value: string) => void` | - | Callback when value changes |
-| `language` | `string` | `"javascript"` | Programming language |
+| `language` | `string` | `"python"` | Programming language |
 | `onLanguageChange` | `(language: string) => void` | - | Callback when language changes |
 | `theme` | `string` | `"vs-dark"` | Monaco editor theme |
-| `onThemeChange` | `(theme: string) => void` | - | Callback when theme changes |
-| `isLoading` | `boolean` | `false` | Loading state |
 | `disabled` | `boolean` | `false` | Disable the editor |
-| `children` | `React.ReactNode` | - | Editor actions and content |
+| `children` | `React.ReactNode` | - | Header, Area, Footer components |
 | `className` | `string` | - | Additional CSS classes |
-| `onFormat` | `() => void` | - | Callback when format action is triggered |
-| `onExecute` | `() => void` | - | Callback when execute action is triggered |
 
-### CodeEditArea
+### CodeEditorHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Action buttons |
+| `className` | `string` | - | Additional CSS classes |
+| `showLanguageSelector` | `boolean` | `true` | Show/hide language dropdown |
+
+### CodeEditorArea
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -50,19 +44,69 @@ Code Editor Basics
 | `height` | `string \| number` | `"400px"` | Editor height |
 | `width` | `string \| number` | `"100%"` | Editor width |
 
-### CodeEditorActions
+### CodeEditorFooter
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action buttons |
+| `children` | `React.ReactNode` | - | Custom content |
 | `className` | `string` | - | Additional CSS classes |
+| `showStatus` | `boolean` | `true` | Show status indicator |
+| `showLanguage` | `boolean` | `true` | Show language name with icon |
+| `showLineNumber` | `boolean` | `true` | Show cursor line/column |
+| `showCharCount` | `boolean` | `true` | Show character count |
+| `statusText` | `string` | `"Ready"` | Status indicator text |
 
-### CodeEditorAction
+### CodeEditorRunButton
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `tooltip` | `React.ReactNode` | - | Tooltip content |
-| `children` | `React.ReactNode` | - | Action button content |
+| `children` | `React.ReactNode` | `"Run"` | Button text |
+| `loadingText` | `string` | `"Running..."` | Text when running |
+| `onRun` | `(code: string) => void \| Promise<void>` | - | Run callback with code |
 | `className` | `string` | - | Additional CSS classes |
-| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Tooltip position |
+
+### CodeEditorCopyButton
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `"Copy"` | Button text |
+| `copiedText` | `string` | `"Copied!"` | Text after copy |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeEditorResetButton
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `"Clear"` | Button text |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeEditorButton
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Button content |
+| `className` | `string` | - | Additional CSS classes |
+| `variant` | `"default" \| "success"` | `"default"` | Button style |
+| `size` | `"sm" \| "md"` | `"sm"` | Button size |
+| `loading` | `boolean` | `false` | Show loading spinner |
 | `onClick` | `() => void` | - | Click handler |
+
+### CodeEditorDivider
+
+Just a visual separator between buttons. No props.
+
+## Supported Languages
+
+<div className="flex flex-wrap gap-4 mt-4">
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" className="w-12 h-12" /></span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" className="w-12 h-12" /></span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" className="w-12 h-12" /></span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex dark:invert items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" className="w-12 h-12" /> </span>
+</div>
+
