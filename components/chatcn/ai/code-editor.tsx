@@ -217,7 +217,7 @@ export function CodeEditor({ value, onValueChange, language = "python", onLangua
   const setCursorPosition = (line: number, col: number) => { setCursorLine(line); setCursorColumn(col) }
 
   return (
-    <CodeEditorContext.Provider value={{ disabled, value: value ?? internalValue, setValue: handleValue, language: internalLanguage, setLanguage: handleLang, theme, cursorLine, cursorColumn, setCursorPosition, editorRef }}>
+    <CodeEditorContext.Provider value={{ disabled, value: internalValue, setValue: handleValue, language: internalLanguage, setLanguage: handleLang, theme, cursorLine, cursorColumn, setCursorPosition, editorRef }}>
       <div className={cn("rounded-xl overflow-hidden border border-zinc-800/80 shadow-2xl shadow-black/50 bg-zinc-900 dark:bg-zinc-900", className)}>{children}</div>
     </CodeEditorContext.Provider>
   )
