@@ -1,6 +1,6 @@
 # Code Editor
 
-A premium code editor component powered by Monaco Editor with syntax highlighting, language selection, and built-in action buttons.
+A premium code editor component powered by Monaco Editor with syntax highlighting, language selection, and customizable action buttons.
 
 <ComponentPreview component="code-editor"/>
 
@@ -22,6 +22,7 @@ A premium code editor component powered by Monaco Editor with syntax highlightin
 | `onValueChange` | `(value: string) => void` | - | Callback when value changes |
 | `language` | `string` | `"python"` | Programming language |
 | `onLanguageChange` | `(language: string) => void` | - | Callback when language changes |
+| `languages` | `Language[]` | `DEFAULT_LANGUAGES` | Custom languages array |
 | `theme` | `string` | `"vs-dark"` | Monaco editor theme |
 | `disabled` | `boolean` | `false` | Disable the editor |
 | `children` | `React.ReactNode` | - | Header, Area, Footer components |
@@ -34,6 +35,27 @@ A premium code editor component powered by Monaco Editor with syntax highlightin
 | `children` | `React.ReactNode` | - | Action buttons |
 | `className` | `string` | - | Additional CSS classes |
 | `showLanguageSelector` | `boolean` | `true` | Show/hide language dropdown |
+
+### CodeEditorActions
+
+Container for action buttons. Accepts standard div props.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | CodeEditorAction components |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeEditorAction
+
+Wrapper for individual action buttons with tooltip and micro-interactions.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `tooltip` | `React.ReactNode` | - | Tooltip content |
+| `children` | `React.ReactNode` | - | Button element |
+| `animate` | `boolean` | `true` | Enable hover/tap animations |
+| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Tooltip position |
+| `className` | `string` | - | Additional CSS classes |
 
 ### CodeEditorArea
 
@@ -56,46 +78,67 @@ A premium code editor component powered by Monaco Editor with syntax highlightin
 | `showCharCount` | `boolean` | `true` | Show character count |
 | `statusText` | `string` | `"Ready"` | Status indicator text |
 
-### CodeEditorRunButton
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | `"Run"` | Button text |
-| `loadingText` | `string` | `"Running..."` | Text when running |
-| `onRun` | `(code: string) => void \| Promise<void>` | - | Run callback with code |
-| `className` | `string` | - | Additional CSS classes |
-
-### CodeEditorCopyButton
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | `"Copy"` | Button text |
-| `copiedText` | `string` | `"Copied!"` | Text after copy |
-| `className` | `string` | - | Additional CSS classes |
-
-### CodeEditorResetButton
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | `"Clear"` | Button text |
-| `className` | `string` | - | Additional CSS classes |
-
-### CodeEditorButton
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Button content |
-| `className` | `string` | - | Additional CSS classes |
-| `variant` | `"default" \| "success"` | `"default"` | Button style |
-| `size` | `"sm" \| "md"` | `"sm"` | Button size |
-| `loading` | `boolean` | `false` | Show loading spinner |
-| `onClick` | `() => void` | - | Click handler |
-
 ### CodeEditorDivider
 
-Just a visual separator between buttons. No props.
+Visual separator between action buttons. No props.
 
-## Supported Languages
+<br/>
+
+## Hooks
+
+### useCodeEditor
+
+Access editor state and actions from within CodeEditor children.
+
+```tsx
+const { value, setValue, language, setLanguage } = useCodeEditor()
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `value` | `string` | Current code value |
+| `setValue` | `(v: string) => void` | Update code value |
+| `language` | `string` | Current language |
+| `setLanguage` | `(l: string) => void` | Change language |
+| `languages` | `Language[]` | Available languages |
+| `cursorLine` | `number` | Current cursor line |
+| `cursorColumn` | `number` | Current cursor column |
+| `disabled` | `boolean` | Editor disabled state |
+
+<br/>
+
+## Animation Constants
+
+Exported animation objects for customization:
+
+```tsx
+import { ACTION_ANIMATION, SPINNER_ANIMATION, PULSE_ANIMATION } from "@/components/chatcn/ai/code-editor"
+```
+
+| Constant | Description |
+|----------|-------------|
+| `ACTION_ANIMATION` | Hover/tap scale effect for buttons |
+| `SPINNER_ANIMATION` | Loading spinner rotation |
+| `PULSE_ANIMATION` | Status indicator pulse |
+
+<br/>
+
+## Custom Languages
+
+Pass your own languages array via the `languages` prop:
+
+```tsx
+const MY_LANGUAGES: Language[] = [
+  { value: "python", label: "Python", icon: "https://..." },
+  { value: "rust", label: "Rust" }, // icon is optional
+]
+
+<CodeEditor languages={MY_LANGUAGES}>
+```
+
+<br/>
+
+## Default Languages
 
 <div className="flex flex-wrap gap-4 mt-4">
   <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" className="w-12 h-12" /> </span>
@@ -109,4 +152,3 @@ Just a visual separator between buttons. No props.
   <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" className="w-12 h-12" /> </span>
   <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" className="w-12 h-12" /> </span>
 </div>
-

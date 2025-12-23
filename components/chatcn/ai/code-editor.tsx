@@ -7,6 +7,23 @@ import { motion } from "framer-motion"
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
+
+export const ACTION_ANIMATION = {
+  whileHover: { scale: 1.05 },
+  whileTap: { scale: 0.95 },
+  transition: { type: "spring" as const, stiffness: 400, damping: 17 },
+}
+
+export const SPINNER_ANIMATION = {
+  animate: { rotate: 360 },
+  transition: { duration: 1.5, repeat: Infinity, ease: "linear" as const },
+}
+
+export const PULSE_ANIMATION = {
+  animate: { opacity: [1, 0.5, 1] },
+  transition: { duration: 2, repeat: Infinity },
+}
+
 export type Language = { value: string; label: string; icon?: string }
 
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons"
@@ -84,14 +101,16 @@ export function CodeEditorActions({ children, className, ...props }: CodeEditorA
   return <div className={cn("flex items-center gap-1", className)} {...props}>{children}</div>
 }
 
-export type CodeEditorActionProps = { tooltip: React.ReactNode; children: React.ReactNode; className?: string; side?: "top" | "bottom" | "left" | "right" } & React.ComponentProps<typeof Tooltip>
+export type CodeEditorActionProps = { tooltip: React.ReactNode; children: React.ReactNode; className?: string; side?: "top" | "bottom" | "left" | "right"; animate?: boolean } & React.ComponentProps<typeof Tooltip>
 
-export function CodeEditorAction({ tooltip, children, className, side = "top", ...props }: CodeEditorActionProps) {
+export function CodeEditorAction({ tooltip, children, className, side = "top", animate = true, ...props }: CodeEditorActionProps) {
   const { disabled } = useCodeEditor()
   return (
     <TooltipProvider>
       <Tooltip {...props}>
-        <TooltipTrigger asChild disabled={disabled} onClick={(e) => e.stopPropagation()}>{children}</TooltipTrigger>
+        <TooltipTrigger asChild disabled={disabled} onClick={(e) => e.stopPropagation()}>
+          {animate ? <motion.div {...ACTION_ANIMATION}>{children}</motion.div> : children}
+        </TooltipTrigger>
         <TooltipContent side={side} className={className}>{tooltip}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -123,7 +142,7 @@ export function CodeEditorArea({ loader, className, height = "400px", width = "1
     <div className={cn("relative overflow-hidden bg-[#0D0D0D]", className)}>
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-zinc-900/50 to-transparent pointer-events-none z-10" />
       <Editor
-        loading={loader || <div className="flex items-center justify-center h-full bg-[#0D0D0D]"><motion.div animate={{ rotate: 360 }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full" /></div>}
+        loading={loader || <div className="flex items-center justify-center h-full bg-[#0D0D0D]"><motion.div {...SPINNER_ANIMATION} className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full" /></div>}
         height={height} width={width} language={language} theme={theme} value={value}
         onChange={(v) => setValue(v || "")} onMount={handleMount}
         options={{ readOnly: disabled, minimap: { enabled: false }, fontSize: 14, fontFamily: "'JetBrains Mono', 'Fira Code', monospace", lineNumbers: "on", folding: true, lineHeight: 22, scrollBeyondLastLine: false, automaticLayout: true, padding: { top: 16, bottom: 16 }, cursorBlinking: "smooth", smoothScrolling: true, renderLineHighlight: "line", bracketPairColorization: { enabled: true }, scrollbar: { alwaysConsumeMouseWheel: false }, ...props.options }}
@@ -143,7 +162,7 @@ export function CodeEditorFooter({ children, className, showStatus = true, showL
   return (
     <div className={cn("flex flex-wrap items-center justify-between gap-2 px-2 sm:px-4 py-2 bg-zinc-900 dark:bg-zinc-900 border-t border-zinc-800/50 text-xs font-medium", className)}>
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-        {showStatus && <><span className="flex items-center gap-1.5"><motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-500" animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }} /><span className="text-zinc-300">{statusText}</span></span>{showLanguage && <span className="text-zinc-600">•</span>}</>}
+        {showStatus && <><span className="flex items-center gap-1.5"><motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-500" {...PULSE_ANIMATION} /><span className="text-zinc-300">{statusText}</span></span>{showLanguage && <span className="text-zinc-600">•</span>}</>}
         {showLanguage && <span className="flex items-center gap-1.5">{lang?.icon && <img src={lang.icon} alt="" className="w-3 h-3 opacity-70" />}<span className="text-zinc-300">{lang?.label || language}</span></span>}
       </div>
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
