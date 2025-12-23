@@ -9,21 +9,21 @@ import GaiaAdCard from "@/components/gaia-ad-card";
 export default function DocLayout({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
-      <div className="flex h-full w-full">
+      <div className="flex w-full max-w-400 mx-auto">
         <SidebarTrigger className="lg:hidden fixed top-20 left-4 z-50 shadow-md bg-background border rounded-md" />
         <Sidebar />
-        <main className="flex-1 min-w-0 px-5 md:px-8 lg:px-12 overflow-auto">
+        <main className="flex-1 min-w-0 py-6">
           <div
             id="docs-content"
-            className="prose dark:prose-invert w-full max-w-3xl lg:max-w-4xl mx-auto py-10 relative"
+            className="prose dark:prose-invert w-full max-w-3xl mx-auto relative"
           >
             <DocsBreadcrumb />
             <DocsPageNav />
             {children}
           </div>
         </main>
-        <aside className="w-100 shrink-0 hidden lg:block">
-          <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-auto left-0">
+        <aside className="w-60 shrink-0 hidden xl:block">
+          <div className="sticky top-1 py-6 max-h-[calc(100vh-4rem)] overflow-auto">
             <TableOfContents />
             <GaiaAdCard />
           </div>

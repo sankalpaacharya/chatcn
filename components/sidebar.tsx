@@ -13,7 +13,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuBadge,
-  SidebarMenuSub,
 } from "@/components/ui/sidebar";
 import {
   Home01Icon,
@@ -145,54 +144,33 @@ export default function AppSidebar() {
   const isCurrentPath = (href: string) => pathname === href;
 
   return (
-    <Sidebar className="pt-16 h-svh border-r">
-      <SidebarContent className="scrollbar-hide relative pb-20">
-        {sidebarGroups.map((group) =>
-          group.variant === "submenu" ? (
-            <SidebarGroup key={group.label}>
-              <SidebarMenu className="font-medium">
-                <SidebarMenuItem className="list-none">
-                  <SidebarMenuButton className="px-3">
-                    <span className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
-                      {group.label}
-                    </span>
-                  </SidebarMenuButton>
-                  <SidebarMenuSub className="ml-2 border-l border-muted/50 mt-1">
-                    {group.links.map((link) => (
-                      <SidebarLinkItem
-                        key={link.label}
-                        link={link}
-                        isActive={isCurrentPath(link.href)}
-                      />
-                    ))}
-                  </SidebarMenuSub>
-                </SidebarMenuItem>
+    <Sidebar
+      collapsible="none"
+      className="sticky top-1 h-[calc(100vh-4rem)] shrink-0 w-52"
+    >
+      <SidebarContent className="scrollbar-hide pb-20  px-3">
+        {sidebarGroups.map((group) => (
+          <SidebarGroup key={group.label} className="py-1.5 px-0">
+            <SidebarGroupLabel className="px-2 mb-1 text-xs text-muted-foreground/70 uppercase tracking-wider">
+              {group.label}
+            </SidebarGroupLabel>
+            <SidebarGroupContent className="ml-2 pl-3 border-l border-border/40">
+              <SidebarMenu className="gap-0.5">
+                {group.links.map((link) => (
+                  <SidebarLinkItem
+                    key={link.label}
+                    link={link}
+                    isActive={isCurrentPath(link.href)}
+                  />
+                ))}
               </SidebarMenu>
-            </SidebarGroup>
-          ) : (
-            <SidebarGroup key={group.label}>
-              <SidebarGroupLabel className="px-3 text-xs font-semibold text-muted-foreground/70 uppercase tracking-wider">
-                {group.label}
-              </SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {group.links.map((link) => (
-                    <SidebarLinkItem
-                      key={link.label}
-                      link={link}
-                      isActive={isCurrentPath(link.href)}
-                    />
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          )
-        )}
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
       </SidebarContent>
 
-      {/* Vintage vignette - positioned to not cover the border */}
       <div
-        className="pointer-events-none absolute left-0 bottom-0 z-10 h-[120px] bg-gradient-to-t from-background via-background/60 to-transparent"
+        className="pointer-events-none absolute left-0 bottom-0 z-10 h-24 bg-linear-to-t from-background to-transparent"
         style={{ right: "1px" }}
       />
     </Sidebar>
@@ -209,10 +187,7 @@ function SidebarLinkItem({
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild isActive={isActive}>
-        <Link
-          href={link.href}
-          className="flex items-center gap-2 font-semibold"
-        >
+        <Link href={link.href} className="flex items-center gap-2 font-medium">
           {link.icon &&
             (typeof link.icon === "function" ? (
               <link.icon className="size-4" />

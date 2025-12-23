@@ -7,10 +7,10 @@ export default function GaiaAdCard() {
       href="https://heygaia.io"
       target="_blank"
       rel="noopener noreferrer"
-      className="group mt-6 block overflow-hidden rounded-xl border border-border/50 w-xs bg-linear-to-br from-[#02bdff]/5 via-background to-[#059cda]/5 p-5 transition-all duration-300 hover:border-[#02bdff]/50 hover:shadow-lg hover:shadow-[#02bdff]/10"
+      className="group mt-6 block overflow-hidden rounded-lg border border-border/50 w-full bg-linear-to-br from-[#02bdff]/5 via-background to-[#059cda]/5 p-3 transition-all duration-300 hover:border-[#02bdff]/50"
     >
-      <div className="flex items-center gap-4">
-        <div className="relative h-12 w-12 shrink-0 rounded-xl bg-linear-to-br from-[#02bdff]/20 to-[#0f537c]/20 p-1.5">
+      <div className="flex items-center gap-2.5">
+        <div className="relative h-8 w-8 shrink-0 rounded-lg bg-linear-to-br from-[#02bdff]/20 to-[#0f537c]/20">
           <Image
             src="/images/gaia_logo.svg"
             alt="Gaia Logo"
@@ -19,21 +19,21 @@ export default function GaiaAdCard() {
           />
         </div>
         <div className="min-w-0">
-          <h4 className="text-base font-semibold text-foreground group-hover:text-[#02bdff] transition-colors">
+          <h4 className="text-sm font-semibold text-foreground group-hover:text-[#02bdff] transition-colors">
             Gaia
           </h4>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs text-muted-foreground">
             Your AI productivity copilot
           </p>
         </div>
       </div>
-      <p className="mt-4 text-sm text-muted-foreground/80 leading-relaxed">
+      <p className="mt-2.5 text-xs text-muted-foreground/80 leading-relaxed">
         Plan, execute, and achieve your goals with AI-powered workflows.
       </p>
-      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[#02bdff] group-hover:gap-2.5 transition-all">
+      <span className="mt-2.5 inline-flex items-center gap-1 text-xs font-medium text-[#02bdff] group-hover:gap-2 transition-all">
         Learn more
         <svg
-          className="h-4 w-4"
+          className="h-3 w-3"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

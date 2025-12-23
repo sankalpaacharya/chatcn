@@ -32,18 +32,7 @@ const CODE = `def dfs(graph, start, visited=None):
     
     return visited
 
-# Example graph as adjacency list
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
-}
 
-print("DFS traversal starting from 'A':")
-dfs(graph, 'A')
 `;
 
 const MY_LANGUAGES: Language[] = [
@@ -118,7 +107,7 @@ export default function CodeEditorPreview() {
               </CodeEditorAction>
             </CodeEditorActions>
           </CodeEditorHeader>
-          <CodeEditorArea height="700px" />
+          <CodeEditorArea height="510px" />
           <CodeEditorFooter />
         </CodeEditor>
       </div>

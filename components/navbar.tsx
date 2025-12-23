@@ -109,8 +109,8 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full border-b-2 border-dotted bg-background">
-        <div className="flex h-16 items-center px-4 md:px-8">
+      <nav className="sticky top-0 z-50 w-full max-w-400 mx-auto bg-background">
+        <div className="flex h-16 items-center px-4 md:px-5">
           {sidebar && (
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild className="lg:hidden mr-2">
