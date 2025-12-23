@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import Sidebar from "@/components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import DocsBreadcrumb from "@/components/docs-breadcrumb";
+import DocsPageNav from "@/components/docs-page-nav";
 import TableOfContents from "@/components/table-of-contents";
 import GaiaAdCard from "@/components/gaia-ad-card";
 
@@ -14,9 +15,10 @@ export default function DocLayout({ children }: { children: ReactNode }) {
         <main className="flex-1 min-w-0 px-5 md:px-8 lg:px-12 overflow-auto">
           <div
             id="docs-content"
-            className="prose dark:prose-invert w-full max-w-3xl lg:max-w-4xl mx-auto py-10"
+            className="prose dark:prose-invert w-full max-w-3xl lg:max-w-4xl mx-auto py-10 relative"
           >
             <DocsBreadcrumb />
+            <DocsPageNav />
             {children}
           </div>
         </main>

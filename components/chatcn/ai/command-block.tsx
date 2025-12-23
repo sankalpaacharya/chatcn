@@ -277,8 +277,7 @@ export function CommandBlockTabContent({
   const { setActiveCommand } = useCommandBlockContext();
 
   useEffect(() => {
-    const handle = () => setActiveCommand(command);
-    handle();
+    setActiveCommand(command);
   }, [command, setActiveCommand]);
 
   return (
