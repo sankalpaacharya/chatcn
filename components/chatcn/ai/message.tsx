@@ -76,23 +76,14 @@ export function MessageAvatar({
   const { variant } = useMessageContext();
 
   return (
-    <Avatar
-      className={cn(
-        "h-8 w-8 shrink-0",
-        "ring-2 ring-offset-2 ring-offset-background",
-        "transition-all duration-200",
-        "group-hover/message:scale-105",
-        variant === "user" ? "ring-blue-500/30" : "ring-muted-foreground/20",
-        className
-      )}
-    >
+    <Avatar className={cn("h-8 w-8 shrink-0", className)}>
       <AvatarImage src={src} alt={alt} className="object-cover" />
       <AvatarFallback
         className={cn(
           "text-xs font-medium",
           variant === "user"
-            ? "bg-linear-to-br from-blue-500 to-blue-600 text-white"
-            : "bg-linear-to-br from-muted to-muted-foreground/10 text-muted-foreground"
+            ? "bg-primary text-primary-foreground"
+            : "bg-muted text-muted-foreground"
         )}
       >
         {fallback || alt?.slice(0, 2).toUpperCase()}
@@ -112,56 +103,17 @@ export function MessageContent({ children, className }: MessageContentProps) {
 
   return (
     <div className="relative max-w-[80%]">
-      {/* Message Bubble */}
       <div
         className={cn(
           "relative px-4 py-2.5 text-[15px] leading-relaxed",
           "wrap-break-word whitespace-pre-wrap",
-          "transition-all duration-200",
-          "group-hover/message:shadow-lg",
-          isUser
-            ? [
-                // iMessage blue gradient for user
-                "bg-linear-to-br from-blue-500 via-blue-500 to-blue-600",
-                "text-white",
-                "rounded-2xl",
-                "shadow-[0_2px_12px_rgba(59,130,246,0.25)]",
-              ]
-            : [
-                // Glass-morphism style for AI
-                "bg-secondary/80 dark:bg-secondary/60",
-                "backdrop-blur-sm",
-                "text-foreground",
-                "rounded-2xl",
-                "border border-border/50",
-                "shadow-[0_2px_8px_rgba(0,0,0,0.04)]",
-                "dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)]",
-              ],
+          "rounded-2xl",
+          isUser ? "bg-blue-500 text-white" : "bg-secondary text-foreground",
           className
         )}
       >
         {children}
-
-        {/* Subtle inner highlight for user messages */}
-        {isUser && (
-          <div
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)",
-            }}
-          />
-        )}
       </div>
-
-      {/* Read receipt indicator for user messages */}
-      {isUser && (
-        <div className="flex justify-end mt-1 mr-1">
-          <span className="text-[10px] text-muted-foreground/60 opacity-0 group-hover/message:opacity-100 transition-opacity">
-            Delivered
-          </span>
-        </div>
-      )}
     </div>
   );
 }
