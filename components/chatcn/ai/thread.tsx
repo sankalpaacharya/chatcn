@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MoreHorizontalIcon } from "@hugeicons/core-free-icons";
+import { MoreHorizontalIcon, Message01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +23,7 @@ type ThreadProps = {
   children: React.ReactNode;
   className?: string;
 };
+
 export function Thread({ children, className }: ThreadProps) {
   const [open, setOpen] = useState(false);
 
@@ -30,8 +31,11 @@ export function Thread({ children, className }: ThreadProps) {
     <ThreadContext.Provider value={{ open, setOpen }}>
       <div
         className={cn(
-          "group px-3 py-2 rounded-md flex gap-2 transition-colors hover:bg-accent items-center justify-between",
-          open ? "bg-accent/50" : "",
+          "group flex items-center gap-2.5 px-2.5 py-2 rounded-lg",
+          "cursor-pointer select-none",
+          "transition-colors duration-150",
+          "hover:bg-accent",
+          open && "bg-accent",
           className
         )}
       >
@@ -48,7 +52,17 @@ export function ThreadContent({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("truncate", className)}>{children}</div>;
+  return (
+    <div className="flex items-center gap-2.5 flex-1 min-w-0">
+      <HugeiconsIcon
+        icon={Message01Icon}
+        className="shrink-0 size-4 text-muted-foreground"
+      />
+      <span className={cn("truncate text-sm text-foreground", className)}>
+        {children}
+      </span>
+    </div>
+  );
 }
 
 export function ThreadAction({
