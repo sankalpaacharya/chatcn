@@ -307,6 +307,64 @@ code[data-theme*=" "] span {
   scrollbar-width: 0;
 }
 
+/* Premium Prose Typography */
+.prose {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Headings - tight, consistent spacing */
+.prose :where(h1):not(:where(.not-prose, .not-prose *)) {
+  @apply text-3xl font-bold tracking-tight mt-0 mb-4;
+}
+
+.prose :where(h2):not(:where(.not-prose, .not-prose *)) {
+  @apply text-xl font-semibold tracking-tight mt-8 mb-3 pb-2 border-b border-border;
+}
+
+.prose :where(h3):not(:where(.not-prose, .not-prose *)) {
+  @apply text-lg font-semibold tracking-tight mt-6 mb-2;
+}
+
+.prose :where(h4):not(:where(.not-prose, .not-prose *)) {
+  @apply text-base font-semibold mt-4 mb-2;
+}
+
+/* Paragraphs - compact spacing */
+.prose :where(p):not(:where(.not-prose, .not-prose *)) {
+  @apply my-3 text-muted-foreground;
+}
+
+/* Strong text */
+.prose :where(strong):not(:where(.not-prose, .not-prose *)) {
+  @apply font-semibold text-foreground;
+}
+
+/* Links */
+.prose :where(a):not(:where(.not-prose, .not-prose *)) {
+  @apply text-primary font-medium underline underline-offset-2 hover:text-primary/80;
+}
+
+/* Lists - compact */
+.prose :where(ul):not(:where(.not-prose, .not-prose *)),
+.prose :where(ol):not(:where(.not-prose, .not-prose *)) {
+  @apply my-3 pl-5;
+}
+
+.prose :where(li):not(:where(.not-prose, .not-prose *)) {
+  @apply text-muted-foreground my-1;
+}
+
+/* Blockquotes */
+.prose :where(blockquote):not(:where(.not-prose, .not-prose *)) {
+  @apply my-4 pl-4 border-l-2 border-muted-foreground/30 text-muted-foreground italic;
+}
+
+/* Horizontal rule */
+.prose :where(hr):not(:where(.not-prose, .not-prose *)) {
+  @apply my-6 border-border;
+}
+
 /* Prose Table Styling */
 .prose table {
   @apply w-full text-sm border-separate border border-border rounded-lg overflow-hidden;

@@ -91,8 +91,8 @@ export function MessageAvatar({
         className={cn(
           "text-xs font-medium",
           variant === "user"
-            ? "bg-gradient-to-br from-blue-500 to-blue-600 text-white"
-            : "bg-gradient-to-br from-muted to-muted-foreground/10 text-muted-foreground"
+            ? "bg-linear-to-br from-blue-500 to-blue-600 text-white"
+            : "bg-linear-to-br from-muted to-muted-foreground/10 text-muted-foreground"
         )}
       >
         {fallback || alt?.slice(0, 2).toUpperCase()}
@@ -116,13 +116,13 @@ export function MessageContent({ children, className }: MessageContentProps) {
       <div
         className={cn(
           "relative px-4 py-2.5 text-[15px] leading-relaxed",
-          "break-words whitespace-pre-wrap",
+          "wrap-break-word whitespace-pre-wrap",
           "transition-all duration-200",
           "group-hover/message:shadow-lg",
           isUser
             ? [
                 // iMessage blue gradient for user
-                "bg-gradient-to-br from-blue-500 via-blue-500 to-blue-600",
+                "bg-linear-to-br from-blue-500 via-blue-500 to-blue-600",
                 "text-white",
                 "rounded-2xl",
                 "shadow-[0_2px_12px_rgba(59,130,246,0.25)]",

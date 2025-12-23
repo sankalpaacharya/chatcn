@@ -112,25 +112,21 @@ export function CodeEditorHeader({
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center justify-between gap-2 px-2 sm:px-4 py-2 bg-zinc-900 dark:bg-zinc-900 border-b border-zinc-800/60",
+        "flex flex-wrap items-center justify-between gap-2 px-3 py-2 bg-secondary/50 border-b border-border",
         className
       )}
     >
       {showLanguageSelector && (
         <Select value={language} onValueChange={setLanguage}>
-          <SelectTrigger className="w-30 sm:w-40 h-8 text-xs sm:text-sm text-zinc-300 font-medium bg-zinc-800/50 border-zinc-700/50 hover:bg-zinc-800 transition-all">
+          <SelectTrigger className="w-30 sm:w-40 h-8 text-xs sm:text-sm font-medium bg-background border-border hover:bg-accent transition-colors">
             <span className="flex items-center gap-2">
               {lang?.icon && <img src={lang.icon} alt="" className="w-4 h-4" />}
               <span>{lang?.label || language}</span>
             </span>
           </SelectTrigger>
-          <SelectContent className="bg-zinc-900 border-zinc-700">
+          <SelectContent>
             {languages.map((l) => (
-              <SelectItem
-                key={l.value}
-                value={l.value}
-                className="text-sm text-zinc-300"
-              >
+              <SelectItem key={l.value} value={l.value} className="text-sm">
                 <span className="flex items-center gap-2">
                   {l.icon && <img src={l.icon} alt="" className="w-4 h-4" />}
                   {l.label}
@@ -199,7 +195,7 @@ export function CodeEditorAction({
 }
 
 export function CodeEditorDivider() {
-  return <div className="w-px h-5 bg-zinc-700/50 mx-1" />;
+  return <div className="w-px h-5 bg-border mx-1" />;
 }
 
 export type CodeEditorAreaProps = {
@@ -269,12 +265,11 @@ export function CodeEditorArea({
   };
 
   return (
-    <div className={cn("relative overflow-hidden bg-[#0D0D0D]", className)}>
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-zinc-900/50 to-transparent pointer-events-none z-10" />
+    <div className={cn("relative overflow-hidden", className)}>
       <Editor
         loading={
           loader || (
-            <div className="flex items-center justify-center h-full bg-[#0D0D0D]">
+            <div className="flex items-center justify-center h-full bg-card">
               <motion.div
                 {...SPINNER_ANIMATION}
                 className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full"
@@ -340,7 +335,7 @@ export function CodeEditorFooter({
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center justify-between gap-2 px-2 sm:px-4 py-2 bg-zinc-900 dark:bg-zinc-900 border-t border-zinc-800/50 text-xs font-medium",
+        "flex flex-wrap items-center justify-between gap-2 px-3 py-2 bg-secondary/50 border-t border-border text-xs font-medium",
         className
       )}
     >
@@ -349,12 +344,14 @@ export function CodeEditorFooter({
           <>
             <span className="flex items-center gap-1.5">
               <motion.span
-                className="w-1.5 h-1.5 rounded-full bg-emerald-500"
+                className="w-1.5 h-1.5 rounded-full bg-green-500"
                 {...PULSE_ANIMATION}
               />
-              <span className="text-zinc-300">{statusText}</span>
+              <span className="text-muted-foreground">{statusText}</span>
             </span>
-            {showLanguage && <span className="text-zinc-600">•</span>}
+            {showLanguage && (
+              <span className="text-muted-foreground/50">•</span>
+            )}
           </>
         )}
         {showLanguage && (
@@ -362,7 +359,9 @@ export function CodeEditorFooter({
             {lang?.icon && (
               <img src={lang.icon} alt="" className="w-3 h-3 opacity-70" />
             )}
-            <span className="text-zinc-300">{lang?.label || language}</span>
+            <span className="text-muted-foreground">
+              {lang?.label || language}
+            </span>
           </span>
         )}
       </div>
@@ -370,14 +369,16 @@ export function CodeEditorFooter({
         {children}
         {showLineNumber && (
           <>
-            <span className="text-zinc-300">
+            <span className="text-muted-foreground">
               Ln {cursorLine}, Col {cursorColumn}
             </span>
-            {showCharCount && <span className="text-zinc-600">•</span>}
+            {showCharCount && (
+              <span className="text-muted-foreground/50">•</span>
+            )}
           </>
         )}
         {showCharCount && (
-          <span className="text-zinc-300">{charCount} chars</span>
+          <span className="text-muted-foreground">{charCount} chars</span>
         )}
       </div>
     </div>
@@ -444,7 +445,7 @@ export function CodeEditor({
     >
       <div
         className={cn(
-          "rounded-md overflow-hidden border border-zinc-800/80 shadow-2xl shadow-black/50 bg-zinc-900 dark:bg-zinc-900",
+          "rounded-md overflow-hidden border border-border bg-card",
           className
         )}
       >
