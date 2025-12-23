@@ -1,25 +1,15 @@
-
 # Code Editor
-A code editor component powered by Monaco Editor.
 
-
-
-##
-
-### Examples
-Code Editor Basics
+A premium code editor component powered by Monaco Editor with syntax highlighting, language selection, and customizable action buttons.
 
 <ComponentPreview component="code-editor"/>
 
-
-<br/>
 <br/>
 
 ## Installation
 
 <Installation component={"code-editor"}/>
 
-<br/>
 <br/>
 
 ## Props
@@ -28,20 +18,46 @@ Code Editor Basics
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `value` | `string` | - | Controlled editor value |
+| `value` | `string` | `""` | Initial code value |
 | `onValueChange` | `(value: string) => void` | - | Callback when value changes |
-| `language` | `string` | `"javascript"` | Programming language |
+| `language` | `string` | `"python"` | Programming language |
 | `onLanguageChange` | `(language: string) => void` | - | Callback when language changes |
+| `languages` | `Language[]` | `DEFAULT_LANGUAGES` | Custom languages array |
 | `theme` | `string` | `"vs-dark"` | Monaco editor theme |
-| `onThemeChange` | `(theme: string) => void` | - | Callback when theme changes |
-| `isLoading` | `boolean` | `false` | Loading state |
 | `disabled` | `boolean` | `false` | Disable the editor |
-| `children` | `React.ReactNode` | - | Editor actions and content |
+| `children` | `React.ReactNode` | - | Header, Area, Footer components |
 | `className` | `string` | - | Additional CSS classes |
-| `onFormat` | `() => void` | - | Callback when format action is triggered |
-| `onExecute` | `() => void` | - | Callback when execute action is triggered |
 
-### CodeEditArea
+### CodeEditorHeader
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | Action buttons |
+| `className` | `string` | - | Additional CSS classes |
+| `showLanguageSelector` | `boolean` | `true` | Show/hide language dropdown |
+
+### CodeEditorActions
+
+Container for action buttons. Accepts standard div props.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | - | CodeEditorAction components |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeEditorAction
+
+Wrapper for individual action buttons with tooltip and micro-interactions.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `tooltip` | `React.ReactNode` | - | Tooltip content |
+| `children` | `React.ReactNode` | - | Button element |
+| `animate` | `boolean` | `true` | Enable hover/tap animations |
+| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Tooltip position |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeEditorArea
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -50,19 +66,89 @@ Code Editor Basics
 | `height` | `string \| number` | `"400px"` | Editor height |
 | `width` | `string \| number` | `"100%"` | Editor width |
 
-### CodeEditorActions
+### CodeEditorFooter
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action buttons |
+| `children` | `React.ReactNode` | - | Custom content |
 | `className` | `string` | - | Additional CSS classes |
+| `showStatus` | `boolean` | `true` | Show status indicator |
+| `showLanguage` | `boolean` | `true` | Show language name with icon |
+| `showLineNumber` | `boolean` | `true` | Show cursor line/column |
+| `showCharCount` | `boolean` | `true` | Show character count |
+| `statusText` | `string` | `"Ready"` | Status indicator text |
 
-### CodeEditorAction
+### CodeEditorDivider
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `tooltip` | `React.ReactNode` | - | Tooltip content |
-| `children` | `React.ReactNode` | - | Action button content |
-| `className` | `string` | - | Additional CSS classes |
-| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Tooltip position |
-| `onClick` | `() => void` | - | Click handler |
+Visual separator between action buttons. No props.
+
+<br/>
+
+## Hooks
+
+### useCodeEditor
+
+Access editor state and actions from within CodeEditor children.
+
+```tsx
+const { value, setValue, language, setLanguage } = useCodeEditor()
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `value` | `string` | Current code value |
+| `setValue` | `(v: string) => void` | Update code value |
+| `language` | `string` | Current language |
+| `setLanguage` | `(l: string) => void` | Change language |
+| `languages` | `Language[]` | Available languages |
+| `cursorLine` | `number` | Current cursor line |
+| `cursorColumn` | `number` | Current cursor column |
+| `disabled` | `boolean` | Editor disabled state |
+
+<br/>
+
+## Animation Constants
+
+Exported animation objects for customization:
+
+```tsx
+import { ACTION_ANIMATION, SPINNER_ANIMATION, PULSE_ANIMATION } from "@/components/chatcn/ai/code-editor"
+```
+
+| Constant | Description |
+|----------|-------------|
+| `ACTION_ANIMATION` | Hover/tap scale effect for buttons |
+| `SPINNER_ANIMATION` | Loading spinner rotation |
+| `PULSE_ANIMATION` | Status indicator pulse |
+
+<br/>
+
+## Custom Languages
+
+Pass your own languages array via the `languages` prop:
+
+```tsx
+const MY_LANGUAGES: Language[] = [
+  { value: "python", label: "Python", icon: "https://..." },
+  { value: "rust", label: "Rust" }, // icon is optional
+]
+
+<CodeEditor languages={MY_LANGUAGES}>
+```
+
+<br/>
+
+## Default Languages
+
+<div className="flex flex-wrap gap-4 mt-4">
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" className="w-12 h-12" /></span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" className="w-12 h-12" /></span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" className="w-12 h-12" /></span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex dark:invert items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" className="w-12 h-12" /> </span>
+  <span className="flex items-center gap-1.5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" className="w-12 h-12" /> </span>
+</div>

@@ -209,7 +209,10 @@ function SidebarLinkItem({
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild isActive={isActive}>
-        <Link href={link.href} className="flex items-center gap-2">
+        <Link
+          href={link.href}
+          className="flex items-center gap-2 font-semibold"
+        >
           {link.icon &&
             (typeof link.icon === "function" ? (
               <link.icon className="size-4" />
