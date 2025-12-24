@@ -17,7 +17,7 @@ export default function DocLayout({ children }: { children: ReactNode }) {
         }}
       />
       <div className="flex w-full max-w-400 mx-auto">
-        <SidebarTrigger className="lg:hidden fixed top-4 left-4 z-50" />
+        <SidebarTrigger className="lg:hidden fixed top-20 left-4 z-50 shadow-md bg-background border rounded-md" />
         <Sidebar />
         <main className="flex-1 min-w-0 py-6 px-4 md:px-6 lg:px-8">
           <div
