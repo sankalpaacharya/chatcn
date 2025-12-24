@@ -40,7 +40,7 @@ export default function MainSidebar() {
   };
 
   return (
-    <SidebarUI className="border-r pt-16 h-svh" side="left">
+    <SidebarUI className="pt-16 h-svh" side="left">
       <SidebarContent className="scrollbar-hide">
         <SidebarContentInner isCurrentPath={isCurrentPath} />
       </SidebarContent>

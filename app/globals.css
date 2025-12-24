@@ -387,11 +387,7 @@ code[data-theme*=" "] span {
 }
 
 .prose tbody tr {
-  @apply border-b-2 border-border ;
-}
-
-.prose tbody tr:last-child {
-  @apply border-b-0;
+  border-bottom: 2px solid var(--border);
 }
 
 .prose td {
