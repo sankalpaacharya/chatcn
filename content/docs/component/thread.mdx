@@ -1,44 +1,73 @@
 # Thread
 
-
-### Examples
-Thread Basics
+Display threaded conversations.
 
 <ComponentPreview component="thread"/>
+
+<br/>
 
 ## Installation
 
 <Installation component={"thread"}/>
 
 <br/>
-<br/>
 
-## Props
+## API
 
 ### Thread
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Thread content and actions |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Root container for thread.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Thread content and actions <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### ThreadContent
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Thread text content |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Thread text content.</p>
 
-### ThreadAction
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Thread text content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action item content |
-| `className` | `string` | - | Additional CSS classes |
+<br/>
 
 ### ThreadActions
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action items (ThreadAction components) |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Container for thread actions.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action items <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
+
+### ThreadAction
+
+<p className="text-muted-foreground text-sm mb-6">Individual action item.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action item content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>

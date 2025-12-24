@@ -1,42 +1,78 @@
 # Source
-An input field that allows users to enter and submit text to an AI model.
 
-
-### Examples
-Source Basics
+Display source references with hover cards.
 
 <ComponentPreview component="source"/>
+
+<br/>
 
 ## Installation
 
 <Installation component={"source"}/>
 
 <br/>
-<br/>
 
-## Props
+## API
 
 ### Source
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `href` | `string` | - | URL for the source link |
-| `label` | `string \| number` | - | Label to display on the trigger |
-| `children` | `React.ReactNode` | - | Source trigger and content |
+<p className="text-muted-foreground text-sm mb-6">Root container for source reference.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">href</dt>
+      <dd className="text-sm text-muted-foreground">URL for the source link <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">label</dt>
+      <dd className="text-sm text-muted-foreground">Label to display on trigger <span className="text-foreground/60">· string | number</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Trigger and content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### SourceTrigger
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `showFavicon` | `boolean` | `true` | Whether to show the site favicon |
-| `className` | `string` | - | Additional CSS classes |
-| `label` | `string \| number` | - | Override the context label |
+<p className="text-muted-foreground text-sm mb-6">Clickable trigger element.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showFavicon</dt>
+      <dd className="text-sm text-muted-foreground">Show site favicon <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">label</dt>
+      <dd className="text-sm text-muted-foreground">Override context label <span className="text-foreground/60">· string | number</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### SourceContent
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | `string` | - | Title text for the hover card |
-| `description` | `string` | - | Description text for the hover card |
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `React.ReactNode` | - | Custom hover card content |
+<p className="text-muted-foreground text-sm mb-6">Hover card content.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">title</dt>
+      <dd className="text-sm text-muted-foreground">Title text for hover card <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">description</dt>
+      <dd className="text-sm text-muted-foreground">Description text <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Custom hover card content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>

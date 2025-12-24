@@ -12,75 +12,157 @@ A premium code editor component powered by Monaco Editor with syntax highlightin
 
 <br/>
 
-## Props
+## API
 
 ### CodeEditor
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | `""` | Initial code value |
-| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
-| `language` | `string` | `"python"` | Programming language |
-| `onLanguageChange` | `(language: string) => void` | - | Callback when language changes |
-| `languages` | `Language[]` | `DEFAULT_LANGUAGES` | Custom languages array |
-| `theme` | `string` | `"vs-dark"` | Monaco editor theme |
-| `disabled` | `boolean` | `false` | Disable the editor |
-| `children` | `React.ReactNode` | - | Header, Area, Footer components |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Root container providing context to child components.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">value</dt>
+      <dd className="text-sm text-muted-foreground">Initial code value <span className="text-foreground/60">· string · ""</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">onValueChange</dt>
+      <dd className="text-sm text-muted-foreground">Called when code changes <span className="text-foreground/60">· (value: string) → void</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">language</dt>
+      <dd className="text-sm text-muted-foreground">Programming language <span className="text-foreground/60">· string · "python"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">languages</dt>
+      <dd className="text-sm text-muted-foreground">Custom languages array <span className="text-foreground/60">· Language[]</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">theme</dt>
+      <dd className="text-sm text-muted-foreground">Monaco editor theme <span className="text-foreground/60">· string · "vs-dark"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">disabled</dt>
+      <dd className="text-sm text-muted-foreground">Disable the editor <span className="text-foreground/60">· boolean · false</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeEditorHeader
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action buttons |
-| `className` | `string` | - | Additional CSS classes |
-| `showLanguageSelector` | `boolean` | `true` | Show/hide language dropdown |
+<p className="text-muted-foreground text-sm mb-6">Header container with language selector.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showLanguageSelector</dt>
+      <dd className="text-sm text-muted-foreground">Show language dropdown <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action buttons <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeEditorActions
 
-Container for action buttons. Accepts standard div props.
+<p className="text-muted-foreground text-sm mb-6">Container for action buttons.</p>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | CodeEditorAction components |
-| `className` | `string` | - | Additional CSS classes |
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action components <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeEditorAction
 
-Wrapper for individual action buttons with tooltip and micro-interactions.
+<p className="text-muted-foreground text-sm mb-6">Tooltip wrapper with micro-interactions.</p>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `tooltip` | `React.ReactNode` | - | Tooltip content |
-| `children` | `React.ReactNode` | - | Button element |
-| `animate` | `boolean` | `true` | Enable hover/tap animations |
-| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Tooltip position |
-| `className` | `string` | - | Additional CSS classes |
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">tooltip</dt>
+      <dd className="text-sm text-muted-foreground">Tooltip content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">animate</dt>
+      <dd className="text-sm text-muted-foreground">Enable hover/tap animations <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">side</dt>
+      <dd className="text-sm text-muted-foreground">Tooltip position <span className="text-foreground/60">· "top" | "bottom" | "left" | "right"</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeEditorArea
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `loader` | `React.ReactNode` | - | Custom loading component |
-| `className` | `string` | - | Additional CSS classes |
-| `height` | `string \| number` | `"400px"` | Editor height |
-| `width` | `string \| number` | `"100%"` | Editor width |
+<p className="text-muted-foreground text-sm mb-6">Monaco editor wrapper.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">height</dt>
+      <dd className="text-sm text-muted-foreground">Editor height <span className="text-foreground/60">· string | number · "400px"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">width</dt>
+      <dd className="text-sm text-muted-foreground">Editor width <span className="text-foreground/60">· string | number · "100%"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">loader</dt>
+      <dd className="text-sm text-muted-foreground">Custom loading component <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeEditorFooter
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Custom content |
-| `className` | `string` | - | Additional CSS classes |
-| `showStatus` | `boolean` | `true` | Show status indicator |
-| `showLanguage` | `boolean` | `true` | Show language name with icon |
-| `showLineNumber` | `boolean` | `true` | Show cursor line/column |
-| `showCharCount` | `boolean` | `true` | Show character count |
-| `statusText` | `string` | `"Ready"` | Status indicator text |
+<p className="text-muted-foreground text-sm mb-6">Status bar with cursor and language info.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showStatus</dt>
+      <dd className="text-sm text-muted-foreground">Show status indicator <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showLanguage</dt>
+      <dd className="text-sm text-muted-foreground">Show language name <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showLineNumber</dt>
+      <dd className="text-sm text-muted-foreground">Show cursor position <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showCharCount</dt>
+      <dd className="text-sm text-muted-foreground">Show character count <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">statusText</dt>
+      <dd className="text-sm text-muted-foreground">Status indicator text <span className="text-foreground/60">· string · "Ready"</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeEditorDivider
 
-Visual separator between action buttons. No props.
+<p className="text-muted-foreground text-sm mb-6">Visual separator between action buttons. No props.</p>
 
 <br/>
 
@@ -88,22 +170,40 @@ Visual separator between action buttons. No props.
 
 ### useCodeEditor
 
-Access editor state and actions from within CodeEditor children.
+<p className="text-muted-foreground text-sm mb-6">Access editor state from within CodeEditor children.</p>
 
 ```tsx
 const { value, setValue, language, setLanguage } = useCodeEditor()
 ```
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `value` | `string` | Current code value |
-| `setValue` | `(v: string) => void` | Update code value |
-| `language` | `string` | Current language |
-| `setLanguage` | `(l: string) => void` | Change language |
-| `languages` | `Language[]` | Available languages |
-| `cursorLine` | `number` | Current cursor line |
-| `cursorColumn` | `number` | Current cursor column |
-| `disabled` | `boolean` | Editor disabled state |
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">value</dt>
+      <dd className="text-sm text-muted-foreground">Current code value <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">setValue</dt>
+      <dd className="text-sm text-muted-foreground">Update code value <span className="text-foreground/60">· (v: string) → void</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">language</dt>
+      <dd className="text-sm text-muted-foreground">Current language <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">setLanguage</dt>
+      <dd className="text-sm text-muted-foreground">Change language <span className="text-foreground/60">· (l: string) → void</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">cursorLine</dt>
+      <dd className="text-sm text-muted-foreground">Current cursor line <span className="text-foreground/60">· number</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">cursorColumn</dt>
+      <dd className="text-sm text-muted-foreground">Current cursor column <span className="text-foreground/60">· number</span></dd>
+    </div>
+  </dl>
+</div>
 
 <br/>
 
@@ -115,11 +215,22 @@ Exported animation objects for customization:
 import { ACTION_ANIMATION, SPINNER_ANIMATION, PULSE_ANIMATION } from "@/components/chatcn/ai/code-editor"
 ```
 
-| Constant | Description |
-|----------|-------------|
-| `ACTION_ANIMATION` | Hover/tap scale effect for buttons |
-| `SPINNER_ANIMATION` | Loading spinner rotation |
-| `PULSE_ANIMATION` | Status indicator pulse |
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">ACTION_ANIMATION</dt>
+      <dd className="text-sm text-muted-foreground">Hover/tap scale effect for buttons</dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">SPINNER_ANIMATION</dt>
+      <dd className="text-sm text-muted-foreground">Loading spinner rotation</dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">PULSE_ANIMATION</dt>
+      <dd className="text-sm text-muted-foreground">Status indicator pulse</dd>
+    </div>
+  </dl>
+</div>
 
 <br/>
 

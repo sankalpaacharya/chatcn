@@ -1,23 +1,36 @@
 # Markdown
-Markdown Component To Render the Markdown Content
 
-
-### Examples
-Markdown Basics
+Markdown component to render markdown content.
 
 <ComponentPreview isProse={true} component="markdown"/>
+
+<br/>
 
 ## Installation
 
 <Installation component={"markdown"}/>
 
 <br/>
-<br/>
 
-## Props
+## API
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Markdown content to render |
-| `className` | `string` | - | Additional CSS classes |
-| `theme` | `string` | - | Code block theme (`"dark"` or `"light"`) |
+### Markdown
+
+<p className="text-muted-foreground text-sm mb-6">Render markdown content with syntax highlighting.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Markdown content to render <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">className</dt>
+      <dd className="text-sm text-muted-foreground">Additional CSS classes <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">theme</dt>
+      <dd className="text-sm text-muted-foreground">Code block theme <span className="text-foreground/60">· "dark" | "light"</span></dd>
+    </div>
+  </dl>
+</div>

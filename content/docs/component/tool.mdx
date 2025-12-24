@@ -1,40 +1,62 @@
 # Tool Call
-An Tool Call Component
 
-
-### Examples
-Prompt Input Basics
+Display tool call states and results.
 
 <ComponentPreview component="tool"/>
 
-### Tools with dfiferent state
-Different State during the tool calling, `Processing`, `Completed` and `Error`
+<br/>
+
+### Different States
+
+Tool states during execution: `Processing`, `Completed`, and `Error`.
 
 <ComponentPreview component="tool-states"/>
+
+<br/>
 
 ## Installation
 
 <Installation component={"tool"}/>
 
-
-<br/>
 <br/>
 
-## Props
+## API
 
 ### Tool
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `name` | `string` | - | Tool name to display |
-| `state` | `"LOADING" \| "COMPLETED" \| "ERROR"` | - | Current state of the tool call |
-| `input` | `Record<string, unknown>` | - | Input parameters passed to the tool |
-| `output` | `Record<string, unknown>` | - | Output from the tool execution |
-| `errorText` | `string` | - | Error message when state is ERROR |
-| `children` | `React.ReactNode` | - | Additional content in the trigger |
+<p className="text-muted-foreground text-sm mb-6">Tool call display with state management.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">name</dt>
+      <dd className="text-sm text-muted-foreground">Tool name to display <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">state</dt>
+      <dd className="text-sm text-muted-foreground">Current state of tool call <span className="text-foreground/60">· "LOADING" | "COMPLETED" | "ERROR"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">input</dt>
+      <dd className="text-sm text-muted-foreground">Input parameters <span className="text-foreground/60">· Record&lt;string, unknown&gt;</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">output</dt>
+      <dd className="text-sm text-muted-foreground">Output from execution <span className="text-foreground/60">· Record&lt;string, unknown&gt;</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">errorText</dt>
+      <dd className="text-sm text-muted-foreground">Error message when state is ERROR <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Additional trigger content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### ToolStateBadge
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">State indicator badge. Inherits state from parent Tool context.</p>

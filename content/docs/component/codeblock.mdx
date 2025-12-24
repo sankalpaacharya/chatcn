@@ -1,16 +1,17 @@
 # Code Block
+
 Display syntax-highlighted code snippets using Shiki.
 
 <Reference href={"https://shiki.style/packages/next"} label={"Shiki Reference"}/>
 <Reference href={"https://shiki.style/themes"} label={"Themes"}/>
 
-
-##
+<br/>
 
 ## Examples
 
 ### File Title
-Use `CodeBlockTitle` to display a filename header on the code block
+
+Use `CodeBlockTitle` to display a filename header on the code block.
 
 <ComponentPreview component="codeblock-title" />
 
@@ -19,16 +20,18 @@ Use `CodeBlockTitle` to display a filename header on the code block
 <ComponentPreview component="codeblock" />
 
 ### Line Selection Highlight
-Use `highlight` property for the line-selection highlight
 
+Use `highlight` property for the line-selection highlight.
 
 <ComponentPreview component="codeblock-selection" />
+
+<br/>
 
 ## Installation
 
 <Installation component={"codeblock"}/>
 
-
+<br/>
 
 ## Show Line Numbers
 
@@ -52,26 +55,57 @@ code .line::before {
 }`}</CodeBlock>
 
 <br/>
-<br/>
 
-## Props
+## API
 
 ### CodeBlock
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `string \| ReactNode` | - | Code content (string) or compound components like `CodeBlockTitle` |
-| `code` | `string` | - | The code content to display (use this when using compound children) |
-| `lang` | `BundledLanguage` | - | Programming language for syntax highlighting (e.g., `tsx`, `css`, `python`) |
-| `height` | `string` | `"600"` | Maximum height of the code block in pixels |
-| `className` | `string` | - | Additional CSS classes to apply |
-| `highlight` | `{ start: number; end: number }` | - | Line range to highlight |
-| `theme` | `string` | `"github-dark-default"` | Shiki theme name for syntax highlighting |
+<p className="text-muted-foreground text-sm mb-6">Syntax-highlighted code container.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Code content or compound components <span className="text-foreground/60">· string | ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">code</dt>
+      <dd className="text-sm text-muted-foreground">Code content when using compound children <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">lang</dt>
+      <dd className="text-sm text-muted-foreground">Programming language for highlighting <span className="text-foreground/60">· BundledLanguage</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">height</dt>
+      <dd className="text-sm text-muted-foreground">Maximum height in pixels <span className="text-foreground/60">· string · "600"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">highlight</dt>
+      <dd className="text-sm text-muted-foreground">Line range to highlight <span className="text-foreground/60">· {"{ start: number; end: number }"}</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">theme</dt>
+      <dd className="text-sm text-muted-foreground">Shiki theme name <span className="text-foreground/60">· string · "github-dark-default"</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CodeBlockTitle
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `string` | - | The filename to display |
-| `lang` | `string` | - | Devicon language name for file icon (e.g., `typescript`, `python`, `rust`) |
-| `className` | `string` | - | Additional CSS classes to apply |
+<p className="text-muted-foreground text-sm mb-6">Filename header for code blocks.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Filename to display <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">lang</dt>
+      <dd className="text-sm text-muted-foreground">Devicon language for file icon <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>

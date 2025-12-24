@@ -1,58 +1,113 @@
 # Prompt Input
+
 An input field that allows users to enter and submit text to an AI model.
-
-
-### Examples
-Prompt Input Basics
 
 <ComponentPreview component="prompt-input"/>
 
 <br/>
-<br/>
 
-### Prompt input with actions
-Add different file uplaod options to the prompt input, use `PromptInputActions`
+### With Actions
+
+Extend functionality with action buttons using `PromptInputActions`.
 
 <ComponentPreview component="prompt-input-actions"/>
+
+<br/>
 
 ## Installation
 
 <Installation component={"prompt-input"}/>
 
-## Props
+<br/>
+
+## API
 
 ### PromptInput
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Controlled input value |
-| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
-| `maxHeight` | `number \| string` | `240` | Max height before scrolling |
-| `onSubmit` | `() => void` | - | Callback when form is submitted |
-| `children` | `React.ReactNode` | - | Input content and actions |
-| `disabled` | `boolean` | `false` | Disable the input |
-| `className` | `string` | - | Additional CSS classes |
-| `isLoading` | `boolean` | `false` | Loading state |
+<p className="text-muted-foreground text-sm mb-6">Root container providing context to child components.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">value</dt>
+      <dd className="text-sm text-muted-foreground">Controlled input value <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">onValueChange</dt>
+      <dd className="text-sm text-muted-foreground">Called when value changes <span className="text-foreground/60">· (value: string) → void</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">onSubmit</dt>
+      <dd className="text-sm text-muted-foreground">Called on form submission <span className="text-foreground/60">· () → void</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">maxHeight</dt>
+      <dd className="text-sm text-muted-foreground">Maximum height before scrolling <span className="text-foreground/60">· number | string · 240</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">disabled</dt>
+      <dd className="text-sm text-muted-foreground">Disable all interactions <span className="text-foreground/60">· boolean · false</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">isLoading</dt>
+      <dd className="text-sm text-muted-foreground">Show loading state <span className="text-foreground/60">· boolean · false</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### PromptInputTextArea
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `disableAutoSize` | `boolean` | `false` | Disable auto-resize behavior |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Auto-resizing textarea that grows with content.</p>
 
-### PromptInputAction
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">disableAutoSize</dt>
+      <dd className="text-sm text-muted-foreground">Prevent automatic height adjustment <span className="text-foreground/60">· boolean · false</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">placeholder</dt>
+      <dd className="text-sm text-muted-foreground">Placeholder text <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `tooltip` | `React.ReactNode` | - | Tooltip content |
-| `children` | `React.ReactNode` | - | Action button content |
-| `className` | `string` | - | Additional CSS classes |
-| `side` | `"top" \| "bottom" \| "left" \| "right"` | - | Tooltip position |
+<br/>
 
 ### PromptInputActions
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action buttons |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Flex container for grouping action buttons.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action button elements <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
+
+### PromptInputAction
+
+<p className="text-muted-foreground text-sm mb-6">Tooltip wrapper for individual action buttons.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">tooltip</dt>
+      <dd className="text-sm text-muted-foreground">Content shown on hover <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">side</dt>
+      <dd className="text-sm text-muted-foreground">Tooltip placement <span className="text-foreground/60">· "top" | "bottom" | "left" | "right"</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Button element <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>

@@ -1,13 +1,9 @@
 # Message
-Use Message Component to build conversation.
 
-### Examples
-Message Basics
+Use Message component to build conversations.
 
 <ComponentPreview component="message"/>
 
-
-<br/>
 <br/>
 
 ## Installation
@@ -15,45 +11,94 @@ Message Basics
 <Installation component={"message"}/>
 
 <br/>
-<br/>
 
-## Props
+## API
 
 ### Message
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Content to render inside the message |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Root container for message bubble.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Content to render inside message <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### MessageAvatar
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `src` | `string` | - | Avatar image source URL |
-| `alt` | `string` | - | Alt text for the avatar |
-| `fallback` | `string` | - | Fallback text when image fails to load |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Avatar display for message sender.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">src</dt>
+      <dd className="text-sm text-muted-foreground">Avatar image source URL <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">alt</dt>
+      <dd className="text-sm text-muted-foreground">Alt text for the avatar <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">fallback</dt>
+      <dd className="text-sm text-muted-foreground">Fallback text when image fails <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### MessageContent
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Message content |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Message content wrapper.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Message content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### MessageActions
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Action buttons |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Container for action buttons.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action buttons <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### MessageAction
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `tooltip` | `React.ReactNode` | - | Tooltip content |
-| `children` | `React.ReactNode` | - | Action button content |
-| `className` | `string` | - | Additional CSS classes |
-| `side` | `"top" \| "bottom" \| "left" \| "right"` | - | Tooltip position |
+<p className="text-muted-foreground text-sm mb-6">Individual action button with tooltip.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">tooltip</dt>
+      <dd className="text-sm text-muted-foreground">Tooltip content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Action button content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">side</dt>
+      <dd className="text-sm text-muted-foreground">Tooltip position <span className="text-foreground/60">· "top" | "bottom" | "left" | "right"</span></dd>
+    </div>
+  </dl>
+</div>

@@ -1,72 +1,157 @@
 # Command Tabs
+
 Display tabbed CLI commands for different package managers.
 
-
-### Examples
-Command Tabs Basics
-
 <ComponentPreview component="command-block" />
+
+<br/>
 
 ## Installation
 
 <Installation component={"command-block"}/>
 
 <br/>
-<br/>
 
-## Props
+## API
 
 ### CommandBlock
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `React.ReactNode` | - | Block content (header, content) |
+<p className="text-muted-foreground text-sm mb-6">Container for command display.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Block content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">className</dt>
+      <dd className="text-sm text-muted-foreground">Additional CSS classes <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlockHeader
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Header content (title, etc.) |
+<p className="text-muted-foreground text-sm mb-6">Header container for title.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Header content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlockTitle
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `string` | - | Title text |
-| `showTerminalIcon` | `boolean` | `true` | Show terminal icon |
+<p className="text-muted-foreground text-sm mb-6">Title with optional terminal icon.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Title text <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showTerminalIcon</dt>
+      <dd className="text-sm text-muted-foreground">Show terminal icon <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlockContent
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `command` | `string` | - | Command text to display |
-| `className` | `string` | - | Additional CSS classes |
+<p className="text-muted-foreground text-sm mb-6">Command text display.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">command</dt>
+      <dd className="text-sm text-muted-foreground">Command text to display <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlocksTabs
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Tab header and content |
-| `defaultValue` | `string` | - | Default active tab value |
+<p className="text-muted-foreground text-sm mb-6">Tabbed container for multiple commands.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Tab header and content <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">defaultValue</dt>
+      <dd className="text-sm text-muted-foreground">Default active tab <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlockTabHeader
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | Tab triggers |
-| `showTerminalIcon` | `boolean` | `true` | Show terminal icon |
+<p className="text-muted-foreground text-sm mb-6">Tab navigation header.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">children</dt>
+      <dd className="text-sm text-muted-foreground">Tab triggers <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">showTerminalIcon</dt>
+      <dd className="text-sm text-muted-foreground">Show terminal icon <span className="text-foreground/60">· boolean · true</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlockTabTrigger
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Unique tab identifier |
-| `label` | `string` | - | Tab button text |
+<p className="text-muted-foreground text-sm mb-6">Individual tab button.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">value</dt>
+      <dd className="text-sm text-muted-foreground">Unique tab identifier <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">label</dt>
+      <dd className="text-sm text-muted-foreground">Tab button text <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>
+
+<br/>
 
 ### CommandBlockTabContent
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Tab identifier (matches trigger) |
-| `command` | `string` | - | Command text to display |
+<p className="text-muted-foreground text-sm mb-6">Tab content panel.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">value</dt>
+      <dd className="text-sm text-muted-foreground">Tab identifier <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">command</dt>
+      <dd className="text-sm text-muted-foreground">Command text to display <span className="text-foreground/60">· string</span></dd>
+    </div>
+  </dl>
+</div>

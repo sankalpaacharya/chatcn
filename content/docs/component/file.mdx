@@ -1,24 +1,36 @@
 # File
+
 File component to display files.
 
-
-### Examples
-File Basics
-
 <ComponentPreview component="file"/>
+
+<br/>
 
 ## Installation
 
 <Installation component={"file"}/>
 
 <br/>
-<br/>
 
-## Props
+## API
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | `string` | - | File name |
-| `description` | `string` | - | File description or size |
-| `icon` | `React.ReactNode` | `<FileCode />` | Custom file icon |
-| `className` | `string` | - | Additional CSS classes |
+### File
+
+<p className="text-muted-foreground text-sm mb-6">Display file information with icon.</p>
+
+<div className="not-prose">
+  <dl className="divide-y divide-border">
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">title</dt>
+      <dd className="text-sm text-muted-foreground">File name <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">description</dt>
+      <dd className="text-sm text-muted-foreground">File description or size <span className="text-foreground/60">· string</span></dd>
+    </div>
+    <div className="py-4 flex flex-col sm:flex-row sm:gap-8">
+      <dt className="font-mono text-sm font-medium min-w-[160px] mb-1 sm:mb-0">icon</dt>
+      <dd className="text-sm text-muted-foreground">Custom file icon <span className="text-foreground/60">· ReactNode</span></dd>
+    </div>
+  </dl>
+</div>
