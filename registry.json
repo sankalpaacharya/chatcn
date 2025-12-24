@@ -8,11 +8,18 @@
       "type": "registry:component",
       "title": "Code Block",
       "description": "Easy Code Block Component",
-      "dependencies": ["shiki"],
-      "files": [
-        { "path": "components/chatcn/ai/codeblock.tsx", "type": "registry:component" }
+      "dependencies": [
+        "shiki"
       ],
-      "registryDependencies": ["tooltip"]
+      "files": [
+        {
+          "path": "components/chatcn/ai/codeblock.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "tooltip"
+      ]
     },
     {
       "name": "command-block",
@@ -20,9 +27,14 @@
       "title": "Command Block",
       "description": "Command block component for displaying commands",
       "files": [
-        { "path": "components/chatcn/ai/command-block.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/command-block.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["tooltip"]
+      "registryDependencies": [
+        "tooltip"
+      ]
     },
     {
       "name": "command-tabs",
@@ -30,9 +42,16 @@
       "title": "Command Tabs",
       "description": "Easy Command Tabs Component",
       "files": [
-        { "path": "components/chatcn/ai/command-tabs.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/command-tabs.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["tooltip", "tabs", "separator"]
+      "registryDependencies": [
+        "tooltip",
+        "tabs",
+        "separator"
+      ]
     },
     {
       "name": "prompt-input",
@@ -40,20 +59,30 @@
       "title": "Prompt Input",
       "description": "Prompt Input",
       "files": [
-        { "path": "components/chatcn/ai/prompt-input.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/prompt-input.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["tooltip", "textarea"]
+      "registryDependencies": [
+        "tooltip",
+        "textarea"
+      ]
     },
-
     {
       "name": "calendar",
       "type": "registry:component",
       "title": "Calendar",
       "description": "Custom calendar component",
       "files": [
-        { "path": "components/chatcn/ai/calendar.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/calendar.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["card"]
+      "registryDependencies": [
+        "card"
+      ]
     },
     {
       "name": "code-editor",
@@ -61,7 +90,10 @@
       "title": "Code Editor",
       "description": "Lightweight code editor component",
       "files": [
-        { "path": "components/chatcn/ai/code-editor.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/code-editor.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -71,7 +103,10 @@
       "title": "File",
       "description": "File display/manager component",
       "files": [
-        { "path": "components/chatcn/ai/file.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/file.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -81,9 +116,15 @@
       "title": "Tool",
       "description": "Tool display/interaction component",
       "files": [
-        { "path": "components/chatcn/ai/tool.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/tool.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["tabs","accordion"]
+      "registryDependencies": [
+        "tabs",
+        "accordion"
+      ]
     },
     {
       "name": "message",
@@ -91,9 +132,14 @@
       "title": "Message",
       "description": "Message bubble or chat component",
       "files": [
-        { "path": "components/chatcn/ai/message.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/message.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["avatar"]
+      "registryDependencies": [
+        "avatar"
+      ]
     },
     {
       "name": "source",
@@ -101,9 +147,14 @@
       "title": "Source",
       "description": "Source viewer component",
       "files": [
-        { "path": "components/chatcn/ai/source.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/source.tsx",
+          "type": "registry:component"
+        }
       ],
-      "registryDependencies": ["tooltip"]
+      "registryDependencies": [
+        "tooltip"
+      ]
     },
     {
       "name": "chat-container",
@@ -111,7 +162,10 @@
       "title": "Chat Container",
       "description": "Chat container component for messaging interfaces",
       "files": [
-        { "path": "components/chatcn/ai/chat-container.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/chat-container.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -121,7 +175,10 @@
       "title": "Markdown",
       "description": "Markdown renderer component",
       "files": [
-        { "path": "components/chatcn/ai/markdown.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/markdown.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -131,7 +188,10 @@
       "title": "Prompt Suggestion",
       "description": "Prompt suggestion component for user input",
       "files": [
-        { "path": "components/chatcn/ai/prompt-suggestion.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/prompt-suggestion.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -141,7 +201,10 @@
       "title": "Shadow Scrollbar",
       "description": "Custom scrollbar component with shadow effects",
       "files": [
-        { "path": "components/chatcn/ai/shadow-scrollbar.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/shadow-scrollbar.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -151,7 +214,10 @@
       "title": "Thought",
       "description": "Thought bubble or thinking indicator component",
       "files": [
-        { "path": "components/chatcn/ai/thought.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/thought.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -161,7 +227,10 @@
       "title": "Thread",
       "description": "Thread display component for conversations",
       "files": [
-        { "path": "components/chatcn/ai/thread.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/ai/thread.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -171,7 +240,10 @@
       "title": "Terminal",
       "description": "Terminal component for command line interfaces",
       "files": [
-        { "path": "components/chatcn/system/terminal.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/system/terminal.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -181,7 +253,10 @@
       "title": "Weather",
       "description": "Weather display component",
       "files": [
-        { "path": "components/chatcn/tool-call/weather.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/tool-call/weather.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -191,7 +266,10 @@
       "title": "Email",
       "description": "Email sending component",
       "files": [
-        { "path": "components/chatcn/tool-call/email.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/tool-call/email.tsx",
+          "type": "registry:component"
+        }
       ],
       "registryDependencies": []
     },
@@ -201,10 +279,21 @@
       "title": "Signup",
       "description": "Simple Signup form",
       "files": [
-        { "path": "components/chatcn/3d/signup.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/3d/signup.tsx",
+          "type": "registry:component"
+        }
       ],
-      "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
-      "registryDependencies": ["input","button","label"]
+      "dependencies": [
+        "@react-three/fiber",
+        "@react-three/drei",
+        "three"
+      ],
+      "registryDependencies": [
+        "input",
+        "button",
+        "label"
+      ]
     },
     {
       "name": "login",
@@ -212,10 +301,21 @@
       "title": "Login",
       "description": "Simple Signup form",
       "files": [
-        { "path": "components/chatcn/3d/signup.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/3d/signup.tsx",
+          "type": "registry:component"
+        }
       ],
-      "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
-      "registryDependencies": ["input","button","label"]
+      "dependencies": [
+        "@react-three/fiber",
+        "@react-three/drei",
+        "three"
+      ],
+      "registryDependencies": [
+        "input",
+        "button",
+        "label"
+      ]
     },
     {
       "name": "model",
@@ -223,9 +323,16 @@
       "title": "Model",
       "description": "Integrate 3D model",
       "files": [
-        { "path": "components/chatcn/3d/model.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/3d/model.tsx",
+          "type": "registry:component"
+        }
       ],
-      "dependencies": ["@react-three/fiber", "@react-three/drei", "three"],
+      "dependencies": [
+        "@react-three/fiber",
+        "@react-three/drei",
+        "three"
+      ],
       "registryDependencies": []
     },
     {
@@ -234,9 +341,33 @@
       "title": "Audio Visualizer",
       "description": "An interactive 3D real time audio visualizer.",
       "files": [
-        { "path": "components/chatcn/audio-visualizer.tsx", "type": "registry:component" }
+        {
+          "path": "components/chatcn/3d/audio-visualizer.tsx",
+          "type": "registry:component"
+        }
       ],
-      "dependencies": ["@react-three/fiber", "@react-three/drei", "three", "simplex-noise"],
+      "dependencies": [
+        "@react-three/fiber",
+        "@react-three/drei",
+        "three",
+        "simplex-noise"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "video-carousel",
+      "type": "registry:component",
+      "title": "Video Carousel",
+      "description": "An interactive 3D real time audio visualizer.",
+      "files": [
+        {
+          "path": "components/chatcn/misc/video-carousel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "framer-motion"
+      ],
       "registryDependencies": []
     }
   ]

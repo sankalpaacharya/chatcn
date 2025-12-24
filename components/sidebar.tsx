@@ -137,6 +137,13 @@ export const sidebarGroups: SidebarGroupData[] = [
       { label: "Charts", href: "/docs/component/charts" },
     ],
   },
+  {
+    label: "Misc",
+    variant: "submenu",
+    links: [
+      { label: "Video Carousel", href: "/docs/misc/video-carousel" },
+    ],
+  },
 ];
 
 export default function AppSidebar() {
