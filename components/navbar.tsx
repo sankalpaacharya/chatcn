@@ -204,8 +204,6 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Logo className="hidden lg:flex" />
-
             {/* Right side actions */}
             <div className="flex items-center gap-2 ml-auto">
               {/* Search button */}

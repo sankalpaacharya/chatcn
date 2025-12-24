@@ -86,10 +86,7 @@ Earth’s evolution is a story of constant change and adaptation over billions o
       <div className="">
         <ChatContainer className="max-h-[25rem] h-[25rem]">
           {messages.map((msg, i) => (
-            <Message
-              key={i}
-              className={msg.from === "user" ? "justify-end" : ""}
-            >
+            <Message key={i} variant={msg.from === "user" ? "user" : "ai"}>
               <MessageAvatar
                 src={
                   msg.from === "user"
@@ -98,11 +95,7 @@ Earth’s evolution is a story of constant change and adaptation over billions o
                 }
                 alt={msg.from === "user" ? "Sankalpa Acharya" : "AI"}
               />
-              <MessageContent
-                className={msg.from === "ai" ? "bg-transparent" : ""}
-              >
-                {msg.text}
-              </MessageContent>
+              <MessageContent>{msg.text}</MessageContent>
             </Message>
           ))}
         </ChatContainer>
