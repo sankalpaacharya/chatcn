@@ -44,11 +44,15 @@ export default function DocsPageNav() {
     currentIndex < allLinks.length - 1 ? allLinks[currentIndex + 1] : null;
 
   const handleCopy = async () => {
-    const url = window.location.href;
     try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      const contentElement = document.getElementById("docs-content");
+      if (contentElement) {
+        const textContent =
+          contentElement.innerText || contentElement.textContent || "";
+        await navigator.clipboard.writeText(textContent);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }
     } catch (err) {
       console.error("Failed to copy:", err);
     }
@@ -56,7 +60,7 @@ export default function DocsPageNav() {
 
   return (
     <TooltipProvider>
-      <div className="absolute right-0 top-12 flex items-center gap-1 not-prose z-10">
+      <div className="hidden lg:flex absolute right-0 top-12 items-center gap-1 not-prose z-10">
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
@@ -69,10 +73,12 @@ export default function DocsPageNav() {
                 icon={copied ? Tick01Icon : Copy01Icon}
                 className="size-3.5"
               />
-              {copied ? "Copied!" : "Copy page"}
+              <span className="hidden sm:inline">
+                {copied ? "Copied!" : "Copy page"}
+              </span>
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Copy page URL</TooltipContent>
+          <TooltipContent>Copy page content</TooltipContent>
         </Tooltip>
 
         {/* Previous Page */}

@@ -145,7 +145,7 @@ export default function AppSidebar() {
 
   return (
     <Sidebar
-      collapsible="none"
+      collapsible="offcanvas"
       className="sticky top-1 h-[calc(100vh-4rem)] shrink-0 w-52"
     >
       <SidebarContent className="scrollbar-hide pb-20  px-3">

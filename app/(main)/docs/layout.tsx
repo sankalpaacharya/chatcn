@@ -10,12 +10,12 @@ export default function DocLayout({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
       <div className="flex w-full max-w-400 mx-auto">
-        <SidebarTrigger className="lg:hidden fixed top-20 left-4 z-50 shadow-md bg-background border rounded-md" />
+        <SidebarTrigger className="lg:hidden fixed top-4 left-4 z-50" />
         <Sidebar />
-        <main className="flex-1 min-w-0 py-6">
+        <main className="flex-1 min-w-0 py-6 px-4 md:px-6 lg:px-8">
           <div
             id="docs-content"
-            className="prose dark:prose-invert w-full max-w-3xl mx-auto relative"
+            className="prose dark:prose-invert w-full max-w-full lg:max-w-3xl mx-auto relative"
           >
             <DocsBreadcrumb />
             <DocsPageNav />
