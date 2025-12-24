@@ -60,7 +60,7 @@ export default function MessagePreview() {
               alt="Sankalpa Acharya"
             />
             <MessageContent>
-              Hey AI, can you help me with my project?
+              Hey Gaia, can you help me with my project?
             </MessageContent>
           </Message>
 

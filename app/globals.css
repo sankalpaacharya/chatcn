@@ -302,6 +302,12 @@ code[data-theme*=" "] span {
   @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
+/* Remove backticks added by Tailwind Typography */
+:not(pre)>code::before,
+:not(pre)>code::after {
+  content: "" !important;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
   scrollbar-width: 0;
@@ -365,56 +371,41 @@ code[data-theme*=" "] span {
   @apply my-6 border-border;
 }
 
-/* Prose Table Styling */
+/* Prose Table Styling - Clean Minimal Design */
 .prose table {
-  @apply w-full text-sm border-separate border border-border rounded-lg overflow-hidden;
+  @apply w-full text-sm my-6;
   table-layout: auto;
-  border-spacing: 0;
+  border-collapse: collapse;
 }
 
-.prose thead {
-  @apply bg-muted;
+.prose thead tr {
+  @apply border-b border-border;
 }
 
 .prose th {
-  @apply text-left font-medium text-foreground px-3 py-3 border-b border-r border-border;
+  @apply text-left font-medium text-muted-foreground px-4 py-3 text-xs;
 }
 
-.prose th:first-child {
-  @apply rounded-tl-lg;
+.prose tbody tr {
+  @apply border-b-2 border-border ;
 }
 
-.prose th:last-child {
-  @apply border-r-0 rounded-tr-lg;
+.prose tbody tr:last-child {
+  @apply border-b-0;
 }
 
 .prose td {
-  @apply px-3 py-3 text-muted-foreground border-b border-r border-border align-top;
-}
-
-.prose td:last-child {
-  @apply border-r-0;
-}
-
-.prose tbody tr:last-child td:first-child {
-  @apply rounded-bl-lg;
-}
-
-.prose tbody tr:last-child td:last-child {
-  @apply rounded-br-lg;
-}
-
-.prose tbody tr:last-child td {
-  @apply border-b-0;
+  @apply px-4 py-3 text-muted-foreground align-middle;
 }
 
 .prose tbody tr:hover {
   @apply bg-muted/30 transition-colors;
 }
 
+/* Code cells styling */
 .prose td code,
 .prose th code {
-  @apply bg-muted px-1.5 py-0.5 rounded text-xs font-mono text-foreground;
+  @apply bg-secondary px-2 py-1 rounded-md text-xs font-mono text-foreground;
 }
 
 /* Mobile: allow code to wrap */

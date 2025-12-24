@@ -60,12 +60,12 @@ code .line::before {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `string \| ReactNode` | - | Code content (string) or compound components like `CodeBlockTitle` |
+| `children` | `string` or `ReactNode` | - | Code content (string) or compound components like CodeBlockTitle |
 | `code` | `string` | - | The code content to display (use this when using compound children) |
-| `lang` | `BundledLanguage` | - | Programming language for syntax highlighting (e.g., `tsx`, `css`, `python`) |
+| `lang` | `BundledLanguage` | - | Programming language for syntax highlighting (e.g., tsx, css, python) |
 | `height` | `string` | `"600"` | Maximum height of the code block in pixels |
 | `className` | `string` | - | Additional CSS classes to apply |
-| `highlight` | `{ start: number; end: number }` | - | Line range to highlight |
+| `highlight` | `object` | - | Line range to highlight (start and end properties) |
 | `theme` | `string` | `"github-dark-default"` | Shiki theme name for syntax highlighting |
 
 ### CodeBlockTitle
@@ -73,5 +73,5 @@ code .line::before {
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `children` | `string` | - | The filename to display |
-| `lang` | `string` | - | Devicon language name for file icon (e.g., `typescript`, `python`, `rust`) |
+| `lang` | `string` | - | Devicon language name for file icon (e.g., typescript, python, rust) |
 | `className` | `string` | - | Additional CSS classes to apply |

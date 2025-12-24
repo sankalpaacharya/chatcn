@@ -58,5 +58,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </pre>
       );
     },
+    // Inline code styling
+    code: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => {
+      // Check if this is inside a pre (code block) - if so, don't add extra styling
+      return <code {...props}>{children}</code>;
+    },
   };
 }
