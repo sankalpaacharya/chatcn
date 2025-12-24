@@ -1,0 +1,64 @@
+# Video Carousel
+
+An immersive video carousel with smooth animations, progress indicators, and play/pause controls inspired by Apple.
+
+<ComponentPreview component="video-carousel"/>
+
+<br/>
+<br/>
+
+## Installation
+
+<Installation component={"misc/video-carousel"}/>
+
+<br/>
+<br/>
+
+## Props
+
+### VideoCarousel
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `videos` | `VideoItem[]` | - | Array of video items to display |
+| `autoPlay` | `boolean` | `false` | Auto-start when in view |
+| `muted` | `boolean` | `true` | Mute video audio |
+| `className` | `string` | - | Additional CSS classes |
+
+### VideoItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `url` | `string` | - | Video source URL |
+| `duration` | `number` | - | Video duration in seconds |
+
+<br/>
+<br/>
+
+## Browser Audio Policy
+
+> Modern browsers block autoplay with audio. Configure `autoPlay` and `muted` based on your needs.
+
+**With Audio** - Set `autoPlay={false}` and `muted={false}`. User must click play to start.
+
+**Silent Autoplay** - Set `autoPlay={true}` and `muted={true}`. Videos play automatically when in view.
+
+<br/>
+<br/>
+
+## Usage
+
+```tsx
+import { VideoCarousel, type VideoItem } from "@/components/chatcn/misc/video-carousel"
+
+const videos: VideoItem[] = [
+  { url: "https://example.com/video1.mp4", duration: 4 },
+  { url: "https://example.com/video2.mp4", duration: 3 },
+]
+
+// Silent autoplay
+<VideoCarousel videos={videos} autoPlay muted />
+
+// With audio (user clicks to play)
+<VideoCarousel videos={videos} autoPlay={false} muted={false} />
+```
