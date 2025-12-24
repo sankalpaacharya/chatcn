@@ -130,6 +130,9 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
           {/* Logo - desktop */}
           <Logo className="mr-6 hidden lg:flex" />
 
+          {/* Logo - mobile */}
+          <Logo className="lg:hidden" />
+
           <div className="flex flex-1 items-center justify-between">
             <NavigationMenu className="hidden lg:flex" viewport={!isMobile}>
               <NavigationMenuList>
