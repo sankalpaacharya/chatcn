@@ -25,7 +25,7 @@ export default function ComponentPreviewInternal({
   // make the height same for both component view and code
   return (
     <div className="overflow-hidden">
-      <Tabs defaultValue="preview" className="bg-background">
+      <Tabs defaultValue="preview" className="">
         <TabsList className="space-x-10 mt-5 bg-transparent w-full p-0 flex flex-wrap justify-between border-none">
           <div className="space-x-10">
             <TabsTrigger
@@ -45,7 +45,7 @@ export default function ComponentPreviewInternal({
         </TabsList>
 
         <TabsContent value="preview" className="mt-0 w-full">
-          <div className="w-full min-h-[200px] sm:min-h-[300px] flex items-center justify-center overflow-auto border rounded-lg p-5">
+          <div className="w-full min-h-50 sm:min-h-75 flex items-center justify-center overflow-auto border rounded-lg p-5">
             <Suspense
               fallback={
                 <div className="flex items-center justify-center w-full h-32">

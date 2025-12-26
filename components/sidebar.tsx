@@ -140,9 +140,7 @@ export const sidebarGroups: SidebarGroupData[] = [
   {
     label: "Misc",
     variant: "submenu",
-    links: [
-      { label: "Video Carousel", href: "/docs/misc/video-carousel" },
-    ],
+    links: [{ label: "Video Carousel", href: "/docs/misc/video-carousel" }],
   },
 ];
 

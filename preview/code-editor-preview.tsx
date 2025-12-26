@@ -65,7 +65,7 @@ export default function CodeEditorPreview() {
   };
 
   return (
-    <div className="bg-background flex items-center justify-center px-6 py-4">
+    <div className="flex items-center justify-center px-6 py-4">
       <div className="w-full max-w-4xl">
         <CodeEditor
           value={code}
