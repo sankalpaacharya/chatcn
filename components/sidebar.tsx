@@ -174,10 +174,10 @@ export default function AppSidebar() {
         ))}
       </SidebarContent>
 
-      <div
+      {/* <div
         className="pointer-events-none absolute left-0 bottom-0 z-10 h-24 bg-linear-to-t from-background to-transparent"
         style={{ right: "1px" }}
-      />
+      /> */}
     </Sidebar>
   );
 }
