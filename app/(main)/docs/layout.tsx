@@ -9,6 +9,13 @@ import GaiaAdCard from "@/components/gaia-ad-card";
 export default function DocLayout({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(100% 100% at 50% 10%, #000000 60%, #010122 100%)",
+        }}
+      />
       <div className="flex w-full max-w-400 mx-auto">
         <SidebarTrigger className="lg:hidden fixed top-20 left-4 z-50 shadow-md bg-background border rounded-md" />
         <Sidebar />
