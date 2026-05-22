@@ -23,11 +23,9 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
@@ -137,49 +135,12 @@ export default function Navbar({ sidebar }: { sidebar?: React.ReactNode }) {
             <NavigationMenu className="hidden lg:flex" viewport={!isMobile}>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
-                      <li className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <Link
-                            className="relative flex h-full w-full flex-col justify-end rounded-md p-6 no-underline outline-none focus:shadow-md overflow-hidden bg-cover bg-center"
-                            style={{
-                              backgroundImage: "url('/images/space3.png')",
-                            }}
-                            href="/docs"
-                          >
-                            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
-                            <div className="relative z-10">
-                              <HugeiconsIcon
-                                icon={MessageMultiple01Icon}
-                                className="h-6 w-6 text-white"
-                              />
-                              <div className="mb-2 mt-4 text-lg font-medium text-white">
-                                chatcn
-                              </div>
-                              <p className="text-sm leading-tight text-white/80">
-                                Beautiful AI chat components built with
-                                shadcn/ui
-                              </p>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <ListItem href="/docs/introduction" title="Introduction">
-                        Learn about chatcn and how it works.
-                      </ListItem>
-                      <ListItem href="/docs/installation" title="Installation">
-                        How to install and set up chatcn.
-                      </ListItem>
-                      <ListItem
-                        href="/docs/component/prompt-input"
-                        title="Components"
-                      >
-                        Browse all AI chat components.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
+                  <NavigationMenuLink
+                    asChild
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    <Link href="/docs">Docs</Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -309,32 +270,5 @@ function Logo({ className = "" }: { className?: string }) {
         chatcn
       </span>
     </Link>
-  );
-}
-
-function ListItem({
-  className,
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string; title: string }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link
-          href={href}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
   );
 }
