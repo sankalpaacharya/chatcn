@@ -191,8 +191,12 @@ function SidebarLinkItem({
 }) {
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton asChild isActive={isActive}>
-        <Link href={link.href} className="flex items-center gap-2 font-medium">
+      <SidebarMenuButton
+        asChild
+        isActive={isActive}
+        className="font-normal data-[active=true]:font-normal"
+      >
+        <Link href={link.href} className="flex items-center gap-2">
           {link.icon &&
             (typeof link.icon === "function" ? (
               <link.icon className="size-4" />
