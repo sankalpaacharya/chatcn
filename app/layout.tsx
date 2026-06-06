@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Poppins, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import Script from "next/script";
@@ -73,18 +72,6 @@ export const metadata: Metadata = {
   },
 };
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -92,9 +79,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} antialiased`}
-      >
+      <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

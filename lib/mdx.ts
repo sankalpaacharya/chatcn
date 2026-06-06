@@ -41,6 +41,11 @@ export async function getMDXContent(slug: string[]): Promise<{
     source,
     options: {
       parseFrontmatter: true,
+      // next-mdx-remote v6 defaults blockJS to true, which strips every JSX
+      // expression attribute (e.g. <Installation component={"3d/audio-visualizer"} />),
+      // turning those props into undefined at render time. Our docs are trusted,
+      // first-party MDX, so allow expressions while keeping the dangerous-call guard.
+      blockJS: false,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
